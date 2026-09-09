@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
-import { Mail, Lock, ArrowLeft, Shield, Award, GraduationCap, Sparkles, UserPlus, LogIn, User } from 'lucide-react';
+import { Mail, Lock, ArrowLeft, Sparkles, UserPlus, LogIn, User } from 'lucide-react';
 
 export default function LoginPage() {
   const [mode, setMode] = useState<'login' | 'register'>('login');
   
   // Login fields
-  const [identifier, setIdentifier] = useState('amir@rokad.ir');
-  const [password, setPassword] = useState('password123');
+  const [identifier, setIdentifier] = useState('');
+  const [password, setPassword] = useState('');
 
   // Register fields
   const [fullName, setFullName] = useState('');
@@ -58,13 +58,6 @@ export default function LoginPage() {
     }
   };
 
-  const setDemoUser = (demoEmail: string) => {
-    setMode('login');
-    setIdentifier(demoEmail);
-    setPassword('password123');
-    setError(null);
-  };
-
   return (
     <div className="min-h-[85vh] flex items-center justify-center py-8">
       <div className="w-full max-w-md">
@@ -78,7 +71,7 @@ export default function LoginPage() {
             <span className="text-secondary rotate-1 inline-block">ادوکاد</span>
           </h1>
           <p className="text-xs text-slate-500 mt-1 font-semibold">
-            متصل به سوپابیس (Supabase) • بدون نیاز به تایید ایمیل
+            سامانه جامع شتاب‌دهی و نقشه مهارت هنرستان استارتاپی رکاد
           </p>
         </div>
 
@@ -242,71 +235,6 @@ export default function LoginPage() {
               </button>
             </form>
           )}
-
-          {/* Quick Demo Switcher for Evaluation */}
-          <div className="mt-7 pt-5 border-t-2 border-dashed border-slate-200">
-            <span className="text-[11px] font-extrabold text-slate-400 block text-center mb-3">
-              ورود سریع با اکانت‌های فعال سوپابیس:
-            </span>
-
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => setDemoUser('amir@rokad.ir')}
-                className="p-2 rounded-xl border border-primary/30 bg-bg-mint text-right text-[11px] hover:border-secondary transition-colors"
-              >
-                <div className="font-extrabold text-primary flex items-center gap-1">
-                  <GraduationCap className="w-3.5 h-3.5 text-secondary" />
-                  امیررضا رضایی
-                </div>
-                <div className="text-[9px] text-slate-500 font-semibold">
-                  دانش‌آموز (amir@rokad.ir)
-                </div>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setDemoUser('sara@rokad.ir')}
-                className="p-2 rounded-xl border border-primary/30 bg-bg-lavender text-right text-[11px] hover:border-primary transition-colors"
-              >
-                <div className="font-extrabold text-primary flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-primary" />
-                  سارا احمدی
-                </div>
-                <div className="text-[9px] text-slate-500 font-semibold">
-                  منتور مهندسی (sara@rokad.ir)
-                </div>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setDemoUser('ali@rokad.ir')}
-                className="p-2 rounded-xl border border-primary/30 bg-bg-blush text-right text-[11px] hover:border-accent transition-colors"
-              >
-                <div className="font-extrabold text-primary flex items-center gap-1">
-                  <Award className="w-3.5 h-3.5 text-accent" />
-                  علی محمدی
-                </div>
-                <div className="text-[9px] text-slate-500 font-semibold">
-                  منتور رسانه (ali@rokad.ir)
-                </div>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setDemoUser('admin@rokad.ir')}
-                className="p-2 rounded-xl border border-primary/30 bg-bg-neutral text-right text-[11px] hover:border-tertiary transition-colors"
-              >
-                <div className="font-extrabold text-primary flex items-center gap-1">
-                  <Shield className="w-3.5 h-3.5 text-tertiary" />
-                  مدیر ارشد رکاد
-                </div>
-                <div className="text-[9px] text-slate-500 font-semibold">
-                  سوپرادمین (admin@rokad.ir)
-                </div>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
