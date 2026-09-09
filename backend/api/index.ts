@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import express, { Express, Request, Response, NextFunction } from 'express';
 import { AppModule } from '../src/app.module';
+import { AllExceptionsFilter } from '../src/common/filters/all-exceptions.filter';
 
 let cachedServer: Express;
 
@@ -55,6 +56,9 @@ async function bootstrapServer(): Promise<Express> {
       forbidNonWhitelisted: false,
     }),
   );
+
+  // Global exception filter to return descriptive error info
+  app.useGlobalFilters(new AllExceptionsFilter());
 
   // Global API route prefix
   app.setGlobalPrefix('api');
