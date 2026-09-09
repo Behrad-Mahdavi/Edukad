@@ -11,8 +11,16 @@
       "tier": "مبتدی",
       "description": "آشنایی با نحوه کارکرد وب، مرورگرها و ساختاردهی محتوا با تگ‌های معنایی HTML5.",
       "resources": [
-        { "title": "MDN: Introduction to HTML", "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML", "type": "LINK" },
-        { "title": "آموزش HTML در W3Schools", "url": "https://www.w3schools.com/html/", "type": "LINK" }
+        {
+          "title": "MDN: Introduction to HTML",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML",
+          "type": "LINK"
+        },
+        {
+          "title": "آموزش HTML در W3Schools",
+          "url": "https://www.w3schools.com/html/",
+          "type": "LINK"
+        }
       ],
       "task": "ساختار استاتیک و بدون استایل منوی کافه رکاد را با تگ‌های معنایی (header, nav, section, article, footer) بنویسید.",
       "prerequisites": []
@@ -24,11 +32,21 @@
       "tier": "مبتدی",
       "description": "مفاهیم انتخابگرها (Selectors)، Box Model، و رنگ‌ها.",
       "resources": [
-        { "title": "MDN: CSS Basics", "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics", "type": "LINK" },
-        { "title": "سایت CSS Tricks - Box Model", "url": "", "type": "LINK" }
+        {
+          "title": "MDN: CSS Basics",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics",
+          "type": "LINK"
+        },
+        {
+          "title": "سایت CSS Tricks - Box Model",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "به فایل HTML منوی کافه رکاد، استایل‌های پایه‌ای (رنگ‌های سازمانی رکاد، فونت و حاشیه‌ها) را اضافه کنید.",
-      "prerequisites": ["fe-1"]
+      "prerequisites": [
+        "fe-1"
+      ]
     },
     {
       "id": "fe-3",
@@ -37,11 +55,21 @@
       "tier": "مبتدی",
       "description": "تسلط بر چیدمان‌های یک‌بعدی در CSS برای مرتب کردن المان‌ها در یک سطر یا ستون.",
       "resources": [
-        { "title": "راهنمای تعاملی Flexbox Froggy", "url": "https://flexboxfroggy.com/", "type": "LINK" },
-        { "title": "CSS Tricks: A Complete Guide to Flexbox", "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/", "type": "LINK" }
+        {
+          "title": "راهنمای تعاملی Flexbox Froggy",
+          "url": "https://flexboxfroggy.com/",
+          "type": "LINK"
+        },
+        {
+          "title": "CSS Tricks: A Complete Guide to Flexbox",
+          "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+          "type": "LINK"
+        }
       ],
       "task": "هدر سایت کافه رکاد (شامل لوگو و لینک‌های ناوبری) را با استفاده از Flexbox پیاده‌سازی کنید تا در یک خط قرار بگیرند.",
-      "prerequisites": ["fe-2"]
+      "prerequisites": [
+        "fe-2"
+      ]
     },
     {
       "id": "fe-4",
@@ -50,11 +78,21 @@
       "tier": "مبتدی",
       "description": "استفاده از Grid برای چیدمان‌های پیچیده و دوبعدی شبکه محصولات.",
       "resources": [
-        { "title": "راهنمای تعاملی Grid Garden", "url": "https://cssgridgarden.com/", "type": "LINK" },
-        { "title": "CSS Tricks: A Complete Guide to Grid", "url": "https://css-tricks.com/snippets/css/complete-guide-grid/", "type": "LINK" }
+        {
+          "title": "راهنمای تعاملی Grid Garden",
+          "url": "https://cssgridgarden.com/",
+          "type": "LINK"
+        },
+        {
+          "title": "CSS Tricks: A Complete Guide to Grid",
+          "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+          "type": "LINK"
+        }
       ],
       "task": "کارت‌های محصولات منوی کافه را در یک گرید جذاب با قابلیت تغییر تعداد ستون‌ها بر اساس اندازه صفحه پیاده‌سازی کنید.",
-      "prerequisites": ["fe-3"]
+      "prerequisites": [
+        "fe-3"
+      ]
     },
     {
       "id": "fe-5",
@@ -63,10 +101,16 @@
       "tier": "مبتدی",
       "description": "استفاده از Media Queries و واحدهای نسبی (em, rem, vh, vw) برای نمایش صحیح در موبایل.",
       "resources": [
-        { "title": "ویدیو آموزشی Responsive Design در یوتیوب", "url": "", "type": "LINK" }
+        {
+          "title": "ویدیو آموزشی Responsive Design در یوتیوب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "منوی کافه رکاد را کاملاً رسپانسیو کنید؛ به طوری که در موبایل ستون‌ها زیر هم قرار بگیرند و منوی همبرگری فعال شود.",
-      "prerequisites": ["fe-4"]
+      "prerequisites": [
+        "fe-4"
+      ]
     },
     {
       "id": "fe-6",
@@ -76,10 +120,16 @@
       "description": "مدیریت ورژن‌ها، شاخه‌سازی (Branching) و تعامل در تیم.",
       "shared_with": "fe-git-common",
       "resources": [
-        { "title": "مستندات گیت‌هاب (Git Handbook)", "url": "https://docs.github.com/en/get-started", "type": "LINK" }
+        {
+          "title": "مستندات گیت‌هاب (Git Handbook)",
+          "url": "https://docs.github.com/en/get-started",
+          "type": "LINK"
+        }
       ],
       "task": "پروژه منوی کافه را در گیت‌هابِ تیم رکاد پوش کنید و برای یکی از فیچرها یک Pull Request باز کنید.",
-      "prerequisites": ["fe-5"]
+      "prerequisites": [
+        "fe-5"
+      ]
     },
     {
       "id": "fe-7",
@@ -88,11 +138,21 @@
       "tier": "مبتدی",
       "description": "متغیرها، انواع داده‌ها، توابع، و حلقه‌ها.",
       "resources": [
-        { "title": "سایت javascript.info - بخش اول", "url": "https://javascript.info/", "type": "LINK" },
-        { "title": "دوره JS در freeCodeCamp", "url": "https://www.freecodecamp.org/", "type": "LINK" }
+        {
+          "title": "سایت javascript.info - بخش اول",
+          "url": "https://javascript.info/",
+          "type": "LINK"
+        },
+        {
+          "title": "دوره JS در freeCodeCamp",
+          "url": "https://www.freecodecamp.org/",
+          "type": "LINK"
+        }
       ],
       "task": "یک ماشین حساب ساده برای محاسبه قیمت کل سفارش‌های کافه (با در نظر گرفتن مالیات) بنویسید.",
-      "prerequisites": ["fe-5"]
+      "prerequisites": [
+        "fe-5"
+      ]
     },
     {
       "id": "fe-8",
@@ -101,10 +161,16 @@
       "tier": "مبتدی",
       "description": "انتخاب المان‌های HTML و تغییر آن‌ها با JS، و مدیریت کلیک‌ها.",
       "resources": [
-        { "title": "MDN: Manipulating documents", "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents", "type": "LINK" }
+        {
+          "title": "MDN: Manipulating documents",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents",
+          "type": "LINK"
+        }
       ],
       "task": "قابلیت فیلتر کردن منوی کافه (نمایش فقط نوشیدنی‌های گرم یا سرد) را با استفاده از دکمه‌ها و EventListener پیاده‌سازی کنید.",
-      "prerequisites": ["fe-7"]
+      "prerequisites": [
+        "fe-7"
+      ]
     },
     {
       "id": "fe-9",
@@ -113,10 +179,16 @@
       "tier": "حرفه‌ای",
       "description": "مفاهیمی مانند Destructuring, Spread/Rest operators, Promises, async/await.",
       "resources": [
-        { "title": "javascript.info - Advanced functions and async", "url": "https://javascript.info/", "type": "LINK" }
+        {
+          "title": "javascript.info - Advanced functions and async",
+          "url": "https://javascript.info/",
+          "type": "LINK"
+        }
       ],
       "task": "لیست محصولات کافه را از یک فایل JSON مجازی (با استفاده از fetch و async/await) خوانده و در صفحه رندر کنید.",
-      "prerequisites": ["fe-8"]
+      "prerequisites": [
+        "fe-8"
+      ]
     },
     {
       "id": "fe-10",
@@ -125,10 +197,16 @@
       "tier": "حرفه‌ای",
       "description": "نصب کتابخانه‌ها و آشنایی اولیه با ابزارهایی مانند Vite.",
       "resources": [
-        { "title": "مستندات Vite", "url": "https://vitejs.dev/guide/", "type": "LINK" }
+        {
+          "title": "مستندات Vite",
+          "url": "https://vitejs.dev/guide/",
+          "type": "LINK"
+        }
       ],
       "task": "پروژه استاتیک منوی کافه را با استفاده از ابزار Vite به یک پروژه مدرن تبدیل کرده و پکیج dayjs را به آن اضافه کنید.",
-      "prerequisites": ["fe-9"]
+      "prerequisites": [
+        "fe-9"
+      ]
     },
     {
       "id": "fe-11",
@@ -137,10 +215,16 @@
       "tier": "حرفه‌ای",
       "description": "سینتکس JSX، کامپوننت‌های تابعی، و Props.",
       "resources": [
-        { "title": "مستندات رسمی React", "url": "https://react.dev/learn", "type": "LINK" }
+        {
+          "title": "مستندات رسمی React",
+          "url": "https://react.dev/learn",
+          "type": "LINK"
+        }
       ],
       "task": "اپلیکیشن منوی کافه را با استفاده از React و Vite از نو بنویسید و برای کارت محصول یک کامپوننت مجزا با Props تعریف کنید.",
-      "prerequisites": ["fe-10"]
+      "prerequisites": [
+        "fe-10"
+      ]
     },
     {
       "id": "fe-12",
@@ -149,10 +233,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از هوک‌های useState و useEffect.",
       "resources": [
-        { "title": "React Docs: State", "url": "https://react.dev/learn/state-a-components-memory", "type": "LINK" }
+        {
+          "title": "React Docs: State",
+          "url": "https://react.dev/learn/state-a-components-memory",
+          "type": "LINK"
+        }
       ],
       "task": "سبد خرید را در سایت کافه با استفاده از State پیاده‌سازی کنید تا تعداد هر آیتم قابل افزایش/کاهش باشد.",
-      "prerequisites": ["fe-11"]
+      "prerequisites": [
+        "fe-11"
+      ]
     },
     {
       "id": "fe-13",
@@ -161,10 +251,16 @@
       "tier": "حرفه‌ای",
       "description": "کلاس‌های Utility-First برای توسعه سریع UI.",
       "resources": [
-        { "title": "مستندات اصلی Tailwind CSS", "url": "https://tailwindcss.com/docs/installation", "type": "LINK" }
+        {
+          "title": "مستندات اصلی Tailwind CSS",
+          "url": "https://tailwindcss.com/docs/installation",
+          "type": "LINK"
+        }
       ],
       "task": "کل فایل‌های CSS پروژه کافه را پاک کرده و دیزاین را عیناً با کلاس‌های Tailwind بازسازی کنید.",
-      "prerequisites": ["fe-11"]
+      "prerequisites": [
+        "fe-11"
+      ]
     },
     {
       "id": "fe-14",
@@ -173,10 +269,16 @@
       "tier": "حرفه‌ای",
       "description": "کنترل فرم‌های پیچیده بدون رندرهای اضافی.",
       "resources": [
-        { "title": "مستندات React Hook Form", "url": "https://react-hook-form.com/get-started", "type": "LINK" }
+        {
+          "title": "مستندات React Hook Form",
+          "url": "https://react-hook-form.com/get-started",
+          "type": "LINK"
+        }
       ],
       "task": "یک فرم رزرو میز برای کافه شامل اعتبارسنجی (نام، شماره تماس، تاریخ) با این کتابخانه بسازید.",
-      "prerequisites": ["fe-12"]
+      "prerequisites": [
+        "fe-12"
+      ]
     },
     {
       "id": "fe-15",
@@ -185,10 +287,16 @@
       "tier": "حرفه‌ای",
       "description": "مدیریت State‌های مربوط به سرور (Loading, Error, Data).",
       "resources": [
-        { "title": "مستندات React Query", "url": "https://tanstack.com/query/latest/docs/framework/react/overview", "type": "LINK" }
+        {
+          "title": "مستندات React Query",
+          "url": "https://tanstack.com/query/latest/docs/framework/react/overview",
+          "type": "LINK"
+        }
       ],
       "task": "درخواست ارسال سفارش کاربر به بک‌اند را با استفاده از mutation در React Query مدیریت کنید.",
-      "prerequisites": ["fe-14"]
+      "prerequisites": [
+        "fe-14"
+      ]
     },
     {
       "id": "fe-16",
@@ -197,10 +305,16 @@
       "tier": "حرفه‌ای",
       "description": "تایپ‌گذاری متغیرها، اینترفیس‌ها و جلویگیری از خطاهای زمان اجرا.",
       "resources": [
-        { "title": "راهنمای Typescript Handbook", "url": "https://www.typescriptlang.org/docs/handbook/intro.html", "type": "LINK" }
+        {
+          "title": "راهنمای Typescript Handbook",
+          "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+          "type": "LINK"
+        }
       ],
       "task": "کدهای React پروژه کافه را به تایپ‌اسکریپت مهاجرت دهید و برای آیتم‌های منو Interface بنویسید.",
-      "prerequisites": ["fe-12"]
+      "prerequisites": [
+        "fe-12"
+      ]
     },
     {
       "id": "fe-17",
@@ -209,10 +323,17 @@
       "tier": "مربی",
       "description": "رندرینگ سرور-ساید (SSR/SSG) و مسیردهی فایل-بیس.",
       "resources": [
-        { "title": "مستندات Next.js", "url": "https://nextjs.org/docs", "type": "LINK" }
+        {
+          "title": "مستندات Next.js",
+          "url": "https://nextjs.org/docs",
+          "type": "LINK"
+        }
       ],
       "task": "پروژه سایت رویدادها/کارگاه‌های رکاد را با Next.js بالا بیاورید تا سئو مناسبی داشته باشد.",
-      "prerequisites": ["fe-15", "fe-16"]
+      "prerequisites": [
+        "fe-15",
+        "fe-16"
+      ]
     },
     {
       "id": "fe-18",
@@ -221,10 +342,16 @@
       "tier": "مربی",
       "description": "تست‌های Unit و E2E با Jest و Playwright.",
       "resources": [
-        { "title": "مستندات Playwright", "url": "https://playwright.dev/", "type": "LINK" }
+        {
+          "title": "مستندات Playwright",
+          "url": "https://playwright.dev/",
+          "type": "LINK"
+        }
       ],
       "task": "یک تست E2E بنویسید که کل جریان افزودن یک آیتم به سبد خرید کافه و پر کردن فرم سفارش را شبیه‌سازی کند.",
-      "prerequisites": ["fe-17"]
+      "prerequisites": [
+        "fe-17"
+      ]
     },
     {
       "id": "fe-19",
@@ -233,10 +360,16 @@
       "tier": "مربی",
       "description": "بهینه‌سازی تصاویر، فونت‌ها و کاهش حجم باندل جاوااسکریپت.",
       "resources": [
-        { "title": "مقالات Web.dev", "url": "https://web.dev/explore/metrics", "type": "LINK" }
+        {
+          "title": "مقالات Web.dev",
+          "url": "https://web.dev/explore/metrics",
+          "type": "LINK"
+        }
       ],
       "task": "امتیاز سایت رویدادهای رکاد را در ابزار Lighthouse گوگل به بالای 95 برسانید.",
-      "prerequisites": ["fe-17"]
+      "prerequisites": [
+        "fe-17"
+      ]
     },
     {
       "id": "fe-20",
@@ -245,10 +378,219 @@
       "tier": "مربی",
       "description": "آشنایی با مدیریت پروژه‌های بزرگ (مثل ساختار خود پلتفرم Edukad).",
       "resources": [
-        { "title": "مستندات Turborepo", "url": "https://turbo.build/repo", "type": "LINK" }
+        {
+          "title": "مستندات Turborepo",
+          "url": "https://turbo.build/repo",
+          "type": "LINK"
+        }
       ],
       "task": "ساختار پروژه Edukad که از Turborepo استفاده می‌کند را بررسی کرده و یک کامپوننت UI اشتراکی بین اپلیکیشن‌های آن ایجاد کنید.",
-      "prerequisites": ["fe-19"]
+      "prerequisites": [
+        "fe-19"
+      ]
+    },
+    {
+      "id": "fe-21",
+      "title": "سیستم طراحی (Design System) و توکن‌های بصری",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "پیاده‌سازی کتابخانه کامپوننت و مدیریت متغیرهای تم سازمانی برای پلتفرم ادوکاد.",
+      "resources": [
+        {
+          "title": "Storybook Official Guide",
+          "url": "https://storybook.js.org/docs",
+          "type": "LINK"
+        },
+        {
+          "title": "Design Systems Handbook",
+          "url": "https://www.designbetter.co/design-systems-handbook",
+          "type": "LINK"
+        }
+      ],
+      "task": "کامپوننت دکمه‌های استیکری و کارت‌های نئوبروتالیست ادوکاد را در یک کاتالوگ استوری‌بوک مستقل مستند کنید.",
+      "prerequisites": [
+        "fe-17",
+        "fe-9"
+      ]
+    },
+    {
+      "id": "fe-22",
+      "title": "دسترس‌پذیری وب (Web Accessibility - a11y)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "استانداردهای WCAG، تگ‌های ARIA و پیمایش کامل سایت کافه رکاد با کیبورد.",
+      "resources": [
+        {
+          "title": "W3C Web Accessibility Initiative",
+          "url": "https://www.w3.org/WAI/",
+          "type": "LINK"
+        },
+        {
+          "title": "A11y Project Checklist",
+          "url": "https://www.a11yproject.com/checklist/",
+          "type": "LINK"
+        }
+      ],
+      "task": "منوی دیجیتال کافه کارآفرینی را از نظر تگ‌های ARIA و کنتراست رنگی بررسی و نمره ۱۰۰ لایت‌هاوس را کسب کنید.",
+      "prerequisites": [
+        "fe-1"
+      ]
+    },
+    {
+      "id": "fe-23",
+      "title": "تست‌نویسی واحد و کامپوننت با Vitest و RTL",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تست کامپوننت‌های ری‌اکت با React Testing Library و اطمینان از عملکرد صحیح لاجیک‌ها.",
+      "resources": [
+        {
+          "title": "Vitest Official Docs",
+          "url": "https://vitest.dev/",
+          "type": "LINK"
+        },
+        {
+          "title": "Testing Library for React",
+          "url": "https://testing-library.com/docs/react-testing-library/intro/",
+          "type": "LINK"
+        }
+      ],
+      "task": "برای کامپوننت محاسبه درصد پیشرفت مهارت‌ها در ادوکاد سه سناریوی تست کامل بنویسید.",
+      "prerequisites": [
+        "fe-13",
+        "fe-17"
+      ]
+    },
+    {
+      "id": "fe-24",
+      "title": "تست سرتاسری (E2E Testing) با Playwright",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "شبیه‌سازی تعامل واقعی کاربر، تست ورود به سیستم و ثبت سفارش منوی کافه.",
+      "resources": [
+        {
+          "title": "Playwright Documentation",
+          "url": "https://playwright.dev/",
+          "type": "LINK"
+        },
+        {
+          "title": "E2E Testing Best Practices",
+          "url": "https://kentcdodds.com/blog/write-tests",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک سناریوی تست E2E بنویسید که کاربر فرم لاگین ادوکاد را پر کرده و پس از ورود به صفحه داشبورد برسد.",
+      "prerequisites": [
+        "fe-23"
+      ]
+    },
+    {
+      "id": "fe-25",
+      "title": "انیمیشن‌های تعاملی پیشرفته با Framer Motion",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "موشن‌های روان، انیمیشن باز شدن مدال‌ها و ترنزیشن صفحات در ادوکاد.",
+      "resources": [
+        {
+          "title": "Framer Motion Guide",
+          "url": "https://www.framer.com/motion/",
+          "type": "LINK"
+        }
+      ],
+      "task": "انیمیشن باز شدن کشویی دراور جزئیات گره را با افکت فنری (Spring) پیاده‌سازی کنید.",
+      "prerequisites": [
+        "fe-11"
+      ]
+    },
+    {
+      "id": "fe-26",
+      "title": "مدیریت داده‌های سرور با TanStack Query",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "کشینگ هوشمند اطلاعات، مدیریت stale time و آپدیت‌های خوش‌بینانه (Optimistic Updates).",
+      "resources": [
+        {
+          "title": "TanStack Query Official Docs",
+          "url": "https://tanstack.com/query/latest",
+          "type": "LINK"
+        }
+      ],
+      "task": "واکشی لیست اعلانات کاربر در ادوکاد را با استفاده از TanStack Query کش کرده و دکمه خوانده شدن را با آپدیت خوش‌بینانه پیاده کنید.",
+      "prerequisites": [
+        "fe-16"
+      ]
+    },
+    {
+      "id": "fe-27",
+      "title": "ارتباطات بلادرنگ با WebSockets و SSE",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "دریافت نوتیفیکیشن‌های آنی و تغییرات زنده وضعیت بازبینی مأموریت‌ها توسط منتور.",
+      "resources": [
+        {
+          "title": "MDN: WebSockets API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API",
+          "type": "LINK"
+        }
+      ],
+      "task": "سیستم دریافت اعلان آنی در نوبار ادوکاد را با اتصال به وب‌سوکت شبیه‌سازی کنید.",
+      "prerequisites": [
+        "fe-8"
+      ]
+    },
+    {
+      "id": "fe-28",
+      "title": "اپلیکیشن تحت وب پیش‌رونده (PWA) و Service Workers",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "قابلیت نصب روی گوشی هوشمند، کارکرد آفلاین منوی کافه و مانیفست وب.",
+      "resources": [
+        {
+          "title": "web.dev: Progressive Web Apps",
+          "url": "https://web.dev/explore/progressive-web-apps",
+          "type": "LINK"
+        }
+      ],
+      "task": "سایت منوی دیجیتال کافه کارآفرینی را به یک PWA قابل نصب با قابلیت نمایش آفلاین منو تبدیل کنید.",
+      "prerequisites": [
+        "fe-18"
+      ]
+    },
+    {
+      "id": "fe-29",
+      "title": "امنیت فرانت‌اند و جلوگیری از حملات XSS و CSRF",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "پاکسازی ورودی‌های کاربر (Sanitization)، سیاست امنیتی محتوا (CSP) و کوکی‌های HttpOnly.",
+      "resources": [
+        {
+          "title": "OWASP Front-end Security Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ورودی یادداشت مأموریت در ادوکاد را در برابر تزریق کدهای مخرب اسکریپتی (XSS) محافظت کنید.",
+      "prerequisites": [
+        "fe-15"
+      ]
+    },
+    {
+      "id": "fe-30",
+      "title": "بین‌المللی‌سازی (i18n) و مدیریت پیشرفته راست‌چین (RTL/LTR)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تسلط بر تایپوگرافی دوجهته (BiDi)، استانداردهای RTL و پشتیبانی چندزبانه در پلتفرم.",
+      "resources": [
+        {
+          "title": "W3C: Structural markup and right-to-left text in HTML",
+          "url": "https://www.w3.org/International/articles/inline-bidi-markup/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تمام بلوک‌های متنی ادوکاد را طوری بازآرایی کنید که اصطلاحات انگلیسی درون متون فارسی هرگز ترتیب پاراگراف را به هم نریزند.",
+      "prerequisites": [
+        "fe-2",
+        "fe-18"
+      ]
     }
   ]
 }

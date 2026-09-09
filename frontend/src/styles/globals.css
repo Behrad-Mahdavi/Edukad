@@ -57,7 +57,49 @@ body {
   color: var(--ink);
   background-color: #f8fafc;
   direction: rtl;
+  text-align: right;
+  unicode-bidi: embed;
 }
+
+/* Universal RTL and BiDi Text Perfection */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+label,
+blockquote,
+figcaption,
+.bidi-text,
+.node-desc {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: isolate;
+  word-break: break-word;
+}
+
+/* Isolated LTR text (English terms, URLs, code, numbers) embedded in Persian sentences */
+.ltr-text,
+.en-term,
+code,
+pre,
+kbd,
+samp {
+  direction: ltr !important;
+  display: inline-block !important;
+  unicode-bidi: isolate !important;
+  text-align: left !important;
+}
+
+/* Ensure React Flow canvas nodes enforce clean RTL */
+.react-flow__node {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
 
 .bg-pattern {
   background-image: url('/images/Frame 27.svg');

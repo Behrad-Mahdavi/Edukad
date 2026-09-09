@@ -11,7 +11,11 @@
       "tier": "مبتدی",
       "description": "چرخه حیات رویداد: پیش‌رویداد (برنامه‌ریزی)، حین رویداد (اجرا)، و پس‌رویداد (ارزیابی).",
       "resources": [
-        { "title": "مقدمه‌ای بر مدیریت رویداد", "url": "", "type": "LINK" }
+        {
+          "title": "مقدمه‌ای بر مدیریت رویداد",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک پروپوزال اولیه (Pitch) برای برگزاری کارگاه «آشنایی با هوش مصنوعی برای نوجوانان» در کافه رکاد بنویسید.",
       "prerequisites": []
@@ -23,10 +27,16 @@
       "tier": "مبتدی",
       "description": "استفاده از Trello, Asana یا Notion برای تقسیم وظایف بین تیم.",
       "resources": [
-        { "title": "آموزش Trello در مدیریت پروژه‌ها", "url": "https://trello.com/guide", "type": "LINK" }
+        {
+          "title": "آموزش Trello در مدیریت پروژه‌ها",
+          "url": "https://trello.com/guide",
+          "type": "LINK"
+        }
       ],
       "task": "برد (Board) برنامه‌ریزی رویداد در Trello شامل ستون‌های To-Do, In-Progress, و Done ایجاد کنید.",
-      "prerequisites": ["ev-1"]
+      "prerequisites": [
+        "ev-1"
+      ]
     },
     {
       "id": "ev-3",
@@ -35,10 +45,16 @@
       "tier": "حرفه‌ای",
       "description": "تخمین هزینه‌ها (پذیرایی، مکان، تجهیزات) و راه‌های جذب اسپانسر مالی و معنوی.",
       "resources": [
-        { "title": "چگونه بودجه رویداد را مدیریت کنیم", "url": "", "type": "LINK" }
+        {
+          "title": "چگونه بودجه رویداد را مدیریت کنیم",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "فایل اکسل بودجه‌بندی (هزینه و درآمد پیش‌بینی‌شده) برای رویداد رکاد را طراحی کنید.",
-      "prerequisites": ["ev-1"]
+      "prerequisites": [
+        "ev-1"
+      ]
     },
     {
       "id": "ev-4",
@@ -47,10 +63,16 @@
       "tier": "مبتدی",
       "description": "چیدمان صندلی‌ها، تجهیزات صوتی-تصویری، اینترنت و تهویه فضا.",
       "resources": [
-        { "title": "چک‌لیست لجستیک ایونت", "url": "", "type": "LINK" }
+        {
+          "title": "چک‌لیست لجستیک ایونت",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "چک‌لیست فیزیکی برای قبل از باز شدن درهای کافه رکاد در روز ایونت را تدوین کنید.",
-      "prerequisites": ["ev-1"]
+      "prerequisites": [
+        "ev-1"
+      ]
     },
     {
       "id": "ev-5",
@@ -59,10 +81,16 @@
       "tier": "حرفه‌ای",
       "description": "نحوه دعوتنامه رسمی فرستادن، هماهنگی زمان و نیازهای فنی اساتید.",
       "resources": [
-        { "title": "اصول مکاتبات رسمی و ایمیل‌زنی", "url": "", "type": "LINK" }
+        {
+          "title": "اصول مکاتبات رسمی و ایمیل‌زنی",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "متن ایمیل دعوت از یک کارآفرین موفق برای سخنرانی در رکاد را با لحن رسمی و جذاب بنویسید.",
-      "prerequisites": ["ev-2"]
+      "prerequisites": [
+        "ev-2"
+      ]
     },
     {
       "id": "ev-6",
@@ -71,10 +99,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از پلتفرم‌هایی مانند ایوند (Evand) یا ساخت سیستم ثبت‌نام، و همکاری با تیم دیجیتال مارکتینگ.",
       "resources": [
-        { "title": "راهنمای استفاده از پلتفرم ایوند", "url": "https://evand.com/", "type": "LINK" }
+        {
+          "title": "راهنمای استفاده از پلتفرم ایوند",
+          "url": "https://evand.com/",
+          "type": "LINK"
+        }
       ],
       "task": "صفحه یک رویداد فرضی رکاد را در ایوند یا فرم‌ساز بسازید و بلیت‌های زودهنگام (Early Bird) تعریف کنید.",
-      "prerequisites": ["ev-3"]
+      "prerequisites": [
+        "ev-3"
+      ]
     },
     {
       "id": "ev-7",
@@ -83,10 +117,17 @@
       "tier": "حرفه‌ای",
       "description": "نوشتن سین‌لند (Timeline دقیق دقیقه‌ای) برای روز رویداد.",
       "resources": [
-        { "title": "How to Create an Event Run of Show", "url": "", "type": "LINK" }
+        {
+          "title": "How to Create an Event Run of Show",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک کنداکتور (جدول زمان‌بندی دقیق) برای یک رویداد ۴ ساعته در رکاد تدوین کنید.",
-      "prerequisites": ["ev-4", "ev-5"]
+      "prerequisites": [
+        "ev-4",
+        "ev-5"
+      ]
     },
     {
       "id": "ev-8",
@@ -95,10 +136,16 @@
       "tier": "مبتدی",
       "description": "هماهنگی میان‌وعده، منوی رویداد و ارتباط مستقیم با باریستا/تیم کافه.",
       "resources": [
-        { "title": "اصول تشریفات و پذیرایی رویداد", "url": "", "type": "LINK" }
+        {
+          "title": "اصول تشریفات و پذیرایی رویداد",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "منوی پذیرایی مناسب با بودجه مشخص برای ۵۰ نفر از منوی کافه رکاد پیشنهاد دهید.",
-      "prerequisites": ["ev-4"]
+      "prerequisites": [
+        "ev-4"
+      ]
     },
     {
       "id": "ev-9",
@@ -107,10 +154,16 @@
       "tier": "مربی",
       "description": "قطعی برق، نیامدن سخنران، یا مشکلات تجهیزات: پلن B.",
       "resources": [
-        { "title": "Risk Management in Events", "url": "", "type": "LINK" }
+        {
+          "title": "Risk Management in Events",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "سه سناریوی بحرانی در کافه رکاد بنویسید و راه‌حل (پلن جایگزین) برای هر کدام تعریف کنید.",
-      "prerequisites": ["ev-7"]
+      "prerequisites": [
+        "ev-7"
+      ]
     },
     {
       "id": "ev-10",
@@ -119,10 +172,16 @@
       "tier": "مربی",
       "description": "نظرسنجی از شرکت‌کنندگان، بررسی مالی و گزارش‌دهی به مدیران.",
       "resources": [
-        { "title": "نحوه ساخت فرم نظرسنجی اثربخش", "url": "", "type": "LINK" }
+        {
+          "title": "نحوه ساخت فرم نظرسنجی اثربخش",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک فرم نظرسنجی آنلاین با Google Forms برای دریافت فیدبک ایونت بسازید و تحلیل فرضی ارائه دهید.",
-      "prerequisites": ["ev-7"]
+      "prerequisites": [
+        "ev-7"
+      ]
     },
     {
       "id": "ev-11",
@@ -131,10 +190,16 @@
       "tier": "مربی",
       "description": "طراحی برنامه‌های یخ‌شکن (Ice-breaker) برای ارتباط بهتر شرکت‌کنندگان در زمان آنتراکت.",
       "resources": [
-        { "title": "Icebreaker Ideas for Corporate Events", "url": "", "type": "LINK" }
+        {
+          "title": "Icebreaker Ideas for Corporate Events",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک بازی کوتاه شبکه‌سازی ۱۵ دقیقه‌ای طراحی کنید تا دانش‌آموزان در کافه با هم آشنا شوند.",
-      "prerequisites": ["ev-1"]
+      "prerequisites": [
+        "ev-1"
+      ]
     },
     {
       "id": "ev-12",
@@ -143,10 +208,16 @@
       "tier": "مربی",
       "description": "استخدام، آموزش و هماهنگی نیروهای داوطلب و عوامل اجرایی در روز رویداد.",
       "resources": [
-        { "title": "Managing Event Volunteers", "url": "", "type": "LINK" }
+        {
+          "title": "Managing Event Volunteers",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک دستورالعمل (بریف) ۱ صفحه‌ای برای داوطلبانی که مسئول پذیرش (Check-in) در رویداد رکاد هستند تدوین کنید.",
-      "prerequisites": ["ev-2"]
+      "prerequisites": [
+        "ev-2"
+      ]
     },
     {
       "id": "ev-13",
@@ -155,10 +226,16 @@
       "tier": "مربی",
       "description": "کاهش مصرف پلاستیک، مدیریت زباله‌ها و مسئولیت اجتماعی (CSR) در برگزاری برنامه‌ها.",
       "resources": [
-        { "title": "Sustainable Event Management", "url": "", "type": "LINK" }
+        {
+          "title": "Sustainable Event Management",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "چک‌لیستی برای برگزاری یک رویداد دوست‌دار محیط‌زیست در کافه رکاد آماده کنید.",
-      "prerequisites": ["ev-4"]
+      "prerequisites": [
+        "ev-4"
+      ]
     },
     {
       "id": "ev-14",
@@ -167,10 +244,16 @@
       "tier": "حرفه‌ای",
       "description": "پوشش رسانه‌ای رویداد، تهیه Press Release و تعامل با خبرنگاران/بلاگرها.",
       "resources": [
-        { "title": "Public Relations Basics", "url": "", "type": "LINK" }
+        {
+          "title": "Public Relations Basics",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "متن یک خبر کوتاه در مورد برگزاری کارگاه موفق رکاد را برای انتشار در سایت‌های خبری تکنولوژی تنظیم کنید.",
-      "prerequisites": ["ev-6"]
+      "prerequisites": [
+        "ev-6"
+      ]
     },
     {
       "id": "ev-15",
@@ -179,10 +262,288 @@
       "tier": "حرفه‌ای",
       "description": "علاوه بر رویداد، آشنایی با مدیریت روزمره فضا، رزرو میزها، و بهینه‌سازی تجربه اعضای کافه کارآفرینی.",
       "resources": [
-        { "title": "Coworking Space Management Tips", "url": "", "type": "LINK" }
+        {
+          "title": "Coworking Space Management Tips",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "آیین‌نامه و قوانین استفاده از فضای اشتراکی (Co-working) کافه رکاد را در یک صفحه تدوین کنید.",
-      "prerequisites": ["ev-4"]
+      "prerequisites": [
+        "ev-4"
+      ]
+    },
+    {
+      "id": "ops-16",
+      "title": "مدیریت امور فنی و صدای سالن رویداد (AV Tech Coordination)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تست میکروفون‌های بیسیم، تنظیم پروژکتور و سوئیچر تصاویر برای سخنرانی‌های بدون وقفه.",
+      "resources": [
+        {
+          "title": "AV Event Technology Handbook",
+          "url": "https://www.avixa.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "چک‌لیست بررسی روز قبل تجهیزات صوت، تصویر و اتصالات لپ‌تاپ اساتید رویداد کافه.",
+      "prerequisites": [
+        "ops-3"
+      ]
+    },
+    {
+      "id": "ops-17",
+      "title": "پذیرش الکترونیک و چاپ فوری کارت‌های حضور (Badging System)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "سیستم اسکن بارکد بلیت‌ها، چاپ کارت شناسایی و جلوگیری از ازدحام دم در ورودی.",
+      "resources": [
+        {
+          "title": "Eventbrite: Event Check-in Best Practices",
+          "url": "https://www.eventbrite.com/blog/",
+          "type": "LINK"
+        }
+      ],
+      "task": "راه‌اندازی ایستگاه پذیرش با اسکنر کیو‌آرکد برای رویداد ۲۰۰ نفره همایش کارآفرینی.",
+      "prerequisites": [
+        "ops-4"
+      ]
+    },
+    {
+      "id": "ops-18",
+      "title": "تامین و نظارت بر کترینگ و پذیرایی خلاقانه کافه",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "منوی میان‌وعده‌های پرانرژی، سرو قهوه تازه و مدیریت زمان‌بندی تایم‌های استراحت (Break).",
+      "resources": [
+        {
+          "title": "Catering Management Guide",
+          "url": "https://www.catersource.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی پکیج پذیرایی نوآورانه و ارزان‌قیمت برای کارگاه ۴ ساعته عصرگاهی کافه رکاد.",
+      "prerequisites": [
+        "ops-5"
+      ]
+    },
+    {
+      "id": "ops-19",
+      "title": "قراردادهای پیمانکاری، اجاره و توافق‌نامه‌های حقوقی",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تنظیم متن قرارداد با سالن‌ها، عکاسان، اساتید و شفاف‌سازی بندهای تعهدات و خسارات.",
+      "resources": [
+        {
+          "title": "Event Contracts & Legal Guide",
+          "url": "https://www.eventmanagerblog.com/event-contracts",
+          "type": "LINK"
+        }
+      ],
+      "task": "نگارش پیش‌نویس قرارداد همکاری با سخنران مهمان و بندهای عدم افشا و حفظ حقوق معنوی.",
+      "prerequisites": [
+        "ops-2"
+      ]
+    },
+    {
+      "id": "ops-20",
+      "title": "مدیریت ارتباط با حامیان مالی و پکیج‌های اسپانسری",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "طراحی پرپوزال ارزش پیشنهادی، غرفه‌های نمایشگاهی و تضمین تحقق تعهدات به اسپانسرها.",
+      "resources": [
+        {
+          "title": "Sponsorship Collective Guide",
+          "url": "https://sponsorship.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی بروشور جذب حامی مالی برای مسابقه استارتاپی کافه با سه سطح برنزی، نقره‌ای و طلایی.",
+      "prerequisites": [
+        "ops-6"
+      ]
+    },
+    {
+      "id": "ops-21",
+      "title": "هماهنگی پروتکل‌های ایمنی، بهداشت و امداد (Safety & HSE)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "جانمایی کپسول‌های آتش‌نشانی، جعبه کمک‌های اولیه و مسیرهای خروج اضطراری در فضای کافه.",
+      "resources": [
+        {
+          "title": "HSE Event Safety Guide",
+          "url": "https://www.hse.gov.uk/event-safety/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تدوین نقشه ایمنی و خروج اضطراری سالن برگزاری مسابقات دانش‌آموزی رکاد.",
+      "prerequisites": [
+        "ops-10"
+      ]
+    },
+    {
+      "id": "ops-22",
+      "title": "تسهیلگری کارگاه‌های تعاملی و بازی‌سازی تیمی (Icebreaking)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "اجرای بازی‌های آشنایی سریع، شبکه‌سازی بین شرکت‌کنندگان و ایجاد جو صمیمی در کافه.",
+      "resources": [
+        {
+          "title": "SessionLab Library of Facilitation Games",
+          "url": "https://www.sessionlab.com/library",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی یک فعالیت یخ‌شکنی ۱۰ دقیقه‌ای برای دانش‌آموزان تازه‌وارد در اولین رویداد حضوری.",
+      "prerequisites": [
+        "ops-11"
+      ]
+    },
+    {
+      "id": "ops-23",
+      "title": "نظرسنجی آنلاین و ارزیابی رضایت رویداد (Post-Event Survey)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "فرم‌های نظرسنجی آنی با QR کد، تحلیل شاخص خالص مروجان (NPS) و نقاط بهبود.",
+      "resources": [
+        {
+          "title": "SurveyMonkey: Event Feedback Survey Template",
+          "url": "https://www.surveymonkey.com/mp/event-feedback-surveys/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ایجاد فرم نظرسنجی هوشمند پایان رویداد و ارسال گزارش تحلیل رضایت به مدیران رکاد.",
+      "prerequisites": [
+        "ops-13"
+      ]
+    },
+    {
+      "id": "ops-24",
+      "title": "بهینه‌سازی فرایندها و لجستیک داخلی کافه کارآفرینی",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "مدیریت گردش موجودی کالا (FIFO)، کاهش ضایعات مواد مصرفی و استانداردهای باریستا.",
+      "resources": [
+        {
+          "title": "Lean Operations & Waste Reduction",
+          "url": "https://www.lean.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی جدول کنترل موجودی هفتگی و کاهش ۱۰ درصدی ضایعات مواد فاسدشدنی در کافه.",
+      "prerequisites": [
+        "ops-8"
+      ]
+    },
+    {
+      "id": "ops-25",
+      "title": "مدیریت ارتباط با مشتریان و سیستم CRM رویدادها",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "ثبت تاریخچه حضور شرکت‌کنندگان، ارسال پیام‌های پیگیری و دعوت به دوره‌های تکمیلی.",
+      "resources": [
+        {
+          "title": "HubSpot CRM Guide",
+          "url": "https://www.hubspot.com/products/crm",
+          "type": "LINK"
+        }
+      ],
+      "task": "دسته‌بندی بانک اطلاعاتی ۵۰۰ شرکت‌کننده رویدادهای قبلی برای دعوت هدفمند به همایش بعدی.",
+      "prerequisites": [
+        "ops-7"
+      ]
+    },
+    {
+      "id": "ops-26",
+      "title": "مدیریت پرسنل و منتورینگ تیم‌های اجرایی داوطلب",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "آموزش لیدرهای اجرایی، شیفت‌بندی کاری و انگیزش تیم‌های داوطلب دانش‌آموزی.",
+      "resources": [
+        {
+          "title": "Volunteer Leadership Best Practices",
+          "url": "https://www.energizeinc.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "برگزاری جلسه توجیهی و تخصیص وظایف اجرایی به ۱۰ دانش‌آموز داوطلب برای روز ایونت.",
+      "prerequisites": [
+        "ops-9"
+      ]
+    },
+    {
+      "id": "ops-27",
+      "title": "برنامه‌ریزی مالی و تحلیل سود و زیان رویداد (Event P&L)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تطابق هزینه‌های واقعی با بودجه، تسویه مالی پیمانکاران و گزارش نقطه سر‌به‌سر (Break-even).",
+      "resources": [
+        {
+          "title": "Investopedia: Event Budgeting",
+          "url": "https://www.investopedia.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تهیه گزارش مالی کامل دخل و خرج رویداد کافه رکاد و محاسبه سود خالص یا یارانه دوره‌ای.",
+      "prerequisites": [
+        "ops-2"
+      ]
+    },
+    {
+      "id": "ops-28",
+      "title": "طراحی بسته‌های اهدایی و یادبود رویداد (Welcome Pack & Swag)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "انتخاب هدایای کاربردی، دفترچه‌ها و استیکرهای یادبود ماندگار برای مهمانان.",
+      "resources": [
+        {
+          "title": "Swag.com: Corporate Gifting Guide",
+          "url": "https://swag.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی پک خوش‌آمدگویی شامل ماگ، دفترچه اختصاصی و کارت ورود برای رویداد رکاد.",
+      "prerequisites": [
+        "ops-5"
+      ]
+    },
+    {
+      "id": "ops-29",
+      "title": "هماهنگی پخش زنده، رسانه‌ها و پوشش خبری رویداد",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "جایگاه اختصاصی خبرنگاران، ارسال بیانیه خبری و انتشار پست‌های لحظه‌ای در کانال‌ها.",
+      "resources": [
+        {
+          "title": "PRSA: Media Relations Guide",
+          "url": "https://www.prsa.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "مدیریت حضور خبرنگاران حوزه استارتاپ و ضبط مصاحبه‌های حاشیه‌ای در رویداد.",
+      "prerequisites": [
+        "ops-12"
+      ]
+    },
+    {
+      "id": "ops-30",
+      "title": "مدیریت رویدادهای هیبریدی و کلان (Mega-Events Leadership)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "هدایت رویدادهای همزمان حضوری و مجازی با بیش از ۱۰۰۰ شرکت‌کننده و هماهنگی تمام واحدها.",
+      "resources": [
+        {
+          "title": "MPI: Meeting Professionals International",
+          "url": "https://www.mpi.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی برنامه جامع عملیاتی (Master Operations Plan) برای همایش ملی نوآوری و کارآفرینی رکاد.",
+      "prerequisites": [
+        "ops-15",
+        "ops-20",
+        "ops-27"
+      ]
     }
   ]
 }

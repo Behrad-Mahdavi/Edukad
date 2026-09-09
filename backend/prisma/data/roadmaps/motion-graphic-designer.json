@@ -11,7 +11,11 @@
       "tier": "مبتدی",
       "description": "درک اصول پایه حرکت مانند Squash & Stretch، Anticipation و Timing.",
       "resources": [
-        { "title": "ویدیو 12 اصول انیمیشن دیزنی", "url": "", "type": "LINK" }
+        {
+          "title": "ویدیو 12 اصول انیمیشن دیزنی",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک شیء ساده (مثلا یک توپ) را روی کاغذ در حالت پریدن اسکچ بزنید و مفهوم Squash & Stretch را در آن پیاده کنید.",
       "prerequisites": []
@@ -23,10 +27,16 @@
       "tier": "مبتدی",
       "description": "محیط نرم‌افزار، وارد کردن فایل‌ها، کامپوزیشن‌ها و آشنایی اولیه با Timeline.",
       "resources": [
-        { "title": "دوره آموزش After Effects مقدماتی", "url": "", "type": "LINK" }
+        {
+          "title": "دوره آموزش After Effects مقدماتی",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "فایل وکتور لوگوی رکاد را وارد نرم‌افزار کرده و یک کامپوزیشن ۱۰ ثانیه‌ای برای آن بسازید.",
-      "prerequisites": ["mg-1"]
+      "prerequisites": [
+        "mg-1"
+      ]
     },
     {
       "id": "mg-3",
@@ -35,10 +45,16 @@
       "tier": "مبتدی",
       "description": "کار با Position, Scale, Rotation, Opacity.",
       "resources": [
-        { "title": "راهنمای کار با کی‌فریم‌ها در ادوبی", "url": "https://helpx.adobe.com/after-effects/using/setting-selecting-deleting-keyframes.html", "type": "LINK" }
+        {
+          "title": "راهنمای کار با کی‌فریم‌ها در ادوبی",
+          "url": "https://helpx.adobe.com/after-effects/using/setting-selecting-deleting-keyframes.html",
+          "type": "LINK"
+        }
       ],
       "task": "با تغییر پارامترهای ترانسفورم، انیمیشن ساده‌ای بسازید که لوگوی رکاد به آرامی ظاهر شده و از چپ به راست حرکت کند.",
-      "prerequisites": ["mg-2"]
+      "prerequisites": [
+        "mg-2"
+      ]
     },
     {
       "id": "mg-4",
@@ -47,10 +63,16 @@
       "tier": "مبتدی",
       "description": "نرم کردن حرکات با Easy Ease و کنترل سرعت انیمیشن در نمودار.",
       "resources": [
-        { "title": "آموزش Graph Editor در یوتیوب", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش Graph Editor در یوتیوب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "انیمیشن حرکت لوگوی مرحله قبل را با استفاده از Graph Editor از حالت خطی (Linear) به حرکت نرم افزایشی-کاهشی تغییر دهید.",
-      "prerequisites": ["mg-3"]
+      "prerequisites": [
+        "mg-3"
+      ]
     },
     {
       "id": "mg-5",
@@ -59,10 +81,16 @@
       "tier": "حرفه‌ای",
       "description": "نحوه مخفی کردن بخش‌هایی از لایه و انیمیت کردن ماسک‌ها.",
       "resources": [
-        { "title": "آموزش Track Matte", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش Track Matte",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "متن شعار کافه کارآفرینی رکاد را طوری انیمیت کنید که گویی از درون یک خط فرضی (با استفاده از ماسک) پدیدار می‌شود.",
-      "prerequisites": ["mg-4"]
+      "prerequisites": [
+        "mg-4"
+      ]
     },
     {
       "id": "mg-6",
@@ -71,10 +99,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از Text Animators برای ساخت تایتل‌های جذاب.",
       "resources": [
-        { "title": "After Effects Text Animation Tutorial", "url": "", "type": "LINK" }
+        {
+          "title": "After Effects Text Animation Tutorial",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک تایتل متحرک برای شروع ویدیوهای آموزشی رکاد با افکت‌های حرفه‌ای تایپوگرافی طراحی کنید.",
-      "prerequisites": ["mg-5"]
+      "prerequisites": [
+        "mg-5"
+      ]
     },
     {
       "id": "mg-7",
@@ -83,10 +117,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از Trim Paths، Repeater و ساخت بک‌گراندها و المان‌های موشن.",
       "resources": [
-        { "title": "راهنمای کار با Shape Layers", "url": "", "type": "LINK" }
+        {
+          "title": "راهنمای کار با Shape Layers",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک افکت انفجار خطی (Burst effect) ساده برای تاکید روی یک دکمه در موشن بسازید.",
-      "prerequisites": ["mg-4"]
+      "prerequisites": [
+        "mg-4"
+      ]
     },
     {
       "id": "mg-8",
@@ -95,10 +135,16 @@
       "tier": "حرفه‌ای",
       "description": "نحوه لایه‌بندی درست در Ai و استفاده از Overlord.",
       "resources": [
-        { "title": "ارتباط ایلاستریتور و افترافکت", "url": "", "type": "LINK" }
+        {
+          "title": "ارتباط ایلاستریتور و افترافکت",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "طرح گرافیکی یکی از کاراکترهای رکاد را در ایلاستریتور لایه‌بندی کرده و وارد افترافکت کنید تا برای ریگ‌بندی آماده شود.",
-      "prerequisites": ["mg-2"]
+      "prerequisites": [
+        "mg-2"
+      ]
     },
     {
       "id": "mg-9",
@@ -107,10 +153,16 @@
       "tier": "مربی",
       "description": "استفاده از پلاگین‌هایی مثل Duik Bassel یا Rubberhose برای کنترل مفاصل.",
       "resources": [
-        { "title": "دوره آموزشی پلاگین Duik Bassel", "url": "", "type": "LINK" }
+        {
+          "title": "دوره آموزشی پلاگین Duik Bassel",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "برای کاراکتر مرحله قبل مفصل‌بندی (Rig) ایجاد کنید تا با حرکت دادن یک کنترلر دست، کل بازو خم شود.",
-      "prerequisites": ["mg-8"]
+      "prerequisites": [
+        "mg-8"
+      ]
     },
     {
       "id": "mg-10",
@@ -119,10 +171,16 @@
       "tier": "مربی",
       "description": "اصول قدم برداشتن و انیمیت حلقوی کاراکتر.",
       "resources": [
-        { "title": "آموزش سیکل راه رفتن کاراکتر", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش سیکل راه رفتن کاراکتر",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک سیکل راه رفتن ساده (3 ثانیه‌ای) برای کاراکتر رکاد بسازید که مدام تکرار (Loop) شود.",
-      "prerequisites": ["mg-9"]
+      "prerequisites": [
+        "mg-9"
+      ]
     },
     {
       "id": "mg-11",
@@ -131,10 +189,16 @@
       "tier": "مربی",
       "description": "استفاده از لایه‌های 3D، نور و عمق میدان (Depth of Field).",
       "resources": [
-        { "title": "آموزش دوربین سه بعدی در AE", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش دوربین سه بعدی در AE",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "چند لایه عکس از ایونت‌های رکاد را در فضای سه‌بعدی چیده و با حرکت دوربین بین آن‌ها یک اسلایدشوی حرفه‌ای بسازید.",
-      "prerequisites": ["mg-7"]
+      "prerequisites": [
+        "mg-7"
+      ]
     },
     {
       "id": "mg-12",
@@ -143,10 +207,16 @@
       "tier": "مربی",
       "description": "کدنویسی پایه (جاوااسکریپت) در افترافکت برای ساخت انیمیشن‌های تصادفی یا وابسته (مثل Wiggle).",
       "resources": [
-        { "title": "راهنمای کامل Expressions در AE", "url": "", "type": "LINK" }
+        {
+          "title": "راهنمای کامل Expressions در AE",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "با استفاده از کد wiggle() یک حرکت لرزان و طبیعی برای یک المان شناور در موشن گرافیک کافه رکاد ایجاد کنید.",
-      "prerequisites": ["mg-4"]
+      "prerequisites": [
+        "mg-4"
+      ]
     },
     {
       "id": "mg-13",
@@ -155,10 +225,16 @@
       "tier": "حرفه‌ای",
       "description": "اضافه کردن SFX و افکت‌های صوتی برای زنده کردن موشن.",
       "resources": [
-        { "title": "اصول صداگذاری موشن گرافیک", "url": "", "type": "LINK" }
+        {
+          "title": "اصول صداگذاری موشن گرافیک",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "برای انیمیشن انفجاری (مرحله 7) افکت‌های صوتی مناسب سینک (Pop و Whoosh) دانلود کرده و روی کار قرار دهید.",
-      "prerequisites": ["mg-4"]
+      "prerequisites": [
+        "mg-4"
+      ]
     },
     {
       "id": "mg-14",
@@ -167,10 +243,16 @@
       "tier": "مبتدی",
       "description": "نحوه استفاده از Media Encoder، آشنایی با فرمت‌ها (H.264, MP4, MOV).",
       "resources": [
-        { "title": "آموزش خروجی گرفتن بهینه در Media Encoder", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش خروجی گرفتن بهینه در Media Encoder",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یکی از موشن‌های قبلی را برای آپلود در اینستاگرام رکاد (با فرمت MP4 و حجم کمتر از ۲۰ مگابایت) خروجی بگیرید.",
-      "prerequisites": ["mg-3"]
+      "prerequisites": [
+        "mg-3"
+      ]
     },
     {
       "id": "mg-15",
@@ -179,10 +261,291 @@
       "tier": "مربی",
       "description": "جمع‌بندی تمام مهارت‌ها در یک پروژه واقعی.",
       "resources": [
-        { "title": "چگونه یک تیزر موشن گرافیک جذاب بسازیم", "url": "", "type": "LINK" }
+        {
+          "title": "چگونه یک تیزر موشن گرافیک جذاب بسازیم",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک تیزر تبلیغاتی ۱۵ ثانیه‌ای برای یکی از دوره‌های کارآفرینی رکاد شامل نریشن، انیمیت متن و کاراکتر بسازید.",
-      "prerequisites": ["mg-10", "mg-6", "mg-13", "mg-14"]
+      "prerequisites": [
+        "mg-10",
+        "mg-6",
+        "mg-13",
+        "mg-14"
+      ]
+    },
+    {
+      "id": "mg-16",
+      "title": "موشن برای UI و میکروانیمیشن‌های تعاملی با Lottie",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "خروجی گرفتن انیمیشن‌های سبک و برداری در افترافکت با پلاگین Bodymovin برای وب ادوکاد.",
+      "resources": [
+        {
+          "title": "LottieFiles Official Docs",
+          "url": "https://airbnb.io/lottie/",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک آیکون لایک و تیک تایید متحرک را با لاتی خروجی گرفته و در ادوکاد پیاده‌سازی کنید.",
+      "prerequisites": [
+        "mg-8"
+      ]
+    },
+    {
+      "id": "mg-17",
+      "title": "شبیه‌سازی ذرات و پارتیکل‌ها (Particle Simulation)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از Trapcode Particular و ذرات نوری برای تیزرهای هیجان‌انگیز رویدادهای رکاد.",
+      "resources": [
+        {
+          "title": "Red Giant Particular Tutorials",
+          "url": "https://www.maxon.net/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ایجاد افکت آتش‌بازی و ذرات طلایی برای تیزر اعلام برندگان مسابقه استارتاپی کافه.",
+      "prerequisites": [
+        "mg-10"
+      ]
+    },
+    {
+      "id": "mg-18",
+      "title": "انیمیشن متنی پیشرفته و تایپوگرافی جنبشی (Kinetic Typography)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تطابق ریتمیک فونت‌های فارسی با صدای گوینده در ریلزهای آموزشی رکاد.",
+      "resources": [
+        {
+          "title": "Motion Design School: Kinetic Typography",
+          "url": "https://motiondesign.school/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تولید یک موشن ۳۰ ثانیه‌ای از سخنان یک کارآفرین مهمان در کافه رکاد با تایپوگرافی متحرک.",
+      "prerequisites": [
+        "mg-4"
+      ]
+    },
+    {
+      "id": "mg-19",
+      "title": "ترکینگ تصویر و موشن در ویدیو (Motion Tracking & VFX)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "ردیابی دوربین (3D Camera Tracker) و جایگذاری المان‌های گرافیکی روی میز کافه یا صحنه رویداد.",
+      "resources": [
+        {
+          "title": "Adobe After Effects: Camera Tracking",
+          "url": "https://helpx.adobe.com/after-effects/using/tracking-stabilizing-motion-cs5.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "تراژکتوری و استیکر قیمت دیجیتال را روی فنجان قهوه در حال حرکت در فضای کافه ترک کنید.",
+      "prerequisites": [
+        "mg-6"
+      ]
+    },
+    {
+      "id": "mg-20",
+      "title": "انیمیشن کاراکتر با Duik Bassel یا Limber",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "ریگ‌بندی استخوان‌بندی و انیمیت کاراکترهای راهنمای دانش‌آموزان رکاد.",
+      "resources": [
+        {
+          "title": "RxLaboratory: Duik Bassel Guide",
+          "url": "https://rxlaboratory.org/tools/duik/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ریگ و ایجاد سیکل راه رفتن (Walk Cycle) برای کاراکتر دانش‌آموز هنرستان استارتاپی.",
+      "prerequisites": [
+        "mg-12"
+      ]
+    },
+    {
+      "id": "mg-21",
+      "title": "طراحی و انیمیت اینفوگرافیک‌های ویدیویی",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "انیمیت نمودارهای دایره‌ای، آمارهای درصد رشد و گراف‌های تحلیلی پلتفرم ادوکاد.",
+      "resources": [
+        {
+          "title": "School of Motion: Infographic Animation",
+          "url": "https://www.schoolofmotion.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک موشن آماری از پیشرفت مهارت‌های باشگاه محصول در سال گذشته تولید کنید.",
+      "prerequisites": [
+        "mg-5"
+      ]
+    },
+    {
+      "id": "mg-22",
+      "title": "ورود به دنیای سه‌بعدی با Cinema 4D / Blender",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "مدلسازی اشیای ساده، متریال‌دهی و انیمیت دوربین سه‌بعدی برای تیزرهای بزرگ.",
+      "resources": [
+        {
+          "title": "Blender Fundamentals",
+          "url": "https://www.blender.org/support/tutorials/",
+          "type": "LINK"
+        }
+      ],
+      "task": "مدلسازی و چرخش سه‌بعدی لوگوی برجسته رکاد برای اوپنر برنامه‌های ویدیویی.",
+      "prerequisites": [
+        "mg-9"
+      ]
+    },
+    {
+      "id": "mg-23",
+      "title": "طراحی صدا و سان‌افکت‌های حرکتی (Motion Sound Design)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "انتخاب ساند افکت‌های وووش (Whoosh)، کلیک و ضربه‌های موزیک برای هماهنگی با هر ترنزیشن.",
+      "resources": [
+        {
+          "title": "Freesound Project Library",
+          "url": "https://freesound.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "صداگذاری کامل یک موشن گرافیک ۴۵ ثانیه‌ای از رویداد کافه رکاد با افکت‌های صوتی دقیق.",
+      "prerequisites": [
+        "mg-11"
+      ]
+    },
+    {
+      "id": "mg-24",
+      "title": "انیمیشن استاپ‌موشن و فریم‌به‌فریم (Frame-by-Frame)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از اصول سنتی ۲۴ فریم در ثانیه برای ساخت انیمیشن‌های دست‌ساز و خلاقانه.",
+      "resources": [
+        {
+          "title": "Animator's Survival Kit",
+          "url": "https://www.theanimatorssurvivalkit.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی یک انیمیشن فریم‌به‌فریم ۱۲ فریم با افکت دود قهوه برای ریلز اینستاگرام کافه.",
+      "prerequisites": [
+        "mg-3"
+      ]
+    },
+    {
+      "id": "mg-25",
+      "title": "اسکریپت‌نویسی پیشرفته در افترافکت با Expressions",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "فرمول‌های ریاضی برای پرش فنری، انیمیشن‌های خودکار و کنترلرهای پیشرفته بدون کی‌فریم.",
+      "resources": [
+        {
+          "title": "Dan Ebberts After Effects Expressions",
+          "url": "https://www.motionscript.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ساخت یک کنترلر هوشمند که با تغییر متن، کادر پس‌زمینه به طور خودکار تغییر اندازه دهد.",
+      "prerequisites": [
+        "mg-7"
+      ]
+    },
+    {
+      "id": "mg-26",
+      "title": "طراحی پکیج هویت بصری متحرک تلویزیونی و استیج",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "ساخت بسته کامل گرافیک متحرک شامل زیرنویس (Lower Third)، بک‌گراند لوپ و استینگر.",
+      "resources": [
+        {
+          "title": "Broadcast Package Design Guide",
+          "url": "https://www.artofthetitle.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی بسته کامل گرافیک مانیتورهای استیج و پخش زنده همایش سالانه رکاد.",
+      "prerequisites": [
+        "mg-13"
+      ]
+    },
+    {
+      "id": "mg-27",
+      "title": "رندرینگ بهینه و مدیریت پایپ‌لاین موشن با Media Encoder",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "کدک‌های ProRes و H.264، انکودینگ سریع و مدیریت رندرفارم برای پروژه‌های سنگین.",
+      "resources": [
+        {
+          "title": "Adobe Media Encoder Guide",
+          "url": "https://helpx.adobe.com/media-encoder/using/overview.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "بهینه‌سازی تنظیمات رندر برای کاهش حجم ویدیوها بدون افت کیفیت برای انتشار در شبکه‌های اجتماعی.",
+      "prerequisites": [
+        "mg-1"
+      ]
+    },
+    {
+      "id": "mg-28",
+      "title": "نورپردازی، کامپوزیت و اصلاح رنگ موشن (Compositing)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "افزودن بلوم، سایه‌های واقع‌گرایانه، گلو (Glow) و یکدست کردن لایه‌های موشن.",
+      "resources": [
+        {
+          "title": "Video Copilot Tutorials",
+          "url": "https://www.videocopilot.net/tutorials/",
+          "type": "LINK"
+        }
+      ],
+      "task": "کامپوزیت لایه‌های سه‌بعدی و دوبعدی با تنظیمات نورپردازی طبیعی در تیزر افتتاحیه کافه.",
+      "prerequisites": [
+        "mg-10"
+      ]
+    },
+    {
+      "id": "mg-29",
+      "title": "کارگردانی هنری موشن و سناریونویسی استوری‌بورد",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تبدیل ایده‌های خام به استوری‌بورد تصویری، تعیین ریتم و مدیریت تیم انیماتورها.",
+      "resources": [
+        {
+          "title": "Storyboard That Guide",
+          "url": "https://www.storyboardthat.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ترسیم استوری‌بورد ۶ فریمی برای ویدیوی معرفی اپلیکیشن منوی دیجیتال کافه کارآفرینی.",
+      "prerequisites": [
+        "mg-2"
+      ]
+    },
+    {
+      "id": "mg-30",
+      "title": "تولید تیزر جامع ۳۶۰ درجه کمپین‌های تبلیغاتی رکاد",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "یکپارچه‌سازی تمام تکنیک‌ها در یک تیزر ۶۰ ثانیه‌ای سطح اول برای معرفی ثبت‌نام هنرستان.",
+      "resources": [
+        {
+          "title": "Motion Design Awards Showcase",
+          "url": "https://www.motiondesignawards.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تولید تیزر رسمی کمپین جذب استعدادهای هنرستان استارتاپی رکاد با بالاترین استانداردهای بصری.",
+      "prerequisites": [
+        "mg-15",
+        "mg-26",
+        "mg-29"
+      ]
     }
   ]
 }

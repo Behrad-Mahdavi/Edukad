@@ -11,7 +11,11 @@
       "tier": "مبتدی",
       "description": "آشنایی با نقطه، خط، سطح، ریتم، تقارن و قانون یک‌سوم در کمپوزیسیون.",
       "resources": [
-        { "title": "ویدیو آموزشی مبانی سواد بصری در یوتیوب", "url": "", "type": "LINK" }
+        {
+          "title": "ویدیو آموزشی مبانی سواد بصری در یوتیوب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "با استفاده از اشکال هندسی ساده، یک ترکیب‌بندی خلاقانه (بدون نرم‌افزار، با مداد و کاغذ) خلق کنید.",
       "prerequisites": []
@@ -23,10 +27,16 @@
       "tier": "مبتدی",
       "description": "چرخه رنگ، هارمونی (مونوکروم، مکمل و...)، و روانشناسی رنگ در تبلیغات.",
       "resources": [
-        { "title": "Adobe Color Wheel", "url": "https://color.adobe.com/create/color-wheel", "type": "LINK" }
+        {
+          "title": "Adobe Color Wheel",
+          "url": "https://color.adobe.com/create/color-wheel",
+          "type": "LINK"
+        }
       ],
       "task": "پالت رنگی پست‌های اینستاگرام کافه کارآفرینی رکاد را بر اساس رنگ قهوه‌ای، کرم و نارنجی استخراج کنید.",
-      "prerequisites": ["gr-1"]
+      "prerequisites": [
+        "gr-1"
+      ]
     },
     {
       "id": "gr-3",
@@ -35,10 +45,16 @@
       "tier": "مبتدی",
       "description": "شناخت خانواده فونت‌ها (Serif, Sans-Serif)، ترکیب متن فارسی و انگلیسی، و فاصله‌گذاری کلمات.",
       "resources": [
-        { "title": "مقاله آشنایی با ساختار تایپوگرافی", "url": "", "type": "LINK" }
+        {
+          "title": "مقاله آشنایی با ساختار تایپوگرافی",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "کلمه «رکاد» و شعار هنرستان را با ۵ فونت مختلف نوشته و فونت‌های مناسب برندینگ را انتخاب کنید.",
-      "prerequisites": ["gr-1"]
+      "prerequisites": [
+        "gr-1"
+      ]
     },
     {
       "id": "gr-4",
@@ -47,10 +63,17 @@
       "tier": "مبتدی",
       "description": "محیط نرم‌افزار، ابزارهای سلکت، ماسک، و لایه‌ها در طراحی پیکسلی (Raster).",
       "resources": [
-        { "title": "دوره رایگان فتوشاپ در یوتیوب", "url": "", "type": "LINK" }
+        {
+          "title": "دوره رایگان فتوشاپ در یوتیوب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "عکس یکی از محصولات کافه را در فتوشاپ دوربری کنید و در یک بک‌گراند رنگی ساده قرار دهید.",
-      "prerequisites": ["gr-2", "gr-3"]
+      "prerequisites": [
+        "gr-2",
+        "gr-3"
+      ]
     },
     {
       "id": "gr-5",
@@ -59,10 +82,17 @@
       "tier": "مبتدی",
       "description": "مفاهیم وکتور (Vector)، ابزار Pen، و ترسیم اشکال و آیکون‌ها.",
       "resources": [
-        { "title": "Illustrator Basics Tutorial", "url": "", "type": "LINK" }
+        {
+          "title": "Illustrator Basics Tutorial",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "لوگوی مدرسه رکاد را در نرم‌افزار ایلاستریتور بازسازی (Traced) کنید و خروجی SVG بگیرید.",
-      "prerequisites": ["gr-2", "gr-3"]
+      "prerequisites": [
+        "gr-2",
+        "gr-3"
+      ]
     },
     {
       "id": "gr-6",
@@ -71,10 +101,17 @@
       "tier": "حرفه‌ای",
       "description": "سایز استاندارد، استفاده از گرید بندی پست اینستاگرام، محدودیت‌های حاشیه امن در استوری.",
       "resources": [
-        { "title": "راهنمای ابعاد استاندارد سوشال مدیا", "url": "", "type": "LINK" }
+        {
+          "title": "راهنمای ابعاد استاندارد سوشال مدیا",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک قالب (Template) جذاب برای پست‌های آموزشی شبکه‌های اجتماعی رکاد طراحی کنید که شامل کاور و صفحات داخلی باشد.",
-      "prerequisites": ["gr-4", "gr-5"]
+      "prerequisites": [
+        "gr-4",
+        "gr-5"
+      ]
     },
     {
       "id": "gr-7",
@@ -83,10 +120,16 @@
       "tier": "حرفه‌ای",
       "description": "مفاهیم CMYK در برابر RGB، رزولوشن چاپی (DPI) و نقاط توجه در طراحی پوستر رویداد.",
       "resources": [
-        { "title": "آموزش اصول طراحی پوستر", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش اصول طراحی پوستر",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "پوستر یکی از کارگاه‌های کافه کارآفرینی رکاد را در سایز A3 با مد رنگی CMYK و حاشیه برش (Bleed) طراحی کنید.",
-      "prerequisites": ["gr-6"]
+      "prerequisites": [
+        "gr-6"
+      ]
     },
     {
       "id": "gr-8",
@@ -95,10 +138,16 @@
       "tier": "حرفه‌ای",
       "description": "ترکیب چند تصویر، مچ کردن نورها و سایه‌ها، و ساخت تصاویر سورئال یا تبلیغاتی در فتوشاپ.",
       "resources": [
-        { "title": "Photoshop Manipulation Tutorials", "url": "", "type": "LINK" }
+        {
+          "title": "Photoshop Manipulation Tutorials",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "با تکنیک Photo Manipulation یک کاور هنری برای یکی از رویدادهای تخصصی برنامه‌نویسی رکاد خلق کنید.",
-      "prerequisites": ["gr-4"]
+      "prerequisites": [
+        "gr-4"
+      ]
     },
     {
       "id": "gr-9",
@@ -107,10 +156,16 @@
       "tier": "حرفه‌ای",
       "description": "قوانین ساخت آیکن‌های منسجم، استفاده از گرید آیکن، و ضخامت خطوط.",
       "resources": [
-        { "title": "Icon Design Guide", "url": "", "type": "LINK" }
+        {
+          "title": "Icon Design Guide",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "مجموعه‌ای از ۵ آیکن یکپارچه (Outline) برای دسته‌بندی‌های منوی کافه رکاد طراحی کنید.",
-      "prerequisites": ["gr-5"]
+      "prerequisites": [
+        "gr-5"
+      ]
     },
     {
       "id": "gr-10",
@@ -120,10 +175,16 @@
       "description": "آشنایی با ابزار فیگما برای تسریع طراحی پست‌های شبکه‌های اجتماعی.",
       "shared_with": "figma-basics-common",
       "resources": [
-        { "title": "استفاده از فیگما برای سوشال مدیا", "url": "", "type": "LINK" }
+        {
+          "title": "استفاده از فیگما برای سوشال مدیا",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "قالب طراحی‌شده در مرحله پست اینستاگرام را به فیگما منتقل کنید تا در یک فضای ابری قابل ویرایش تیمی باشد.",
-      "prerequisites": ["gr-6"]
+      "prerequisites": [
+        "gr-6"
+      ]
     },
     {
       "id": "gr-11",
@@ -132,10 +193,16 @@
       "tier": "مربی",
       "description": "مفهوم برندبوک، حفظ یکپارچگی بصری برند، طراحی ست اداری.",
       "resources": [
-        { "title": "آموزش دیزاین هویت بصری برند", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش دیزاین هویت بصری برند",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "برندبوک مختصر (شامل رنگ‌ها، تایپوگرافی، حداقل سایز لوگو، و نبایدها) را برای مدرسه استارتاپی رکاد تدوین کنید.",
-      "prerequisites": ["gr-7"]
+      "prerequisites": [
+        "gr-7"
+      ]
     },
     {
       "id": "gr-12",
@@ -144,10 +211,17 @@
       "tier": "مربی",
       "description": "آماده‌سازی فایل‌های گرافیکی برای تحویل به تیم Motion Graphic.",
       "resources": [
-        { "title": "آماده‌سازی لایه‌ها در ایلاستریتور برای افترافکت", "url": "", "type": "LINK" }
+        {
+          "title": "آماده‌سازی لایه‌ها در ایلاستریتور برای افترافکت",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "فایل وکتوری یک کاراکتر تبلیغاتی برند رکاد را طوری لایه‌بندی و پوشه‌بندی کنید که برای انیمیت آماده باشد.",
-      "prerequisites": ["gr-5", "gr-11"]
+      "prerequisites": [
+        "gr-5",
+        "gr-11"
+      ]
     },
     {
       "id": "gr-13",
@@ -156,10 +230,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از Generative Fill فتوشاپ و ابزارهایی مثل Midjourney برای خلق تصویر.",
       "resources": [
-        { "title": "Photoshop Generative Fill Guide", "url": "", "type": "LINK" }
+        {
+          "title": "Photoshop Generative Fill Guide",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک تصویر خام از رویداد رکاد بگیرید و عناصر اضافی پس‌زمینه را با Generative Fill فتوشاپ حذف کرده و تصویر را اصلاح کنید.",
-      "prerequisites": ["gr-4"]
+      "prerequisites": [
+        "gr-4"
+      ]
     },
     {
       "id": "gr-14",
@@ -168,10 +248,17 @@
       "tier": "مربی",
       "description": "آشنایی با خط تیغ، حاشیه چسب و طراحی لیبل محصولات فیزیکی.",
       "resources": [
-        { "title": "Packaging Design Tutorial", "url": "", "type": "LINK" }
+        {
+          "title": "Packaging Design Tutorial",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "لیبل و طراحی روی لیوان‌های قهوه بیرون‌بر کافه رکاد را با در نظر گرفتن لوگو و شعار طراحی کنید.",
-      "prerequisites": ["gr-5", "gr-11"]
+      "prerequisites": [
+        "gr-5",
+        "gr-11"
+      ]
     },
     {
       "id": "gr-15",
@@ -180,10 +267,287 @@
       "tier": "مربی",
       "description": "ساخت پورتفولیو در بسترهایی مثل Behance و Dribbble.",
       "resources": [
-        { "title": "چگونه نمونه‌کار هنری بسازیم", "url": "", "type": "LINK" }
+        {
+          "title": "چگونه نمونه‌کار هنری بسازیم",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "سه پروژه برتر خود (شامل پوستر، لوگو و پست اینستاگرام رکاد) را در Behance به صورت یک ارائه حرفه‌ای (Presentation) پابلیش کنید.",
-      "prerequisites": ["gr-11"]
+      "prerequisites": [
+        "gr-11"
+      ]
+    },
+    {
+      "id": "gd-16",
+      "title": "طراحی سیستم بسته‌بندی (Packaging Design)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "طراحی بسته‌بندی لیوان‌های بیرون‌بر و پک‌های پذیرایی کافه کارآفرینی رکاد.",
+      "resources": [
+        {
+          "title": "Dieline: Packaging Design Inspiration",
+          "url": "https://thedieline.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی گرافیکی دو مدل لیوان قهوه و جعبه ساندویچ برای کافه کارآفرینی.",
+      "prerequisites": [
+        "gd-4"
+      ]
+    },
+    {
+      "id": "gd-17",
+      "title": "تولید موکاپ‌های واقع‌گرایانه (Realistic Mockups)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "نمایش پروژه‌های هویت بصری روی آبجکت‌های فیزیکی در فتوشاپ با اسمارت‌آبجکت.",
+      "resources": [
+        {
+          "title": "Adobe Photoshop Smart Objects Guide",
+          "url": "https://helpx.adobe.com/photoshop/using/create-smart-objects.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی پرزنتیشن موکاپ ۳ بعدی از استیکرها و تی‌شرت سازمانی رکاد.",
+      "prerequisites": [
+        "gd-2"
+      ]
+    },
+    {
+      "id": "gd-18",
+      "title": "تایپوگرافی تجربی و ساخت فونت‌های نمایشی",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "دستکاری و ترکیب حروف فارسی برای سرتیتر پوسترهای رویداد رکاد.",
+      "resources": [
+        {
+          "title": "Type Directors Club",
+          "url": "https://www.tdc.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک عنوان تایپوگرافی خلاقانه برای رویداد استارتاپی «شب ایده‌ها» طراحی کنید.",
+      "prerequisites": [
+        "gd-5"
+      ]
+    },
+    {
+      "id": "gd-19",
+      "title": "طراحی بروشور و اقلام چاپی رویداد",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "صفحه‌آرایی، تنظیم خط تا، حاشیه برش (Bleed) و خروجی مناسب چاپخانه.",
+      "resources": [
+        {
+          "title": "Adobe InDesign Print Setup Guide",
+          "url": "https://helpx.adobe.com/indesign/using/create-new-document.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی بروشور سه لت معرفی دوره‌های هنرستان استارتاپی رکاد با استانداردهای چاپ.",
+      "prerequisites": [
+        "gd-9"
+      ]
+    },
+    {
+      "id": "gd-20",
+      "title": "اینفوگرافیک و بصری‌سازی داده‌های آماری",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تبدیل اعداد و آمار فارغ‌التحصیلان رکاد به نمودارها و گرافیک‌های جذاب.",
+      "resources": [
+        {
+          "title": "Information is Beautiful",
+          "url": "https://informationisbeautiful.net/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی پوستر اینفوگرافیک عملکرد یک‌ساله کافه و باشگاه دانش‌آموزی رکاد.",
+      "prerequisites": [
+        "gd-6"
+      ]
+    },
+    {
+      "id": "gd-21",
+      "title": "طراحی نمادهای گرافیکی و آیکون‌ست اختصاصی",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "طراحی آیکون‌های متوازن روی گرید برای استفاده در وب و بروشورهای رکاد.",
+      "resources": [
+        {
+          "title": "The Noun Project Guide",
+          "url": "https://thenounproject.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی یک ست ۱۰ عددی آیکون اختصاصی برای دسته‌بندی‌های مهارتی ادوکاد.",
+      "prerequisites": [
+        "gd-3"
+      ]
+    },
+    {
+      "id": "gd-22",
+      "title": "تصویرسازی تبلیغاتی و کاراکتر دیزاین",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "خلق ماسکوت و کاراکترهای راهنمای دانش‌آموزان در ادوکاد.",
+      "resources": [
+        {
+          "title": "Character Design References",
+          "url": "https://characterdesignreferences.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی کاراکتر ربات دستیار آموزشی برای استیکرهای پلتفرم ادوکاد.",
+      "prerequisites": [
+        "gd-11"
+      ]
+    },
+    {
+      "id": "gd-23",
+      "title": "طراحی گرافیک محیطی و ساینیج (Wayfinding)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "تابلوهای راهنمای محیطی و استیکرهای دیواری فضای فیزیکی کافه و مدرسه رکاد.",
+      "resources": [
+        {
+          "title": "SEGD Environmental Graphic Design",
+          "url": "https://segd.org/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی تابلوهای راهنمای بخش‌های مختلف کافه کارآفرینی و کلاس‌های کارگاهی.",
+      "prerequisites": [
+        "gd-8"
+      ]
+    },
+    {
+      "id": "gd-24",
+      "title": "طراحی ارائه‌های حرفه‌ای و اسلایدهای سرمایه‌گذاری (Pitch Deck)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "چیدمان اسلایدهای سرمایه‌گذاری استارتاپ‌ها با هویت بصری منسجم.",
+      "resources": [
+        {
+          "title": "Pitch Deck Design Guide",
+          "url": "https://slidebean.com/pitch-deck",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی قالب اسلایدهای معرفی کسب‌وکارهای دانش‌آموزی برای روز دمو (Demo Day).",
+      "prerequisites": [
+        "gd-7"
+      ]
+    },
+    {
+      "id": "gd-25",
+      "title": "روانشناسی رنگ‌ها و تدوین پالت‌های هویت‌ساز",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "انتخاب رنگ‌های هارمونیک و انتقال حس پویایی، خلاقیت و اعتماد در برندینگ.",
+      "resources": [
+        {
+          "title": "Adobe Color Wheel",
+          "url": "https://color.adobe.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تدوین مستند راهنمای پالت رنگی ۵ محصول زیرمجموعه اکوسیستم رکاد.",
+      "prerequisites": [
+        "gd-4"
+      ]
+    },
+    {
+      "id": "gd-26",
+      "title": "طراحی برای شبکه‌های اجتماعی و کیت گرافیکی اینستاگرام",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "طراحی قالب‌های اسلایدی، کاور ریلز و استوری‌های با نرخ تعامل بالا.",
+      "resources": [
+        {
+          "title": "Canva Design School",
+          "url": "https://www.canva.com/designschool/",
+          "type": "LINK"
+        }
+      ],
+      "task": "طراحی قالب ۳ استوری و یک پست کاروسل برای معرفی ورکشاپ جدید رکاد.",
+      "prerequisites": [
+        "gd-10"
+      ]
+    },
+    {
+      "id": "gd-27",
+      "title": "مدیریت چاپ و ناظر چاپ (Print Production)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "کنترل کیفیت رنگ تفکیکی (Spot Colors)، روکش‌های سلفون و یووی موضعی.",
+      "resources": [
+        {
+          "title": "Print Production Handbook",
+          "url": "https://www.printindustry.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "چک‌لیست بررسی فنی فایل‌های چاپی قبل از ارسال به لیتوگرافی برای تیم طراحی.",
+      "prerequisites": [
+        "gd-9"
+      ]
+    },
+    {
+      "id": "gd-28",
+      "title": "عکاسی از محصولات و ادیت کاتالوگ (Product Photography)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "نورپردازی محصول، حذف پس‌زمینه و روتوش آیتم‌های کافه رکاد.",
+      "resources": [
+        {
+          "title": "Photoshop Product Retouching Tutorial",
+          "url": "https://helpx.adobe.com/photoshop/how-to/retouch-photos.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "عکاسی و روتوش ۵ نوشیدنی کافه کارآفرینی برای منوی چاپی و سایت.",
+      "prerequisites": [
+        "gd-2"
+      ]
+    },
+    {
+      "id": "gd-29",
+      "title": "ری‌برندینگ و نوسازی هویت سازمانی (Rebranding)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "مراحل تحلیل وضعیت فعلی برند، بازآفرینی لوگو و پیاده‌سازی برندینگ جدید.",
+      "resources": [
+        {
+          "title": "Brand New: UnderConsideration",
+          "url": "https://www.underconsideration.com/brandnew/",
+          "type": "LINK"
+        }
+      ],
+      "task": "سناریوی بازطراحی هویت بصری یکی از رویدادهای فصلی رکاد با حفظ ارزش‌های بنیادین.",
+      "prerequisites": [
+        "gd-8"
+      ]
+    },
+    {
+      "id": "gd-30",
+      "title": "توسعه کتابچه جامع هویت بصری (Brand Style Guide)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تدوین سند جامع برندبوک شامل تمام قوانین لوگو، لحن، چاپ و استفاده آنلاین.",
+      "resources": [
+        {
+          "title": "Brand Identity Guidelines Examples",
+          "url": "https://brandingstyleguides.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "نگارش دفترچه راهنمای کامل هویت بصری (برندبوک ۲۰ صفحه‌ای) اکوسیستم رکاد.",
+      "prerequisites": [
+        "gd-14",
+        "gd-25"
+      ]
     }
   ]
 }

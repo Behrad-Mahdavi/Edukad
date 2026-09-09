@@ -144,16 +144,17 @@ export function NodeDetailDrawer({
       {/* Drawer positioned on the right */}
       <div
         className="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-white border-l-4 border-primary shadow-[-10px_0_30px_0_rgba(33,41,90,0.2)] z-50 flex flex-col overflow-hidden text-right animate-in slide-in-from-right duration-200"
+        dir="rtl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-start justify-between gap-3">
+        <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-start justify-between gap-3" dir="rtl">
           <div>
             <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary mb-2 inline-block">
               جزئیات مهارت
             </span>
-            <h2 className="font-black text-xl text-primary leading-snug">
-              {node.title}
+            <h2 className="font-black text-xl text-primary leading-snug text-right bidi-text" dir="rtl">
+              <bdi>{node.title}</bdi>
             </h2>
           </div>
           <button
@@ -162,7 +163,7 @@ export function NodeDetailDrawer({
               e.stopPropagation();
               onClose();
             }}
-            className="p-2 rounded-xl border-2 border-primary bg-white hover:bg-rose-50 text-slate-500 hover:text-accent transition-colors active:scale-95"
+            className="p-2 rounded-xl border-2 border-primary bg-white hover:bg-rose-50 text-slate-500 hover:text-accent transition-colors active:scale-95 shrink-0"
             title="بستن پنجره"
             aria-label="بستن پنجره"
           >
@@ -171,13 +172,48 @@ export function NodeDetailDrawer({
         </div>
 
         {/* Description */}
-        <div className="p-5 border-b border-slate-100 bg-white">
-          <p className="text-sm text-slate-700 leading-relaxed">
-            {node.description}
-          </p>
+        <div className="p-5 border-b border-slate-100 bg-white" dir="rtl">
+          {(() => {
+            const descText = node.description || '';
+            const tierMatch = descText.match(/\*\*سطح:\*\*\s*([^\|\n]+)/);
+            const tierBadge = tierMatch ? tierMatch[1].trim() : '';
+
+            const levelMatch = descText.match(/\*\*اهمیت:\*\*\s*([^\|\n]+)/);
+            const levelBadge = levelMatch ? levelMatch[1].trim() : '';
+
+            const cleanBody = descText.replace(/^\*\*سطح:\*\*.*?\n+/i, '').trim();
+
+            return (
+              <div className="space-y-3 text-right" dir="rtl">
+                {(tierBadge || levelBadge) && (
+                  <div className="flex items-center gap-2 flex-wrap mb-2" dir="rtl">
+                    {tierBadge && (
+                      <span className="inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-lg bg-bg-mint text-primary border border-secondary/30">
+                        🏷️ سطح: {tierBadge}
+                      </span>
+                    )}
+                    {levelBadge && (
+                      <span
+                        className={`inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-lg border ${
+                          levelBadge.includes('ضروری')
+                            ? 'bg-rose-50 text-rose-700 border-rose-200'
+                            : 'bg-sky-50 text-sky-700 border-sky-200'
+                        }`}
+                      >
+                        ⭐ اهمیت: {levelBadge}
+                      </span>
+                    )}
+                  </div>
+                )}
+                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line text-right bidi-text" dir="rtl">
+                  <bdi>{cleanBody || descText}</bdi>
+                </p>
+              </div>
+            );
+          })()}
 
           {/* Status indicator action bar */}
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between" dir="rtl">
             <div className="text-xs font-bold text-slate-500">
               وضعیت شما:{' '}
               <span
@@ -281,26 +317,27 @@ export function NodeDetailDrawer({
                     key={res.id}
                     className="p-4 rounded-xl border-2 border-primary/20 bg-bg-mint/30 shadow-[3px_3px_0_0_#58bdaf] hover:border-secondary transition-all"
                   >
-                    <div className="flex items-center gap-2 mb-2 font-bold text-xs text-primary">
-                      {res.type === 'LINK' && <LinkIcon className="w-4 h-4 text-secondary" />}
-                      {res.type === 'VIDEO_URL' && <Video className="w-4 h-4 text-accent" />}
-                      {res.type === 'MARKDOWN_TEXT' && <FileText className="w-4 h-4 text-tertiary" />}
-                      {res.title}
+                    <div className="flex items-center gap-2 mb-2 font-bold text-xs text-primary text-right" dir="rtl">
+                      {res.type === 'LINK' && <LinkIcon className="w-4 h-4 text-secondary shrink-0" />}
+                      {res.type === 'VIDEO_URL' && <Video className="w-4 h-4 text-accent shrink-0" />}
+                      {res.type === 'MARKDOWN_TEXT' && <FileText className="w-4 h-4 text-tertiary shrink-0" />}
+                      <span className="bidi-text text-right" dir="rtl"><bdi>{res.title}</bdi></span>
                     </div>
 
                     {res.type === 'MARKDOWN_TEXT' ? (
-                      <div className="text-xs text-slate-700 whitespace-pre-line leading-relaxed bg-white p-3 rounded-lg border border-slate-200">
-                        {res.content}
+                      <div className="text-xs text-slate-700 whitespace-pre-line leading-relaxed bg-white p-3.5 rounded-lg border border-slate-200 text-right bidi-text" dir="rtl">
+                        <bdi>{res.content}</bdi>
                       </div>
                     ) : (
                       <a
                         href={res.content}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-bold text-secondary-dark hover:underline break-all"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-secondary-dark hover:underline break-all"
+                        dir="ltr"
                       >
-                        باز کردن لینک منبع
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                        <span>باز کردن لینک منبع</span>
                       </a>
                     )}
                   </div>

@@ -11,7 +11,11 @@
       "tier": "مبتدی",
       "description": "درک مفاهیم کلاینت-سرور، متدهای HTTP (GET, POST, PUT, DELETE) و Status Codeها.",
       "resources": [
-        { "title": "MDN: An overview of HTTP", "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview", "type": "LINK" }
+        {
+          "title": "MDN: An overview of HTTP",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview",
+          "type": "LINK"
+        }
       ],
       "task": "درخواست‌های HTTP مربوط به گرفتن منوی کافه و ثبت سفارش جدید را روی کاغذ (بدون کد) مدل کنید.",
       "prerequisites": []
@@ -23,11 +27,21 @@
       "tier": "مبتدی",
       "description": "اجرای جاوااسکریپت سمت سرور، آشنایی با ماژول‌ها و npm.",
       "resources": [
-        { "title": "مستندات Node.js", "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs", "type": "LINK" },
-        { "title": "FreeCodeCamp Node.js course", "url": "https://www.freecodecamp.org/", "type": "LINK" }
+        {
+          "title": "مستندات Node.js",
+          "url": "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs",
+          "type": "LINK"
+        },
+        {
+          "title": "FreeCodeCamp Node.js course",
+          "url": "https://www.freecodecamp.org/",
+          "type": "LINK"
+        }
       ],
       "task": "یک سرور ساده با Node.js بسازید که با درخواست به روت `/menu` دیتای تستی کافه رکاد را به صورت JSON برگرداند.",
-      "prerequisites": ["be-1"]
+      "prerequisites": [
+        "be-1"
+      ]
     },
     {
       "id": "be-3",
@@ -36,10 +50,16 @@
       "tier": "مبتدی",
       "description": "ساخت راحت‌تر وب‌سرور، تعریف روت‌ها و میدلورها (Middleware).",
       "resources": [
-        { "title": "Express.js Basics", "url": "https://expressjs.com/en/starter/hello-world.html", "type": "LINK" }
+        {
+          "title": "Express.js Basics",
+          "url": "https://expressjs.com/en/starter/hello-world.html",
+          "type": "LINK"
+        }
       ],
       "task": "سرور منوی کافه را با Express.js بازنویسی کنید و یک روت برای ثبت سفارش (POST) بسازید.",
-      "prerequisites": ["be-2"]
+      "prerequisites": [
+        "be-2"
+      ]
     },
     {
       "id": "be-4",
@@ -49,10 +69,16 @@
       "description": "همکاری در تیم با گیت‌هاب.",
       "shared_with": "fe-git-common",
       "resources": [
-        { "title": "Git Handbook", "url": "https://docs.github.com/en/get-started", "type": "LINK" }
+        {
+          "title": "Git Handbook",
+          "url": "https://docs.github.com/en/get-started",
+          "type": "LINK"
+        }
       ],
       "task": "سورس سرور بک‌اند کافه را به همراه یک فایل .gitignore مناسب در مخزن تیمی رکاد پوش کنید.",
-      "prerequisites": ["be-2"]
+      "prerequisites": [
+        "be-2"
+      ]
     },
     {
       "id": "be-5",
@@ -61,11 +87,21 @@
       "tier": "مبتدی",
       "description": "جداول، کلید اصلی و خارجی (Primary/Foreign Keys) و دستورات SELECT, INSERT, UPDATE.",
       "resources": [
-        { "title": "W3Schools SQL Tutorial", "url": "https://www.w3schools.com/sql/", "type": "LINK" },
-        { "title": "PostgreSQL Tutorial", "url": "https://www.postgresqltutorial.com/", "type": "LINK" }
+        {
+          "title": "W3Schools SQL Tutorial",
+          "url": "https://www.w3schools.com/sql/",
+          "type": "LINK"
+        },
+        {
+          "title": "PostgreSQL Tutorial",
+          "url": "https://www.postgresqltutorial.com/",
+          "type": "LINK"
+        }
       ],
       "task": "جدول‌های محصولات و دسته‌بندی‌های کافه رکاد را در PostgreSQL طراحی کرده و دیتای تستی اینسرت کنید.",
-      "prerequisites": ["be-3"]
+      "prerequisites": [
+        "be-3"
+      ]
     },
     {
       "id": "be-6",
@@ -74,10 +110,16 @@
       "tier": "حرفه‌ای",
       "description": "ارتباط بین جداول (One-to-Many, Many-to-Many) و بهینه‌سازی کوئری‌ها.",
       "resources": [
-        { "title": "PostgreSQL Joins", "url": "https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/", "type": "LINK" }
+        {
+          "title": "PostgreSQL Joins",
+          "url": "https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-joins/",
+          "type": "LINK"
+        }
       ],
       "task": "یک جدول برای «سفارشات» کافه و یک جدول رابط (Order Items) برای ارتباط Many-to-Many با محصولات بسازید.",
-      "prerequisites": ["be-5"]
+      "prerequisites": [
+        "be-5"
+      ]
     },
     {
       "id": "be-7",
@@ -86,10 +128,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از ابزارهایی مثل Prisma یا TypeORM برای نوشتن راحت‌تر کوئری‌ها در کد.",
       "resources": [
-        { "title": "مستندات Prisma", "url": "https://www.prisma.io/docs", "type": "LINK" }
+        {
+          "title": "مستندات Prisma",
+          "url": "https://www.prisma.io/docs",
+          "type": "LINK"
+        }
       ],
       "task": "پروژه Express کافه را به Prisma متصل کرده و روت `/menu` را طوری تغییر دهید که دیتا را از دیتابیس بخواند.",
-      "prerequisites": ["be-6"]
+      "prerequisites": [
+        "be-6"
+      ]
     },
     {
       "id": "be-8",
@@ -98,10 +146,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از تایپ‌اسکریپت برای کدنویسی امن و جلوگیری از باگ‌های زمان اجرا در سرور.",
       "resources": [
-        { "title": "TypeScript Handbook", "url": "https://www.typescriptlang.org/docs/", "type": "LINK" }
+        {
+          "title": "TypeScript Handbook",
+          "url": "https://www.typescriptlang.org/docs/",
+          "type": "LINK"
+        }
       ],
       "task": "پروژه سرور کافه را از جاوااسکریپت به تایپ‌اسکریپت منتقل کنید.",
-      "prerequisites": ["be-7"]
+      "prerequisites": [
+        "be-7"
+      ]
     },
     {
       "id": "be-9",
@@ -110,10 +164,16 @@
       "tier": "حرفه‌ای",
       "description": "اصول طراحی API استاندارد، نام‌گذاری درست Endpoint ها.",
       "resources": [
-        { "title": "REST API Best Practices", "url": "", "type": "LINK" }
+        {
+          "title": "REST API Best Practices",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "مسیرهای سرور را طبق استاندارد REST برای موجودیت‌های Products, Categories و Orders دیفکتور کنید.",
-      "prerequisites": ["be-8"]
+      "prerequisites": [
+        "be-8"
+      ]
     },
     {
       "id": "be-10",
@@ -122,10 +182,16 @@
       "tier": "حرفه‌ای",
       "description": "فریم‌ورک سازمانی برای بک‌اند (معماری ماژولار، Controller, Service, Dependency Injection).",
       "resources": [
-        { "title": "مستندات رسمی NestJS", "url": "https://docs.nestjs.com/", "type": "LINK" }
+        {
+          "title": "مستندات رسمی NestJS",
+          "url": "https://docs.nestjs.com/",
+          "type": "LINK"
+        }
       ],
       "task": "بک‌اند پلتفرم Edukad (که با NestJS است) را Clone کنید و یک ماژول تستی برای ایجاد «تگ‌های آموزشی» به آن اضافه کنید.",
-      "prerequisites": ["be-9"]
+      "prerequisites": [
+        "be-9"
+      ]
     },
     {
       "id": "be-11",
@@ -134,11 +200,21 @@
       "tier": "حرفه‌ای",
       "description": "ثبت نام کاربر، ورود و صدور توکن دسترسی برای امنیت مسیرها.",
       "resources": [
-        { "title": "NestJS Security (Authentication)", "url": "https://docs.nestjs.com/security/authentication", "type": "LINK" },
-        { "title": "JWT.io", "url": "https://jwt.io/", "type": "LINK" }
+        {
+          "title": "NestJS Security (Authentication)",
+          "url": "https://docs.nestjs.com/security/authentication",
+          "type": "LINK"
+        },
+        {
+          "title": "JWT.io",
+          "url": "https://jwt.io/",
+          "type": "LINK"
+        }
       ],
       "task": "در بک‌اند Edukad، بررسی کنید توکن JWT چطور ساخته می‌شود و یک گارد (Guard) به ماژول خود اضافه کنید.",
-      "prerequisites": ["be-10"]
+      "prerequisites": [
+        "be-10"
+      ]
     },
     {
       "id": "be-12",
@@ -147,10 +223,16 @@
       "tier": "حرفه‌ای",
       "description": "تفاوت کاربر عادی (دانش‌آموز)، ادمین و مربی در دسترسی به منابع سرور.",
       "resources": [
-        { "title": "NestJS Authorization", "url": "https://docs.nestjs.com/security/authorization", "type": "LINK" }
+        {
+          "title": "NestJS Authorization",
+          "url": "https://docs.nestjs.com/security/authorization",
+          "type": "LINK"
+        }
       ],
       "task": "یک Decorator در NestJS بسازید که چک کند فقط Role=MENTOR یا SUPER_ADMIN به دیتای یک روت دسترسی داشته باشد.",
-      "prerequisites": ["be-11"]
+      "prerequisites": [
+        "be-11"
+      ]
     },
     {
       "id": "be-13",
@@ -159,10 +241,16 @@
       "tier": "حرفه‌ای",
       "description": "بررسی صحت دیتای ورودی از سمت فرانت‌اند قبل از ثبت در دیتابیس.",
       "resources": [
-        { "title": "NestJS Validation (class-validator)", "url": "https://docs.nestjs.com/techniques/validation", "type": "LINK" }
+        {
+          "title": "NestJS Validation (class-validator)",
+          "url": "https://docs.nestjs.com/techniques/validation",
+          "type": "LINK"
+        }
       ],
       "task": "برای DTO مربوط به ثبت سفارش در کافه یا ساخت نود در Edukad، اعتبارسنجی (مثل حداقل طول متن) اضافه کنید.",
-      "prerequisites": ["be-10"]
+      "prerequisites": [
+        "be-10"
+      ]
     },
     {
       "id": "be-14",
@@ -171,10 +259,16 @@
       "tier": "حرفه‌ای",
       "description": "ذخیره‌سازی تصاویر پروفایل یا کاور محصولات در سرویس‌های Object Storage (مانند آروان‌کلاد).",
       "resources": [
-        { "title": "آپلود فایل در NestJS", "url": "https://docs.nestjs.com/techniques/file-upload", "type": "LINK" }
+        {
+          "title": "آپلود فایل در NestJS",
+          "url": "https://docs.nestjs.com/techniques/file-upload",
+          "type": "LINK"
+        }
       ],
       "task": "یک روت برای آپلود عکس پوستر رویدادهای رکاد بسازید و آن را در پوشه سرور (یا S3) ذخیره و لینک آن را در دیتابیس ثبت کنید.",
-      "prerequisites": ["be-10"]
+      "prerequisites": [
+        "be-10"
+      ]
     },
     {
       "id": "be-15",
@@ -183,10 +277,16 @@
       "tier": "مربی",
       "description": "نوشتن تست برای اطمینان از عملکرد صحیح API ها با Jest.",
       "resources": [
-        { "title": "NestJS Testing", "url": "https://docs.nestjs.com/fundamentals/testing", "type": "LINK" }
+        {
+          "title": "NestJS Testing",
+          "url": "https://docs.nestjs.com/fundamentals/testing",
+          "type": "LINK"
+        }
       ],
       "task": "برای ماژول لاگین Edukad یا سیستم ثبت سفارش کافه یک تست E2E بنویسید که کل جریان ارسال درخواست و دریافت 201 را چک کند.",
-      "prerequisites": ["be-10"]
+      "prerequisites": [
+        "be-10"
+      ]
     },
     {
       "id": "be-16",
@@ -195,10 +295,16 @@
       "tier": "مربی",
       "description": "تجزیه سیستم بزرگ به سرویس‌های کوچکتر.",
       "resources": [
-        { "title": "NestJS Microservices", "url": "https://docs.nestjs.com/microservices/basics", "type": "LINK" }
+        {
+          "title": "NestJS Microservices",
+          "url": "https://docs.nestjs.com/microservices/basics",
+          "type": "LINK"
+        }
       ],
       "task": "سیستم ایمیل مارکتینگ رکاد (برای خبرنامه ایونت‌ها) را به عنوان یک سرویس مجزا با استفاده از پیام‌رسان (مثل Redis) پیاده‌سازی کنید.",
-      "prerequisites": ["be-10"]
+      "prerequisites": [
+        "be-10"
+      ]
     },
     {
       "id": "be-17",
@@ -207,10 +313,16 @@
       "tier": "مربی",
       "description": "کانتینرسازی اپلیکیشن برای استقرار راحت‌تر در سرورهای ابری.",
       "resources": [
-        { "title": "Docker Tutorial for Beginners", "url": "https://docker-curriculum.com/", "type": "LINK" }
+        {
+          "title": "Docker Tutorial for Beginners",
+          "url": "https://docker-curriculum.com/",
+          "type": "LINK"
+        }
       ],
       "task": "یک فایل Dockerfile برای بک‌اند Edukad بنویسید تا بتوان آن را به راحتی روی سرورهای ابری رکاد دیپلوی کرد.",
-      "prerequisites": ["be-15"]
+      "prerequisites": [
+        "be-15"
+      ]
     },
     {
       "id": "be-18",
@@ -219,10 +331,235 @@
       "tier": "مربی",
       "description": "اتوماتیک کردن پروسه تست و آپلود کد جدید روی سرور (مثلاً با GitHub Actions و لیارا).",
       "resources": [
-        { "title": "مستندات Liara", "url": "https://docs.liara.ir/", "type": "LINK" }
+        {
+          "title": "مستندات Liara",
+          "url": "https://docs.liara.ir/",
+          "type": "LINK"
+        }
       ],
       "task": "سرور بک‌اندی که برای منوی کافه توسعه دادید را با استفاده از سرویس لیارا یا کوئرا دیپلوی (مستقر) کنید تا با یک آدرس عمومی در دسترس باشد.",
-      "prerequisites": ["be-17"]
+      "prerequisites": [
+        "be-17"
+      ]
+    },
+    {
+      "id": "be-19",
+      "title": "کشینگ پیشرفته با Redis",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "بهبود سرعت کوئری‌های تکراری درخت مهارت با ذخیره در حافظه Redis.",
+      "resources": [
+        {
+          "title": "Redis University",
+          "url": "https://university.redis.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "پاسخ روت دریافت کل مسیرهای یادگیری را به مدت ۶۰ ثانیه در ردیس کش کنید.",
+      "prerequisites": [
+        "be-9",
+        "be-12"
+      ]
+    },
+    {
+      "id": "be-20",
+      "title": "صف پردازش ناهمگام با BullMQ",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "پردازش ارسال پیامک و اعلان‌ها خارج از چرخه اصلی درخواست و پاسخ.",
+      "resources": [
+        {
+          "title": "BullMQ Guide",
+          "url": "https://docs.bullmq.io/",
+          "type": "LINK"
+        }
+      ],
+      "task": "سیستم ارسال پیامک به منتور هنگام تحویل کار دانش‌آموز را به یک صف پس‌زمینه BullMQ منتقل کنید.",
+      "prerequisites": [
+        "be-19"
+      ]
+    },
+    {
+      "id": "be-21",
+      "title": "مستندسازی استاندارد با Swagger / OpenAPI",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تولید خودکار سند تعاملی APIها در آدرس /api/docs.",
+      "resources": [
+        {
+          "title": "NestJS OpenAPI Swagger",
+          "url": "https://docs.nestjs.com/openapi/introduction",
+          "type": "LINK"
+        }
+      ],
+      "task": "تمام اندپوینت‌های ماژول رادمپ‌ها و نودها را با دکوراتورهای Swagger کامل مستند کنید.",
+      "prerequisites": [
+        "be-12"
+      ]
+    },
+    {
+      "id": "be-22",
+      "title": "تست‌نویسی یکپارچه‌سازی (Integration Testing) در NestJS",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "اجرای تست‌های سرتاسری کنترلرها و دیتابیس با Jest و Supertest.",
+      "resources": [
+        {
+          "title": "NestJS Testing Docs",
+          "url": "https://docs.nestjs.com/fundamentals/testing",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک فایل تست e2e برای فرایند ورود کاربر و اعتبارسنجی توکن jwt بنویسید.",
+      "prerequisites": [
+        "be-14"
+      ]
+    },
+    {
+      "id": "be-23",
+      "title": "کانتینرسازی سرویس با Docker و Docker Compose",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "ایجاد ایمیج کانتینر برای بک‌اند و راه‌اندازی دیتابیس پستگرس و ردیس در محیط ایزوله.",
+      "resources": [
+        {
+          "title": "Docker Get Started",
+          "url": "https://docs.docker.com/get-started/",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک فایل docker-compose.yml برای راه‌اندازی دیتابیس، ردیس و بک‌اند ادوکاد آماده کنید.",
+      "prerequisites": [
+        "be-1"
+      ]
+    },
+    {
+      "id": "be-24",
+      "title": "لاگینگ و رصد خطاها با Winston و Sentry",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "ثبت ساختاریافته وقایع سرور و ارسال لاگ‌های کرش به پنل مانیتورینگ.",
+      "resources": [
+        {
+          "title": "Sentry for Node.js",
+          "url": "https://docs.sentry.io/platforms/node/",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک Exception Filter سراسری در نست بنویسید که تمام خطاهای کد ۵۰۰ را در فایل لاگ ثبت کند.",
+      "prerequisites": [
+        "be-13"
+      ]
+    },
+    {
+      "id": "be-25",
+      "title": "پایگاه‌های داده NoSQL و کاربرد MongoDB در محصولات رکاد",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "ذخیره لاگ‌ها و داده‌های بدون ساختار در پایگاه داده سندی.",
+      "resources": [
+        {
+          "title": "MongoDB University",
+          "url": "https://university.mongodb.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک ساختار برای ثبت فعالیت‌های کلیک کاربران رویدادهای رکاد در کالکشن مونگو طراحی کنید.",
+      "prerequisites": [
+        "be-9"
+      ]
+    },
+    {
+      "id": "be-26",
+      "title": "محدودسازی درخواست‌ها (Rate Limiting) و Throttling",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "جلوگیری از حملات Brute Force و سوءاستفاده از API با تروتلینگ هوشمند.",
+      "resources": [
+        {
+          "title": "NestJS Throttler",
+          "url": "https://docs.nestjs.com/security/rate-limiting",
+          "type": "LINK"
+        }
+      ],
+      "task": "اندپوینت ارسال رمز عبور را طوری محدود کنید که حداکثر ۵ بار در دقیقه از یک آی‌پی قابل فراخوانی باشد.",
+      "prerequisites": [
+        "be-14"
+      ]
+    },
+    {
+      "id": "be-27",
+      "title": "ارتباطات بین‌سرویسی با gRPC و Microservices",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "استفاده از پروتکل باینری gRPC برای ارتباط با تاخیر کم بین میکروسرویس‌ها.",
+      "resources": [
+        {
+          "title": "gRPC Official Docs",
+          "url": "https://grpc.io/docs/",
+          "type": "LINK"
+        }
+      ],
+      "task": "سرویس پیامکی را به عنوان یک میکروسرویس مجزا با قرارداد proto تعریف و به سیستم متصل کنید.",
+      "prerequisites": [
+        "be-20"
+      ]
+    },
+    {
+      "id": "be-28",
+      "title": "مدیریت فایل و اتصال به Storage ابری",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "آپلود امن فایل‌های تحویل مأموریت در باکت‌های ابری سازگار با S3 یا Supabase Storage.",
+      "resources": [
+        {
+          "title": "AWS S3 SDK for JavaScript",
+          "url": "https://docs.aws.amazon.com/sdk-for-javascript/",
+          "type": "LINK"
+        }
+      ],
+      "task": "سرویس آپلود فایل فشرده پروژه تحویلی دانش‌آموزان به باکت ابری سوپابیس را پیاده کنید.",
+      "prerequisites": [
+        "be-13"
+      ]
+    },
+    {
+      "id": "be-29",
+      "title": "اتصال به درگاه‌های پرداخت آنلاین (Payment Gateways)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تولید توکن پرداخت، وریفای کردن تراکنش و مدیریت وب‌هوک‌های تسویه‌حساب سفارشات کافه رکاد.",
+      "resources": [
+        {
+          "title": "ZarinPal API Documentation",
+          "url": "https://www.zarinpal.com/docs/",
+          "type": "LINK"
+        }
+      ],
+      "task": "اندپوینت ارسال کاربر به درگاه پرداخت و متد اعتبارسنجی بازگشت از درگاه برای منوی کافه را بنویسید.",
+      "prerequisites": [
+        "be-10",
+        "be-14"
+      ]
+    },
+    {
+      "id": "be-30",
+      "title": "خط لوله CI/CD و استقرار بدون وقفه (Zero-Downtime)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "اجرای خودکار تست‌ها و دیپلوی روی سرور پروداکشن با GitHub Actions و PM2.",
+      "resources": [
+        {
+          "title": "GitHub Actions Guide",
+          "url": "https://docs.github.com/en/actions",
+          "type": "LINK"
+        }
+      ],
+      "task": "یک فایل workflow در گیت‌هاب بسازید که با هر پوش روی برنچ main، تست‌ها اجرا شده و نسخه جدید روی سرور بیلد شود.",
+      "prerequisites": [
+        "be-22",
+        "be-23"
+      ]
     }
   ]
 }

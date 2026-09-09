@@ -91,6 +91,7 @@ function SkillNodeComponent({ data }: { data: SkillNodeData }) {
         boxShadow: `5px 6px 0 0 ${config.shadow}`,
       }}
       className={`relative w-72 rounded-tl-2xl rounded-br-2xl bg-white border-2 ${config.border} p-4 text-right transition-all cursor-pointer hover:-translate-y-1 active:scale-[0.98] touch-manipulation select-none`}
+      dir="rtl"
     >
       {/* Target Handle (Top: incoming prerequisites from parent nodes) */}
       <Handle
@@ -101,7 +102,7 @@ function SkillNodeComponent({ data }: { data: SkillNodeData }) {
       />
 
       {/* Header: Status Pill & Deliverable Badge */}
-      <div className="flex items-center justify-between gap-2 mb-2.5">
+      <div className="flex items-center justify-between gap-2 mb-2.5" dir="rtl">
         <span
           className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2 py-0.5 rounded-full border ${config.bg} ${config.text} ${config.border}`}
         >
@@ -122,14 +123,14 @@ function SkillNodeComponent({ data }: { data: SkillNodeData }) {
         )}
       </div>
 
-      {/* Title */}
-      <h3 className="font-extrabold text-primary text-sm leading-snug mb-1">
-        {data.title}
+      {/* Title with BiDi Isolation */}
+      <h3 className="font-extrabold text-primary text-sm leading-snug mb-1 text-right bidi-text" dir="rtl">
+        <bdi>{data.title}</bdi>
       </h3>
 
-      {/* Description Snippet */}
-      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-        {data.description}
+      {/* Description Snippet with BiDi Isolation */}
+      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed text-right bidi-text" dir="rtl">
+        <bdi>{data.description}</bdi>
       </p>
 
       {/* Footer Info */}

@@ -21,11 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className="min-h-screen bg-[#f8fafc] text-ink antialiased selection:bg-secondary/30">
+      <body className="min-h-screen bg-[#f8fafc] text-ink antialiased selection:bg-secondary/30" dir="rtl">
         <AuthProvider>
-          <div className="relative min-h-screen flex flex-col">
+          <div className="relative min-h-screen flex flex-col" dir="rtl">
             <Navbar />
-            <main className="flex-1 max-w-7xl mx-auto w-full px-2 sm:px-4 py-2 sm:py-6">
+            <main className="flex-1 max-w-7xl mx-auto w-full px-2 sm:px-4 py-2 sm:py-6 text-right" dir="rtl">
               {children}
             </main>
           </div>

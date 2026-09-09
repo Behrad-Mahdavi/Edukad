@@ -11,8 +11,16 @@
       "tier": "مبتدی",
       "description": "درک مفاهیم تجربه کاربری، پرسونای مخاطب، User Journey و معماری اطلاعات.",
       "resources": [
-        { "title": "مقاله What is UX Design از Interaction Design Foundation", "url": "https://www.interaction-design.org/literature/topics/ux-design", "type": "LINK" },
-        { "title": "دوره Google UX Design", "url": "https://www.coursera.org/professional-certificates/google-ux-design", "type": "LINK" }
+        {
+          "title": "مقاله What is UX Design از Interaction Design Foundation",
+          "url": "https://www.interaction-design.org/literature/topics/ux-design",
+          "type": "LINK"
+        },
+        {
+          "title": "دوره Google UX Design",
+          "url": "https://www.coursera.org/professional-certificates/google-ux-design",
+          "type": "LINK"
+        }
       ],
       "task": "پرسونای مخاطبان (نوجوانان هنرستانی) پلتفرم Edukad را ترسیم کنید و نیازها و دغدغه‌های آن‌ها را بنویسید.",
       "prerequisites": []
@@ -24,10 +32,16 @@
       "tier": "مبتدی",
       "description": "تبدیل ایده‌ها به طرح‌های اولیه خطی روی کاغذ یا با ابزار دیجیتال.",
       "resources": [
-        { "title": "Balsamiq Wireframing Academy", "url": "https://balsamiq.com/learn/", "type": "LINK" }
+        {
+          "title": "Balsamiq Wireframing Academy",
+          "url": "https://balsamiq.com/learn/",
+          "type": "LINK"
+        }
       ],
       "task": "وایرفریم صفحه اصلی سایت ایونت‌های رکاد را روی کاغذ به صورت Low-Fidelity رسم کنید.",
-      "prerequisites": ["ui-1"]
+      "prerequisites": [
+        "ui-1"
+      ]
     },
     {
       "id": "ui-3",
@@ -37,11 +51,21 @@
       "description": "آشنایی با ابزار فیگما، ابزارهای شیپ، متن، رنگ‌ها و لایه‌بندی.",
       "shared_with": "figma-basics-common",
       "resources": [
-        { "title": "Figma Crash Course در یوتیوب", "url": "", "type": "LINK" },
-        { "title": "Figma Help Center", "url": "https://help.figma.com/hc/en-us", "type": "LINK" }
+        {
+          "title": "Figma Crash Course در یوتیوب",
+          "url": "",
+          "type": "LINK"
+        },
+        {
+          "title": "Figma Help Center",
+          "url": "https://help.figma.com/hc/en-us",
+          "type": "LINK"
+        }
       ],
       "task": "یک حساب فیگما بسازید و وایرفریم مرحله قبل را با شکل‌های ساده و خاکستری در فیگما رسم کنید.",
-      "prerequisites": ["ui-2"]
+      "prerequisites": [
+        "ui-2"
+      ]
     },
     {
       "id": "ui-4",
@@ -50,11 +74,21 @@
       "tier": "مبتدی",
       "description": "روانشناسی رنگ‌ها، پالت‌سازی و استفاده صحیح از فونت‌ها در رابط کاربری.",
       "resources": [
-        { "title": "سایت Material Design - Color", "url": "https://m3.material.io/styles/color/overview", "type": "LINK" },
-        { "title": "مقاله تایپوگرافی در وب", "url": "", "type": "LINK" }
+        {
+          "title": "سایت Material Design - Color",
+          "url": "https://m3.material.io/styles/color/overview",
+          "type": "LINK"
+        },
+        {
+          "title": "مقاله تایپوگرافی در وب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "پالت رنگی برند رکاد و فونت‌های استاندارد آن (مثلا Vazirmatn یا شبنم) را به فایل فیگما اضافه کنید.",
-      "prerequisites": ["ui-3"]
+      "prerequisites": [
+        "ui-3"
+      ]
     },
     {
       "id": "ui-5",
@@ -63,10 +97,16 @@
       "tier": "حرفه‌ای",
       "description": "قوانین ادراک بصری، تقارن، مجاورت، و استفاده از Grid System (مثل گرید 12 ستونه بوت‌استرپ).",
       "resources": [
-        { "title": "مقاله گشتالت در UX", "url": "https://www.interaction-design.org/literature/topics/gestalt-principles", "type": "LINK" }
+        {
+          "title": "مقاله گشتالت در UX",
+          "url": "https://www.interaction-design.org/literature/topics/gestalt-principles",
+          "type": "LINK"
+        }
       ],
       "task": "وایرفریم سایت ایونت‌ها را با اعمال یک گرید استاندارد 12 ستونه بهینه‌سازی کنید.",
-      "prerequisites": ["ui-4"]
+      "prerequisites": [
+        "ui-4"
+      ]
     },
     {
       "id": "ui-6",
@@ -75,10 +115,16 @@
       "tier": "حرفه‌ای",
       "description": "طراحی المان‌های پرکاربرد (Buttons, Inputs, Dropdowns) با رعایت Contrast و States (Hover/Active/Disabled).",
       "resources": [
-        { "title": "مستندات Material Design Components", "url": "https://m3.material.io/components", "type": "LINK" }
+        {
+          "title": "مستندات Material Design Components",
+          "url": "https://m3.material.io/components",
+          "type": "LINK"
+        }
       ],
       "task": "یک کارت محصول برای منوی کافه رکاد با رعایت ابعاد استاندارد و حالت‌های Hover/Active طراحی کنید.",
-      "prerequisites": ["ui-5"]
+      "prerequisites": [
+        "ui-5"
+      ]
     },
     {
       "id": "ui-7",
@@ -87,10 +133,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از قابلیت Auto Layout برای طراحی رسپانسیو و مدیریت فاصله‌ها در کامپوننت‌ها.",
       "resources": [
-        { "title": "Figma Auto Layout Tutorial", "url": "https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties", "type": "LINK" }
+        {
+          "title": "Figma Auto Layout Tutorial",
+          "url": "https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties",
+          "type": "LINK"
+        }
       ],
       "task": "کارت محصول کافه را با استفاده از Auto Layout پیاده‌سازی کنید تا با کم و زیاد شدن متن، ارتفاع کارت خودکار تنظیم شود.",
-      "prerequisites": ["ui-6"]
+      "prerequisites": [
+        "ui-6"
+      ]
     },
     {
       "id": "ui-8",
@@ -99,10 +151,16 @@
       "tier": "حرفه‌ای",
       "description": "ساخت Component Library یکپارچه و تعریف Component Variants (مثل سایزها و رنگ‌های دکمه).",
       "resources": [
-        { "title": "Atomic Design Methodology", "url": "https://bradfrost.com/blog/post/atomic-web-design/", "type": "LINK" }
+        {
+          "title": "Atomic Design Methodology",
+          "url": "https://bradfrost.com/blog/post/atomic-web-design/",
+          "type": "LINK"
+        }
       ],
       "task": "یک دیزاین سیستم کوچک (مینی دیزاین سیستم) برای استایل‌ها و کامپوننت‌های پروژه Edukad ایجاد کنید.",
-      "prerequisites": ["ui-7"]
+      "prerequisites": [
+        "ui-7"
+      ]
     },
     {
       "id": "ui-9",
@@ -111,10 +169,16 @@
       "tier": "حرفه‌ای",
       "description": "اصول طراحی اپلیکیشن و وب‌سایت‌های رسپانسیو (Mobile-First, Touch Targets).",
       "resources": [
-        { "title": "Apple Human Interface Guidelines", "url": "https://developer.apple.com/design/human-interface-guidelines/", "type": "LINK" }
+        {
+          "title": "Apple Human Interface Guidelines",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/",
+          "type": "LINK"
+        }
       ],
       "task": "نسخه موبایل صفحه اصلی سایت ایونت‌های رکاد را طراحی کنید و منوی همبرگری و Bottom Navigation را در آن لحاظ کنید.",
-      "prerequisites": ["ui-5"]
+      "prerequisites": [
+        "ui-5"
+      ]
     },
     {
       "id": "ui-10",
@@ -123,10 +187,17 @@
       "tier": "حرفه‌ای",
       "description": "لینک کردن صفحات در فیگما برای شبیه‌سازی حرکت کاربر بین صفحات اپلیکیشن.",
       "resources": [
-        { "title": "Figma Prototyping Basics", "url": "https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma", "type": "LINK" }
+        {
+          "title": "Figma Prototyping Basics",
+          "url": "https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma",
+          "type": "LINK"
+        }
       ],
       "task": "فلوچارت خرید بلیت در سایت رویدادها را به صورت یک پروتوتایپ قابل کلیک در فیگما آماده کنید.",
-      "prerequisites": ["ui-8", "ui-9"]
+      "prerequisites": [
+        "ui-8",
+        "ui-9"
+      ]
     },
     {
       "id": "ui-11",
@@ -135,10 +206,16 @@
       "tier": "حرفه‌ای",
       "description": "ارائه فایل‌های استاندارد به فرانت‌اند دولوپر و استفاده از ابزارهایی مثل Zeplin یا Figma Dev Mode.",
       "resources": [
-        { "title": "Figma Dev Mode Docs", "url": "", "type": "LINK" }
+        {
+          "title": "Figma Dev Mode Docs",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "آیکن‌های کاستوم پروژه کافه را به صورت SVG اکسپورت گرفته و به همراه لینک فایل فیگما به تیم فرانت‌اند تحویل دهید.",
-      "prerequisites": ["ui-10"]
+      "prerequisites": [
+        "ui-10"
+      ]
     },
     {
       "id": "ui-12",
@@ -147,10 +224,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از ابزارهایی مانند Midjourney, ChatGPT یا پلاگین‌های فیگما برای ایده گرفتن و تولید محتوا/تصویر.",
       "resources": [
-        { "title": "وبلاگ طراحی با AI", "url": "", "type": "LINK" }
+        {
+          "title": "وبلاگ طراحی با AI",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "با استفاده از Midjourney یا Dall-E تصاویر تزئینی برای لندینگ ایونت‌های رکاد تولید کرده و در دیزاین استفاده کنید.",
-      "prerequisites": ["ui-7"]
+      "prerequisites": [
+        "ui-7"
+      ]
     },
     {
       "id": "ui-13",
@@ -159,10 +242,16 @@
       "tier": "مربی",
       "description": "نحوه ارزیابی پروتوتایپ با کاربران واقعی، تست A/B، و نقشه‌های حرارتی (Heatmaps).",
       "resources": [
-        { "title": "Nielsen Norman Group - Usability Testing 101", "url": "https://www.nngroup.com/articles/usability-testing-101/", "type": "LINK" }
+        {
+          "title": "Nielsen Norman Group - Usability Testing 101",
+          "url": "https://www.nngroup.com/articles/usability-testing-101/",
+          "type": "LINK"
+        }
       ],
       "task": "پروتوتایپ اپلیکیشن کافه را به ۳ نفر از همکلاسی‌های خود بدهید، از نحوه تعامل آن‌ها تست بگیرید و مشکلاتشان را یادداشت کنید.",
-      "prerequisites": ["ui-10"]
+      "prerequisites": [
+        "ui-10"
+      ]
     },
     {
       "id": "ui-14",
@@ -171,10 +260,16 @@
       "tier": "مربی",
       "description": "افزودن انیمیشن‌های ظریف برای فیدبک کاربر (مثلاً آیکن لایک یا انیمیشن دکمه لودینگ).",
       "resources": [
-        { "title": "مستندات Smart Animate در Figma", "url": "", "type": "LINK" }
+        {
+          "title": "مستندات Smart Animate در Figma",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "انیمیشن ظریفی برای قرار گرفتن محصول در سبد خرید (در کافه رکاد) را با Smart Animate فیگما شبیه‌سازی کنید.",
-      "prerequisites": ["ui-10"]
+      "prerequisites": [
+        "ui-10"
+      ]
     },
     {
       "id": "ui-15",
@@ -183,10 +278,286 @@
       "tier": "مربی",
       "description": "نحوه مدیریت فایل‌ها، مستندسازی، استانداردسازی فرآیند دیزاین در یک تیم چندنفره.",
       "resources": [
-        { "title": "DesignOps Handbook", "url": "https://www.designbetter.co/designops-handbook", "type": "LINK" }
+        {
+          "title": "DesignOps Handbook",
+          "url": "https://www.designbetter.co/designops-handbook",
+          "type": "LINK"
+        }
       ],
       "task": "ساختار فولدرها، نام‌گذاری صفحات و قوانین دیزاین پروژه بزرگ پلتفرم Edukad را مستند کنید.",
-      "prerequisites": ["ui-13"]
+      "prerequisites": [
+        "ui-13"
+      ]
+    },
+    {
+      "id": "uiux-16",
+      "title": "میکرو تعاملات (Micro-interactions) در رابط کاربری",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "طراحی فیدبک‌های تعاملی ظریف، هاورها و واکنش المان‌ها به لمس کاربر.",
+      "resources": [
+        {
+          "title": "Nielsen Norman: Micro-interactions",
+          "url": "https://www.nngroup.com/articles/microinteractions/",
+          "type": "LINK"
+        }
+      ],
+      "task": "برای دکمه‌های سفارش منوی دیجیتال کافه سه حالت هاور، لودینگ و موفقیت طراحی کنید.",
+      "prerequisites": [
+        "uiux-8"
+      ]
+    },
+    {
+      "id": "uiux-17",
+      "title": "معماری اطلاعات و طراحی نقشه سایت (Sitemap)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "دسته‌بندی منطقی صفحات و منوهای محصولات برای دسترسی سریع کاربر.",
+      "resources": [
+        {
+          "title": "Interaction Design Foundation: Information Architecture",
+          "url": "https://www.interaction-design.org/literature/topics/information-architecture",
+          "type": "LINK"
+        }
+      ],
+      "task": "نقشه دسته‌بندی آیتم‌های کافه و سفارش آنلاین رویدادهای رکاد را ترسیم کنید.",
+      "prerequisites": [
+        "uiux-4"
+      ]
+    },
+    {
+      "id": "uiux-18",
+      "title": "طراحی دسترسی‌پذیری و استانداردهای WCAG",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "اطمینان از کنتراست رنگ‌ها، سایز مناسب فونت و خوانایی المان‌ها.",
+      "resources": [
+        {
+          "title": "WebAIM Contrast Checker",
+          "url": "https://webaim.org/resources/contrastchecker/",
+          "type": "LINK"
+        }
+      ],
+      "task": "پالت رنگی پلتفرم ادوکاد را از نظر کنتراست متن‌ها بررسی و اصلاح کنید.",
+      "prerequisites": [
+        "uiux-5"
+      ]
+    },
+    {
+      "id": "uiux-19",
+      "title": "طراحی برای حالت تاریک (Dark Mode)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "قواعد نورپردازی، کنتراست خاکستری‌ها و متغیرهای رنگی تم تیره.",
+      "resources": [
+        {
+          "title": "Material Design: Dark Theme",
+          "url": "https://m3.material.io/foundations/color/dark-theme",
+          "type": "LINK"
+        }
+      ],
+      "task": "تم دارک برای داشبورد درخت مهارت ادوکاد را با حفظ سلسله‌مراتب بصری طراحی کنید.",
+      "prerequisites": [
+        "uiux-7"
+      ]
+    },
+    {
+      "id": "uiux-20",
+      "title": "تست کاربردپذیری (Usability Testing) و کارد سورتینگ",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "ارزیابی تجربی محصول با کاربران واقعی و کشف موانع تجربه کاربری.",
+      "resources": [
+        {
+          "title": "Maze: Remote Testing Guide",
+          "url": "https://maze.co/guides/usability-testing/",
+          "type": "LINK"
+        }
+      ],
+      "task": "۵ تست کاربردپذیری با دانش‌آموزان رکاد روی سناریوی تحویل مأموریت اجرا و نتایج را تحلیل کنید.",
+      "prerequisites": [
+        "uiux-11"
+      ]
+    },
+    {
+      "id": "uiux-21",
+      "title": "تحلیل رقبا و بنچمارک محصول (Benchmarking)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "بررسی الگوهای پلتفرم‌های برتر آموزشی و دلیوری دنیا و استخراج بینش‌های کلیدی.",
+      "resources": [
+        {
+          "title": "UX Design Institute: Competitive Analysis",
+          "url": "https://www.uxdesigninstitute.com/blog/competitive-analysis-ux/",
+          "type": "LINK"
+        }
+      ],
+      "task": "گزارش ماتریس مقایسه‌ای بین پلتفرم ادوکاد و سه محصول برتر درخت مهارت جهانی تهیه کنید.",
+      "prerequisites": [
+        "uiux-3"
+      ]
+    },
+    {
+      "id": "uiux-22",
+      "title": "طراحی فرم‌های بدون اصطکاک (Frictionless Forms)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "بهینه‌سازی فیلدهای ورودی، اعتبارسنجی آنی و پیشگیری از خطای کاربر.",
+      "resources": [
+        {
+          "title": "Smashing Magazine: Form Design Best Practices",
+          "url": "https://www.smashingmagazine.com/2018/08/best-practices-for-mobile-form-design/",
+          "type": "LINK"
+        }
+      ],
+      "task": "فرم ثبت سفارش رویدادهای کافه رکاد را بازطراحی کرده و تعداد فیلدها را به حداقل برسانید.",
+      "prerequisites": [
+        "uiux-6"
+      ]
+    },
+    {
+      "id": "uiux-23",
+      "title": "گیمیفیکیشن و قلاب تعاملی (Hook Model)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از نشان‌ها، سطوح و میله‌های پیشرفت برای ترغیب یادگیری مداوم.",
+      "resources": [
+        {
+          "title": "Nir Eyal: Hooked Model Summary",
+          "url": "https://www.nirandfar.com/how-to-manufacture-desire/",
+          "type": "LINK"
+        }
+      ],
+      "task": "مکانیزم مدال‌های افتخار و لول‌آپ دانش‌آموزان در ادوکاد را ترسیم کنید.",
+      "prerequisites": [
+        "uiux-12"
+      ]
+    },
+    {
+      "id": "uiux-24",
+      "title": "طراحی واکنش‌گرا و تجربه موبایل‌فرست (Mobile-First UX)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "الگوهای دسترسی شست (Thumb Zone)، ژست‌های لمسی و اسکرول نرم.",
+      "resources": [
+        {
+          "title": "Smashing Magazine: Mobile Thumb Zone",
+          "url": "https://www.smashingmagazine.com/2016/09/the-thumb-zone-designing-for-mobile-users/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ناوبری موبایل سایت کافه رکاد را بر اساس دسترسی آسان یک‌دستی بازطراحی کنید.",
+      "prerequisites": [
+        "uiux-7"
+      ]
+    },
+    {
+      "id": "uiux-25",
+      "title": "اصول روانشناسی در طراحی (Laws of UX)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "قانون فیتس، قانون هیک، اثر میله پیشرفت و سوگیری‌های شناختی کاربر.",
+      "resources": [
+        {
+          "title": "Laws of UX",
+          "url": "https://lawsofux.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "صفحه لندینگ مدرسه رکاد را تحلیل کرده و ۵ اصل از قوانین UX به کار رفته در آن را مستند کنید.",
+      "prerequisites": [
+        "uiux-2"
+      ]
+    },
+    {
+      "id": "uiux-26",
+      "title": "مستندسازی و تحویل به توسعه‌دهندگان (Design Handoff)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "اسپک‌گذاری کامپوننت‌ها، نام‌گذاری متغیرها و هماهنگی دقیق با تیم فرانت‌اند.",
+      "resources": [
+        {
+          "title": "Figma: Guide to Developer Mode",
+          "url": "https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode",
+          "type": "LINK"
+        }
+      ],
+      "task": "پروژه فیگما کامپوننت‌های ادوکاد را برای توسعه‌دهندگان با مستندات کامل و Dev Mode آماده کنید.",
+      "prerequisites": [
+        "uiux-9"
+      ]
+    },
+    {
+      "id": "uiux-27",
+      "title": "متریک‌های تجربه کاربری و تحلیل آماری (UX Metrics)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "شاخص‌های SUS، نرخ تکمیل تسک (Task Success Rate) و Time on Task.",
+      "resources": [
+        {
+          "title": "Nielsen Norman: UX Metrics",
+          "url": "https://www.nngroup.com/articles/ux-metrics/",
+          "type": "LINK"
+        }
+      ],
+      "task": "داشبورد ارزیابی متریک‌های تجربه کاربری پلتفرم ادوکاد را تدوین کنید.",
+      "prerequisites": [
+        "uiux-20"
+      ]
+    },
+    {
+      "id": "uiux-28",
+      "title": "نوشتار تجربه کاربری (UX Writing) و میکروکپی‌ها",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "نگارش پیام‌های خطا، اعلان‌ها و متن دکمه‌ها با لحن صمیمی و هدایتگر برند رکاد.",
+      "resources": [
+        {
+          "title": "UX Writing Hub",
+          "url": "https://uxwritinghub.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تمام پیغام‌های خطای احراز هویت و موفقیت تحویل مأموریت ادوکاد را بازنویسی کنید.",
+      "prerequisites": [
+        "uiux-10"
+      ]
+    },
+    {
+      "id": "uiux-29",
+      "title": "طراحی خدمات و نقشه سفر جامع (Service Blueprint)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "هماهنگی فرایندهای جلوی صحنه (Frontstage) و پشت صحنه (Backstage) رویدادها.",
+      "resources": [
+        {
+          "title": "Nielsen Norman: Service Blueprints",
+          "url": "https://www.nngroup.com/articles/service-blueprints-definition/",
+          "type": "LINK"
+        }
+      ],
+      "task": "بلوپرینت کامل خدمات یک رویداد حضوری کافه کارآفرینی رکاد را ترسیم کنید.",
+      "prerequisites": [
+        "uiux-4"
+      ]
+    },
+    {
+      "id": "uiux-30",
+      "title": "راهبری استراتژیک محصول و تفکر دیزاین (Design Leadership)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تسهیلگری کارگاه‌های طوفان فکری، دیزاین اسپرینت و اتصال دیزاین به اهداف کسب‌وکار.",
+      "resources": [
+        {
+          "title": "Google Ventures: Design Sprint",
+          "url": "https://www.gv.com/sprint/",
+          "type": "LINK"
+        }
+      ],
+      "task": "برنامه‌ریزی یک کارگاه دیزاین اسپرینت دو روزه برای افزودن فیچر جدید به پلتفرم ادوکاد.",
+      "prerequisites": [
+        "uiux-15"
+      ]
     }
   ]
 }

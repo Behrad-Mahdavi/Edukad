@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body, UseGuards } from '@nestjs/common';
+import { Controller, Post, Get, Body, Param, UseGuards } from '@nestjs/common';
 import { EnrollmentsService } from './enrollments.service';
 import { EnrollStudentDto } from './dto/enroll-student.dto';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
@@ -16,6 +16,14 @@ export class EnrollmentsController {
   @Post()
   async enrollStudent(@Body() dto: EnrollStudentDto) {
     return this.enrollmentsService.enrollStudent(dto);
+  }
+
+  @Post('self-enroll/:roadmapId')
+  async selfEnroll(
+    @CurrentUser('id') studentId: string,
+    @Param('roadmapId') roadmapId: string,
+  ) {
+    return this.enrollmentsService.selfEnroll(studentId, roadmapId);
   }
 
   @Get('my')

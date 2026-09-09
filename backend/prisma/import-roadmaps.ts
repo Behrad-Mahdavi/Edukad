@@ -45,7 +45,7 @@ async function main() {
       include: { _count: { select: { nodes: true } } },
     });
     
-    if (existingRoadmap && existingRoadmap._count.nodes > 0) {
+    if (existingRoadmap && existingRoadmap._count.nodes >= 30) {
       console.log(`Roadmap ${data.title} (${data.id}) already exists with ${existingRoadmap._count.nodes} nodes. Skipping...`);
       continue;
     }

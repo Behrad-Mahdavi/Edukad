@@ -11,7 +11,11 @@
       "tier": "مبتدی",
       "description": "قانون یک‌سوم، زاویه دوربین (Low Angle, High Angle)، و عمق میدان (Depth of Field).",
       "resources": [
-        { "title": "آموزش اصول کادربندی در تصویربرداری", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش اصول کادربندی در تصویربرداری",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "با دوربین گوشی خود سه کادر متفاوت (کلوزآپ، مدیوم شات و واید شات) از یک فرد در حال کار در کافه رکاد ثبت کنید.",
       "prerequisites": []
@@ -23,10 +27,16 @@
       "tier": "مبتدی",
       "description": "آشنایی با ISO، سرعت شاتر، و دیافراگم (Aperture) در دوربین‌های دیجیتال.",
       "resources": [
-        { "title": "Exposure Triangle Tutorial", "url": "", "type": "LINK" }
+        {
+          "title": "Exposure Triangle Tutorial",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "تأثیر دیافراگم را با تار کردن پس‌زمینه در عکاسی/فیلمبرداری از یکی از قهوه‌های کافه آزمایش کنید.",
-      "prerequisites": ["vid-1"]
+      "prerequisites": [
+        "vid-1"
+      ]
     },
     {
       "id": "vid-3",
@@ -35,10 +45,16 @@
       "tier": "مبتدی",
       "description": "شناخت نور اصلی (Key Light)، نور پرکننده (Fill) و نور پشت (Backlight).",
       "resources": [
-        { "title": "آموزش نورپردازی سه نقطه‌ای در استودیو", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش نورپردازی سه نقطه‌ای در استودیو",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک ستاپ نورپردازی سه نقطه‌ای با تجهیزات ساده (یا رینگ‌لایت) برای مصاحبه یکی از منتورهای رکاد بچینید.",
-      "prerequisites": ["vid-2"]
+      "prerequisites": [
+        "vid-2"
+      ]
     },
     {
       "id": "vid-4",
@@ -47,10 +63,16 @@
       "tier": "مبتدی",
       "description": "آشنایی با میکروفون یقه‌ای (Lavalier)، شات‌گان، و نحوه کنترل نویز محیط.",
       "resources": [
-        { "title": "چگونه صدای حرفه‌ای ضبط کنیم", "url": "", "type": "LINK" }
+        {
+          "title": "چگونه صدای حرفه‌ای ضبط کنیم",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "صدای یک گوینده را با موبایل و سپس با یک میکروفون یقه‌ای (در فضای کافه رکاد) ضبط و مقایسه کنید.",
-      "prerequisites": ["vid-3"]
+      "prerequisites": [
+        "vid-3"
+      ]
     },
     {
       "id": "vid-5",
@@ -59,10 +81,17 @@
       "tier": "حرفه‌ای",
       "description": "وارد کردن ویدیوها (Ingest)، سازماندهی فوتیج‌ها و تایم‌لاین.",
       "resources": [
-        { "title": "دوره Premiere Pro Basics در یوتیوب", "url": "", "type": "LINK" }
+        {
+          "title": "دوره Premiere Pro Basics در یوتیوب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "فوتیج‌های یک رویداد رکاد را وارد پریمیر کرده و در پوشه‌های مرتب دسته‌بندی کنید.",
-      "prerequisites": ["vid-1", "vid-4"]
+      "prerequisites": [
+        "vid-1",
+        "vid-4"
+      ]
     },
     {
       "id": "vid-6",
@@ -71,10 +100,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده از ابزار Razor، Ripple Delete، و درک تفاوت L-Cut و J-Cut.",
       "resources": [
-        { "title": "آموزش J-Cut و L-Cut در پریمیر", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش J-Cut و L-Cut در پریمیر",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک مصاحبه ۲ دقیقه‌ای رکاد را با استفاده از L-Cut و J-Cut طوری تدوین کنید که انتقال بین صحبت‌ها نرم و حرفه‌ای باشد.",
-      "prerequisites": ["vid-5"]
+      "prerequisites": [
+        "vid-5"
+      ]
     },
     {
       "id": "vid-7",
@@ -83,10 +118,16 @@
       "tier": "حرفه‌ای",
       "description": "سینک کردن صدای رکوردر جانبی با تصویر دوربین به صورت دستی و اتوماتیک.",
       "resources": [
-        { "title": "آموزش سینک اتوماتیک صدا در پریمیر", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش سینک اتوماتیک صدا در پریمیر",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "فایل ویدیویی و فایل صوتی مجزای یک مصاحبه در رکاد را در پریمیر با هم سینک کنید.",
-      "prerequisites": ["vid-6"]
+      "prerequisites": [
+        "vid-6"
+      ]
     },
     {
       "id": "vid-8",
@@ -95,10 +136,17 @@
       "tier": "حرفه‌ای",
       "description": "تنظیم تراز سفیدی (White Balance)، اکسپوژر، کنتراست با پنل Lumetri Color.",
       "resources": [
-        { "title": "Lumetri Color Tutorial", "url": "", "type": "LINK" }
+        {
+          "title": "Lumetri Color Tutorial",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یکی از ویدیوهای ایونت رکاد که تراز سفیدی آن زرد شده است را با پنل Lumetri Color اصلاح کنید.",
-      "prerequisites": ["vid-5", "vid-2"]
+      "prerequisites": [
+        "vid-5",
+        "vid-2"
+      ]
     },
     {
       "id": "vid-9",
@@ -107,10 +155,16 @@
       "tier": "مربی",
       "description": "دادن حس سینمایی به ویدیو با استفاده از LUTها و تنظیمات پیشرفته رنگ.",
       "resources": [
-        { "title": "تفاوت Color Correction و Color Grading", "url": "", "type": "LINK" }
+        {
+          "title": "تفاوت Color Correction و Color Grading",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "روی تیزر معرفی کافه رکاد یک Color Grading گرم و صمیمی اعمال کنید تا حس کافه منتقل شود.",
-      "prerequisites": ["vid-8"]
+      "prerequisites": [
+        "vid-8"
+      ]
     },
     {
       "id": "vid-10",
@@ -119,10 +173,16 @@
       "tier": "حرفه‌ای",
       "description": "استفاده اصولی از Cross Dissolve و پرهیز از ترانزیشن‌های غیرحرفه‌ای.",
       "resources": [
-        { "title": "بایدها و نبایدهای استفاده از ترانزیشن", "url": "", "type": "LINK" }
+        {
+          "title": "بایدها و نبایدهای استفاده از ترانزیشن",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "در یک تیزر کوتاه از مدرسه رکاد، انتقال‌های نرم و حرفه‌ای با استفاده از Cross Dissolve و Dip to Black ایجاد کنید.",
-      "prerequisites": ["vid-6"]
+      "prerequisites": [
+        "vid-6"
+      ]
     },
     {
       "id": "vid-11",
@@ -131,10 +191,16 @@
       "tier": "حرفه‌ای",
       "description": "اضافه کردن متن با Essential Graphics و تولید خودکار زیرنویس با هوش مصنوعی پریمیر.",
       "resources": [
-        { "title": "Auto Captions in Premiere Pro", "url": "", "type": "LINK" }
+        {
+          "title": "Auto Captions in Premiere Pro",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "برای یک ویدیوی ۱ دقیقه‌ای از آموزش‌های رکاد، با استفاده از قابلیت Speech to Text زیرنویس خوانا تولید کنید.",
-      "prerequisites": ["vid-5"]
+      "prerequisites": [
+        "vid-5"
+      ]
     },
     {
       "id": "vid-12",
@@ -143,10 +209,16 @@
       "tier": "مربی",
       "description": "استفاده از پنل Essential Sound، حذف نویز پس‌زمینه (Denoise) و تنظیم لول موسیقی نسبت به نریشن.",
       "resources": [
-        { "title": "Audio Mixing در پریمیر", "url": "", "type": "LINK" }
+        {
+          "title": "Audio Mixing در پریمیر",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "ولوم موسیقی پس‌زمینه ویدیوی رکاد را در جاهایی که گوینده صحبت می‌کند کاهش دهید (Audio Ducking).",
-      "prerequisites": ["vid-7"]
+      "prerequisites": [
+        "vid-7"
+      ]
     },
     {
       "id": "vid-13",
@@ -155,10 +227,16 @@
       "tier": "مربی",
       "description": "برش زدن تصاویر هماهنگ با ضرب‌آهنگ (بیت) موسیقی برای ویدیوهای تبلیغاتی.",
       "resources": [
-        { "title": "آموزش برش ویدیو بر اساس ریتم موزیک", "url": "", "type": "LINK" }
+        {
+          "title": "آموزش برش ویدیو بر اساس ریتم موزیک",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "یک ویدیوی ریلز ۱۵ ثانیه‌ای (Reels) از ایونت رکاد با استفاده از مارکرها، دقیقاً روی بیت‌های موزیک تدوین کنید.",
-      "prerequisites": ["vid-6"]
+      "prerequisites": [
+        "vid-6"
+      ]
     },
     {
       "id": "vid-14",
@@ -167,10 +245,16 @@
       "tier": "مربی",
       "description": "تدوین همزمان فیلم‌های ضبط شده با چند دوربین متفاوت.",
       "resources": [
-        { "title": "Multi-camera Editing Tutorial", "url": "", "type": "LINK" }
+        {
+          "title": "Multi-camera Editing Tutorial",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "دو زاویه دوربین از یک پادکست در استودیو رکاد را با قابلیت Multi-cam تدوین کرده و بین نماها سوییچ کنید.",
-      "prerequisites": ["vid-7"]
+      "prerequisites": [
+        "vid-7"
+      ]
     },
     {
       "id": "vid-15",
@@ -179,10 +263,291 @@
       "tier": "حرفه‌ای",
       "description": "نسبت تصویر (Aspect Ratio) برای استوری، ریلز (9:16) و یوتیوب (16:9)، و تنظیمات Bitrate.",
       "resources": [
-        { "title": "بهترین تنظیمات اکسپورت برای اینستاگرام و یوتیوب", "url": "", "type": "LINK" }
+        {
+          "title": "بهترین تنظیمات اکسپورت برای اینستاگرام و یوتیوب",
+          "url": "",
+          "type": "LINK"
+        }
       ],
       "task": "تیزر تدوین شده را در دو قالب افقی (برای آپارات) و عمودی (برای استوری اینستاگرام رکاد) با رزولوشن 1080p خروجی بگیرید.",
-      "prerequisites": ["vid-10", "vid-11"]
+      "prerequisites": [
+        "vid-10",
+        "vid-11"
+      ]
+    },
+    {
+      "id": "ve-16",
+      "title": "اصلاح رنگ حرفه‌ای با DaVinci Resolve (Color Grading)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "کار با Color Wheels، منحنی‌ها (Curves) و تنظیم ظاهر سینمایی رویدادهای رکاد.",
+      "resources": [
+        {
+          "title": "Blackmagic Design DaVinci Resolve Training",
+          "url": "https://www.blackmagicdesign.com/products/davinciresolve/training",
+          "type": "LINK"
+        }
+      ],
+      "task": "اصلاح رنگ و ساخت لوک گرم کافه‌ای برای یک کلیپ یک‌دقیقه‌ای از کافه کارآفرینی.",
+      "prerequisites": [
+        "ve-7"
+      ]
+    },
+    {
+      "id": "ve-17",
+      "title": "تنظیم تخصصی صدا و حذف نویز با Adobe Audition",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "حذف نویز پس‌زمینه صدای مصاحبه‌ها، اکولایزر (EQ) و مسترینگ صدا برای پادکست و ریلز.",
+      "resources": [
+        {
+          "title": "Adobe Audition Audio Cleaning Guide",
+          "url": "https://helpx.adobe.com/audition/using/noise-reduction-restoration-effects.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "حذف نویز صدای محیط کافه از مصاحبه با سخنران رویداد با ادوبی ادیشن.",
+      "prerequisites": [
+        "ve-6"
+      ]
+    },
+    {
+      "id": "ve-18",
+      "title": "تدوین چند دوربینه (Multi-Camera Editing)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "سینک کردن خودکار صدا و تصویر چند دوربین همزمان در سخنرانی‌ها و پنل‌های رکاد.",
+      "resources": [
+        {
+          "title": "Premiere Pro Multi-Cam Guide",
+          "url": "https://helpx.adobe.com/premiere-pro/using/create-multi-camera-source-sequence.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "تدوین یک پنل گفتگوی ۳ دوربینه از کارگاه‌های کافه کارآفرینی به صورت مالتی‌کم.",
+      "prerequisites": [
+        "ve-4"
+      ]
+    },
+    {
+      "id": "ve-19",
+      "title": "فیلمبرداری مصاحبه و نورپردازی پرتره (Interview Lighting)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تکنیک‌های نورپردازی سه‌نقطه‌ای (Key, Fill, Rim) در استودیو و محیط کافه.",
+      "resources": [
+        {
+          "title": "Aputure Lighting Academy",
+          "url": "https://www.aputure.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "برپایی ست نورپردازی مصاحبه در کافه و ضبط گفتگوی اختصاصی با یکی از دانش‌آموزان موفق.",
+      "prerequisites": [
+        "ve-2"
+      ]
+    },
+    {
+      "id": "ve-20",
+      "title": "تدوین ریتمیک ریلزهای پربازدید (Fast-Paced Reels Editing)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "کات‌های سریع همگام با ضرب‌آهنگ موسیقی، افکت‌های صوتی ترنزیشن و قلاب در ۳ ثانیه اول.",
+      "resources": [
+        {
+          "title": "Instagram Creators Video Guide",
+          "url": "https://creators.instagram.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تدوین یک ریلز اینستاگرامی پرانرژی ۳۰ ثانیه‌ای از حواشی پرشور روز رویداد رکاد.",
+      "prerequisites": [
+        "ve-5"
+      ]
+    },
+    {
+      "id": "ve-21",
+      "title": "فیلمبرداری حرکتی با گیمبال و رونین (Gimbal Movements)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "بالانس کردن دوربین، حرکات تعقیبی (Follow) و چرخش‌های نرم در میان جمعیت.",
+      "resources": [
+        {
+          "title": "DJI Ronin Tutorial Series",
+          "url": "https://www.dji.com/support",
+          "type": "LINK"
+        }
+      ],
+      "task": "تصویربرداری پویا و بدون لرزش با گیمبال از ورود تماشاگران و تعاملات کافه.",
+      "prerequisites": [
+        "ve-1"
+      ]
+    },
+    {
+      "id": "ve-22",
+      "title": "مستندسازی رویداد و ساخت افترمووی (Event Aftermovie)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "ترکیب نماهای احساسی، موسیقی حماسی و صدای محیط برای ثبت حس و حال گردهمایی‌ها.",
+      "resources": [
+        {
+          "title": "Filmmaker IQ: Event Coverage",
+          "url": "https://filmmakeriq.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تولید افترمووی دو دقیقه‌ای از اختتامیه دوره شتابدهی هنرستان رکاد.",
+      "prerequisites": [
+        "ve-18",
+        "ve-16"
+      ]
+    },
+    {
+      "id": "ve-23",
+      "title": "تنظیمات سرعت و موشن بلور (Speed Ramping & Optical Flow)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "تغییر سرعت تصویر از اسلوموشن به فست‌موشن برای جذاب کردن حرکات دوربین.",
+      "resources": [
+        {
+          "title": "Premiere Pro Time Remapping",
+          "url": "https://helpx.adobe.com/premiere-pro/using/duration-speed.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "اعمال اسپید رمپ روان روی ریختن قهوه توسط باریستای کافه برای ریلز تبلیغاتی.",
+      "prerequisites": [
+        "ve-4"
+      ]
+    },
+    {
+      "id": "ve-24",
+      "title": "تولید تیزر معرفی محصول (Product Commercial)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "نماهای ماکرو، نورپردازی دقیق و برش‌های شارپ برای نمایش کیفیت منوی کافه.",
+      "resources": [
+        {
+          "title": "Commercial Directing 101",
+          "url": "https://www.premiumbeat.com/blog/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ساخت تیزر تجاری ۳۰ ثانیه‌ای از یک نوشیدنی امضای کافه کارآفرینی.",
+      "prerequisites": [
+        "ve-19",
+        "ve-16"
+      ]
+    },
+    {
+      "id": "ve-25",
+      "title": "کارگردانی فنی و مدیریت رکورد لایواستریم (Live Production)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "سوییچ زنده با میکسر Blackmagic ATEM و استریم روی آپارات و یوتیوب رویدادهای رکاد.",
+      "resources": [
+        {
+          "title": "Blackmagic ATEM Live Production",
+          "url": "https://www.blackmagicdesign.com/products/atemmini",
+          "type": "LINK"
+        }
+      ],
+      "task": "کانفیگ تجهیزات استریم زنده و ضبط همزمان مراسم ارائه نهایی استارتاپ‌ها.",
+      "prerequisites": [
+        "ve-18"
+      ]
+    },
+    {
+      "id": "ve-26",
+      "title": "انیمیت متن و زیرنویس‌های خودکار فارسی (Auto Subtitling)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "ساخت استایل زیرنویس‌های کلمه‌به‌کلمه هایلایت‌شده برای افزایش چشمگیر واچ‌تایم.",
+      "resources": [
+        {
+          "title": "Premiere Speech-to-Text Workflow",
+          "url": "https://helpx.adobe.com/premiere-pro/using/speech-to-text.html",
+          "type": "LINK"
+        }
+      ],
+      "task": "تولید زیرنویس موشن‌دار با رنگ‌بندی برند رکاد برای ۳ ویدیوی آموزشی اینستاگرام.",
+      "prerequisites": [
+        "ve-8"
+      ]
+    },
+    {
+      "id": "ve-27",
+      "title": "فیلمبرداری در شرایط کم‌نور (Low-Light Cinematography)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "مدیریت Dual Native ISO، انتخاب دیافراگم باز و لنزهای پرایم برای رویدادهای عصرگاهی.",
+      "resources": [
+        {
+          "title": "Sony Alpha Low-Light Guide",
+          "url": "https://alphauniverse.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "تصویربرداری سینمایی از گفتگوی دورهمی شبانه کافه رکاد با حفظ جزئیات سایه‌ها.",
+      "prerequisites": [
+        "ve-1"
+      ]
+    },
+    {
+      "id": "ve-28",
+      "title": "مدیریت فایل و آرشیو رسانه‌ای (DIT & Data Management)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "پشتیبان‌گیری امن کارت‌های حافظه با چک‌سام، نام‌گذاری منظم و دسته‌بندی فوتیج‌ها.",
+      "resources": [
+        {
+          "title": "ShotPut Pro Data Offloading",
+          "url": "https://www.imagineproducts.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "راه‌اندازی استراکچر فولدرهای آرشیو و سیستم بک‌آپ دوگانه برای تمام راش‌های سالانه رکاد.",
+      "prerequisites": [
+        "ve-3"
+      ]
+    },
+    {
+      "id": "ve-29",
+      "title": "تولید ولاگ و محتوای پشت صحنه (Behind the Scenes)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "تعامل طبیعی با کاراکترها، قاب‌بندی صمیمی و داستان‌گویی در لحظه.",
+      "resources": [
+        {
+          "title": "Vlog Storytelling Essentials",
+          "url": "https://www.youtube.com/creators/",
+          "type": "LINK"
+        }
+      ],
+      "task": "ضبط و تدوین یک ولاگ ۱۰ دقیقه‌ای از یک روز پرکار تیم اجرایی در آماده‌سازی ایونت بزرگ رکاد.",
+      "prerequisites": [
+        "ve-12"
+      ]
+    },
+    {
+      "id": "ve-30",
+      "title": "تولید مستند بلند داستانی از اکوسیستم رکاد",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "روایت داستان تحول دانش‌آموزان از ورود تا راه‌اندازی استارتاپ در قالب مستند حرفه‌ای.",
+      "resources": [
+        {
+          "title": "MasterClass: Documentary Filmmaking",
+          "url": "https://www.masterclass.com/",
+          "type": "LINK"
+        }
+      ],
+      "task": "کارگردانی، فیلمبرداری و تدوین یک مستند کوتاه ۱۵ دقیقه‌ای از داستان موفقیت یک تیم کارآفرین.",
+      "prerequisites": [
+        "ve-15",
+        "ve-22",
+        "ve-28"
+      ]
     }
   ]
 }

@@ -161,6 +161,10 @@ export const api = {
   },
 
   enrollments: {
+    selfEnroll: (roadmapId: string) =>
+      fetchApi<any>(`/enrollments/self-enroll/${roadmapId}`, {
+        method: 'POST',
+      }),
     enrollStudent: (data: { studentId: string; roadmapId: string; mentorId?: string }) =>
       fetchApi<any>('/enrollments', {
         method: 'POST',

@@ -249,6 +249,7 @@ export default function RoadmapDetailPage() {
   const [roadmap, setRoadmap] = useState<any | null>(null);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [fetching, setFetching] = useState(true);
+  const [enrolling, setEnrolling] = useState(false);
 
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -317,6 +318,19 @@ export default function RoadmapDetailPage() {
     }
   }, [user, loading, slug, router, fetchRoadmapData]);
 
+  const handleSelfEnroll = async () => {
+    if (!roadmap) return;
+    try {
+      setEnrolling(true);
+      await api.enrollments.selfEnroll(roadmap.id);
+      await fetchRoadmapData();
+    } catch (err: any) {
+      alert(err.message || 'خطا در ثبت‌نام مسیر');
+    } finally {
+      setEnrolling(false);
+    }
+  };
+
   const onNodeClick = useCallback(
     (_: any, flowNode: any) => {
       setSelectedNodeId(flowNode.id);
@@ -381,46 +395,58 @@ export default function RoadmapDetailPage() {
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="font-black text-sm sm:text-lg md:text-xl text-primary truncate">
-                {roadmap.title}
+              <h1 className="font-black text-sm sm:text-lg md:text-xl text-primary truncate text-right bidi-text" dir="rtl">
+                <bdi>{roadmap.title}</bdi>
               </h1>
               <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-secondary/20 text-secondary-dark shrink-0">
                 نسخه {roadmap.version}
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-500 line-clamp-1 mt-0.5">
-              {roadmap.description}
+            <p className="text-[11px] sm:text-xs text-slate-500 line-clamp-1 mt-0.5 text-right bidi-text" dir="rtl">
+              <bdi>{roadmap.description}</bdi>
             </p>
           </div>
         </div>
 
-        {/* Progress summary pill */}
-        <div className="flex items-center justify-between sm:justify-end gap-3 bg-slate-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-slate-200 shrink-0">
-          <div className="text-right">
-            <span className="text-[9px] sm:text-[10px] text-slate-400 block font-bold">
-              وضعیت تسلط:
-            </span>
-            <span className="text-xs font-black text-secondary-dark">
-              {stats.percent}٪ ({stats.completed}/{stats.total})
-            </span>
-          </div>
-
-          <div className="w-20 sm:w-28 h-2 sm:h-2.5 rounded-full bg-slate-200 overflow-hidden shrink-0">
-            <div
-              className="h-full bg-secondary transition-all"
-              style={{ width: `${stats.percent}%` }}
-            />
-          </div>
-
-          {enrollment?.mentor && (
-            <div className="pr-2.5 border-r border-slate-200 text-[10px] sm:text-xs font-bold text-primary hidden xs:block">
-              <span className="text-[9px] text-slate-400 block font-medium">
-                منتور ناظر:
+        {/* Enrollment Action or Progress summary pill */}
+        {!enrollment ? (
+          <button
+            type="button"
+            disabled={enrolling}
+            onClick={handleSelfEnroll}
+            className="px-4 py-2 rounded-xl bg-secondary text-white font-black text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 active:scale-95 transition-all flex items-center gap-1.5 border border-primary shrink-0 disabled:opacity-50"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>{enrolling ? 'در حال فعال‌سازی...' : 'شروع این مسیر و باز کردن گره‌ها 🚀'}</span>
+          </button>
+        ) : (
+          <div className="flex items-center justify-between sm:justify-end gap-3 bg-slate-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-slate-200 shrink-0">
+            <div className="text-right">
+              <span className="text-[9px] sm:text-[10px] text-slate-400 block font-bold">
+                وضعیت تسلط:
               </span>
-              {enrollment.mentor.fullName}
+              <span className="text-xs font-black text-secondary-dark">
+                {stats.percent}٪ ({stats.completed}/{stats.total})
+              </span>
             </div>
-          )}
-        </div>
+
+            <div className="w-20 sm:w-28 h-2 sm:h-2.5 rounded-full bg-slate-200 overflow-hidden shrink-0">
+              <div
+                className="h-full bg-secondary transition-all"
+                style={{ width: `${stats.percent}%` }}
+              />
+            </div>
+
+            {enrollment?.mentor && (
+              <div className="pr-2.5 border-r border-slate-200 text-[10px] sm:text-xs font-bold text-primary hidden xs:block">
+                <span className="text-[9px] text-slate-400 block font-medium">
+                  منتور ناظر:
+                </span>
+                {enrollment.mentor.fullName}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* React Flow Skill Tree Canvas wrapped in Provider */}

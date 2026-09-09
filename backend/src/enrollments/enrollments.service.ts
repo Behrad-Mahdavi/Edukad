@@ -128,6 +128,119 @@ export class EnrollmentsService {
     });
   }
 
+  async selfEnroll(studentId: string, roadmapId: string) {
+    const student = await this.prisma.user.findUnique({
+      where: { id: studentId },
+    });
+    if (!student) {
+      throw new BadRequestException('کاربر معتبر نیست');
+    }
+
+    const roadmap = await this.prisma.roadmap.findUnique({
+      where: { id: roadmapId },
+      include: {
+        nodes: {
+          include: {
+            prerequisites: true,
+          },
+        },
+      },
+    });
+    if (!roadmap) {
+      throw new NotFoundException('مسیر یادگیری یافت نشد');
+    }
+
+    const existingEnrollment = await this.prisma.userRoadmap.findUnique({
+      where: {
+        studentId_roadmapId: {
+          studentId,
+          roadmapId,
+        },
+      },
+    });
+
+    if (existingEnrollment) {
+      return existingEnrollment;
+    }
+
+    // Try to find a mentor matching the department, otherwise pick any mentor
+    let mentor = await this.prisma.user.findFirst({
+      where: {
+        role: Role.MENTOR,
+        department: roadmap.department,
+      },
+    });
+    if (!mentor) {
+      mentor = await this.prisma.user.findFirst({
+        where: { role: Role.MENTOR },
+      });
+    }
+
+    return this.prisma.$transaction(async (tx) => {
+      const userRoadmap = await tx.userRoadmap.create({
+        data: {
+          studentId,
+          roadmapId,
+          mentorId: mentor ? mentor.id : null,
+          status: EnrollmentStatus.IN_PROGRESS,
+          roadmapVersionAtEnrollment: roadmap.version,
+        },
+      });
+
+      // Find all root nodes (nodes with 0 prerequisites in this roadmap)
+      const rootNodes = roadmap.nodes.filter(
+        (node) => node.prerequisites.length === 0,
+      );
+
+      for (const rootNode of rootNodes) {
+        await tx.nodeProgress.upsert({
+          where: {
+            userId_nodeId: {
+              userId: studentId,
+              nodeId: rootNode.id,
+            },
+          },
+          update: {
+            status: NodeProgressStatus.UNLOCKED,
+          },
+          create: {
+            userId: studentId,
+            nodeId: rootNode.id,
+            status: NodeProgressStatus.UNLOCKED,
+          },
+        });
+      }
+
+      await tx.notification.create({
+        data: {
+          userId: studentId,
+          type: NotificationType.SYSTEM,
+          title: 'ثبت‌نام در مسیر مهارتی جدید 🚀',
+          message: `شما در مسیر «${roadmap.title}» ثبت‌نام شدید. گره‌های اولیه برای شما باز شدند!`,
+          link: `/roadmaps/${roadmap.slug}`,
+          relatedEntityId: userRoadmap.id,
+          relatedEntityType: 'UserRoadmap',
+        },
+      });
+
+      if (mentor) {
+        await tx.notification.create({
+          data: {
+            userId: mentor.id,
+            type: NotificationType.SYSTEM,
+            title: 'دانش‌آموز جدید تحت نظارت',
+            message: `${student.fullName} در مسیر «${roadmap.title}» شروع به فعالیت کرد.`,
+            link: `/mentor`,
+            relatedEntityId: userRoadmap.id,
+            relatedEntityType: 'UserRoadmap',
+          },
+        });
+      }
+
+      return userRoadmap;
+    });
+  }
+
   async getMyEnrollments(studentId: string) {
     return this.prisma.userRoadmap.findMany({
       where: { studentId },
