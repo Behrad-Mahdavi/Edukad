@@ -59,10 +59,27 @@ async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise
 
 export const api = {
   auth: {
-    login: (phone: string, password: string) =>
-      fetchApi<{ accessToken: string; user: any }>('/auth/login', {
+    login: (identifier: string, password: string) => {
+      const isEmail = identifier.includes('@');
+      const payload = isEmail
+        ? { email: identifier, password }
+        : { phone: identifier, password };
+      return fetchApi<{ accessToken: string; user: any }>('/auth/login', {
         method: 'POST',
-        body: JSON.stringify({ phone, password }),
+        body: JSON.stringify(payload),
+      });
+    },
+    register: (data: {
+      email: string;
+      password: string;
+      fullName: string;
+      department?: string;
+      role?: string;
+      phone?: string;
+    }) =>
+      fetchApi<{ accessToken: string; user: any }>('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(data),
       }),
     getMe: () => fetchApi<any>('/auth/me'),
   },

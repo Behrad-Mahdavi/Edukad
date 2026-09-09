@@ -46,7 +46,7 @@ export default function HomePage() {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
         <div className="text-center font-bold text-slate-500 animate-pulse">
-          در حال بارگذاری اطلاعات ادوکد...
+          در حال بارگذاری اطلاعات ادوکاد...
         </div>
       </div>
     );
@@ -88,7 +88,7 @@ export default function HomePage() {
             باشگاه دانش‌آموزی محصول رکاد
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-primary leading-snug">
-            سلام {user.fullName} عزیز، به درخت مهارت ادوکد خوش اومدی! 🎯
+            سلام {user.fullName} عزیز، به درخت مهارت ادوکاد خوش اومدی! 🎯
           </h1>
           <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
             در این پلتفرم هر گره یک مأموریت واقعی برای محصولات کافه و ایونت‌های رکاد است. با انجام مأموریت‌ها و تایید منتورها، سطوح جدید را باز کنید.

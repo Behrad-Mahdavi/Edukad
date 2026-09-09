@@ -40,14 +40,21 @@ async function main() {
     console.log(`Importing roadmap: ${data.title}...`);
 
     // Check if roadmap exists
-    let roadmap = await prisma.roadmap.findUnique({ where: { slug: data.id } });
+    const existingRoadmap = await prisma.roadmap.findUnique({
+      where: { slug: data.id },
+      include: { _count: { select: { nodes: true } } },
+    });
     
-    if (roadmap) {
-      console.log(`Roadmap ${data.id} already exists. Deleting it to re-import...`);
+    if (existingRoadmap && existingRoadmap._count.nodes > 0) {
+      console.log(`Roadmap ${data.title} (${data.id}) already exists with ${existingRoadmap._count.nodes} nodes. Skipping...`);
+      continue;
+    }
+
+    if (existingRoadmap) {
       await prisma.roadmap.delete({ where: { slug: data.id } });
     }
 
-    roadmap = await prisma.roadmap.create({
+    const roadmap = await prisma.roadmap.create({
       data: {
         title: data.title,
         slug: data.id,

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "@xyflow/react": "^12.3.1",
     "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",

@@ -1,9 +1,13 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class LoginDto {
-  @IsNotEmpty({ message: 'شماره موبایل الزامی است' })
+  @IsOptional()
   @IsString()
-  phone: string;
+  email?: string;
+
+  @IsOptional()
+  @IsString()
+  phone?: string;
 
   @IsNotEmpty({ message: 'رمز عبور الزامی است' })
   @IsString()
