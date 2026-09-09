@@ -24,6 +24,9 @@ async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise
   const token = authToken || getStoredToken();
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    Pragma: 'no-cache',
+    Expires: '0',
     ...(options.headers as Record<string, string>),
   };
 
@@ -31,8 +34,17 @@ async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+  // Anti-caching: append timestamp on GET requests to guarantee fresh data without resetting server
+  const method = (options.method || 'GET').toUpperCase();
+  const urlSeparator = endpoint.includes('?') ? '&' : '?';
+  const finalUrl =
+    method === 'GET'
+      ? `${API_BASE_URL}${endpoint}${urlSeparator}_t=${Date.now()}`
+      : `${API_BASE_URL}${endpoint}`;
+
+  const response = await fetch(finalUrl, {
     ...options,
+    cache: 'no-store',
     headers,
   });
 

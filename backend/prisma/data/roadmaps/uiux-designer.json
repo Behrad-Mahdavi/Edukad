@@ -1,0 +1,192 @@
+{
+  "id": "uiux-designer",
+  "title": "UI/UX Designer",
+  "department": "ENGINEERS",
+  "description": "مسیر جامع طراحی رابط کاربری و تجربه کاربری (UI/UX) برای دیزاین سایت و اپلیکیشن‌های رکاد.",
+  "nodes": [
+    {
+      "id": "ui-1",
+      "title": "مفاهیم پایه UX",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "درک مفاهیم تجربه کاربری، پرسونای مخاطب، User Journey و معماری اطلاعات.",
+      "resources": [
+        { "title": "مقاله What is UX Design از Interaction Design Foundation", "url": "https://www.interaction-design.org/literature/topics/ux-design", "type": "LINK" },
+        { "title": "دوره Google UX Design", "url": "https://www.coursera.org/professional-certificates/google-ux-design", "type": "LINK" }
+      ],
+      "task": "پرسونای مخاطبان (نوجوانان هنرستانی) پلتفرم Edukad را ترسیم کنید و نیازها و دغدغه‌های آن‌ها را بنویسید.",
+      "prerequisites": []
+    },
+    {
+      "id": "ui-2",
+      "title": "Wireframing و اتود زدن",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "تبدیل ایده‌ها به طرح‌های اولیه خطی روی کاغذ یا با ابزار دیجیتال.",
+      "resources": [
+        { "title": "Balsamiq Wireframing Academy", "url": "https://balsamiq.com/learn/", "type": "LINK" }
+      ],
+      "task": "وایرفریم صفحه اصلی سایت ایونت‌های رکاد را روی کاغذ به صورت Low-Fidelity رسم کنید.",
+      "prerequisites": ["ui-1"]
+    },
+    {
+      "id": "ui-3",
+      "title": "مبانی فیگما (Figma)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "آشنایی با ابزار فیگما، ابزارهای شیپ، متن، رنگ‌ها و لایه‌بندی.",
+      "shared_with": "figma-basics-common",
+      "resources": [
+        { "title": "Figma Crash Course در یوتیوب", "url": "", "type": "LINK" },
+        { "title": "Figma Help Center", "url": "https://help.figma.com/hc/en-us", "type": "LINK" }
+      ],
+      "task": "یک حساب فیگما بسازید و وایرفریم مرحله قبل را با شکل‌های ساده و خاکستری در فیگما رسم کنید.",
+      "prerequisites": ["ui-2"]
+    },
+    {
+      "id": "ui-4",
+      "title": "اصول رنگ و تایپوگرافی",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "روانشناسی رنگ‌ها، پالت‌سازی و استفاده صحیح از فونت‌ها در رابط کاربری.",
+      "resources": [
+        { "title": "سایت Material Design - Color", "url": "https://m3.material.io/styles/color/overview", "type": "LINK" },
+        { "title": "مقاله تایپوگرافی در وب", "url": "", "type": "LINK" }
+      ],
+      "task": "پالت رنگی برند رکاد و فونت‌های استاندارد آن (مثلا Vazirmatn یا شبنم) را به فایل فیگما اضافه کنید.",
+      "prerequisites": ["ui-3"]
+    },
+    {
+      "id": "ui-5",
+      "title": "قوانین گشتالت و چیدمان (Layout)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "قوانین ادراک بصری، تقارن، مجاورت، و استفاده از Grid System (مثل گرید 12 ستونه بوت‌استرپ).",
+      "resources": [
+        { "title": "مقاله گشتالت در UX", "url": "https://www.interaction-design.org/literature/topics/gestalt-principles", "type": "LINK" }
+      ],
+      "task": "وایرفریم سایت ایونت‌ها را با اعمال یک گرید استاندارد 12 ستونه بهینه‌سازی کنید.",
+      "prerequisites": ["ui-4"]
+    },
+    {
+      "id": "ui-6",
+      "title": "طراحی کامپوننت‌های UI (دکمه، فرم، کارت)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "طراحی المان‌های پرکاربرد (Buttons, Inputs, Dropdowns) با رعایت Contrast و States (Hover/Active/Disabled).",
+      "resources": [
+        { "title": "مستندات Material Design Components", "url": "https://m3.material.io/components", "type": "LINK" }
+      ],
+      "task": "یک کارت محصول برای منوی کافه رکاد با رعایت ابعاد استاندارد و حالت‌های Hover/Active طراحی کنید.",
+      "prerequisites": ["ui-5"]
+    },
+    {
+      "id": "ui-7",
+      "title": "Auto Layout در فیگما",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از قابلیت Auto Layout برای طراحی رسپانسیو و مدیریت فاصله‌ها در کامپوننت‌ها.",
+      "resources": [
+        { "title": "Figma Auto Layout Tutorial", "url": "https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties", "type": "LINK" }
+      ],
+      "task": "کارت محصول کافه را با استفاده از Auto Layout پیاده‌سازی کنید تا با کم و زیاد شدن متن، ارتفاع کارت خودکار تنظیم شود.",
+      "prerequisites": ["ui-6"]
+    },
+    {
+      "id": "ui-8",
+      "title": "دیزاین سیستم و Variants",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "ساخت Component Library یکپارچه و تعریف Component Variants (مثل سایزها و رنگ‌های دکمه).",
+      "resources": [
+        { "title": "Atomic Design Methodology", "url": "https://bradfrost.com/blog/post/atomic-web-design/", "type": "LINK" }
+      ],
+      "task": "یک دیزاین سیستم کوچک (مینی دیزاین سیستم) برای استایل‌ها و کامپوننت‌های پروژه Edukad ایجاد کنید.",
+      "prerequisites": ["ui-7"]
+    },
+    {
+      "id": "ui-9",
+      "title": "طراحی برای پلتفرم موبایل",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "اصول طراحی اپلیکیشن و وب‌سایت‌های رسپانسیو (Mobile-First, Touch Targets).",
+      "resources": [
+        { "title": "Apple Human Interface Guidelines", "url": "https://developer.apple.com/design/human-interface-guidelines/", "type": "LINK" }
+      ],
+      "task": "نسخه موبایل صفحه اصلی سایت ایونت‌های رکاد را طراحی کنید و منوی همبرگری و Bottom Navigation را در آن لحاظ کنید.",
+      "prerequisites": ["ui-5"]
+    },
+    {
+      "id": "ui-10",
+      "title": "پروتوتایپینگ (Prototyping) پایه",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "لینک کردن صفحات در فیگما برای شبیه‌سازی حرکت کاربر بین صفحات اپلیکیشن.",
+      "resources": [
+        { "title": "Figma Prototyping Basics", "url": "https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma", "type": "LINK" }
+      ],
+      "task": "فلوچارت خرید بلیت در سایت رویدادها را به صورت یک پروتوتایپ قابل کلیک در فیگما آماده کنید.",
+      "prerequisites": ["ui-8", "ui-9"]
+    },
+    {
+      "id": "ui-11",
+      "title": "خروجی گرفتن و هندآف به توسعه‌دهنده (Handoff)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "ارائه فایل‌های استاندارد به فرانت‌اند دولوپر و استفاده از ابزارهایی مثل Zeplin یا Figma Dev Mode.",
+      "resources": [
+        { "title": "Figma Dev Mode Docs", "url": "", "type": "LINK" }
+      ],
+      "task": "آیکن‌های کاستوم پروژه کافه را به صورت SVG اکسپورت گرفته و به همراه لینک فایل فیگما به تیم فرانت‌اند تحویل دهید.",
+      "prerequisites": ["ui-10"]
+    },
+    {
+      "id": "ui-12",
+      "title": "کاربرد هوش مصنوعی در دیزاین",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از ابزارهایی مانند Midjourney, ChatGPT یا پلاگین‌های فیگما برای ایده گرفتن و تولید محتوا/تصویر.",
+      "resources": [
+        { "title": "وبلاگ طراحی با AI", "url": "", "type": "LINK" }
+      ],
+      "task": "با استفاده از Midjourney یا Dall-E تصاویر تزئینی برای لندینگ ایونت‌های رکاد تولید کرده و در دیزاین استفاده کنید.",
+      "prerequisites": ["ui-7"]
+    },
+    {
+      "id": "ui-13",
+      "title": "Usability Testing و تست کاربردپذیری",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "نحوه ارزیابی پروتوتایپ با کاربران واقعی، تست A/B، و نقشه‌های حرارتی (Heatmaps).",
+      "resources": [
+        { "title": "Nielsen Norman Group - Usability Testing 101", "url": "https://www.nngroup.com/articles/usability-testing-101/", "type": "LINK" }
+      ],
+      "task": "پروتوتایپ اپلیکیشن کافه را به ۳ نفر از همکلاسی‌های خود بدهید، از نحوه تعامل آن‌ها تست بگیرید و مشکلاتشان را یادداشت کنید.",
+      "prerequisites": ["ui-10"]
+    },
+    {
+      "id": "ui-14",
+      "title": "میکرو اینتراکشن‌ها (Micro-interactions)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "افزودن انیمیشن‌های ظریف برای فیدبک کاربر (مثلاً آیکن لایک یا انیمیشن دکمه لودینگ).",
+      "resources": [
+        { "title": "مستندات Smart Animate در Figma", "url": "", "type": "LINK" }
+      ],
+      "task": "انیمیشن ظریفی برای قرار گرفتن محصول در سبد خرید (در کافه رکاد) را با Smart Animate فیگما شبیه‌سازی کنید.",
+      "prerequisites": ["ui-10"]
+    },
+    {
+      "id": "ui-15",
+      "title": "مدیریت پروژه‌های دیزاین (Design Ops)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "نحوه مدیریت فایل‌ها، مستندسازی، استانداردسازی فرآیند دیزاین در یک تیم چندنفره.",
+      "resources": [
+        { "title": "DesignOps Handbook", "url": "https://www.designbetter.co/designops-handbook", "type": "LINK" }
+      ],
+      "task": "ساختار فولدرها، نام‌گذاری صفحات و قوانین دیزاین پروژه بزرگ پلتفرم Edukad را مستند کنید.",
+      "prerequisites": ["ui-13"]
+    }
+  ]
+}

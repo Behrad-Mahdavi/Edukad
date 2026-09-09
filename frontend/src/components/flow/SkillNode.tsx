@@ -90,7 +90,7 @@ function SkillNodeComponent({ data }: { data: SkillNodeData }) {
       style={{
         boxShadow: `5px 6px 0 0 ${config.shadow}`,
       }}
-      className={`relative w-72 rounded-tl-2xl rounded-br-2xl bg-white border-2 ${config.border} p-4 text-right transition-all cursor-pointer hover:-translate-y-1`}
+      className={`relative w-72 rounded-tl-2xl rounded-br-2xl bg-white border-2 ${config.border} p-4 text-right transition-all cursor-pointer hover:-translate-y-1 active:scale-[0.98] touch-manipulation select-none`}
     >
       {/* Target Handle (Top: incoming prerequisites from parent nodes) */}
       <Handle

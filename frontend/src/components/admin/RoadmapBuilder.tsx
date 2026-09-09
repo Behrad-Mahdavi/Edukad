@@ -658,33 +658,33 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
         )}
 
         {/* Action Buttons: Add Node, Auto Layout & Save Layout */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={handleAutoLayout}
             disabled={!currentRoadmap}
-            className="px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-black shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-[11px] sm:text-xs font-black shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
             title="چیدمان استاندارد و درختی گره‌ها از بالا به پایین"
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            مرتب‌سازی خودکار 🪄
+            <span className="hidden xs:inline">مرتب‌سازی خودکار</span> 🪄
           </button>
 
           <button
             type="button"
             onClick={() => openNodeEditor(null, true)}
             disabled={!currentRoadmap}
-            className="px-3.5 py-1.5 rounded-xl bg-accent text-white text-xs font-black shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-accent text-white text-[11px] sm:text-xs font-black shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
           >
             <Plus className="w-3.5 h-3.5" />
-            افزودن گره مهارتی
+            افزودن گره
           </button>
 
           <button
             type="button"
             onClick={handleSavePositions}
             disabled={!currentRoadmap}
-            className="px-3.5 py-1.5 rounded-xl bg-secondary text-white text-xs font-black shadow-[2px_3px_0_0_#347e75] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-secondary text-white text-[11px] sm:text-xs font-black shadow-[2px_3px_0_0_#347e75] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
           >
             <Save className="w-3.5 h-3.5" />
             ذخیره چیدمان
@@ -693,7 +693,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
       </div>
 
       {/* Interactive Visual Canvas with React Flow */}
-      <div className="h-[620px] relative bg-slate-50 border-2 border-primary rounded-2xl shadow-[5px_6px_0_0_#21295a] overflow-hidden">
+      <div className="h-[480px] sm:h-[600px] md:h-[640px] relative bg-slate-50 border-2 border-primary rounded-xl sm:rounded-2xl shadow-[4px_5px_0_0_#21295a] overflow-hidden select-none">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -703,17 +703,28 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
           onEdgesDelete={onEdgesDelete}
           nodeTypes={nodeTypes}
           fitView
+          fitViewOptions={{ padding: 0.25, minZoom: 0.25, maxZoom: 1.1 }}
+          minZoom={0.2}
+          maxZoom={1.5}
+          panOnDrag={true}
+          zoomOnPinch={true}
+          zoomOnDoubleClick={false}
+          preventScrolling={true}
         >
           <Background variant={BackgroundVariant.Dots} gap={20} size={1.5} color="#cbd5e1" />
-          <Controls className="!bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a]" />
-          <MiniMap className="!bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a]" />
+          <Controls
+            position="bottom-left"
+            showInteractive={false}
+            className="!bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a] scale-90 sm:scale-100 origin-bottom-left"
+          />
+          <MiniMap className="hidden md:block !bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a]" />
         </ReactFlow>
 
-        {/* Helper Floating Badge */}
-        <div className="absolute top-3 right-3 bg-white/95 border-2 border-primary rounded-xl px-3 py-1.5 text-[11px] font-bold text-slate-700 shadow-[2px_2px_0_0_#21295a] flex items-center gap-2 max-w-lg">
+        {/* Helper Floating Badge (Hidden on small mobile screens to prevent obscuring canvas) */}
+        <div className="hidden sm:flex absolute top-3 right-3 bg-white/95 border-2 border-primary rounded-xl px-3 py-1.5 text-[11px] font-bold text-slate-700 shadow-[2px_2px_0_0_#21295a] items-center gap-2 max-w-lg z-10">
           <HelpCircle className="w-4 h-4 text-secondary flex-shrink-0" />
           <span>
-            💡 <strong>درخت مهارت:</strong> گره‌ها از بالا به پایین بر اساس پیش‌نیاز مرتب شده‌اند. برای اتصال، دایره خروجی (پایین گره) را به دایره ورودی (بالای گره وابسته) وصل کنید. برای حذف پیش‌نیاز خط اتصال را با Backspace حذف کنید.
+            💡 <strong>درخت مهارت:</strong> گره‌ها از بالا به پایین بر اساس پیش‌نیاز مرتب شده‌اند. برای اتصال، دایره خروجی (پایین) را به ورودی (بالا) وصل کنید.
           </span>
         </div>
       </div>

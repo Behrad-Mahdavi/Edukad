@@ -1,0 +1,188 @@
+{
+  "id": "content-creator",
+  "title": "Content Creator / Social Media Manager",
+  "department": "ARTISTS",
+  "description": "مسیر جامع تولید محتوا، کپی‌رایتینگ و مدیریت شبکه‌های اجتماعی رکاد.",
+  "nodes": [
+    {
+      "id": "cc-1",
+      "title": "مبانی بازاریابی محتوایی (Content Marketing)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "درک مفهوم قیف فروش (Funnel) و نقش محتوا در آگاهی از برند، جذب و تبدیل.",
+      "resources": [
+        { "title": "HubSpot: Content Marketing Certification", "url": "https://academy.hubspot.com/courses/content-marketing", "type": "LINK" }
+      ],
+      "task": "قیف بازاریابی برای جذب دانش‌آموزان به پلتفرم Edukad را ترسیم کنید.",
+      "prerequisites": []
+    },
+    {
+      "id": "cc-2",
+      "title": "شناخت پرسونا و صدای برند (Tone of Voice)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "چگونه مانند برند رکاد (نوجوان‌پسند، انرژی‌بخش، حرفه‌ای) صحبت کنیم؟",
+      "resources": [
+        { "title": "راهنمای ساخت Tone of Voice", "url": "", "type": "LINK" }
+      ],
+      "task": "سه متن متفاوت برای دعوت به یک رویداد در کافه رکاد بنویسید (یکی جدی، یکی صمیمی، یکی با ادبیات نوجوانان).",
+      "prerequisites": ["cc-1"]
+    },
+    {
+      "id": "cc-3",
+      "title": "کپی‌رایتینگ (Copywriting) پایه",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "اصول نوشتن تیترهای جذاب (Hook)، دعوت به اقدام (CTA)، و ساختارهای AIDA و PAS.",
+      "resources": [
+        { "title": "Copywriting 101", "url": "https://copyblogger.com/copywriting-101/", "type": "LINK" }
+      ],
+      "task": "با استفاده از فرمول AIDA (توجه، علاقه، تمایل، اقدام)، یک کپشن برای معرفی رویداد جدید رکاد بنویسید.",
+      "prerequisites": ["cc-2"]
+    },
+    {
+      "id": "cc-4",
+      "title": "تقویم محتوایی (Content Calendar)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "برنامه‌ریزی محتوا برای شبکه‌های اجتماعی مختلف و استفاده از Trello یا Notion.",
+      "resources": [
+        { "title": "آموزش ساخت تقویم محتوایی در Notion", "url": "", "type": "LINK" }
+      ],
+      "task": "یک تقویم محتوایی دو هفته‌ای برای اینستاگرام مدرسه رکاد شامل موضوع، فرمت (ریلز/پست)، و روز انتشار طراحی کنید.",
+      "prerequisites": ["cc-1"]
+    },
+    {
+      "id": "cc-5",
+      "title": "محتوا برای اینستاگرام (Instagram Marketing)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "الگوریتم اینستاگرام، استفاده درست از هشتگ‌ها، استوری‌ها و تعامل با مخاطب.",
+      "resources": [
+        { "title": "Instagram Algorithm Explained", "url": "", "type": "LINK" }
+      ],
+      "task": "استراتژی هشتگ‌گذاری و تعامل (Engagement) برای رشد پیج کافه رکاد را در یک داکیومنت بنویسید.",
+      "prerequisites": ["cc-4", "cc-3"]
+    },
+    {
+      "id": "cc-6",
+      "title": "ایده‌پردازی و سناریونویسی برای ویدیو (Reels & YouTube)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "قاعده ۳ ثانیه اول، نگه‌داشتن مخاطب، و استوری‌بورد.",
+      "resources": [
+        { "title": "چگونه سناریو یوتیوب بنویسیم", "url": "", "type": "LINK" }
+      ],
+      "task": "یک سناریوی ۶۰ ثانیه‌ای برای ریلز اینستاگرام با موضوع «یک روز در هنرستان رکاد» بنویسید.",
+      "prerequisites": ["cc-5"]
+    },
+    {
+      "id": "cc-7",
+      "title": "تولید محتوا با موبایل (MoJo)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از ابزارهایی مثل CapCut و InShot برای تدوین سریع ویدیو با موبایل.",
+      "resources": [
+        { "title": "آموزش جامع CapCut برای موبایل", "url": "", "type": "LINK" }
+      ],
+      "task": "با دوربین گوشی از محیط کافه رکاد فیلم بگیرید و یک ریلز ۱۵ ثانیه‌ای ترند در CapCut بسازید.",
+      "prerequisites": ["cc-6"]
+    },
+    {
+      "id": "cc-8",
+      "title": "طراحی گرافیک پایه با Canva",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "ساخت کاور پست و استوری برای زمانی که طراح گرافیک در دسترس نیست.",
+      "resources": [
+        { "title": "Canva Design School", "url": "https://www.canva.com/designschool/", "type": "LINK" }
+      ],
+      "task": "با استفاده از قالب‌های آماده Canva، یک کاور پست اسلایدی برای معرفی مدرسین رکاد طراحی کنید.",
+      "prerequisites": ["cc-5"]
+    },
+    {
+      "id": "cc-9",
+      "title": "مبانی سئو محتوا (SEO Content)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تحقیق کلمات کلیدی، بهینه‌سازی تگ‌های هدینگ (H1, H2) و نوشتن مقالات بلاگ.",
+      "resources": [
+        { "title": "Moz: Beginner's Guide to SEO", "url": "https://moz.com/beginners-guide-to-seo", "type": "LINK" }
+      ],
+      "task": "یک مقاله ۸۰۰ کلمه‌ای برای بلاگ سایت رکاد با کلمه کلیدی «مزایای هنرستان‌های استارتاپی» بنویسید.",
+      "prerequisites": ["cc-3"]
+    },
+    {
+      "id": "cc-10",
+      "title": "گزارش‌گیری و آنالیز محتوا",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "بررسی Instagram Insights و ابزارهای تحلیل برای پیدا کردن محتواهای موفق.",
+      "resources": [
+        { "title": "How to use Instagram Insights", "url": "", "type": "LINK" }
+      ],
+      "task": "آمار فرضی یک ماهه پیج رکاد را بررسی کرده و پیشنهاداتی برای بهبود محتوای ماه بعد ارائه دهید.",
+      "prerequisites": ["cc-5"]
+    },
+    {
+      "id": "cc-11",
+      "title": "بازاریابی لینکدین (LinkedIn Marketing)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "حضور حرفه‌ای برند رکاد در لینکدین برای شبکه‌سازی با سرمایه‌گذاران و منتورها.",
+      "resources": [
+        { "title": "LinkedIn Marketing Best Practices", "url": "", "type": "LINK" }
+      ],
+      "task": "یک پست حرفه‌ای در مورد دستاوردهای آموزشی هنرجویان رکاد برای انتشار در لینکدین رکاد تدوین کنید.",
+      "prerequisites": ["cc-3"]
+    },
+    {
+      "id": "cc-12",
+      "title": "استراتژی محتوای ویدیویی طولانی (YouTube)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "ساخت تامنیل، عنوان‌نویسی جذاب برای یوتیوب، سئو یوتیوب.",
+      "resources": [
+        { "title": "YouTube Creator Academy", "url": "https://creatoracademy.youtube.com/", "type": "LINK" }
+      ],
+      "task": "استراتژی انتشار ویدیوهای کارگاه‌های آموزشی رکاد در یوتیوب را تدوین کنید.",
+      "prerequisites": ["cc-6"]
+    },
+    {
+      "id": "cc-13",
+      "title": "استفاده از هوش مصنوعی در تولید محتوا",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "استفاده اصولی از ChatGPT و Claude برای ایده‌پردازی و تصحیح متون، بدون کپی‌کاری.",
+      "resources": [
+        { "title": "Prompt Engineering for Marketers", "url": "", "type": "LINK" }
+      ],
+      "task": "با استفاده از پرامپت‌نویسی دقیق در ChatGPT، ۱۰ ایده جذاب برای پست‌های اینستاگرامی کافه رکاد تولید کنید.",
+      "prerequisites": ["cc-3"]
+    },
+    {
+      "id": "cc-14",
+      "title": "مدیریت ارتباط با مشتری (Community Management)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "پاسخ‌گویی به دایرکت‌ها، کامنت‌ها و ایجاد حس وفاداری در مخاطب.",
+      "resources": [
+        { "title": "راهنمای Community Management", "url": "", "type": "LINK" }
+      ],
+      "task": "تمپلیت (قالب) پاسخگویی به سوالات متداول (FAQ) درباره ثبت‌نام در مدرسه رکاد را آماده کنید.",
+      "prerequisites": ["cc-2"]
+    },
+    {
+      "id": "cc-15",
+      "title": "تولید محتوای تعاملی (Interactive Content)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "ساخت نظرسنجی‌ها، کوییزها در استوری و مسابقات برای افزایش Engagement.",
+      "resources": [
+        { "title": "Interactive Content Ideas", "url": "", "type": "LINK" }
+      ],
+      "task": "یک کمپین کوچک تعاملی برای استوری‌های اینستاگرام کافه رکاد (مثلاً انتخاب اسم نوشیدنی جدید) طراحی کنید.",
+      "prerequisites": ["cc-5"]
+    }
+  ]
+}

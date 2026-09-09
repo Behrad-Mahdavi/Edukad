@@ -1,0 +1,188 @@
+{
+  "id": "digital-marketer",
+  "title": "Digital Marketing Specialist",
+  "department": "OPS",
+  "description": "مسیر تخصص دیجیتال مارکتینگ: از سئو تا تبلیغات کلیکی و تحلیل داده برای رشد پروژه‌های رکاد.",
+  "nodes": [
+    {
+      "id": "dm-1",
+      "title": "مفاهیم پایه دیجیتال مارکتینگ",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "بازاریابی درون‌گرا (Inbound) در برابر برون‌گرا (Outbound) و KPI ها.",
+      "resources": [
+        { "title": "Google Digital Garage: Fundamentals of Digital Marketing", "url": "https://learndigital.withgoogle.com/digitalgarage", "type": "LINK" }
+      ],
+      "task": "مدل دیجیتال مارکتینگ رکاد (Inbound یا Outbound) را بررسی کرده و سه KPI مهم برای سایت ایونت‌ها تعریف کنید.",
+      "prerequisites": []
+    },
+    {
+      "id": "dm-2",
+      "title": "سئو داخلی (On-Page SEO)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "بهینه‌سازی تایتل، متا دیسکریپشن، URLها، و ساختار هدینگ صفحات سایت.",
+      "resources": [
+        { "title": "Ahrefs On-Page SEO Guide", "url": "https://ahrefs.com/blog/on-page-seo/", "type": "LINK" }
+      ],
+      "task": "صفحه اصلی پلتفرم Edukad را بررسی کرده و متا دیسکریپشن و تایتل تگ آن را بهینه‌سازی کنید.",
+      "prerequisites": ["dm-1"]
+    },
+    {
+      "id": "dm-3",
+      "title": "تحقیق کلمات کلیدی (Keyword Research)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "پیدا کردن کلماتی که مخاطبان رکاد سرچ می‌کنند با ابزارهایی مثل Keyword Planner و Google Trends.",
+      "resources": [
+        { "title": "راهنمای تحقیق کلمات کلیدی", "url": "", "type": "LINK" }
+      ],
+      "task": "با استفاده از Google Trends، ۱۰ کلمه کلیدی پرجستجو درباره «آموزش برنامه‌نویسی نوجوانان» استخراج کنید.",
+      "prerequisites": ["dm-2"]
+    },
+    {
+      "id": "dm-4",
+      "title": "Google Analytics (GA4) - مبانی",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "اتصال سایت به گوگل آنالیتیکس، درک گزارش‌های ترافیک (Acquisition) و رفتار کاربر.",
+      "resources": [
+        { "title": "Google Analytics Academy (GA4)", "url": "https://analytics.google.com/analytics/academy/", "type": "LINK" }
+      ],
+      "task": "در یک حساب تستی GA4، بررسی کنید بیشتر کاربران از چه کانالی (Direct, Organic, Social) وارد سایت شده‌اند.",
+      "prerequisites": ["dm-1"]
+    },
+    {
+      "id": "dm-5",
+      "title": "Google Search Console",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "بررسی ایندکس صفحات سایت، رفع خطاهای Crawl و مشاهده جایگاه کلمات کلیدی.",
+      "resources": [
+        { "title": "Search Console Training (Google)", "url": "", "type": "LINK" }
+      ],
+      "task": "سرچ کنسول سایت رکاد را بررسی کنید و نقشه سایت (Sitemap) را ثبت نمایید.",
+      "prerequisites": ["dm-2"]
+    },
+    {
+      "id": "dm-6",
+      "title": "سئو خارجی (Off-Page SEO) و لینک‌سازی",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "اهمیت بک‌لینک‌ها، رپورتاژ آگهی و تکنیک‌های White-Hat SEO.",
+      "resources": [
+        { "title": "Backlinko Link Building Guide", "url": "https://backlinko.com/link-building", "type": "LINK" }
+      ],
+      "task": "لیستی از ۵ سایت معتبر مرتبط با تکنولوژی و آموزش برای انتشار رپورتاژ آگهی رکاد آماده کنید.",
+      "prerequisites": ["dm-2"]
+    },
+    {
+      "id": "dm-7",
+      "title": "سئو تکنیکال (Technical SEO)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "سرعت سایت، Core Web Vitals، فایل robots.txt و ریدایرکت‌ها.",
+      "resources": [
+        { "title": "Technical SEO Guide", "url": "", "type": "LINK" }
+      ],
+      "task": "سرعت لندینگ پیج رکاد را با PageSpeed Insights چک کرده و مشکلات سئو تکنیکال را لیست کنید.",
+      "prerequisites": ["dm-5"]
+    },
+    {
+      "id": "dm-8",
+      "title": "تبلیغات گوگل (Google Ads) پایه",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "راه‌اندازی کمپین‌های Search، درک CPC، CTR و Quality Score.",
+      "resources": [
+        { "title": "Google Ads Certification", "url": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=53-google-ads", "type": "LINK" }
+      ],
+      "task": "یک کمپین فرضی در Google Ads برای کلمه کلیدی «ثبت نام هنرستان برنامه‌نویسی» طراحی کنید.",
+      "prerequisites": ["dm-3"]
+    },
+    {
+      "id": "dm-9",
+      "title": "ایمیل مارکتینگ (Email Marketing)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از ابزارهایی مانند Mailchimp یا Sendinblue برای خبرنامه‌ها و کمپین‌ها.",
+      "resources": [
+        { "title": "Mailchimp Email Marketing Guide", "url": "https://mailchimp.com/resources/email-marketing-field-guide/", "type": "LINK" }
+      ],
+      "task": "یک قالب ایمیل (Newsletter) برای اطلاع‌رسانی تخفیف‌های کافه رکاد طراحی کنید.",
+      "prerequisites": ["dm-1"]
+    },
+    {
+      "id": "dm-10",
+      "title": "تبلیغات بنری و کلیکی (Display Ads)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "آشنایی با پلتفرم‌های تبلیغاتی ایرانی (یکتانت، صباویژن) و کمپین‌های ریتارگتینگ (Retargeting).",
+      "resources": [
+        { "title": "آموزش پلتفرم یکتانت", "url": "https://yektanet.com/academy/", "type": "LINK" }
+      ],
+      "task": "یک کمپین همسان (Native) در پنل تستی یکتانت برای رویداد رکاد تنظیم کنید.",
+      "prerequisites": ["dm-8"]
+    },
+    {
+      "id": "dm-11",
+      "title": "آنالیز و ردیابی رویدادها (Google Tag Manager)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "نصب GTM، تعریف تگ‌ها و تریگرها بدون نیاز به برنامه‌نویس.",
+      "resources": [
+        { "title": "Google Tag Manager Fundamentals", "url": "https://analytics.google.com/analytics/academy/course/5", "type": "LINK" }
+      ],
+      "task": "با GTM یک Event تنظیم کنید که کلیک روی دکمه «خرید بلیت ایونت» در سایت رکاد را به GA4 بفرستد.",
+      "prerequisites": ["dm-4"]
+    },
+    {
+      "id": "dm-12",
+      "title": "بهینه‌سازی نرخ تبدیل (CRO)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تست A/B، نقشه حرارتی (مانند Hotjar)، و بهبود فرم‌های ثبت‌نام.",
+      "resources": [
+        { "title": "راهنمای Conversion Rate Optimization", "url": "https://cxl.com/blog/conversion-rate-optimization-principles/", "type": "LINK" }
+      ],
+      "task": "بر اساس دیتای فرضی Hotjar، دکمه CTA سایت Edukad را برای کلیک بیشتر (از طریق تغییر رنگ/متن) تغییر دهید.",
+      "prerequisites": ["dm-11", "dm-7"]
+    },
+    {
+      "id": "dm-13",
+      "title": "سوشال مدیا مارکتینگ (Paid Social)",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "تبلیغات اسپانسر اینستاگرام (Promote) و تبلیغات در تلگرام.",
+      "resources": [
+        { "title": "راهنمای تبلیغات در شبکه‌های اجتماعی", "url": "", "type": "LINK" }
+      ],
+      "task": "بودجه‌بندی و لیست ۵ کانال تلگرامی معتبر برای تبلیغ رویدادهای رکاد را آماده کنید.",
+      "prerequisites": ["dm-1"]
+    },
+    {
+      "id": "dm-14",
+      "title": "استراتژی بازاریابی (Marketing Strategy)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "تخصیص بودجه مارکتینگ، تحلیل رقبا، و تدوین مارکتینگ پلن سالانه.",
+      "resources": [
+        { "title": "چگونه مارکتینگ پلن بنویسیم", "url": "", "type": "LINK" }
+      ],
+      "task": "مارکتینگ پلن ۳ ماهه برای افزایش ۱۰ درصدی فروش کافه رکاد با بودجه محدود تدوین کنید.",
+      "prerequisites": ["dm-12", "dm-8", "dm-6"]
+    },
+    {
+      "id": "dm-15",
+      "title": "اتوماسیون بازاریابی (Marketing Automation)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "اتصال ابزارها با Zapier یا ابزارهای مشابه برای ارسال خودکار پیام به سرنخ‌ها (Leads).",
+      "resources": [
+        { "title": "HubSpot: Marketing Automation", "url": "", "type": "LINK" }
+      ],
+      "task": "یک فلوچارت طراحی کنید که در صورت ثبت‌نام کاربر در ایونت، به صورت خودکار پیامک و ایمیل خوش‌آمدگویی ارسال شود.",
+      "prerequisites": ["dm-9"]
+    }
+  ]
+}

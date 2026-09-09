@@ -1,0 +1,188 @@
+{
+  "id": "motion-graphic-designer",
+  "title": "Motion Graphic Designer",
+  "department": "ARTISTS",
+  "description": "مسیر جامع موشن دیزاین، انیمیت عناصر گرافیکی و ساخت تیزرهای تبلیغاتی پویا برای رویدادهای رکاد.",
+  "nodes": [
+    {
+      "id": "mg-1",
+      "title": "مبانی انیمیشن و ۱۲ اصل دیزنی",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "درک اصول پایه حرکت مانند Squash & Stretch، Anticipation و Timing.",
+      "resources": [
+        { "title": "ویدیو 12 اصول انیمیشن دیزنی", "url": "", "type": "LINK" }
+      ],
+      "task": "یک شیء ساده (مثلا یک توپ) را روی کاغذ در حالت پریدن اسکچ بزنید و مفهوم Squash & Stretch را در آن پیاده کنید.",
+      "prerequisites": []
+    },
+    {
+      "id": "mg-2",
+      "title": "آشنایی با محیط After Effects",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "محیط نرم‌افزار، وارد کردن فایل‌ها، کامپوزیشن‌ها و آشنایی اولیه با Timeline.",
+      "resources": [
+        { "title": "دوره آموزش After Effects مقدماتی", "url": "", "type": "LINK" }
+      ],
+      "task": "فایل وکتور لوگوی رکاد را وارد نرم‌افزار کرده و یک کامپوزیشن ۱۰ ثانیه‌ای برای آن بسازید.",
+      "prerequisites": ["mg-1"]
+    },
+    {
+      "id": "mg-3",
+      "title": "کی‌فریم‌ها (Keyframes) و ترانسفورم پایه‌ای",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "کار با Position, Scale, Rotation, Opacity.",
+      "resources": [
+        { "title": "راهنمای کار با کی‌فریم‌ها در ادوبی", "url": "https://helpx.adobe.com/after-effects/using/setting-selecting-deleting-keyframes.html", "type": "LINK" }
+      ],
+      "task": "با تغییر پارامترهای ترانسفورم، انیمیشن ساده‌ای بسازید که لوگوی رکاد به آرامی ظاهر شده و از چپ به راست حرکت کند.",
+      "prerequisites": ["mg-2"]
+    },
+    {
+      "id": "mg-4",
+      "title": "گراف ادیتور (Graph Editor) و Ease",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "نرم کردن حرکات با Easy Ease و کنترل سرعت انیمیشن در نمودار.",
+      "resources": [
+        { "title": "آموزش Graph Editor در یوتیوب", "url": "", "type": "LINK" }
+      ],
+      "task": "انیمیشن حرکت لوگوی مرحله قبل را با استفاده از Graph Editor از حالت خطی (Linear) به حرکت نرم افزایشی-کاهشی تغییر دهید.",
+      "prerequisites": ["mg-3"]
+    },
+    {
+      "id": "mg-5",
+      "title": "ماسک‌ها و Track Matte",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "نحوه مخفی کردن بخش‌هایی از لایه و انیمیت کردن ماسک‌ها.",
+      "resources": [
+        { "title": "آموزش Track Matte", "url": "", "type": "LINK" }
+      ],
+      "task": "متن شعار کافه کارآفرینی رکاد را طوری انیمیت کنید که گویی از درون یک خط فرضی (با استفاده از ماسک) پدیدار می‌شود.",
+      "prerequisites": ["mg-4"]
+    },
+    {
+      "id": "mg-6",
+      "title": "انیمیت متن (Text Animation)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از Text Animators برای ساخت تایتل‌های جذاب.",
+      "resources": [
+        { "title": "After Effects Text Animation Tutorial", "url": "", "type": "LINK" }
+      ],
+      "task": "یک تایتل متحرک برای شروع ویدیوهای آموزشی رکاد با افکت‌های حرفه‌ای تایپوگرافی طراحی کنید.",
+      "prerequisites": ["mg-5"]
+    },
+    {
+      "id": "mg-7",
+      "title": "آشنایی با Shape Layers",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از Trim Paths، Repeater و ساخت بک‌گراندها و المان‌های موشن.",
+      "resources": [
+        { "title": "راهنمای کار با Shape Layers", "url": "", "type": "LINK" }
+      ],
+      "task": "یک افکت انفجار خطی (Burst effect) ساده برای تاکید روی یک دکمه در موشن بسازید.",
+      "prerequisites": ["mg-4"]
+    },
+    {
+      "id": "mg-8",
+      "title": "آماده‌سازی فایل‌های ایلاستریتور برای موشن",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "نحوه لایه‌بندی درست در Ai و استفاده از Overlord.",
+      "resources": [
+        { "title": "ارتباط ایلاستریتور و افترافکت", "url": "", "type": "LINK" }
+      ],
+      "task": "طرح گرافیکی یکی از کاراکترهای رکاد را در ایلاستریتور لایه‌بندی کرده و وارد افترافکت کنید تا برای ریگ‌بندی آماده شود.",
+      "prerequisites": ["mg-2"]
+    },
+    {
+      "id": "mg-9",
+      "title": "مبانی ریگ‌بندی (Rigging) کاراکتر",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "استفاده از پلاگین‌هایی مثل Duik Bassel یا Rubberhose برای کنترل مفاصل.",
+      "resources": [
+        { "title": "دوره آموزشی پلاگین Duik Bassel", "url": "", "type": "LINK" }
+      ],
+      "task": "برای کاراکتر مرحله قبل مفصل‌بندی (Rig) ایجاد کنید تا با حرکت دادن یک کنترلر دست، کل بازو خم شود.",
+      "prerequisites": ["mg-8"]
+    },
+    {
+      "id": "mg-10",
+      "title": "انیمیت کاراکتر و سیکل راه رفتن (Walk Cycle)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "اصول قدم برداشتن و انیمیت حلقوی کاراکتر.",
+      "resources": [
+        { "title": "آموزش سیکل راه رفتن کاراکتر", "url": "", "type": "LINK" }
+      ],
+      "task": "یک سیکل راه رفتن ساده (3 ثانیه‌ای) برای کاراکتر رکاد بسازید که مدام تکرار (Loop) شود.",
+      "prerequisites": ["mg-9"]
+    },
+    {
+      "id": "mg-11",
+      "title": "دوربین و فضای سه‌بعدی در افترافکت",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "استفاده از لایه‌های 3D، نور و عمق میدان (Depth of Field).",
+      "resources": [
+        { "title": "آموزش دوربین سه بعدی در AE", "url": "", "type": "LINK" }
+      ],
+      "task": "چند لایه عکس از ایونت‌های رکاد را در فضای سه‌بعدی چیده و با حرکت دوربین بین آن‌ها یک اسلایدشوی حرفه‌ای بسازید.",
+      "prerequisites": ["mg-7"]
+    },
+    {
+      "id": "mg-12",
+      "title": "اکسپرشن‌ها (Expressions)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "کدنویسی پایه (جاوااسکریپت) در افترافکت برای ساخت انیمیشن‌های تصادفی یا وابسته (مثل Wiggle).",
+      "resources": [
+        { "title": "راهنمای کامل Expressions در AE", "url": "", "type": "LINK" }
+      ],
+      "task": "با استفاده از کد wiggle() یک حرکت لرزان و طبیعی برای یک المان شناور در موشن گرافیک کافه رکاد ایجاد کنید.",
+      "prerequisites": ["mg-4"]
+    },
+    {
+      "id": "mg-13",
+      "title": "صداگذاری (Sound Design) پایه",
+      "level": "خوب-است-بدانی",
+      "tier": "حرفه‌ای",
+      "description": "اضافه کردن SFX و افکت‌های صوتی برای زنده کردن موشن.",
+      "resources": [
+        { "title": "اصول صداگذاری موشن گرافیک", "url": "", "type": "LINK" }
+      ],
+      "task": "برای انیمیشن انفجاری (مرحله 7) افکت‌های صوتی مناسب سینک (Pop و Whoosh) دانلود کرده و روی کار قرار دهید.",
+      "prerequisites": ["mg-4"]
+    },
+    {
+      "id": "mg-14",
+      "title": "رندر و خروجی بهینه",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "نحوه استفاده از Media Encoder، آشنایی با فرمت‌ها (H.264, MP4, MOV).",
+      "resources": [
+        { "title": "آموزش خروجی گرفتن بهینه در Media Encoder", "url": "", "type": "LINK" }
+      ],
+      "task": "یکی از موشن‌های قبلی را برای آپلود در اینستاگرام رکاد (با فرمت MP4 و حجم کمتر از ۲۰ مگابایت) خروجی بگیرید.",
+      "prerequisites": ["mg-3"]
+    },
+    {
+      "id": "mg-15",
+      "title": "پروژه جامع: ساخت تیزر موشن رکاد",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "جمع‌بندی تمام مهارت‌ها در یک پروژه واقعی.",
+      "resources": [
+        { "title": "چگونه یک تیزر موشن گرافیک جذاب بسازیم", "url": "", "type": "LINK" }
+      ],
+      "task": "یک تیزر تبلیغاتی ۱۵ ثانیه‌ای برای یکی از دوره‌های کارآفرینی رکاد شامل نریشن، انیمیت متن و کاراکتر بسازید.",
+      "prerequisites": ["mg-10", "mg-6", "mg-13", "mg-14"]
+    }
+  ]
+}

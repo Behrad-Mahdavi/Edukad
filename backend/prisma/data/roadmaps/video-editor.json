@@ -1,0 +1,188 @@
+{
+  "id": "video-editor",
+  "title": "Video Editor & Videographer",
+  "department": "ARTISTS",
+  "description": "مسیر جامع تصویربرداری و تدوین ویدیو برای رویدادها، مصاحبه‌ها و محتوای آموزشی رکاد.",
+  "nodes": [
+    {
+      "id": "vid-1",
+      "title": "مبانی کادربندی و ترکیب‌بندی تصویر",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "قانون یک‌سوم، زاویه دوربین (Low Angle, High Angle)، و عمق میدان (Depth of Field).",
+      "resources": [
+        { "title": "آموزش اصول کادربندی در تصویربرداری", "url": "", "type": "LINK" }
+      ],
+      "task": "با دوربین گوشی خود سه کادر متفاوت (کلوزآپ، مدیوم شات و واید شات) از یک فرد در حال کار در کافه رکاد ثبت کنید.",
+      "prerequisites": []
+    },
+    {
+      "id": "vid-2",
+      "title": "مثلث نوردهی در تصویربرداری",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "آشنایی با ISO، سرعت شاتر، و دیافراگم (Aperture) در دوربین‌های دیجیتال.",
+      "resources": [
+        { "title": "Exposure Triangle Tutorial", "url": "", "type": "LINK" }
+      ],
+      "task": "تأثیر دیافراگم را با تار کردن پس‌زمینه در عکاسی/فیلمبرداری از یکی از قهوه‌های کافه آزمایش کنید.",
+      "prerequisites": ["vid-1"]
+    },
+    {
+      "id": "vid-3",
+      "title": "نورپردازی پایه (3-Point Lighting)",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "شناخت نور اصلی (Key Light)، نور پرکننده (Fill) و نور پشت (Backlight).",
+      "resources": [
+        { "title": "آموزش نورپردازی سه نقطه‌ای در استودیو", "url": "", "type": "LINK" }
+      ],
+      "task": "یک ستاپ نورپردازی سه نقطه‌ای با تجهیزات ساده (یا رینگ‌لایت) برای مصاحبه یکی از منتورهای رکاد بچینید.",
+      "prerequisites": ["vid-2"]
+    },
+    {
+      "id": "vid-4",
+      "title": "مبانی صدابرداری و استفاده از میکروفون",
+      "level": "ضروری",
+      "tier": "مبتدی",
+      "description": "آشنایی با میکروفون یقه‌ای (Lavalier)، شات‌گان، و نحوه کنترل نویز محیط.",
+      "resources": [
+        { "title": "چگونه صدای حرفه‌ای ضبط کنیم", "url": "", "type": "LINK" }
+      ],
+      "task": "صدای یک گوینده را با موبایل و سپس با یک میکروفون یقه‌ای (در فضای کافه رکاد) ضبط و مقایسه کنید.",
+      "prerequisites": ["vid-3"]
+    },
+    {
+      "id": "vid-5",
+      "title": "آشنایی با محیط نرم‌افزار Premiere Pro",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "وارد کردن ویدیوها (Ingest)، سازماندهی فوتیج‌ها و تایم‌لاین.",
+      "resources": [
+        { "title": "دوره Premiere Pro Basics در یوتیوب", "url": "", "type": "LINK" }
+      ],
+      "task": "فوتیج‌های یک رویداد رکاد را وارد پریمیر کرده و در پوشه‌های مرتب دسته‌بندی کنید.",
+      "prerequisites": ["vid-1", "vid-4"]
+    },
+    {
+      "id": "vid-6",
+      "title": "ابزارهای برش و کات زدن (Cuts)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده از ابزار Razor، Ripple Delete، و درک تفاوت L-Cut و J-Cut.",
+      "resources": [
+        { "title": "آموزش J-Cut و L-Cut در پریمیر", "url": "", "type": "LINK" }
+      ],
+      "task": "یک مصاحبه ۲ دقیقه‌ای رکاد را با استفاده از L-Cut و J-Cut طوری تدوین کنید که انتقال بین صحبت‌ها نرم و حرفه‌ای باشد.",
+      "prerequisites": ["vid-5"]
+    },
+    {
+      "id": "vid-7",
+      "title": "سینک صدا و تصویر (Syncing)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "سینک کردن صدای رکوردر جانبی با تصویر دوربین به صورت دستی و اتوماتیک.",
+      "resources": [
+        { "title": "آموزش سینک اتوماتیک صدا در پریمیر", "url": "", "type": "LINK" }
+      ],
+      "task": "فایل ویدیویی و فایل صوتی مجزای یک مصاحبه در رکاد را در پریمیر با هم سینک کنید.",
+      "prerequisites": ["vid-6"]
+    },
+    {
+      "id": "vid-8",
+      "title": "اصلاح رنگ مقدماتی (Color Correction)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "تنظیم تراز سفیدی (White Balance)، اکسپوژر، کنتراست با پنل Lumetri Color.",
+      "resources": [
+        { "title": "Lumetri Color Tutorial", "url": "", "type": "LINK" }
+      ],
+      "task": "یکی از ویدیوهای ایونت رکاد که تراز سفیدی آن زرد شده است را با پنل Lumetri Color اصلاح کنید.",
+      "prerequisites": ["vid-5", "vid-2"]
+    },
+    {
+      "id": "vid-9",
+      "title": "درجه‌بندی رنگ (Color Grading)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "دادن حس سینمایی به ویدیو با استفاده از LUTها و تنظیمات پیشرفته رنگ.",
+      "resources": [
+        { "title": "تفاوت Color Correction و Color Grading", "url": "", "type": "LINK" }
+      ],
+      "task": "روی تیزر معرفی کافه رکاد یک Color Grading گرم و صمیمی اعمال کنید تا حس کافه منتقل شود.",
+      "prerequisites": ["vid-8"]
+    },
+    {
+      "id": "vid-10",
+      "title": "ترانزیشن‌ها (Transitions) و افکت‌های ویدیویی",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "استفاده اصولی از Cross Dissolve و پرهیز از ترانزیشن‌های غیرحرفه‌ای.",
+      "resources": [
+        { "title": "بایدها و نبایدهای استفاده از ترانزیشن", "url": "", "type": "LINK" }
+      ],
+      "task": "در یک تیزر کوتاه از مدرسه رکاد، انتقال‌های نرم و حرفه‌ای با استفاده از Cross Dissolve و Dip to Black ایجاد کنید.",
+      "prerequisites": ["vid-6"]
+    },
+    {
+      "id": "vid-11",
+      "title": "تایتل‌نویسی و زیرنویس (Captions)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "اضافه کردن متن با Essential Graphics و تولید خودکار زیرنویس با هوش مصنوعی پریمیر.",
+      "resources": [
+        { "title": "Auto Captions in Premiere Pro", "url": "", "type": "LINK" }
+      ],
+      "task": "برای یک ویدیوی ۱ دقیقه‌ای از آموزش‌های رکاد، با استفاده از قابلیت Speech to Text زیرنویس خوانا تولید کنید.",
+      "prerequisites": ["vid-5"]
+    },
+    {
+      "id": "vid-12",
+      "title": "صداگذاری پیشرفته (Audio Mixing)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "استفاده از پنل Essential Sound، حذف نویز پس‌زمینه (Denoise) و تنظیم لول موسیقی نسبت به نریشن.",
+      "resources": [
+        { "title": "Audio Mixing در پریمیر", "url": "", "type": "LINK" }
+      ],
+      "task": "ولوم موسیقی پس‌زمینه ویدیوی رکاد را در جاهایی که گوینده صحبت می‌کند کاهش دهید (Audio Ducking).",
+      "prerequisites": ["vid-7"]
+    },
+    {
+      "id": "vid-13",
+      "title": "تدوین ریتمیک (Beat Syncing)",
+      "level": "ضروری",
+      "tier": "مربی",
+      "description": "برش زدن تصاویر هماهنگ با ضرب‌آهنگ (بیت) موسیقی برای ویدیوهای تبلیغاتی.",
+      "resources": [
+        { "title": "آموزش برش ویدیو بر اساس ریتم موزیک", "url": "", "type": "LINK" }
+      ],
+      "task": "یک ویدیوی ریلز ۱۵ ثانیه‌ای (Reels) از ایونت رکاد با استفاده از مارکرها، دقیقاً روی بیت‌های موزیک تدوین کنید.",
+      "prerequisites": ["vid-6"]
+    },
+    {
+      "id": "vid-14",
+      "title": "کالتی‌کم (Multi-cam Editing)",
+      "level": "خوب-است-بدانی",
+      "tier": "مربی",
+      "description": "تدوین همزمان فیلم‌های ضبط شده با چند دوربین متفاوت.",
+      "resources": [
+        { "title": "Multi-camera Editing Tutorial", "url": "", "type": "LINK" }
+      ],
+      "task": "دو زاویه دوربین از یک پادکست در استودیو رکاد را با قابلیت Multi-cam تدوین کرده و بین نماها سوییچ کنید.",
+      "prerequisites": ["vid-7"]
+    },
+    {
+      "id": "vid-15",
+      "title": "خروجی گرفتن برای شبکه‌های اجتماعی (Exporting)",
+      "level": "ضروری",
+      "tier": "حرفه‌ای",
+      "description": "نسبت تصویر (Aspect Ratio) برای استوری، ریلز (9:16) و یوتیوب (16:9)، و تنظیمات Bitrate.",
+      "resources": [
+        { "title": "بهترین تنظیمات اکسپورت برای اینستاگرام و یوتیوب", "url": "", "type": "LINK" }
+      ],
+      "task": "تیزر تدوین شده را در دو قالب افقی (برای آپارات) و عمودی (برای استوری اینستاگرام رکاد) با رزولوشن 1080p خروجی بگیرید.",
+      "prerequisites": ["vid-10", "vid-11"]
+    }
+  ]
+}

@@ -146,40 +146,40 @@ export function NodeDetailDrawer({
 
       {/* Drawer: Placed on the right side */}
       <aside
-        className="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-white border-l-4 border-primary shadow-[-10px_0_30px_0_rgba(33,41,90,0.2)] z-[100] flex flex-col overflow-hidden text-right animate-in slide-in-from-right duration-200"
+        className="fixed inset-y-0 right-0 w-full sm:w-[480px] h-full max-h-dvh bg-white border-l-2 sm:border-l-4 border-primary shadow-[-10px_0_30px_0_rgba(33,41,90,0.2)] z-[100] flex flex-col overflow-hidden text-right animate-in slide-in-from-right duration-200"
         onClick={(e) => e.stopPropagation()}
         aria-label="جزئیات مهارت"
       >
         {/* Header */}
-        <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-start justify-between gap-3">
+        <div className="p-3.5 sm:p-5 bg-bg-lavender border-b-2 border-primary flex items-start justify-between gap-3 shrink-0">
           <div>
-            <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary mb-2 inline-block">
+            <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary mb-1.5 sm:mb-2 inline-block">
               جزئیات مهارت
             </span>
-            <h2 className="font-black text-xl text-primary leading-snug">
+            <h2 className="font-black text-base sm:text-xl text-primary leading-snug">
               {node.title}
             </h2>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl border-2 border-primary bg-white hover:bg-rose-50 text-slate-500 hover:text-accent transition-colors active:scale-95 cursor-pointer flex-shrink-0"
+            className="p-1.5 sm:p-2 rounded-xl border-2 border-primary bg-white hover:bg-rose-50 text-slate-500 hover:text-accent transition-colors active:scale-95 cursor-pointer shrink-0"
             title="بستن پنجره"
             aria-label="بستن پنجره"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
 
         {/* Description */}
-        <div className="p-5 border-b border-slate-100 bg-white">
-          <p className="text-sm text-slate-700 leading-relaxed">
+        <div className="p-3.5 sm:p-5 border-b border-slate-100 bg-white shrink-0">
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed max-h-32 overflow-y-auto">
             {node.description}
           </p>
 
           {/* Status indicator bar */}
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-            <div className="text-xs font-bold text-slate-500">
+          <div className="mt-3 sm:mt-4 pt-2.5 sm:pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
+            <div className="text-[11px] sm:text-xs font-bold text-slate-500">
               وضعیت شما:{' '}
               <span
                 className={`font-black ${
@@ -219,43 +219,43 @@ export function NodeDetailDrawer({
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b-2 border-primary bg-slate-50 font-bold text-xs">
+        <div className="flex border-b-2 border-primary bg-slate-50 font-bold text-[11px] sm:text-xs shrink-0">
           <button
             type="button"
             onClick={() => setActiveTab('resources')}
-            className={`flex-1 py-3 border-b-2 transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`flex-1 py-2.5 sm:py-3 border-b-2 transition-all flex items-center justify-center gap-1 cursor-pointer ${
               activeTab === 'resources'
                 ? 'border-primary text-primary bg-white'
                 : 'border-transparent text-slate-500 hover:text-primary'
             }`}
           >
-            <BookOpen className="w-4 h-4" />
-            منابع یادگیری ({resources.length})
+            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            منابع ({resources.length})
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('submit')}
-            className={`flex-1 py-3 border-b-2 transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`flex-1 py-2.5 sm:py-3 border-b-2 transition-all flex items-center justify-center gap-1 cursor-pointer ${
               activeTab === 'submit'
                 ? 'border-primary text-primary bg-white'
                 : 'border-transparent text-slate-500 hover:text-primary'
             }`}
           >
-            <Send className="w-4 h-4" />
+            <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             تحویل مأموریت
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('history')}
-            className={`flex-1 py-3 border-b-2 transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+            className={`flex-1 py-2.5 sm:py-3 border-b-2 transition-all flex items-center justify-center gap-1 cursor-pointer ${
               activeTab === 'history'
                 ? 'border-primary text-primary bg-white'
                 : 'border-transparent text-slate-500 hover:text-primary'
             }`}
           >
-            <Clock className="w-4 h-4" />
+            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             تاریخچه ({submissions.length})
           </button>
         </div>

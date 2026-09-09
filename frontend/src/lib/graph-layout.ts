@@ -26,17 +26,17 @@ export interface LayoutOptions {
 }
 
 const DEFAULT_OPTIONS: Required<LayoutOptions> = {
-  nodeWidth: 280,
-  nodeHeight: 140,
-  horizontalGap: 60,
-  verticalGap: 120,
-  centerX: 450,
-  startY: 50,
+  nodeWidth: 290,
+  nodeHeight: 150,
+  horizontalGap: 70,
+  verticalGap: 130,
+  centerX: 600,
+  startY: 80,
 };
 
 /**
- * Computes neat hierarchical coordinates for a graph of nodes.
- * Roots (0 prerequisites) sit at Level 0 (top), dependent nodes flow downwards.
+ * Computes neat hierarchical coordinates for a graph of nodes using a Sugiyama-style barycenter heuristic.
+ * Roots (0 prerequisites) sit at Level 0 (top), dependent nodes flow downwards neatly without crossing.
  */
 export function computeHierarchicalLayout<T extends LayoutNode>(
   nodes: T[],
@@ -80,7 +80,6 @@ export function computeHierarchicalLayout<T extends LayoutNode>(
   // 2. Compute depth for each node (longest path from root)
   const nodeLevels = new Map<string, number>();
 
-  // Function to get level with cycle protection
   function getNodeLevel(nodeId: string, visited = new Set<string>()): number {
     if (nodeLevels.has(nodeId)) {
       return nodeLevels.get(nodeId)!;
@@ -123,27 +122,73 @@ export function computeHierarchicalLayout<T extends LayoutNode>(
     levelsMap.get(lvl)!.push(n);
   });
 
-  // Sort levels ascending
   const sortedLevelKeys = Array.from(levelsMap.keys()).sort((a, b) => a - b);
-
-  // 4. Calculate X, Y positions
   const resultMap = new Map<string, { x: number; y: number }>();
 
-  sortedLevelKeys.forEach((lvl) => {
-    const nodesInLevel = levelsMap.get(lvl)!;
-    const count = nodesInLevel.length;
-
+  function assignLevelPositions(lvl: number, levelNodes: T[]) {
+    const count = levelNodes.length;
     const totalWidth = count * opts.nodeWidth + (count - 1) * opts.horizontalGap;
     const startX = opts.centerX - totalWidth / 2;
+    const y = Math.round(opts.startY + lvl * (opts.nodeHeight + opts.verticalGap));
 
-    nodesInLevel.forEach((node, idx) => {
+    levelNodes.forEach((node, idx) => {
       const x = Math.round(startX + idx * (opts.nodeWidth + opts.horizontalGap));
-      const y = Math.round(opts.startY + lvl * (opts.nodeHeight + opts.verticalGap));
       resultMap.set(node.id, { x, y });
     });
-  });
+  }
 
-  // 5. Return updated nodes
+  // Initial Level 0 placement
+  if (levelsMap.has(0)) {
+    assignLevelPositions(0, levelsMap.get(0)!);
+  }
+
+  // 4. Downward Barycenter Sweep: Sort level nodes according to average X of their incoming parents
+  for (let i = 1; i < sortedLevelKeys.length; i++) {
+    const lvl = sortedLevelKeys[i];
+    const levelNodes = levelsMap.get(lvl)!;
+
+    levelNodes.sort((a, b) => {
+      const parentsA = Array.from(incomingMap.get(a.id) || []);
+      const parentsB = Array.from(incomingMap.get(b.id) || []);
+
+      const getAvgX = (parents: string[]) => {
+        const xs = parents
+          .map((pId) => resultMap.get(pId)?.x)
+          .filter((x): x is number => x !== undefined);
+        return xs.length > 0 ? xs.reduce((acc, v) => acc + v, 0) / xs.length : opts.centerX;
+      };
+
+      return getAvgX(parentsA) - getAvgX(parentsB);
+    });
+
+    assignLevelPositions(lvl, levelNodes);
+  }
+
+  // 5. Upward Barycenter Sweep: Re-align parent nodes above their children
+  for (let i = sortedLevelKeys.length - 2; i >= 0; i--) {
+    const lvl = sortedLevelKeys[i];
+    const levelNodes = levelsMap.get(lvl)!;
+
+    levelNodes.sort((a, b) => {
+      const childrenA = Array.from(outgoingMap.get(a.id) || []);
+      const childrenB = Array.from(outgoingMap.get(b.id) || []);
+
+      const getAvgX = (children: string[]) => {
+        const xs = children
+          .map((cId) => resultMap.get(cId)?.x)
+          .filter((x): x is number => x !== undefined);
+        return xs.length > 0
+          ? xs.reduce((acc, v) => acc + v, 0) / xs.length
+          : resultMap.get(a.id)?.x || opts.centerX;
+      };
+
+      return getAvgX(childrenA) - getAvgX(childrenB);
+    });
+
+    assignLevelPositions(lvl, levelNodes);
+  }
+
+  // 6. Return updated nodes
   return nodes.map((n) => {
     const pos = resultMap.get(n.id) || { x: 100, y: 100 };
     return {
