@@ -1,0 +1,210 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  SUPER_ADMIN
+  MENTOR
+  STUDENT
+}
+
+enum Level {
+  NOVICE
+  PRACTITIONER
+  TEAM_LEAD
+  MENTOR_CANDIDATE
+}
+
+enum Department {
+  ENGINEERS
+  ARTISTS
+  OPS
+}
+
+enum RoadmapStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ResourceType {
+  LINK
+  VIDEO_URL
+  MARKDOWN_TEXT
+  FILE
+}
+
+enum EnrollmentStatus {
+  IN_PROGRESS
+  COMPLETED
+  PAUSED
+}
+
+enum NodeProgressStatus {
+  LOCKED
+  UNLOCKED
+  IN_PROGRESS
+  SUBMITTED
+  NEEDS_REVISION
+  COMPLETED
+}
+
+enum SubmissionOutcome {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum NotificationType {
+  MENTOR_FEEDBACK
+  NEW_SUBMISSION_FOR_REVIEW
+  NODE_UNLOCKED
+  LEVEL_PROMOTED
+  SYSTEM
+}
+
+model User {
+  id           String      @id @default(cuid())
+  fullName     String
+  phone        String      @unique
+  username     String?     @unique
+  email        String?     @unique
+  passwordHash String
+  role         Role        @default(STUDENT)
+  level        Level?
+  department   Department  @default(ENGINEERS)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  studentEnrollments   UserRoadmap[]     @relation("StudentEnrollments")
+  mentoredEnrollments  UserRoadmap[]     @relation("MentorEnrollments")
+  nodeProgresses       NodeProgress[]
+  reviewedSubmissions  NodeSubmission[]  @relation("ReviewerSubmissions")
+  notifications        Notification[]
+}
+
+model Roadmap {
+  id          String         @id @default(cuid())
+  title       String
+  slug        String         @unique
+  description String
+  department  Department
+  status      RoadmapStatus  @default(DRAFT)
+  version     Int            @default(1)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  nodes         Node[]
+  enrollments   UserRoadmap[]
+}
+
+model Node {
+  id             String      @id @default(cuid())
+  roadmapId      String
+  roadmap        Roadmap     @relation(fields: [roadmapId], references: [id], onDelete: Cascade)
+  title          String
+  description    String
+  positionX      Float
+  positionY      Float
+  hasDeliverable Boolean     @default(true)
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  resources      Resource[]
+  progresses     NodeProgress[]
+  prerequisites  NodePrerequisite[] @relation("NodeToPrereqs")
+  dependentOnMe  NodePrerequisite[] @relation("PrereqToNodes")
+}
+
+model NodePrerequisite {
+  id                 String   @id @default(cuid())
+  nodeId             String
+  prerequisiteNodeId String
+  createdAt          DateTime @default(now())
+
+  node               Node     @relation("NodeToPrereqs", fields: [nodeId], references: [id], onDelete: Cascade)
+  prerequisiteNode   Node     @relation("PrereqToNodes", fields: [prerequisiteNodeId], references: [id], onDelete: Cascade)
+
+  @@unique([nodeId, prerequisiteNodeId])
+  @@index([nodeId])
+  @@index([prerequisiteNodeId])
+}
+
+model Resource {
+  id        String       @id @default(cuid())
+  nodeId    String
+  node      Node         @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+  title     String
+  type      ResourceType
+  content   String
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+}
+
+model UserRoadmap {
+  id                          String           @id @default(cuid())
+  studentId                   String
+  student                     User             @relation("StudentEnrollments", fields: [studentId], references: [id], onDelete: Cascade)
+  roadmapId                   String
+  roadmap                     Roadmap          @relation(fields: [roadmapId], references: [id], onDelete: Cascade)
+  mentorId                    String?
+  mentor                      User?            @relation("MentorEnrollments", fields: [mentorId], references: [id])
+  status                      EnrollmentStatus @default(IN_PROGRESS)
+  roadmapVersionAtEnrollment  Int              @default(1)
+  enrolledAt                  DateTime         @default(now())
+  updatedAt                   DateTime         @updatedAt
+
+  @@unique([studentId, roadmapId])
+}
+
+model NodeProgress {
+  id                  String             @id @default(cuid())
+  userId              String
+  user                User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nodeId              String
+  node                Node               @relation(fields: [nodeId], references: [id], onDelete: Cascade)
+  status              NodeProgressStatus @default(LOCKED)
+  currentSubmissionId String?
+  updatedAt           DateTime           @updatedAt
+
+  submissions         NodeSubmission[]
+
+  @@unique([userId, nodeId])
+  @@index([userId])
+  @@index([nodeId])
+}
+
+model NodeSubmission {
+  id             String            @id @default(cuid())
+  nodeProgressId String
+  nodeProgress   NodeProgress      @relation(fields: [nodeProgressId], references: [id], onDelete: Cascade)
+  submissionUrl  String
+  submissionNote String?
+  mentorFeedback String?
+  reviewedById   String?
+  reviewedBy     User?             @relation("ReviewerSubmissions", fields: [reviewedById], references: [id])
+  reviewedAt     DateTime?
+  outcome        SubmissionOutcome @default(PENDING)
+  createdAt      DateTime          @default(now())
+}
+
+model Notification {
+  id                String           @id @default(cuid())
+  userId            String
+  user              User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type              NotificationType
+  title             String
+  message           String
+  isRead            Boolean          @default(false)
+  link              String?
+  relatedEntityId   String?
+  relatedEntityType String?
+  createdAt         DateTime         @default(now())
+
+  @@index([userId])
+}

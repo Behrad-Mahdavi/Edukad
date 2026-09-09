@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+@import '@xyflow/react/dist/style.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #21295a;
+  --secondary: #58bdaf;
+  --accent: #e0195b;
+  --tertiary: #f4971f;
+  --ink: #292827;
+}
+
+body {
+  font-family: 'IRANSansX', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink);
+  background-color: #f8fafc;
+  direction: rtl;
+}
+
+/* Sticker Aesthetic Utilities from DESIGN.md */
+.sticker-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid var(--primary);
+  border-radius: 1.25rem 0.35rem 1.25rem 0.35rem;
+  box-shadow: 5px 6px 0 0 var(--primary);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sticker-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 8px 0 0 var(--primary);
+}
+
+.sticker-card-secondary {
+  border-color: var(--secondary);
+  box-shadow: 5px 6px 0 0 var(--secondary);
+}
+
+.sticker-card-secondary:hover {
+  box-shadow: 7px 8px 0 0 var(--secondary);
+}
+
+.sticker-card-accent {
+  border-color: var(--accent);
+  box-shadow: 5px 6px 0 0 var(--accent);
+}
+
+.sticker-card-accent:hover {
+  box-shadow: 7px 8px 0 0 var(--accent);
+}
+
+.sticker-card-tertiary {
+  border-color: var(--tertiary);
+  box-shadow: 5px 6px 0 0 var(--tertiary);
+}
+
+.sticker-card-tertiary:hover {
+  box-shadow: 7px 8px 0 0 var(--tertiary);
+}
+
+.sticker-btn {
+  font-weight: 700;
+  border: 2px solid currentColor;
+  border-radius: 0.75rem;
+  box-shadow: 3px 4px 0 0 currentColor;
+  transition: all 0.15s ease;
+}
+
+.sticker-btn:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 5px 0 0 currentColor;
+}
+
+.sticker-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 currentColor;
+}
+
+/* React Flow custom node canvas overrides */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--secondary);
+  border: 2px solid #ffffff;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2.5;
+  stroke: #94a3b8;
+}
+
+.react-flow__edge.animated path {
+  stroke: var(--secondary);
+}
