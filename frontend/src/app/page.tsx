@@ -126,11 +126,6 @@ export default function HomePage() {
     };
   }, [roadmaps]);
 
-  // Total nodes count across platform
-  const totalNodesCount = useMemo(() => {
-    return roadmaps.reduce((acc, rm) => acc + (rm._count?.nodes || 0), 0);
-  }, [roadmaps]);
-
   if (loading || fetching) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
@@ -190,55 +185,6 @@ export default function HomePage() {
 
         {/* Decorative corner element */}
         <div className="absolute -left-12 -bottom-12 w-48 h-48 rounded-full bg-secondary/15 border-4 border-dashed border-secondary/40 pointer-events-none" />
-      </div>
-
-      {/* Platform Stats Badges */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-        <div className="bg-white border-2 border-primary rounded-xl p-3.5 shadow-[3px_4px_0_0_#21295a] flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary flex items-center justify-center shrink-0">
-            <Compass className="w-5 h-5 text-primary" />
-          </div>
-          <div>
-            <span className="text-[10px] text-slate-500 font-bold block">مسیرهای جامع</span>
-            <span className="text-base sm:text-lg font-black text-primary">
-              {roadmaps.length} مسیر تخصصی
-            </span>
-          </div>
-        </div>
-
-        <div className="bg-white border-2 border-primary rounded-xl p-3.5 shadow-[3px_4px_0_0_#21295a] flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-secondary/20 border border-primary flex items-center justify-center shrink-0">
-            <Zap className="w-5 h-5 text-secondary-dark" />
-          </div>
-          <div>
-            <span className="text-[10px] text-slate-500 font-bold block">گره‌ها و مأموریت‌ها</span>
-            <span className="text-base sm:text-lg font-black text-secondary-dark">
-              {totalNodesCount} مأموریت واقعی
-            </span>
-          </div>
-        </div>
-
-        <div className="bg-white border-2 border-primary rounded-xl p-3.5 shadow-[3px_4px_0_0_#21295a] flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-accent/10 border border-primary flex items-center justify-center shrink-0">
-            <TrendingUp className="w-5 h-5 text-accent" />
-          </div>
-          <div>
-            <span className="text-[10px] text-slate-500 font-bold block">محصولات رکاد</span>
-            <span className="text-base sm:text-lg font-black text-accent">۶ محصول زنده</span>
-          </div>
-        </div>
-
-        <div className="bg-white border-2 border-primary rounded-xl p-3.5 shadow-[3px_4px_0_0_#21295a] flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-tertiary/10 border border-primary flex items-center justify-center shrink-0">
-            <Award className="w-5 h-5 text-tertiary" />
-          </div>
-          <div>
-            <span className="text-[10px] text-slate-500 font-bold block">مسیرهای فعال من</span>
-            <span className="text-base sm:text-lg font-black text-tertiary">
-              {myEnrollments.length} مسیر
-            </span>
-          </div>
-        </div>
       </div>
 
       {/* SECTION 1: MY ENROLLED ROADMAPS */}
