@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { ExpressAdapter } from '@nestjs/platform-express';
@@ -8,7 +9,23 @@ let cachedServer: Express;
 
 async function bootstrapServer(): Promise<Express> {
   const expressApp = express();
-  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp));
+
+  // Root health check endpoint for Vercel
+  expressApp.get('/', (req: Request, res: Response) => {
+    res.status(200).json({
+      status: 'ok',
+      message: '🚀 Edukad Backend API is running on Vercel Serverless!',
+      version: '1.0.0',
+      endpoints: {
+        roadmaps: '/api/roadmaps',
+        notifications: '/api/notifications',
+      },
+    });
+  });
+
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(expressApp), {
+    logger: ['error', 'warn', 'log'],
+  });
 
   // Disable ETag generation
   expressApp.set('etag', false);
@@ -47,8 +64,17 @@ async function bootstrapServer(): Promise<Express> {
 }
 
 export default async function handler(req: any, res: any) {
-  if (!cachedServer) {
-    cachedServer = await bootstrapServer();
+  try {
+    if (!cachedServer) {
+      cachedServer = await bootstrapServer();
+    }
+    return cachedServer(req, res);
+  } catch (err: any) {
+    console.error('CRITICAL: Vercel Serverless Function Crash:', err);
+    return res.status(500).json({
+      error: 'FUNCTION_INVOCATION_FAILED',
+      message: err?.message || String(err),
+      details: 'Check that DATABASE_URL, SUPABASE_URL, and JWT_SECRET are configured in Vercel project settings.',
+    });
   }
-  return cachedServer(req, res);
 }
