@@ -732,7 +732,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
       {/* MODAL 1: CREATE ROADMAP */}
       {showCreateRoadmapModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs">
-          <div className="bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
+          <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
             <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
               <h3 className="font-black text-lg text-primary">ساخت مسیر یادگیری جدید</h3>
               <button
@@ -826,7 +826,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
       {/* MODAL 2: EDIT ROADMAP DETAILS */}
       {showEditRoadmapModal && currentRoadmap && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs">
-          <div className="bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
+          <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
             <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
               <div>
                 <span className="text-[10px] font-bold text-secondary-dark block">
@@ -938,7 +938,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
       {/* MODAL 3: NODE & PREREQUISITE & RESOURCE EDITOR */}
       {editingNode && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs overflow-y-auto">
-          <div className="bg-white border-2 border-primary rounded-3xl w-full max-w-2xl shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right my-8">
+          <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-2xl shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right my-8">
             <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
               <div>
                 <span className="text-[10px] font-bold text-secondary-dark block">

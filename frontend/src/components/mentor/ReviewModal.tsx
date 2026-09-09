@@ -59,7 +59,7 @@ export function ReviewModal({ submission, onClose, onReviewed }: ReviewModalProp
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm">
-      <div className="bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
+      <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
         {/* Header */}
         <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
           <div>

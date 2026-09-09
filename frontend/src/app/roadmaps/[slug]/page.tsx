@@ -369,7 +369,7 @@ export default function RoadmapDetailPage() {
   return (
     <div className="h-[calc(100dvh-105px)] sm:h-[84vh] flex flex-col gap-2 sm:gap-3 text-right">
       {/* Top Banner / Roadmap Header - Mobile Optimized */}
-      <div className="bg-white border-2 border-primary rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-[3px_4px_0_0_#21295a] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 shrink-0">
+      <div className="box-pattern bg-white border-2 border-primary rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-[3px_4px_0_0_#21295a] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 shrink-0">
         <div className="flex items-center gap-2.5 sm:gap-4">
           <Link
             href="/"
