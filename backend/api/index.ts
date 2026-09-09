@@ -1,4 +1,4 @@
-// Vercel Serverless Function entry point
+// Vercel Serverless Function entry point (Supabase Transaction Pooler 6543)
 import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
