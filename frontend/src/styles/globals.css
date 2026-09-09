@@ -86,10 +86,19 @@ body {
   background-image: url('/images/Frame 27.svg');
   background-repeat: repeat;
   background-size: 360px auto;
-  opacity: 0.18;
+  opacity: 0.2;
   mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
+}
+
+/* In large boxes: do not repeat, use cover */
+.pattern-cover::before,
+.sticker-card-hero::before,
+.box-pattern-cover::before {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
 }
 
 .sticker-card > *:not([class*="absolute"]),

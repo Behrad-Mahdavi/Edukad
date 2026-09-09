@@ -81,7 +81,7 @@ export default function HomePage() {
   return (
     <div className="space-y-8 pb-12 text-right">
       {/* Hero Welcome Banner */}
-      <div className="sticker-card p-6 sm:p-8 bg-gradient-to-l from-bg-mint to-white border-2 border-primary relative overflow-hidden">
+      <div className="sticker-card pattern-cover p-6 sm:p-8 bg-gradient-to-l from-bg-mint to-white border-2 border-primary relative overflow-hidden">
         <div className="relative z-10 max-w-2xl">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/20 text-secondary-dark text-xs font-black mb-3">
             <Sparkles className="w-3.5 h-3.5" />
