@@ -133,7 +133,7 @@ export default function HomePage() {
           <Sparkles className="w-6 h-6 text-primary" />
         </div>
         <div className="text-sm font-extrabold text-primary animate-pulse">
-          در حال بارگذاری محیط ادوکاد...
+          در حال بارگذاری محیط اجوکاد...
         </div>
       </div>
     );
@@ -152,11 +152,11 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-black text-primary leading-tight">
-            سلام {user.fullName} عزیز؛ به سامانه ادوکاد خوش اومدی! 🎯
+            سلام {user.fullName} عزیز؛ به سامانه اجوکاد خوش اومدی! 🎯
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-700 mt-2.5 leading-relaxed font-medium">
-            در ادوکاد هر گره مهارتی، یک مأموریت واقعی برای محصولات کافه و رویدادهای زنده رکاد است. با یادگیری مهارت‌ها، ارسال تحویل‌دادنی‌ها و دریافت تاییدیه منتورها، سطوح جدید را باز کنید و وارد پروژه‌های تجاری شوید.
+            در اجوکاد هر گره مهارتی، یک مأموریت واقعی برای محصولات کافه و رویدادهای زنده رکاد است. با یادگیری مهارت‌ها، ارسال تحویل‌دادنی‌ها و دریافت تاییدیه منتورها، سطوح جدید را باز کنید و وارد پروژه‌های تجاری شوید.
           </p>
 
           {/* Quick Actions for Mentors / Admins */}
@@ -284,7 +284,7 @@ export default function HomePage() {
           <div>
             <h2 className="text-lg sm:text-xl font-black text-primary flex items-center gap-2">
               <Layers className="w-5 h-5 text-accent" />
-              کاتالوگ تمام مسیرهای یادگیری ادوکاد
+              کاتالوگ تمام مسیرهای یادگیری اجوکاد
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
               مسیر دلخواهت رو انتخاب کن و همین الان شروع به انجام مأموریت‌های واقعی کن.

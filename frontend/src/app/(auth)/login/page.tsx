@@ -68,7 +68,7 @@ export default function LoginPage() {
           </div>
           <h1 className="text-3xl font-black text-primary tracking-tight">
             {mode === 'login' ? 'ورود به' : 'عضویت در'}{' '}
-            <span className="text-secondary rotate-1 inline-block">ادوکاد</span>
+            <span className="text-secondary rotate-1 inline-block">اجوکاد</span>
           </h1>
           <p className="text-xs text-slate-500 mt-1 font-semibold">
             سامانه جامع شتاب‌دهی و نقشه مهارت هنرستان استارتاپی رکاد

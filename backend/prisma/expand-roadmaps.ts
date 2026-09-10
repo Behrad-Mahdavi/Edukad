@@ -27,12 +27,12 @@ const feAdditions = [
     title: "سیستم طراحی (Design System) و توکن‌های بصری",
     level: "ضروری",
     tier: "حرفه‌ای",
-    description: "پیاده‌سازی کتابخانه کامپوننت و مدیریت متغیرهای تم سازمانی برای پلتفرم ادوکاد.",
+    description: "پیاده‌سازی کتابخانه کامپوننت و مدیریت متغیرهای تم سازمانی برای پلتفرم اجوکاد.",
     resources: [
       { title: "Storybook Official Guide", url: "https://storybook.js.org/docs", type: "LINK" },
       { title: "Design Systems Handbook", url: "https://www.designbetter.co/design-systems-handbook", type: "LINK" }
     ],
-    task: "کامپوننت دکمه‌های استیکری و کارت‌های نئوبروتالیست ادوکاد را در یک کاتالوگ استوری‌بوک مستقل مستند کنید.",
+    task: "کامپوننت دکمه‌های استیکری و کارت‌های نئوبروتالیست اجوکاد را در یک کاتالوگ استوری‌بوک مستقل مستند کنید.",
     prerequisites: ["fe-17", "fe-9"]
   },
   {
@@ -58,7 +58,7 @@ const feAdditions = [
       { title: "Vitest Official Docs", url: "https://vitest.dev/", type: "LINK" },
       { title: "Testing Library for React", url: "https://testing-library.com/docs/react-testing-library/intro/", type: "LINK" }
     ],
-    task: "برای کامپوننت محاسبه درصد پیشرفت مهارت‌ها در ادوکاد سه سناریوی تست کامل بنویسید.",
+    task: "برای کامپوننت محاسبه درصد پیشرفت مهارت‌ها در اجوکاد سه سناریوی تست کامل بنویسید.",
     prerequisites: ["fe-13", "fe-17"]
   },
   {
@@ -71,7 +71,7 @@ const feAdditions = [
       { title: "Playwright Documentation", url: "https://playwright.dev/", type: "LINK" },
       { title: "E2E Testing Best Practices", url: "https://kentcdodds.com/blog/write-tests", type: "LINK" }
     ],
-    task: "یک سناریوی تست E2E بنویسید که کاربر فرم لاگین ادوکاد را پر کرده و پس از ورود به صفحه داشبورد برسد.",
+    task: "یک سناریوی تست E2E بنویسید که کاربر فرم لاگین اجوکاد را پر کرده و پس از ورود به صفحه داشبورد برسد.",
     prerequisites: ["fe-23"]
   },
   {
@@ -79,7 +79,7 @@ const feAdditions = [
     title: "انیمیشن‌های تعاملی پیشرفته با Framer Motion",
     level: "خوب-است-بدانی",
     tier: "حرفه‌ای",
-    description: "موشن‌های روان، انیمیشن باز شدن مدال‌ها و ترنزیشن صفحات در ادوکاد.",
+    description: "موشن‌های روان، انیمیشن باز شدن مدال‌ها و ترنزیشن صفحات در اجوکاد.",
     resources: [
       { title: "Framer Motion Guide", url: "https://www.framer.com/motion/", type: "LINK" }
     ],
@@ -95,7 +95,7 @@ const feAdditions = [
     resources: [
       { title: "TanStack Query Official Docs", url: "https://tanstack.com/query/latest", type: "LINK" }
     ],
-    task: "واکشی لیست اعلانات کاربر در ادوکاد را با استفاده از TanStack Query کش کرده و دکمه خوانده شدن را با آپدیت خوش‌بینانه پیاده کنید.",
+    task: "واکشی لیست اعلانات کاربر در اجوکاد را با استفاده از TanStack Query کش کرده و دکمه خوانده شدن را با آپدیت خوش‌بینانه پیاده کنید.",
     prerequisites: ["fe-16"]
   },
   {
@@ -107,7 +107,7 @@ const feAdditions = [
     resources: [
       { title: "MDN: WebSockets API", url: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API", type: "LINK" }
     ],
-    task: "سیستم دریافت اعلان آنی در نوبار ادوکاد را با اتصال به وب‌سوکت شبیه‌سازی کنید.",
+    task: "سیستم دریافت اعلان آنی در نوبار اجوکاد را با اتصال به وب‌سوکت شبیه‌سازی کنید.",
     prerequisites: ["fe-8"]
   },
   {
@@ -131,7 +131,7 @@ const feAdditions = [
     resources: [
       { title: "OWASP Front-end Security Cheat Sheet", url: "https://cheatsheetseries.owasp.org/", type: "LINK" }
     ],
-    task: "ورودی یادداشت مأموریت در ادوکاد را در برابر تزریق کدهای مخرب اسکریپتی (XSS) محافظت کنید.",
+    task: "ورودی یادداشت مأموریت در اجوکاد را در برابر تزریق کدهای مخرب اسکریپتی (XSS) محافظت کنید.",
     prerequisites: ["fe-15"]
   },
   {
@@ -143,7 +143,7 @@ const feAdditions = [
     resources: [
       { title: "W3C: Structural markup and right-to-left text in HTML", url: "https://www.w3.org/International/articles/inline-bidi-markup/", type: "LINK" }
     ],
-    task: "تمام بلوک‌های متنی ادوکاد را طوری بازآرایی کنید که اصطلاحات انگلیسی درون متون فارسی هرگز ترتیب پاراگراف را به هم نریزند.",
+    task: "تمام بلوک‌های متنی اجوکاد را طوری بازآرایی کنید که اصطلاحات انگلیسی درون متون فارسی هرگز ترتیب پاراگراف را به هم نریزند.",
     prerequisites: ["fe-2", "fe-18"]
   }
 ];
@@ -207,7 +207,7 @@ const beAdditions = [
     resources: [
       { title: "Docker Get Started", url: "https://docs.docker.com/get-started/", type: "LINK" }
     ],
-    task: "یک فایل docker-compose.yml برای راه‌اندازی دیتابیس، ردیس و بک‌اند ادوکاد آماده کنید.",
+    task: "یک فایل docker-compose.yml برای راه‌اندازی دیتابیس، ردیس و بک‌اند اجوکاد آماده کنید.",
     prerequisites: ["be-1"]
   },
   {

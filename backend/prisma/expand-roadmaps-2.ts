@@ -48,7 +48,7 @@ const uiuxAdditions = [
     tier: "حرفه‌ای",
     description: "اطمینان از کنتراست رنگ‌ها، سایز مناسب فونت و خوانایی المان‌ها.",
     resources: [{ title: "WebAIM Contrast Checker", url: "https://webaim.org/resources/contrastchecker/", type: "LINK" }],
-    task: "پالت رنگی پلتفرم ادوکاد را از نظر کنتراست متن‌ها بررسی و اصلاح کنید.",
+    task: "پالت رنگی پلتفرم اجوکاد را از نظر کنتراست متن‌ها بررسی و اصلاح کنید.",
     prerequisites: ["uiux-5"]
   },
   {
@@ -58,7 +58,7 @@ const uiuxAdditions = [
     tier: "حرفه‌ای",
     description: "قواعد نورپردازی، کنتراست خاکستری‌ها و متغیرهای رنگی تم تیره.",
     resources: [{ title: "Material Design: Dark Theme", url: "https://m3.material.io/foundations/color/dark-theme", type: "LINK" }],
-    task: "تم دارک برای داشبورد درخت مهارت ادوکاد را با حفظ سلسله‌مراتب بصری طراحی کنید.",
+    task: "تم دارک برای داشبورد درخت مهارت اجوکاد را با حفظ سلسله‌مراتب بصری طراحی کنید.",
     prerequisites: ["uiux-7"]
   },
   {
@@ -78,7 +78,7 @@ const uiuxAdditions = [
     tier: "حرفه‌ای",
     description: "بررسی الگوهای پلتفرم‌های برتر آموزشی و دلیوری دنیا و استخراج بینش‌های کلیدی.",
     resources: [{ title: "UX Design Institute: Competitive Analysis", url: "https://www.uxdesigninstitute.com/blog/competitive-analysis-ux/", type: "LINK" }],
-    task: "گزارش ماتریس مقایسه‌ای بین پلتفرم ادوکاد و سه محصول برتر درخت مهارت جهانی تهیه کنید.",
+    task: "گزارش ماتریس مقایسه‌ای بین پلتفرم اجوکاد و سه محصول برتر درخت مهارت جهانی تهیه کنید.",
     prerequisites: ["uiux-3"]
   },
   {
@@ -98,7 +98,7 @@ const uiuxAdditions = [
     tier: "حرفه‌ای",
     description: "استفاده از نشان‌ها، سطوح و میله‌های پیشرفت برای ترغیب یادگیری مداوم.",
     resources: [{ title: "Nir Eyal: Hooked Model Summary", url: "https://www.nirandfar.com/how-to-manufacture-desire/", type: "LINK" }],
-    task: "مکانیزم مدال‌های افتخار و لول‌آپ دانش‌آموزان در ادوکاد را ترسیم کنید.",
+    task: "مکانیزم مدال‌های افتخار و لول‌آپ دانش‌آموزان در اجوکاد را ترسیم کنید.",
     prerequisites: ["uiux-12"]
   },
   {
@@ -128,7 +128,7 @@ const uiuxAdditions = [
     tier: "مربی",
     description: "اسپک‌گذاری کامپوننت‌ها، نام‌گذاری متغیرها و هماهنگی دقیق با تیم فرانت‌اند.",
     resources: [{ title: "Figma: Guide to Developer Mode", url: "https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode", type: "LINK" }],
-    task: "پروژه فیگما کامپوننت‌های ادوکاد را برای توسعه‌دهندگان با مستندات کامل و Dev Mode آماده کنید.",
+    task: "پروژه فیگما کامپوننت‌های اجوکاد را برای توسعه‌دهندگان با مستندات کامل و Dev Mode آماده کنید.",
     prerequisites: ["uiux-9"]
   },
   {
@@ -138,7 +138,7 @@ const uiuxAdditions = [
     tier: "مربی",
     description: "شاخص‌های SUS، نرخ تکمیل تسک (Task Success Rate) و Time on Task.",
     resources: [{ title: "Nielsen Norman: UX Metrics", url: "https://www.nngroup.com/articles/ux-metrics/", type: "LINK" }],
-    task: "داشبورد ارزیابی متریک‌های تجربه کاربری پلتفرم ادوکاد را تدوین کنید.",
+    task: "داشبورد ارزیابی متریک‌های تجربه کاربری پلتفرم اجوکاد را تدوین کنید.",
     prerequisites: ["uiux-20"]
   },
   {
@@ -148,7 +148,7 @@ const uiuxAdditions = [
     tier: "مربی",
     description: "نگارش پیام‌های خطا، اعلان‌ها و متن دکمه‌ها با لحن صمیمی و هدایتگر برند رکاد.",
     resources: [{ title: "UX Writing Hub", url: "https://uxwritinghub.com/", type: "LINK" }],
-    task: "تمام پیغام‌های خطای احراز هویت و موفقیت تحویل مأموریت ادوکاد را بازنویسی کنید.",
+    task: "تمام پیغام‌های خطای احراز هویت و موفقیت تحویل مأموریت اجوکاد را بازنویسی کنید.",
     prerequisites: ["uiux-10"]
   },
   {
@@ -168,7 +168,7 @@ const uiuxAdditions = [
     tier: "مربی",
     description: "تسهیلگری کارگاه‌های طوفان فکری، دیزاین اسپرینت و اتصال دیزاین به اهداف کسب‌وکار.",
     resources: [{ title: "Google Ventures: Design Sprint", url: "https://www.gv.com/sprint/", type: "LINK" }],
-    task: "برنامه‌ریزی یک کارگاه دیزاین اسپرینت دو روزه برای افزودن فیچر جدید به پلتفرم ادوکاد.",
+    task: "برنامه‌ریزی یک کارگاه دیزاین اسپرینت دو روزه برای افزودن فیچر جدید به پلتفرم اجوکاد.",
     prerequisites: ["uiux-15"]
   }
 ];
@@ -232,7 +232,7 @@ const graphicAdditions = [
     tier: "حرفه‌ای",
     description: "طراحی آیکون‌های متوازن روی گرید برای استفاده در وب و بروشورهای رکاد.",
     resources: [{ title: "The Noun Project Guide", url: "https://thenounproject.com/", type: "LINK" }],
-    task: "طراحی یک ست ۱۰ عددی آیکون اختصاصی برای دسته‌بندی‌های مهارتی ادوکاد.",
+    task: "طراحی یک ست ۱۰ عددی آیکون اختصاصی برای دسته‌بندی‌های مهارتی اجوکاد.",
     prerequisites: ["gd-3"]
   },
   {
@@ -240,9 +240,9 @@ const graphicAdditions = [
     title: "تصویرسازی تبلیغاتی و کاراکتر دیزاین",
     level: "خوب-است-بدانی",
     tier: "حرفه‌ای",
-    description: "خلق ماسکوت و کاراکترهای راهنمای دانش‌آموزان در ادوکاد.",
+    description: "خلق ماسکوت و کاراکترهای راهنمای دانش‌آموزان در اجوکاد.",
     resources: [{ title: "Character Design References", url: "https://characterdesignreferences.com/", type: "LINK" }],
-    task: "طراحی کاراکتر ربات دستیار آموزشی برای استیکرهای پلتفرم ادوکاد.",
+    task: "طراحی کاراکتر ربات دستیار آموزشی برای استیکرهای پلتفرم اجوکاد.",
     prerequisites: ["gd-11"]
   },
   {

@@ -26,9 +26,9 @@ const mgAdditions = [
     title: "موشن برای UI و میکروانیمیشن‌های تعاملی با Lottie",
     level: "ضروری",
     tier: "حرفه‌ای",
-    description: "خروجی گرفتن انیمیشن‌های سبک و برداری در افترافکت با پلاگین Bodymovin برای وب ادوکاد.",
+    description: "خروجی گرفتن انیمیشن‌های سبک و برداری در افترافکت با پلاگین Bodymovin برای وب اجوکاد.",
     resources: [{ title: "LottieFiles Official Docs", url: "https://airbnb.io/lottie/", type: "LINK" }],
-    task: "یک آیکون لایک و تیک تایید متحرک را با لاتی خروجی گرفته و در ادوکاد پیاده‌سازی کنید.",
+    task: "یک آیکون لایک و تیک تایید متحرک را با لاتی خروجی گرفته و در اجوکاد پیاده‌سازی کنید.",
     prerequisites: ["mg-8"]
   },
   {
@@ -76,7 +76,7 @@ const mgAdditions = [
     title: "طراحی و انیمیت اینفوگرافیک‌های ویدیویی",
     level: "ضروری",
     tier: "حرفه‌ای",
-    description: "انیمیت نمودارهای دایره‌ای، آمارهای درصد رشد و گراف‌های تحلیلی پلتفرم ادوکاد.",
+    description: "انیمیت نمودارهای دایره‌ای، آمارهای درصد رشد و گراف‌های تحلیلی پلتفرم اجوکاد.",
     resources: [{ title: "School of Motion: Infographic Animation", url: "https://www.schoolofmotion.com/", type: "LINK" }],
     task: "یک موشن آماری از پیشرفت مهارت‌های باشگاه محصول در سال گذشته تولید کنید.",
     prerequisites: ["mg-5"]
@@ -396,7 +396,7 @@ const ccAdditions = [
     tier: "حرفه‌ای",
     description: "مدیریت لایو مشترک با مهمانان، پاسخ به سوالات لحظه‌ای و پوشش زنده مسابقات رکاد.",
     resources: [{ title: "Instagram Live Best Practices", url: "https://creators.instagram.com/", type: "LINK" }],
-    task: "تدوین کنداکتور و اجرای یک برنامه لایو ۳۰ دقیقه‌ای پرسش و پاسخ درباره پلتفرم ادوکاد.",
+    task: "تدوین کنداکتور و اجرای یک برنامه لایو ۳۰ دقیقه‌ای پرسش و پاسخ درباره پلتفرم اجوکاد.",
     prerequisites: ["cc-7"]
   },
   {
@@ -436,7 +436,7 @@ const ccAdditions = [
     tier: "مربی",
     description: "چالش‌های تعاملی، قرعه‌کشی‌های هوشمند و مسابقات عکس با محصولات کافه.",
     resources: [{ title: "Social Media Examiner: Gamification Guide", url: "https://www.socialmediaexaminer.com/", type: "LINK" }],
-    task: "طراحی یک کمپین مسابقه عکاسی با ماگ اختصاصی کافه همراه با کد تخفیف در پلتفرم ادوکاد.",
+    task: "طراحی یک کمپین مسابقه عکاسی با ماگ اختصاصی کافه همراه با کد تخفیف در پلتفرم اجوکاد.",
     prerequisites: ["cc-17"]
   },
   {
@@ -520,7 +520,7 @@ const dmAdditions = [
     tier: "حرفه‌ای",
     description: "طراحی جریان ایمیل‌های خوش‌آمدگویی، یادآوری تکالیف و خبرنامه‌های هفتگی.",
     resources: [{ title: "MailerLite Academy", url: "https://www.mailerlite.com/academy", type: "LINK" }],
-    task: "ساخت یک ایمیل خوش‌آمدگویی جذاب برای دانش‌آموزان تازه‌وارد پلتفرم ادوکاد.",
+    task: "ساخت یک ایمیل خوش‌آمدگویی جذاب برای دانش‌آموزان تازه‌وارد پلتفرم اجوکاد.",
     prerequisites: ["dm-8"]
   },
   {
@@ -530,7 +530,7 @@ const dmAdditions = [
     tier: "حرفه‌ای",
     description: "مشاهده ضبط ویدیویی پیمایش کاربران، نقشه‌های حرارتی اسکرول و کلیک.",
     resources: [{ title: "Hotjar: Heatmaps Guide", url: "https://www.hotjar.com/heatmaps/", type: "LINK" }],
-    task: "تحلیل نقشه حرارتی اسکرول صفحه اصلی ادوکاد و اصلاح موقعیت دکمه‌های کاتالوگ.",
+    task: "تحلیل نقشه حرارتی اسکرول صفحه اصلی اجوکاد و اصلاح موقعیت دکمه‌های کاتالوگ.",
     prerequisites: ["dm-6"]
   },
   {
@@ -580,7 +580,7 @@ const dmAdditions = [
     tier: "مربی",
     description: "مکانیزم دعوت دوستان با پاداش دوطرفه برای دوره‌های رکاد و سفارشات کافه.",
     resources: [{ title: "Viral Loops: Referral Marketing Guide", url: "https://viral-loops.com/blog/", type: "LINK" }],
-    task: "طراحی کمپین «دعوت از دوستان»: با معرفی هر دانش‌آموز، ۵۰۰ امتیاز مهارت در ادوکاد دریافت کنید.",
+    task: "طراحی کمپین «دعوت از دوستان»: با معرفی هر دانش‌آموز، ۵۰۰ امتیاز مهارت در اجوکاد دریافت کنید.",
     prerequisites: ["dm-4"]
   },
   {
@@ -590,7 +590,7 @@ const dmAdditions = [
     tier: "مربی",
     description: "رفع خطاهای کدهای وضعیت، اسکیما مارک‌آپ دوره‌ها، سایت‌مپ و بهینه‌سازی سرعت سرور.",
     resources: [{ title: "Schema.org Course Markup", url: "https://schema.org/Course", type: "LINK" }],
-    task: "کدهای ساختاریافته Schema.org مدل Course را برای ۹ مسیر شغلی ادوکاد پیاده کنید.",
+    task: "کدهای ساختاریافته Schema.org مدل Course را برای ۹ مسیر شغلی اجوکاد پیاده کنید.",
     prerequisites: ["dm-7"]
   },
   {
