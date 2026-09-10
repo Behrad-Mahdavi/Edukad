@@ -2,8 +2,30 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/a
 
 let authToken: string | null = null;
 
+interface CacheEntry<T> {
+  data: T;
+  timestamp: number;
+}
+
+const apiCache = new Map<string, CacheEntry<any>>();
+const inFlightRequests = new Map<string, Promise<any>>();
+const DEFAULT_CACHE_TTL_MS = 20_000; // 20 seconds cache for lightning-fast page navigation
+
+export function clearApiCache(endpointPattern?: string) {
+  if (!endpointPattern) {
+    apiCache.clear();
+  } else {
+    apiCache.forEach((_, key) => {
+      if (key.includes(endpointPattern)) {
+        apiCache.delete(key);
+      }
+    });
+  }
+}
+
 export function setAuthToken(token: string | null) {
   authToken = token;
+  clearApiCache();
   if (typeof window !== 'undefined') {
     if (token) {
       localStorage.setItem('edukad_token', token);
@@ -20,13 +42,53 @@ export function getStoredToken(): string | null {
   return null;
 }
 
-async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+async function fetchApi<T>(
+  endpoint: string,
+  options: RequestInit & { skipCache?: boolean; ttlMs?: number } = {}
+): Promise<T> {
   const token = authToken || getStoredToken();
+  const method = (options.method || 'GET').toUpperCase();
+  const isGet = method === 'GET';
+  const cacheKey = `${token || 'anon'}:${endpoint}`;
+
+  // Automatically invalidate relevant cache entries on mutations
+  if (!isGet) {
+    if (endpoint.startsWith('/enrollments')) {
+      clearApiCache('/enrollments');
+      clearApiCache('/roadmaps');
+    } else if (endpoint.startsWith('/submissions') || endpoint.startsWith('/progress')) {
+      clearApiCache('/progress');
+      clearApiCache('/submissions');
+      clearApiCache('/roadmaps');
+      clearApiCache('/notifications');
+    } else if (endpoint.startsWith('/roadmaps')) {
+      clearApiCache('/roadmaps');
+    } else if (endpoint.startsWith('/users')) {
+      clearApiCache('/users');
+    } else if (endpoint.startsWith('/notifications')) {
+      clearApiCache('/notifications');
+    } else {
+      clearApiCache();
+    }
+  }
+
+  // Check cache for GET requests
+  if (isGet && !options.skipCache) {
+    const cached = apiCache.get(cacheKey);
+    const ttl = options.ttlMs ?? DEFAULT_CACHE_TTL_MS;
+    if (cached && Date.now() - cached.timestamp < ttl) {
+      return cached.data as T;
+    }
+
+    // Deduplicate in-flight requests
+    const inFlight = inFlightRequests.get(cacheKey);
+    if (inFlight) {
+      return inFlight as Promise<T>;
+    }
+  }
+
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
-    'Cache-Control': 'no-cache, no-store, must-revalidate',
-    Pragma: 'no-cache',
-    Expires: '0',
     ...(options.headers as Record<string, string>),
   };
 
@@ -34,27 +96,40 @@ async function fetchApi<T>(endpoint: string, options: RequestInit = {}): Promise
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  // Anti-caching: append timestamp on GET requests to guarantee fresh data without resetting server
-  const method = (options.method || 'GET').toUpperCase();
-  const urlSeparator = endpoint.includes('?') ? '&' : '?';
-  const finalUrl =
-    method === 'GET'
-      ? `${API_BASE_URL}${endpoint}${urlSeparator}_t=${Date.now()}`
-      : `${API_BASE_URL}${endpoint}`;
+  const finalUrl = `${API_BASE_URL}${endpoint}`;
 
-  const response = await fetch(finalUrl, {
-    ...options,
-    cache: 'no-store',
-    headers,
-  });
+  const requestPromise = (async () => {
+    try {
+      const response = await fetch(finalUrl, {
+        ...options,
+        headers,
+      });
 
-  if (!response.ok) {
-    const errorBody = await response.json().catch(() => ({}));
-    const message = errorBody.message || `خطای سرور: ${response.status}`;
-    throw new Error(Array.isArray(message) ? message.join(' - ') : message);
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        const message = errorBody.message || `خطای سرور: ${response.status}`;
+        throw new Error(Array.isArray(message) ? message.join(' - ') : message);
+      }
+
+      const data = (await response.json()) as T;
+
+      if (isGet && !options.skipCache) {
+        apiCache.set(cacheKey, { data, timestamp: Date.now() });
+      }
+
+      return data;
+    } finally {
+      if (isGet) {
+        inFlightRequests.delete(cacheKey);
+      }
+    }
+  })();
+
+  if (isGet && !options.skipCache) {
+    inFlightRequests.set(cacheKey, requestPromise);
   }
 
-  return response.json();
+  return requestPromise;
 }
 
 export const api = {
@@ -216,4 +291,6 @@ export const api = {
         method: 'PATCH',
       }),
   },
+
+  clearCache: clearApiCache,
 };

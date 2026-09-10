@@ -182,9 +182,6 @@ export default function HomePage() {
             )}
           </div>
         </div>
-
-        {/* Decorative corner element */}
-        <div className="absolute -left-12 -bottom-12 w-48 h-48 rounded-full bg-secondary/15 border-4 border-dashed border-secondary/40 pointer-events-none" />
       </div>
 
       {/* SECTION 1: MY ENROLLED ROADMAPS */}

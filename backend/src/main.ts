@@ -3,25 +3,13 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { Request, Response, NextFunction } from 'express';
 
+import compression from 'compression';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Disable ETag generation to prevent 304 Not Modified status codes
-  const expressApp = app.getHttpAdapter().getInstance();
-  if (expressApp && typeof expressApp.set === 'function') {
-    expressApp.set('etag', false);
-  }
-
-  // Disable all caching across all API endpoints completely
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    res.set({
-      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
-      'Pragma': 'no-cache',
-      'Expires': '0',
-      'Surrogate-Control': 'no-store',
-    });
-    next();
-  });
+  // Enable Gzip/Brotli response compression to minimize payload size and transfer time
+  app.use(compression());
 
   // Enable CORS
   app.enableCors({

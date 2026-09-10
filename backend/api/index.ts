@@ -4,6 +4,7 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import express, { Express, Request, Response, NextFunction } from 'express';
+import compression from 'compression';
 import { AppModule } from '../src/app.module';
 import { AllExceptionsFilter } from '../src/common/filters/all-exceptions.filter';
 
@@ -29,19 +30,8 @@ async function bootstrapServer(): Promise<Express> {
     logger: ['error', 'warn', 'log'],
   });
 
-  // Disable ETag generation
-  expressApp.set('etag', false);
-
-  // Disable all caching
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    res.set({
-      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
-      'Pragma': 'no-cache',
-      'Expires': '0',
-      'Surrogate-Control': 'no-store',
-    });
-    next();
-  });
+  // Enable response compression (gzip/brotli)
+  expressApp.use(compression());
 
   // Enable CORS
   app.enableCors({

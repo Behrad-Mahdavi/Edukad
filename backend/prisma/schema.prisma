@@ -120,6 +120,8 @@ model Node {
   progresses     NodeProgress[]
   prerequisites  NodePrerequisite[] @relation("NodeToPrereqs")
   dependentOnMe  NodePrerequisite[] @relation("PrereqToNodes")
+
+  @@index([roadmapId])
 }
 
 model NodePrerequisite {
@@ -145,6 +147,8 @@ model Resource {
   content   String
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
+
+  @@index([nodeId])
 }
 
 model UserRoadmap {
@@ -161,6 +165,8 @@ model UserRoadmap {
   updatedAt                   DateTime         @updatedAt
 
   @@unique([studentId, roadmapId])
+  @@index([roadmapId])
+  @@index([mentorId])
 }
 
 model NodeProgress {
@@ -192,6 +198,8 @@ model NodeSubmission {
   reviewedAt     DateTime?
   outcome        SubmissionOutcome @default(PENDING)
   createdAt      DateTime          @default(now())
+
+  @@index([nodeProgressId])
 }
 
 model Notification {
