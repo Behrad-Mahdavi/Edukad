@@ -41,7 +41,7 @@ async function run() {
       LEFT JOIN "Resource" res ON res."nodeId"=n.id
       GROUP BY r.slug ORDER BY r.slug`;
     for (const r of rms) {
-      const flag = r.withvid === r.nodes ? '✅' : '⚠️ ';
+      const flag = r.withvid === r.nodes ? '' : ' ';
       console.log(`${flag} ${r.slug.padEnd(26)} ${String(r.withvid)}/${String(r.nodes)}`);
     }
 

@@ -20,7 +20,7 @@ export class SupabaseService {
       auth: { persistSession: false },
     });
 
-    this.logger.log('✅ SupabaseService initialized with admin client');
+    this.logger.log('SupabaseService initialized with admin client');
   }
 
   async verifyToken(token: string) {

@@ -101,7 +101,7 @@ export class EnrollmentsService {
         data: {
           userId: dto.studentId,
           type: NotificationType.SYSTEM,
-          title: 'ثبت‌نام در مسیر مهارتی جدید 🚀',
+          title: 'ثبت‌نام در مسیر مهارتی جدید',
           message: `شما در مسیر «${roadmap.title}» ثبت‌نام شدید. گره‌های اولیه برای شما باز شدند!`,
           link: `/roadmaps/${roadmap.slug}`,
           relatedEntityId: userRoadmap.id,
@@ -215,7 +215,7 @@ export class EnrollmentsService {
         data: {
           userId: studentId,
           type: NotificationType.SYSTEM,
-          title: 'ثبت‌نام در مسیر مهارتی جدید 🚀',
+          title: 'ثبت‌نام در مسیر مهارتی جدید',
           message: `شما در مسیر «${roadmap.title}» ثبت‌نام شدید. گره‌های اولیه برای شما باز شدند!`,
           link: `/roadmaps/${roadmap.slug}`,
           relatedEntityId: userRoadmap.id,

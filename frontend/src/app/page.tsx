@@ -152,7 +152,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-black text-primary leading-tight">
-            سلام {user.fullName} عزیز؛ به سامانه اجوکاد خوش اومدی! 🎯
+            سلام {user.fullName} عزیز؛ به سامانه اجوکاد خوش اومدی!
           </h1>
 
           <p className="text-xs sm:text-sm text-slate-700 mt-2.5 leading-relaxed font-medium">
@@ -258,7 +258,7 @@ export default function HomePage() {
                       </div>
                       {inProgressNodes > 0 && (
                         <span className="text-[10px] text-teal-700 font-bold block pt-1">
-                          ⚡ {inProgressNodes} مأموریت در حال انجام داری!
+                          {inProgressNodes} مأموریت در حال انجام داری!
                         </span>
                       )}
                     </div>
@@ -409,7 +409,7 @@ export default function HomePage() {
                         </span>
                         {isEnrolled && (
                           <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-300">
-                            عضو هستید ✓
+                            عضو هستید
                           </span>
                         )}
                       </div>
@@ -445,7 +445,7 @@ export default function HomePage() {
                         onClick={() => handleSelfEnroll(rm.id, rm.slug)}
                         className="px-3.5 py-1.5 rounded-xl bg-secondary text-white font-black text-xs shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 active:scale-95 transition-all flex items-center gap-1 border border-primary disabled:opacity-50"
                       >
-                        {isEnrolling ? 'در حال فعال‌سازی...' : 'شروع مسیر 🚀'}
+                        {isEnrolling ? 'در حال فعال‌سازی...' : 'شروع مسیر'}
                       </button>
                     )}
                   </div>

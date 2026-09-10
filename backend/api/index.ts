@@ -16,7 +16,7 @@ async function bootstrapServer(): Promise<Express> {
   expressApp.get('/', (req: Request, res: Response) => {
     res.status(200).json({
       status: 'ok',
-      message: '🚀 Edukad Backend API is running on Vercel Serverless!',
+      message: 'Ejukad Backend API is running on Vercel Serverless',
       version: '1.0.0',
       endpoints: {
         roadmaps: '/api/roadmaps',

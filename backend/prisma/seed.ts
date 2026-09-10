@@ -14,7 +14,7 @@ import * as bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Starting Edukad database seed...');
+  console.log(' Starting Edukad database seed...');
 
   // 1. Clean existing data in reverse order
   await prisma.notification.deleteMany();
@@ -95,7 +95,7 @@ async function main() {
     },
   });
 
-  console.log('✅ Users created.');
+  console.log(' Users created.');
 
   // 3. Create Roadmap 1: Frontend Engineering
   const frontendRoadmap = await prisma.roadmap.create({
@@ -249,7 +249,7 @@ async function main() {
     ],
   });
 
-  console.log('✅ Frontend Roadmap & Nodes created.');
+  console.log(' Frontend Roadmap & Nodes created.');
 
   // 4. Create Roadmap 2: Event Media & Editing
   const mediaRoadmap = await prisma.roadmap.create({
@@ -357,7 +357,7 @@ async function main() {
     ],
   });
 
-  console.log('✅ Media Roadmap & Nodes created.');
+  console.log(' Media Roadmap & Nodes created.');
 
   // 5. Enroll Student Amir in Frontend Roadmap with Mentor Ali
   const userRoadmapAmir = await prisma.userRoadmap.create({
@@ -426,12 +426,12 @@ async function main() {
     },
   });
 
-  console.log('🎉 Database seed completed successfully!');
+  console.log(' Database seed completed successfully!');
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Error during seed:', e);
+    console.error(' Error during seed:', e);
     process.exit(1);
   })
   .finally(async () => {

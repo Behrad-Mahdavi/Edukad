@@ -63,7 +63,7 @@ async function applyToDb(name: string, prisma: PrismaClient, items: Array<{ node
 
     if (matchedItem) {
       matched++;
-      const title = '🎬 ' + matchedItem.youtube_title.slice(0, 95);
+      const title = ' ' + matchedItem.youtube_title.slice(0, 95);
       const url = matchedItem.youtube_url.trim();
 
       if (node.resources.length > 0) {
@@ -142,7 +142,7 @@ async function verifyAll(prisma: PrismaClient, name: string) {
     const vids = r.nodes.filter(n => n.resources.length > 0).length;
     totalNodes += r._count.nodes;
     totalVideos += vids;
-    const status = vids === r._count.nodes ? '✅' : '⚠️';
+    const status = vids === r._count.nodes ? '' : '';
     console.log(`${status} ${r.slug.padEnd(26)} ${vids}/${r._count.nodes} (${r.title})`);
   }
   console.log(`\nTOTAL OVERALL: ${totalVideos}/${totalNodes} nodes have VIDEO_URL.`);

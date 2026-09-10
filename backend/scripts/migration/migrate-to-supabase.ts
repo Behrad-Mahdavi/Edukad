@@ -70,7 +70,7 @@ async function main() {
   console.log('\n--- roadmaps & node counts ---');
   const rms = await remote.roadmap.findMany({ select: { slug: true, _count: { select: { nodes: true } } }, orderBy: { slug: 'asc' } });
   for (const r of rms) console.log(r.slug.padEnd(26) + r._count.nodes);
-  console.log('\n🎉 SUPABASE FULLY SYNCED WITH LOCAL DOCKER');
+  console.log('\n SUPABASE FULLY SYNCED WITH LOCAL DOCKER');
 }
 
 main()

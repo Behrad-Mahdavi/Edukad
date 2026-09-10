@@ -156,7 +156,7 @@ export function ReviewModal({ submission, onClose, onReviewed }: ReviewModalProp
               className="py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs shadow-[2px_3px_0_0_#064e3b] hover:-translate-y-0.5 transition-transform flex items-center justify-center gap-1.5 disabled:opacity-50"
             >
               <CheckCircle className="w-4 h-4" />
-              تایید مأموریت ✓
+              تایید مأموریت
             </button>
           </div>
         </div>

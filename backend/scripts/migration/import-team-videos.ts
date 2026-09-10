@@ -71,7 +71,7 @@ async function applyVideosToDb(name: string, prisma: PrismaClient, videoMap: Rec
 
     if (videoData) {
       matched++;
-      const resourceTitle = '🎬 ' + videoData.title.slice(0, 95);
+      const resourceTitle = ' ' + videoData.title.slice(0, 95);
       const url = videoData.url;
 
       if (node.resources.length > 0) {
@@ -132,7 +132,7 @@ async function main() {
   // Apply to local Docker
   await applyVideosToDb('LOCAL DOCKER', local, videoMap);
 
-  console.log('\n✅ ALL VIDEOS FROM ATTACHED JSON FILES APPLIED SUCCESSFULLY!');
+  console.log('\n ALL VIDEOS FROM ATTACHED JSON FILES APPLIED SUCCESSFULLY!');
 }
 
 main()

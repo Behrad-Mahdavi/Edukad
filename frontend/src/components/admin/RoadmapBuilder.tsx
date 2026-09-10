@@ -294,7 +294,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
         positionY: n.positionY,
       }));
       await api.roadmaps.updatePositions(updates);
-      setSuccessMsg('چیدمان گره‌ها به صورت درختی و مرتب بازآرایی و ذخیره شد! 🪄');
+      setSuccessMsg('چیدمان گره‌ها به صورت درختی و مرتب بازآرایی و ذخیره شد!');
       await loadRoadmapDetails(currentRoadmap.slug);
       onRefresh();
     } catch (err: any) {
@@ -652,7 +652,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                   : 'bg-amber-100 text-amber-800 border-amber-600 hover:bg-amber-200'
               }`}
             >
-              وضعیت: {currentRoadmap.status === 'PUBLISHED' ? 'منتشر شده ✓' : 'پیش‌نویس (DRAFT)'}
+              وضعیت: {currentRoadmap.status === 'PUBLISHED' ? 'منتشر شده' : 'پیش‌نویس (DRAFT)'}
             </button>
           </div>
         )}
@@ -667,7 +667,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
             title="چیدمان استاندارد و درختی گره‌ها از بالا به پایین"
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            <span className="hidden xs:inline">مرتب‌سازی خودکار</span> 🪄
+            <span className="hidden xs:inline">مرتب‌سازی خودکار</span>
           </button>
 
           <button
@@ -724,7 +724,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
         <div className="hidden sm:flex absolute top-3 right-3 bg-white/95 border-2 border-primary rounded-xl px-3 py-1.5 text-[11px] font-bold text-slate-700 shadow-[2px_2px_0_0_#21295a] items-center gap-2 max-w-lg z-10">
           <HelpCircle className="w-4 h-4 text-secondary flex-shrink-0" />
           <span>
-            💡 <strong>درخت مهارت:</strong> گره‌ها از بالا به پایین بر اساس پیش‌نیاز مرتب شده‌اند. برای اتصال، دایره خروجی (پایین) را به ورودی (بالا) وصل کنید.
+            <strong>راهنمای مهارت:</strong> گره‌ها از بالا به پایین بر اساس پیش‌نیاز مرتب شده‌اند. برای اتصال، دایره خروجی (پایین) را به ورودی (بالا) وصل کنید.
           </span>
         </div>
       </div>
@@ -1010,7 +1010,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                     type="submit"
                     className="mr-auto px-6 py-2.5 rounded-xl bg-primary text-white text-xs font-black shadow-[3px_4px_0_0_#58bdaf] hover:-translate-y-0.5 transition-transform cursor-pointer"
                   >
-                    {isNewNode ? 'ایجاد گره جدید ✓' : 'ذخیره مشخصات گره ✓'}
+                    {isNewNode ? 'ایجاد گره جدید' : 'ذخیره مشخصات گره'}
                   </button>
                 </div>
               </form>

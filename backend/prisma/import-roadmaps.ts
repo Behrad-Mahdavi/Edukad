@@ -203,7 +203,7 @@ async function main() {
       }
     }
 
-    console.log(`✅ Roadmap ${data.title} imported and auto-laid-out successfully with ${data.nodes.length} nodes.`);
+    console.log(` Roadmap ${data.title} imported and auto-laid-out successfully with ${data.nodes.length} nodes.`);
   }
 }
 

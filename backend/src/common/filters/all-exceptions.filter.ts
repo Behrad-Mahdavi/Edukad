@@ -31,7 +31,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       message = (exception as any).message;
     }
 
-    console.error('🔥 UNCAUGHT SERVER EXCEPTION:', exception);
+    console.error('UNCAUGHT SERVER EXCEPTION:', exception);
 
     response.status(status).json({
       statusCode: status,

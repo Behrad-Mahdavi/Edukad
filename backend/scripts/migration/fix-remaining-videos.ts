@@ -45,13 +45,13 @@ async function fix(prisma: PrismaClient, label: string) {
       if (node.resources.length > 0) {
         await prisma.resource.update({
           where: { id: node.resources[0].id },
-          data: { title: '🎬 ' + item.vTitle, content: item.vUrl }
+          data: { title: ' ' + item.vTitle, content: item.vUrl }
         });
       } else {
         await prisma.resource.create({
           data: {
             nodeId: node.id,
-            title: '🎬 ' + item.vTitle,
+            title: ' ' + item.vTitle,
             type: 'VIDEO_URL',
             content: item.vUrl
           }

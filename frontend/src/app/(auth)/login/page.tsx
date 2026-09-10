@@ -64,7 +64,7 @@ export default function LoginPage() {
         {/* Playful Sticker Badge */}
         <div className="text-center mb-6">
           <div className="inline-block -rotate-2 bg-secondary px-4 py-1.5 rounded-full border-2 border-primary shadow-[3px_4px_0_0_#21295a] text-white font-black text-xs mb-3">
-            ✨ هنرستان استارتاپی رکاد
+            هنرستان استارتاپی رکاد
           </div>
           <h1 className="text-3xl font-black text-primary tracking-tight">
             {mode === 'login' ? 'ورود به' : 'عضویت در'}{' '}
@@ -230,7 +230,7 @@ export default function LoginPage() {
                 disabled={loading}
                 className="w-full mt-2 py-3 rounded-xl bg-secondary text-white font-black text-sm shadow-[4px_5px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                {loading ? 'در حال ثبت در سوپابیس...' : 'ثبت‌نام و ورود آنی 🚀'}
+                {loading ? 'در حال ثبت در سوپابیس...' : 'ثبت‌نام و ورود آنی'}
                 <ArrowLeft className="w-4 h-4" />
               </button>
             </form>

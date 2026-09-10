@@ -301,7 +301,7 @@ export default function AdminPage() {
                   disabled={enrollLoading}
                   className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-primary text-white font-black text-xs shadow-[3px_4px_0_0_#58bdaf] hover:-translate-y-0.5 transition-transform disabled:opacity-50 cursor-pointer"
                 >
-                  {enrollLoading ? 'در حال ثبت‌نام...' : 'تایید ثبت‌نام و باز شدن گره‌های ریشه ✓'}
+                  {enrollLoading ? 'در حال ثبت‌نام...' : 'تایید ثبت‌نام و باز شدن گره‌های ریشه'}
                 </button>
               </div>
             </form>

@@ -189,7 +189,7 @@ export function NodeDetailDrawer({
                   <div className="flex items-center gap-2 flex-wrap mb-2" dir="rtl">
                     {tierBadge && (
                       <span className="inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-lg bg-bg-mint text-primary border border-secondary/30">
-                        🏷️ سطح: {tierBadge}
+                        سطح: {tierBadge}
                       </span>
                     )}
                     {levelBadge && (
@@ -200,7 +200,7 @@ export function NodeDetailDrawer({
                             : 'bg-sky-50 text-sky-700 border-sky-200'
                         }`}
                       >
-                        ⭐ اهمیت: {levelBadge}
+                        اهمیت: {levelBadge}
                       </span>
                     )}
                   </div>
@@ -230,9 +230,9 @@ export function NodeDetailDrawer({
                           : 'text-slate-400'
                   }`}
               >
-                {status === 'COMPLETED' && 'تکمیل شده 🌟'}
-                {status === 'SUBMITTED' && 'در انتظار بازبینی منتور ⏳'}
-                {status === 'NEEDS_REVISION' && 'نیاز به اصلاح 🔄'}
+                {status === 'COMPLETED' && 'تکمیل شده'}
+                {status === 'SUBMITTED' && 'در انتظار بازبینی منتور'}
+                {status === 'NEEDS_REVISION' && 'نیاز به اصلاح'}
                 {status === 'IN_PROGRESS' && 'در حال مطالعه و انجام'}
                 {status === 'UNLOCKED' && 'باز شده (شروع نشده)'}
                 {status === 'LOCKED' && 'قفل شده (پیش‌نیازها مانده)'}
@@ -370,7 +370,7 @@ export function NodeDetailDrawer({
                       disabled={loading || status === 'LOCKED'}
                       className="w-full py-3 rounded-xl bg-emerald-600 text-white font-extrabold text-xs shadow-[3px_4px_0_0_#064e3b] hover:-translate-y-0.5 transition-transform disabled:opacity-50"
                     >
-                      {loading ? 'در حال ثبت...' : 'تکمیل گره و باز شدن مراحل بعدی ✓'}
+                      {loading ? 'در حال ثبت...' : 'تکمیل گره و باز شدن مراحل بعدی'}
                     </button>
                   )}
                 </div>
@@ -440,7 +440,7 @@ export function NodeDetailDrawer({
                       disabled={loading || status === 'LOCKED' || status === 'COMPLETED'}
                       className="w-full py-3 rounded-xl bg-accent text-white font-extrabold text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 transition-transform disabled:opacity-50"
                     >
-                      {loading ? 'در حال ارسال...' : 'ارسال مأموریت به منتور 🚀'}
+                      {loading ? 'در حال ارسال...' : 'ارسال مأموریت به منتور'}
                     </button>
                   </form>
                 </div>

@@ -93,7 +93,7 @@ export class UsersService {
         data: {
           userId: id,
           type: NotificationType.LEVEL_PROMOTED,
-          title: 'ارتقای سطح مهارتی 🎖️',
+          title: 'ارتقای سطح مهارتی',
           message: `سطح مهارتی شما توسط مدیر سیستم به «${updateUserDto.level}» ارتقا یافت. تبریک!`,
           link: '/profile',
           relatedEntityId: id,

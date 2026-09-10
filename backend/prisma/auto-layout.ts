@@ -191,7 +191,7 @@ function layoutRoadmapNodes(nodes: NodeWithPrereqs[]) {
 }
 
 async function main() {
-  console.log('🚀 Starting auto-layout optimization for all roadmaps...');
+  console.log(' Starting auto-layout optimization for all roadmaps...');
 
   const roadmaps = await prisma.roadmap.findMany({
     include: {
@@ -204,7 +204,7 @@ async function main() {
   });
 
   for (const rm of roadmaps) {
-    console.log(`\n📐 Laying out roadmap: "${rm.title}" (${rm.slug}) with ${rm.nodes.length} nodes...`);
+    console.log(`\n Laying out roadmap: "${rm.title}" (${rm.slug}) with ${rm.nodes.length} nodes...`);
 
     const laidOutNodes = layoutRoadmapNodes(rm.nodes as any);
 
@@ -219,13 +219,13 @@ async function main() {
       });
     }
 
-    console.log(`✅ Finished "${rm.title}". Sample node positions:`);
+    console.log(` Finished "${rm.title}". Sample node positions:`);
     laidOutNodes.slice(0, 4).forEach((n) => {
       console.log(`   - [${n.title}]: (X: ${n.positionX}, Y: ${n.positionY})`);
     });
   }
 
-  console.log('\n🎉 All roadmaps auto-layout completed and persisted to database!');
+  console.log('\n All roadmaps auto-layout completed and persisted to database!');
 }
 
 main()

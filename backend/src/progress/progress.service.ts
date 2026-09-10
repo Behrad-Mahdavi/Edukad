@@ -150,7 +150,7 @@ export class ProgressService {
           data: {
             userId,
             type: NotificationType.NODE_UNLOCKED,
-            title: 'گره مهارتی جدید باز شد 🔓',
+            title: 'گره مهارتی جدید باز شد',
             message: `گره «${targetNode.title}» باز شد و می‌توانید مأموریت آن را شروع کنید.`,
             link: `/roadmaps`,
             relatedEntityId: targetNode.id,

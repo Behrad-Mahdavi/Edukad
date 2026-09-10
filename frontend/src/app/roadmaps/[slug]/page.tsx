@@ -417,7 +417,7 @@ export default function RoadmapDetailPage() {
             className="px-4 py-2 rounded-xl bg-secondary text-white font-black text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 active:scale-95 transition-all flex items-center gap-1.5 border border-primary shrink-0 disabled:opacity-50"
           >
             <Sparkles className="w-4 h-4" />
-            <span>{enrolling ? 'در حال فعال‌سازی...' : 'شروع این مسیر و باز کردن گره‌ها 🚀'}</span>
+            <span>{enrolling ? 'در حال فعال‌سازی...' : 'شروع این مسیر و باز کردن گره‌ها'}</span>
           </button>
         ) : (
           <div className="flex items-center justify-between sm:justify-end gap-3 bg-slate-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-slate-200 shrink-0">

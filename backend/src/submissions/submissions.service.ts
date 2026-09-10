@@ -222,7 +222,7 @@ export class SubmissionsService {
           data: {
             userId: studentId,
             type: NotificationType.MENTOR_FEEDBACK,
-            title: 'مأموریت شما تایید شد! 🎉',
+            title: 'مأموریت شما تایید شد!',
             message: `مأموریت گره «${nodeTitle}» با موفقیت تایید شد.${dto.mentorFeedback ? ' یادداشت منتور: ' + dto.mentorFeedback : ''}`,
             link: `/roadmaps/${nodeProgress.node.roadmap.slug}`,
             relatedEntityId: submission.id,
@@ -241,7 +241,7 @@ export class SubmissionsService {
           data: {
             userId: studentId,
             type: NotificationType.MENTOR_FEEDBACK,
-            title: 'مأموریت نیاز به بازبینی دارد 🔄',
+            title: 'مأموریت نیاز به بازبینی دارد',
             message: `مأموریت گره «${nodeTitle}» نیاز به اصلاح دارد. بازخورد منتور: ${dto.mentorFeedback || 'لطفاً توضیحات را بررسی و مجدداً ارسال کنید.'}`,
             link: `/roadmaps/${nodeProgress.node.roadmap.slug}`,
             relatedEntityId: submission.id,
