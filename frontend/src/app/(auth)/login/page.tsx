@@ -62,16 +62,16 @@ export default function LoginPage() {
     <div className="min-h-[85vh] flex items-center justify-center py-8">
       <div className="w-full max-w-md">
         {/* Playful Sticker Badge */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-6 flex flex-col items-center justify-center">
           <div className="inline-block -rotate-2 bg-secondary px-4 py-1.5 rounded-full border-2 border-primary shadow-[3px_4px_0_0_#21295a] text-white font-black text-xs mb-3">
             هنرستان استارتاپی رکاد
           </div>
-          <h1 className="text-3xl font-black text-primary tracking-tight">
+          <h1 className="text-3xl font-black text-primary tracking-tight text-center">
             {mode === 'login' ? 'ورود به' : 'عضویت در'}{' '}
             <span className="text-secondary rotate-1 inline-block">اجوکاد</span>
           </h1>
-          <p className="text-xs text-slate-500 mt-1 font-semibold">
-            سامانه جامع شتاب‌دهی و نقشه مهارت هنرستان استارتاپی رکاد
+          <p className="text-xs text-slate-500 mt-1 font-semibold text-center">
+            سامانه جامع شتابدهی و نقشه مهارت هنرستان استارتاپی رکاد
           </p>
         </div>
 
