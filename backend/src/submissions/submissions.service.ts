@@ -120,7 +120,10 @@ export class SubmissionsService {
       outcome: SubmissionOutcome.PENDING,
     };
 
-    // If not super admin, only show submissions for students mentored by this mentor
+    // Temporarily allow ALL mentors to see the whole queue,
+    // since the mentor list isn't finalized yet.
+    // Uncomment this block in the future to restrict mentors to their assigned students:
+    /*
     if (role !== Role.SUPER_ADMIN) {
       whereCondition.nodeProgress = {
         node: {
@@ -134,6 +137,7 @@ export class SubmissionsService {
         },
       };
     }
+    */
 
     return this.prisma.nodeSubmission.findMany({
       where: whereCondition,
@@ -267,9 +271,10 @@ export class SubmissionsService {
   }
 
   async getMentorDashboard(mentorId: string, role: Role) {
-    // Find all students mentored by this mentor
+    // Temporarily show all enrollments to all mentors & super admins
+    // since the mentor assignment list is not finalized yet:
     const enrollments = await this.prisma.userRoadmap.findMany({
-      where: role === Role.SUPER_ADMIN ? {} : { mentorId },
+      where: {},
       include: {
         student: {
           select: {
