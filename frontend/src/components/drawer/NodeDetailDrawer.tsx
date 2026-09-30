@@ -15,6 +15,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { api } from '@/lib/api';
+import { toPersianDigits } from '@/lib/utils';
 
 interface Resource {
   id: string;
@@ -133,7 +134,7 @@ export function NodeDetailDrawer({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-primary/20 backdrop-blur-[2px] z-50 transition-opacity"
+        className="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 transition-opacity"
         onClick={(e) => {
           e.stopPropagation();
           onClose();
@@ -143,17 +144,17 @@ export function NodeDetailDrawer({
 
       {/* Drawer positioned on the right */}
       <div
-        className="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-white border-l-4 border-primary shadow-[-10px_0_30px_0_rgba(33,41,90,0.2)] z-50 flex flex-col overflow-hidden text-right animate-in slide-in-from-right duration-200"
+        className="fixed inset-y-0 right-0 w-full sm:w-[480px] bg-white dark:bg-[#151C28] border-l border-gray-200 dark:border-gray-800 shadow-2xl z-50 flex flex-col overflow-hidden text-right animate-in slide-in-from-right duration-200"
         dir="rtl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-start justify-between gap-3" dir="rtl">
+        <div className="p-5 bg-gray-50 dark:bg-[#1C2536] border-b border-gray-200 dark:border-gray-800 flex items-start justify-between gap-3" dir="rtl">
           <div>
-            <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary mb-2 inline-block">
+            <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-ecosystem-light dark:bg-ecosystem-darker/60 text-ecosystem-darker dark:text-ecosystem-light border border-primary/30 mb-2 inline-block">
               جزئیات مهارت
             </span>
-            <h2 className="font-black text-xl text-primary leading-snug text-right bidi-text" dir="rtl">
+            <h2 className="font-black text-xl text-sec dark:text-white leading-snug text-right bidi-text" dir="rtl">
               <bdi>{node.title}</bdi>
             </h2>
           </div>
@@ -163,7 +164,7 @@ export function NodeDetailDrawer({
               e.stopPropagation();
               onClose();
             }}
-            className="p-2 rounded-xl border-2 border-primary bg-white hover:bg-rose-50 text-slate-500 hover:text-accent transition-colors active:scale-95 shrink-0"
+            className="p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#151C28] hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 hover:text-female-normal transition-colors active:scale-95 shrink-0"
             title="بستن پنجره"
             aria-label="بستن پنجره"
           >
@@ -172,7 +173,7 @@ export function NodeDetailDrawer({
         </div>
 
         {/* Description */}
-        <div className="p-5 border-b border-slate-100 bg-white" dir="rtl">
+        <div className="p-5 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-[#151C28]" dir="rtl">
           {(() => {
             const descText = node.description || '';
             const tierMatch = descText.match(/\*\*سطح:\*\*\s*([^\|\n]+)/);
@@ -188,16 +189,16 @@ export function NodeDetailDrawer({
                 {(tierBadge || levelBadge) && (
                   <div className="flex items-center gap-2 flex-wrap mb-2" dir="rtl">
                     {tierBadge && (
-                      <span className="inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-lg bg-bg-mint text-primary border border-secondary/30">
+                      <span className="inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full bg-ecosystem-light dark:bg-ecosystem-darker text-ecosystem-darker dark:text-ecosystem-light border border-primary/30">
                         سطح: {tierBadge}
                       </span>
                     )}
                     {levelBadge && (
                       <span
-                        className={`inline-flex items-center gap-1 text-xs font-black px-2.5 py-1 rounded-lg border ${
+                        className={`inline-flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full border ${
                           levelBadge.includes('ضروری')
-                            ? 'bg-rose-50 text-rose-700 border-rose-200'
-                            : 'bg-sky-50 text-sky-700 border-sky-200'
+                            ? 'bg-female-light dark:bg-female-darker text-female-darker dark:text-female-light border-female-normal/30'
+                            : 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
                         }`}
                       >
                         اهمیت: {levelBadge}
@@ -205,7 +206,7 @@ export function NodeDetailDrawer({
                     )}
                   </div>
                 )}
-                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line text-right bidi-text" dir="rtl">
+                <p className="text-xs sm:text-sm text-ink-normal/80 dark:text-gray-300 leading-relaxed whitespace-pre-line text-right bidi-text" dir="rtl">
                   <bdi>{cleanBody || descText}</bdi>
                 </p>
               </div>
@@ -213,21 +214,21 @@ export function NodeDetailDrawer({
           })()}
 
           {/* Status indicator action bar */}
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between" dir="rtl">
-            <div className="text-xs font-bold text-slate-500">
+          <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between" dir="rtl">
+            <div className="text-xs font-bold text-ink-normal/60 dark:text-gray-400">
               وضعیت شما:{' '}
               <span
                 className={`font-black ${status === 'COMPLETED'
-                  ? 'text-emerald-600'
+                  ? 'text-emerald-600 dark:text-emerald-400'
                   : status === 'SUBMITTED'
-                    ? 'text-amber-600'
+                    ? 'text-college-normal'
                     : status === 'NEEDS_REVISION'
-                      ? 'text-rose-600'
+                      ? 'text-female-normal'
                       : status === 'IN_PROGRESS'
-                        ? 'text-teal-600'
+                        ? 'text-primary'
                         : status === 'UNLOCKED'
                           ? 'text-sky-600'
-                          : 'text-slate-400'
+                          : 'text-gray-400'
                   }`}
               >
                 {status === 'COMPLETED' && 'تکمیل شده'}
@@ -243,7 +244,7 @@ export function NodeDetailDrawer({
               <button
                 onClick={handleStartNode}
                 disabled={loading}
-                className="px-3 py-1.5 rounded-xl bg-secondary text-white font-bold text-xs shadow-[2px_3px_0_0_#347e75] hover:-translate-y-0.5 transition-transform"
+                className="rokad-btn-primary px-3 py-1.5 text-xs"
               >
                 شروع مطالعه
               </button>
@@ -252,53 +253,53 @@ export function NodeDetailDrawer({
         </div>
 
         {/* Tabs */}
-        <div className="flex border-b-2 border-primary bg-slate-50 font-bold text-xs">
+        <div className="flex border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-[#1C2536] font-bold text-xs">
           <button
             onClick={() => setActiveTab('resources')}
             className={`flex-1 py-3 border-b-2 transition-all flex items-center justify-center gap-1.5 ${activeTab === 'resources'
-              ? 'border-primary text-primary bg-white'
-              : 'border-transparent text-slate-500 hover:text-primary'
+              ? 'border-primary text-primary bg-white dark:bg-[#151C28]'
+              : 'border-transparent text-ink-normal/60 dark:text-gray-400 hover:text-sec dark:hover:text-white'
               }`}
           >
             <BookOpen className="w-4 h-4" />
-            منابع یادگیری ({node.resources.length})
+            <span>منابع یادگیری ({toPersianDigits(node.resources.length)})</span>
           </button>
 
           <button
             onClick={() => setActiveTab('submit')}
             className={`flex-1 py-3 border-b-2 transition-all flex items-center justify-center gap-1.5 ${activeTab === 'submit'
-              ? 'border-primary text-primary bg-white'
-              : 'border-transparent text-slate-500 hover:text-primary'
+              ? 'border-primary text-primary bg-white dark:bg-[#151C28]'
+              : 'border-transparent text-ink-normal/60 dark:text-gray-400 hover:text-sec dark:hover:text-white'
               }`}
           >
             <Send className="w-4 h-4" />
-            تحویل مأموریت
+            <span>تحویل مأموریت</span>
           </button>
 
           <button
             onClick={() => setActiveTab('history')}
             className={`flex-1 py-3 border-b-2 transition-all flex items-center justify-center gap-1.5 ${activeTab === 'history'
-              ? 'border-primary text-primary bg-white'
-              : 'border-transparent text-slate-500 hover:text-primary'
+              ? 'border-primary text-primary bg-white dark:bg-[#151C28]'
+              : 'border-transparent text-ink-normal/60 dark:text-gray-400 hover:text-sec dark:hover:text-white'
               }`}
           >
             <Clock className="w-4 h-4" />
-            تاریخچه ارسال‌ها ({progress?.submissions?.length || 0})
+            <span>تاریخچه ({toPersianDigits(progress?.submissions?.length || 0)})</span>
           </button>
         </div>
 
         {/* Messages */}
         {error && (
-          <div className="m-4 p-3 rounded-xl bg-rose-50 border-2 border-rose-400 text-rose-700 text-xs font-bold flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
-            {error}
+          <div className="m-4 p-3 rounded-xl bg-female-light dark:bg-female-darker/40 border border-female-normal/40 text-female-darker dark:text-female-light text-xs font-bold flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <span>{error}</span>
           </div>
         )}
 
         {successMsg && (
-          <div className="m-4 p-3 rounded-xl bg-emerald-50 border-2 border-emerald-400 text-emerald-700 text-xs font-bold flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-            {successMsg}
+          <div className="m-4 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/40 text-emerald-800 dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 shrink-0" />
+            <span>{successMsg}</span>
           </div>
         )}
 
@@ -308,24 +309,24 @@ export function NodeDetailDrawer({
           {activeTab === 'resources' && (
             <div className="space-y-4">
               {node.resources.length === 0 ? (
-                <div className="text-center py-8 text-slate-400 text-xs">
+                <div className="text-center py-8 text-ink-normal/50 dark:text-gray-500 text-xs">
                   منبعی برای این گره ثبت نشده است.
                 </div>
               ) : (
                 node.resources.map((res) => (
                   <div
                     key={res.id}
-                    className="p-4 rounded-xl border-2 border-primary/20 bg-bg-mint/30 shadow-[3px_3px_0_0_#58bdaf] hover:border-secondary transition-all"
+                    className="p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1C2536] shadow-sm hover:border-primary transition-all"
                   >
-                    <div className="flex items-center gap-2 mb-2 font-bold text-xs text-primary text-right" dir="rtl">
-                      {res.type === 'LINK' && <LinkIcon className="w-4 h-4 text-secondary shrink-0" />}
-                      {res.type === 'VIDEO_URL' && <Video className="w-4 h-4 text-accent shrink-0" />}
-                      {res.type === 'MARKDOWN_TEXT' && <FileText className="w-4 h-4 text-tertiary shrink-0" />}
+                    <div className="flex items-center gap-2 mb-2 font-bold text-xs text-sec dark:text-white text-right" dir="rtl">
+                      {res.type === 'LINK' && <LinkIcon className="w-4 h-4 text-primary shrink-0" />}
+                      {res.type === 'VIDEO_URL' && <Video className="w-4 h-4 text-female-normal shrink-0" />}
+                      {res.type === 'MARKDOWN_TEXT' && <FileText className="w-4 h-4 text-college-normal shrink-0" />}
                       <span className="bidi-text text-right" dir="rtl"><bdi>{res.title}</bdi></span>
                     </div>
 
                     {res.type === 'MARKDOWN_TEXT' ? (
-                      <div className="text-xs text-slate-700 whitespace-pre-line leading-relaxed bg-white p-3.5 rounded-lg border border-slate-200 text-right bidi-text" dir="rtl">
+                      <div className="text-xs text-ink-normal/80 dark:text-gray-300 whitespace-pre-line leading-relaxed bg-white dark:bg-[#151C28] p-3.5 rounded-lg border border-gray-200 dark:border-gray-700 text-right bidi-text" dir="rtl">
                         <bdi>{res.content}</bdi>
                       </div>
                     ) : (
@@ -333,7 +334,7 @@ export function NodeDetailDrawer({
                         href={res.content}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-secondary-dark hover:underline break-all"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline break-all"
                         dir="ltr"
                       >
                         <ExternalLink className="w-3.5 h-3.5 shrink-0" />
@@ -350,17 +351,17 @@ export function NodeDetailDrawer({
           {activeTab === 'submit' && (
             <div>
               {!node.hasDeliverable ? (
-                <div className="p-6 text-center border-2 border-dashed border-primary/30 rounded-2xl bg-bg-mint/40">
-                  <Sparkles className="w-10 h-10 text-secondary mx-auto mb-3" />
-                  <h3 className="font-extrabold text-primary text-sm mb-1">
+                <div className="p-6 text-center border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-[#1C2536]">
+                  <Sparkles className="w-10 h-10 text-primary mx-auto mb-3" />
+                  <h3 className="font-extrabold text-sec dark:text-white text-sm mb-1">
                     گره بدون نیاز به تحویل مأموریت
                   </h3>
-                  <p className="text-xs text-slate-600 mb-5 leading-relaxed">
+                  <p className="text-xs text-ink-normal/70 dark:text-gray-400 mb-5 leading-relaxed">
                     این گره دانشی/مقدماتی است و تحویل خروجی ندارد. بعد از مطالعه منابع بالا، می‌توانید مستقیماً گره را به اتمام برسانید.
                   </p>
 
                   {status === 'COMPLETED' ? (
-                    <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-100 px-4 py-2 rounded-xl">
+                    <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-4 py-2 rounded-xl">
                       <CheckCircle2 className="w-4 h-4" />
                       این مهارت تکمیل شده است
                     </div>
@@ -368,7 +369,7 @@ export function NodeDetailDrawer({
                     <button
                       onClick={handleCompleteDirect}
                       disabled={loading || status === 'LOCKED'}
-                      className="w-full py-3 rounded-xl bg-emerald-600 text-white font-extrabold text-xs shadow-[3px_4px_0_0_#064e3b] hover:-translate-y-0.5 transition-transform disabled:opacity-50"
+                      className="rokad-btn-primary w-full py-3 text-xs"
                     >
                       {loading ? 'در حال ثبت...' : 'تکمیل گره و باز شدن مراحل بعدی'}
                     </button>
@@ -377,27 +378,27 @@ export function NodeDetailDrawer({
               ) : (
                 <div>
                   {status === 'COMPLETED' && (
-                    <div className="mb-4 p-4 rounded-xl bg-emerald-50 border-2 border-emerald-500 text-emerald-800 text-xs font-bold flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                    <div className="mb-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/40 text-emerald-800 dark:text-emerald-300 text-xs font-bold flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 shrink-0" />
                       مأموریت این گره تایید شده و با موفقیت تکمیل گردید!
                     </div>
                   )}
 
                   {status === 'SUBMITTED' && (
-                    <div className="mb-4 p-4 rounded-xl bg-amber-50 border-2 border-amber-500 text-amber-800 text-xs font-bold flex items-center gap-2">
-                      <Clock className="w-5 h-5 flex-shrink-0" />
+                    <div className="mb-4 p-4 rounded-xl bg-college-light dark:bg-college-darker/40 border border-college-normal/30 text-college-darker dark:text-college-light text-xs font-bold flex items-center gap-2">
+                      <Clock className="w-5 h-5 shrink-0" />
                       کار شما در صف بازبینی منتور قرار دارد. منتظر بررسی بمانید.
                     </div>
                   )}
 
                   {status === 'NEEDS_REVISION' && (
-                    <div className="mb-4 p-4 rounded-xl bg-rose-50 border-2 border-rose-500 text-rose-800 text-xs leading-relaxed">
-                      <div className="font-bold flex items-center gap-1.5 mb-1 text-rose-900">
+                    <div className="mb-4 p-4 rounded-xl bg-female-light dark:bg-female-darker/40 border border-female-normal/30 text-female-darker dark:text-female-light text-xs leading-relaxed">
+                      <div className="font-bold flex items-center gap-1.5 mb-1 text-female-normal">
                         <AlertCircle className="w-4 h-4" />
                         منتور نیاز به بازبینی و اصلاح اعلام کرده است:
                       </div>
                       {progress?.submissions?.[0]?.mentorFeedback && (
-                        <p className="p-2.5 rounded bg-white/70 border border-rose-200 text-xs mt-1 text-slate-800">
+                        <p className="p-2.5 rounded-lg bg-white dark:bg-[#151C28] border border-female-normal/30 text-xs mt-1 text-ink-normal dark:text-white">
                           {progress.submissions[0].mentorFeedback}
                         </p>
                       )}
@@ -405,8 +406,8 @@ export function NodeDetailDrawer({
                   )}
 
                   <form onSubmit={handleSubmitDeliverable} className="space-y-4">
-                    <div>
-                      <label className="block font-bold text-xs text-primary mb-1.5">
+                    <div className="space-y-1.5">
+                      <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
                         لینک خروجی مأموریت *
                       </label>
                       <input
@@ -415,15 +416,15 @@ export function NodeDetailDrawer({
                         placeholder="لینک گوگل‌درایو، گیت‌هاب، فیگما یا..."
                         value={submissionUrl}
                         onChange={(e) => setSubmissionUrl(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary bg-white text-xs focus:outline-none focus:ring-2 focus:ring-secondary ltr"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-medium focus:border-primary focus:outline-none transition-all ltr"
                       />
-                      <span className="text-[10px] text-slate-400 mt-1 block">
+                      <span className="text-[10px] text-gray-400 mt-1 block">
                         دسترسی مشاهده لینک باید عمومی یا برای ایمیل منتور باز باشد.
                       </span>
                     </div>
 
-                    <div>
-                      <label className="block font-bold text-xs text-primary mb-1.5">
+                    <div className="space-y-1.5">
+                      <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
                         توضیحات یا یادداشت برای منتور
                       </label>
                       <textarea
@@ -431,14 +432,14 @@ export function NodeDetailDrawer({
                         placeholder="توضیحاتی در مورد نحوه انجام مأموریت، چالش‌ها و..."
                         value={submissionNote}
                         onChange={(e) => setSubmissionNote(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary bg-white text-xs focus:outline-none focus:ring-2 focus:ring-secondary"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-medium focus:border-primary focus:outline-none transition-all"
                       />
                     </div>
 
                     <button
                       type="submit"
                       disabled={loading || status === 'LOCKED' || status === 'COMPLETED'}
-                      className="w-full py-3 rounded-xl bg-accent text-white font-extrabold text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 transition-transform disabled:opacity-50"
+                      className="rokad-btn-sec w-full py-3 text-xs"
                     >
                       {loading ? 'در حال ارسال...' : 'ارسال مأموریت به منتور'}
                     </button>
@@ -452,25 +453,25 @@ export function NodeDetailDrawer({
           {activeTab === 'history' && (
             <div className="space-y-3">
               {!progress?.submissions || progress.submissions.length === 0 ? (
-                <div className="text-center py-8 text-slate-400 text-xs">
+                <div className="text-center py-8 text-gray-400 text-xs">
                   هنوز هیچ ارسالی برای این گره ثبت نشده است.
                 </div>
               ) : (
                 progress.submissions.map((sub, idx) => (
                   <div
                     key={sub.id}
-                    className="p-3.5 rounded-xl border-2 border-slate-200 bg-slate-50 text-xs"
+                    className="p-3.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1C2536] text-xs"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-bold text-slate-500">
-                        ارسال #{progress.submissions!.length - idx}
+                      <span className="font-bold text-ink-normal/60 dark:text-gray-400">
+                        ارسال #{toPersianDigits(progress.submissions!.length - idx)}
                       </span>
                       <span
-                        className={`font-black px-2 py-0.5 rounded text-[10px] ${sub.outcome === 'APPROVED'
-                          ? 'bg-emerald-100 text-emerald-800'
+                        className={`font-black px-2 py-0.5 rounded-full text-[10px] ${sub.outcome === 'APPROVED'
+                          ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300'
                           : sub.outcome === 'REJECTED'
-                            ? 'bg-rose-100 text-rose-800'
-                            : 'bg-amber-100 text-amber-800'
+                            ? 'bg-female-light text-female-darker dark:bg-female-darker/60 dark:text-female-light'
+                            : 'bg-college-light text-college-darker dark:bg-college-darker/60 dark:text-college-light'
                           }`}
                       >
                         {sub.outcome === 'APPROVED' && 'تایید شده'}
@@ -483,24 +484,24 @@ export function NodeDetailDrawer({
                       href={sub.submissionUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-secondary font-bold hover:underline flex items-center gap-1 mb-1 text-[11px]"
+                      className="text-primary font-bold hover:underline flex items-center gap-1 mb-1 text-[11px]"
                     >
-                      مشاهده خروجی ارسال‌شده
+                      <span>مشاهده خروجی ارسال‌شده</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
 
                     {sub.submissionNote && (
-                      <p className="text-[11px] text-slate-600 bg-white p-2 rounded border border-slate-200 mt-1">
+                      <p className="text-[11px] text-ink-normal/80 dark:text-gray-300 bg-white dark:bg-[#151C28] p-2 rounded-lg border border-gray-200 dark:border-gray-700 mt-1">
                         یادداشت شما: {sub.submissionNote}
                       </p>
                     )}
 
                     {sub.mentorFeedback && (
-                      <div className="mt-2 pt-2 border-t border-slate-200 text-slate-700">
-                        <span className="font-bold text-[10px] text-primary block">
+                      <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 text-ink-normal/80 dark:text-gray-300">
+                        <span className="font-bold text-[10px] text-sec dark:text-white block">
                           بازخورد منتور:
                         </span>
-                        <p className="text-[11px] bg-bg-mint p-2 rounded border border-secondary/30 mt-1">
+                        <p className="text-[11px] bg-ecosystem-light dark:bg-ecosystem-darker/40 p-2 rounded-lg border border-primary/30 mt-1 text-ecosystem-darker dark:text-ecosystem-light">
                           {sub.mentorFeedback}
                         </p>
                       </div>

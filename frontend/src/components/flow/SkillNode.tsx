@@ -2,6 +2,7 @@
 
 import React, { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
+import { toPersianDigits } from '@/lib/utils';
 import {
   Lock,
   Unlock,
@@ -27,55 +28,55 @@ const statusConfig = {
   LOCKED: {
     label: 'قفل شده',
     icon: Lock,
-    bg: 'bg-slate-100',
-    border: 'border-slate-400',
-    text: 'text-slate-600',
+    bg: 'bg-gray-100 dark:bg-gray-800',
+    border: 'border-gray-300 dark:border-gray-700',
+    text: 'text-gray-500 dark:text-gray-400',
     shadow: '#94a3b8',
-    dot: 'bg-slate-400',
+    dot: 'bg-gray-400',
   },
   UNLOCKED: {
     label: 'آماده شروع',
     icon: Unlock,
-    bg: 'bg-sky-50',
+    bg: 'bg-sky-50 dark:bg-sky-950/40',
     border: 'border-sky-500',
-    text: 'text-sky-700',
+    text: 'text-sky-700 dark:text-sky-300',
     shadow: '#0284c7',
     dot: 'bg-sky-500',
   },
   IN_PROGRESS: {
     label: 'در حال انجام',
     icon: BookOpen,
-    bg: 'bg-teal-50',
-    border: 'border-teal-600',
-    text: 'text-teal-800',
-    shadow: '#0d9488',
-    dot: 'bg-teal-600',
+    bg: 'bg-ecosystem-light dark:bg-ecosystem-darker/40',
+    border: 'border-primary',
+    text: 'text-ecosystem-darker dark:text-ecosystem-light',
+    shadow: '#59BBAF',
+    dot: 'bg-primary',
   },
   SUBMITTED: {
     label: 'در انتظار منتور',
     icon: Clock,
-    bg: 'bg-amber-50',
-    border: 'border-amber-500',
-    text: 'text-amber-800',
-    shadow: '#ea580c',
-    dot: 'bg-amber-500',
+    bg: 'bg-college-light dark:bg-college-darker/40',
+    border: 'border-college-normal',
+    text: 'text-college-darker dark:text-college-light',
+    shadow: '#F8A41D',
+    dot: 'bg-college-normal',
   },
   NEEDS_REVISION: {
     label: 'نیازمند اصلاح',
     icon: AlertCircle,
-    bg: 'bg-rose-50',
-    border: 'border-rose-500',
-    text: 'text-rose-700',
-    shadow: '#e11d48',
-    dot: 'bg-rose-500',
+    bg: 'bg-female-light dark:bg-female-darker/40',
+    border: 'border-female-normal',
+    text: 'text-female-darker dark:text-female-light',
+    shadow: '#E0195B',
+    dot: 'bg-female-normal',
   },
   COMPLETED: {
     label: 'تکمیل شده',
     icon: CheckCircle2,
-    bg: 'bg-emerald-50',
-    border: 'border-emerald-600',
-    text: 'text-emerald-800',
-    shadow: '#059669',
+    bg: 'bg-emerald-50 dark:bg-emerald-950/40',
+    border: 'border-emerald-600 dark:border-emerald-500',
+    text: 'text-emerald-800 dark:text-emerald-300',
+    shadow: '#009966',
     dot: 'bg-emerald-600',
   },
 };
@@ -88,55 +89,55 @@ function SkillNodeComponent({ data }: { data: SkillNodeData }) {
   return (
     <div
       style={{
-        boxShadow: `5px 6px 0 0 ${config.shadow}`,
+        boxShadow: `3px 3.5px 0 0 ${config.shadow}`,
       }}
-      className={`relative w-72 rounded-tl-2xl rounded-br-2xl bg-white border-2 ${config.border} p-4 text-right transition-all cursor-pointer hover:-translate-y-1 active:scale-[0.98] touch-manipulation select-none`}
+      className={`relative w-72 rounded-2xl bg-white dark:bg-[#151C28] border-2 ${config.border} p-4 text-right transition-all cursor-pointer hover:-translate-y-1 active:scale-[0.98] touch-manipulation select-none`}
       dir="rtl"
     >
       {/* Target Handle (Top: incoming prerequisites from parent nodes) */}
       <Handle
         type="target"
         position={Position.Top}
-        className="!bg-primary !w-3.5 !h-3.5 !border-2 !border-white hover:scale-125 transition-transform"
+        className="!bg-primary !w-3.5 !h-3.5 !border-2 !border-white dark:!border-[#151C28] hover:scale-125 transition-transform"
         title="ورودی (پیش‌نیاز)"
       />
 
       {/* Header: Status Pill & Deliverable Badge */}
       <div className="flex items-center justify-between gap-2 mb-2.5" dir="rtl">
         <span
-          className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2 py-0.5 rounded-full border ${config.bg} ${config.text} ${config.border}`}
+          className={`inline-flex items-center gap-1.5 text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${config.bg} ${config.text} ${config.border}`}
         >
           <StatusIcon className="w-3 h-3" />
-          {config.label}
+          <span>{config.label}</span>
         </span>
 
         {data.hasDeliverable ? (
-          <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-accent bg-accent/10 px-1.5 py-0.5 rounded border border-accent/20">
+          <span className="inline-flex items-center gap-1 text-[10px] font-black text-female-normal bg-female-light dark:bg-female-darker/40 px-2 py-0.5 rounded-full border border-female-normal/30">
             <Briefcase className="w-3 h-3" />
-            مأموریت واقعی
+            <span>مأموریت واقعی</span>
           </span>
         ) : (
-          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">
             <Layers className="w-3 h-3" />
-            مطالعه
+            <span>مطالعه</span>
           </span>
         )}
       </div>
 
       {/* Title with BiDi Isolation */}
-      <h3 className="font-extrabold text-primary text-sm leading-snug mb-1 text-right bidi-text" dir="rtl">
+      <h3 className="font-black text-sec dark:text-white text-sm leading-snug mb-1 text-right bidi-text" dir="rtl">
         <bdi>{data.title}</bdi>
       </h3>
 
       {/* Description Snippet with BiDi Isolation */}
-      <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed text-right bidi-text" dir="rtl">
+      <p className="text-xs text-ink-normal/70 dark:text-gray-400 line-clamp-2 leading-relaxed text-right bidi-text" dir="rtl">
         <bdi>{data.description}</bdi>
       </p>
 
       {/* Footer Info */}
-      <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-semibold">
-        <span>{data.resourceCount > 0 ? `${data.resourceCount} منبع آموزشی` : 'بدون منبع'}</span>
-        <span className="text-secondary font-bold hover:underline">
+      <div className="mt-3 pt-2.5 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-[11px] text-gray-400 dark:text-gray-500 font-semibold">
+        <span>{data.resourceCount > 0 ? `${toPersianDigits(data.resourceCount)} منبع آموزشی` : 'بدون منبع'}</span>
+        <span className="text-primary font-bold hover:underline">
           مشاهده جزئیات ←
         </span>
       </div>
@@ -145,7 +146,7 @@ function SkillNodeComponent({ data }: { data: SkillNodeData }) {
       <Handle
         type="source"
         position={Position.Bottom}
-        className="!bg-secondary !w-3.5 !h-3.5 !border-2 !border-white hover:scale-125 transition-transform"
+        className="!bg-primary !w-3.5 !h-3.5 !border-2 !border-white dark:!border-[#151C28] hover:scale-125 transition-transform"
         title="خروجی (مسیر بعدی)"
       />
     </div>

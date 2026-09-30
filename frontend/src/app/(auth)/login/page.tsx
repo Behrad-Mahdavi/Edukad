@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+
 import { useAuth } from '@/lib/auth-context';
-import { Mail, Lock, ArrowLeft, Sparkles, UserPlus, LogIn, User } from 'lucide-react';
+import { Mail, Lock, ArrowLeft, Sparkles, UserPlus, LogIn, User, Code2, Palette, Briefcase } from 'lucide-react';
 
 export default function LoginPage() {
   const [mode, setMode] = useState<'login' | 'register'>('login');
@@ -59,63 +60,67 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-8">
+    <div className="min-h-[85vh] flex items-center justify-center py-8 px-2">
       <div className="w-full max-w-md">
-        {/* Playful Sticker Badge */}
+        {/* Brand Header */}
         <div className="text-center mb-6 flex flex-col items-center justify-center">
-          <div className="inline-block -rotate-2 bg-secondary px-4 py-1.5 rounded-full border-2 border-primary shadow-[3px_4px_0_0_#21295a] text-white font-black text-xs mb-3">
-            هنرستان استارتاپی رکاد
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-ecosystem-light dark:bg-ecosystem-darker/50 text-ecosystem-darker dark:text-ecosystem-light border border-primary/40 shadow-ecosystem font-black text-xs mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span>هنرستان استارتاپی رکاد</span>
           </div>
-          <h1 className="text-3xl font-black text-primary tracking-tight text-center">
+
+
+          <h1 className="text-2xl sm:text-3xl font-black text-sec dark:text-white tracking-tight text-center">
             {mode === 'login' ? 'ورود به' : 'عضویت در'}{' '}
-            <span className="text-secondary rotate-1 inline-block">اجوکاد</span>
+            <span className="text-primary inline-block">سامانه Edukad</span>
           </h1>
-          <p className="text-xs text-slate-500 mt-1 font-semibold text-center">
-            سامانه جامع شتابدهی و نقشه مهارت هنرستان استارتاپی رکاد
+          <p className="text-xs text-ink-normal/70 dark:text-gray-400 mt-1 font-medium text-center">
+            پلتفرم درخت مهارت و شتابدهی مأموریت‌های واقعی باشگاه رکاد
           </p>
         </div>
 
-        {/* Main Card */}
-        <div className="sticker-card p-6 sm:p-8 bg-white">
+
+        {/* Main Neo-Brutalist Card */}
+        <div className="rokad-card p-6 sm:p-8 bg-white dark:bg-[#151C28] border border-[#EAEAEA] dark:border-gray-800 shadow-male dark:shadow-ecosystem rounded-2xl">
           {/* Mode Switcher Tabs */}
-          <div className="flex rounded-xl bg-slate-100 p-1 border-2 border-primary mb-6">
+          <div className="flex rounded-xl bg-gray-100 dark:bg-[#1C2536] p-1.5 border border-gray-200 dark:border-gray-700 mb-6">
             <button
               type="button"
               onClick={() => { setMode('login'); setError(null); }}
-              className={`flex-1 py-2 rounded-lg text-xs font-black transition-all flex items-center justify-center gap-1.5 ${
+              className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                 mode === 'login'
-                  ? 'bg-primary text-white shadow-[2px_2px_0_0_#58bdaf]'
-                  : 'text-slate-600 hover:text-primary'
+                  ? 'bg-primary text-white font-black shadow-sm'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-sec dark:hover:text-white'
               }`}
             >
               <LogIn className="w-3.5 h-3.5" />
-              ورود با ایمیل
+              <span>ورود به حساب</span>
             </button>
             <button
               type="button"
               onClick={() => { setMode('register'); setError(null); }}
-              className={`flex-1 py-2 rounded-lg text-xs font-black transition-all flex items-center justify-center gap-1.5 ${
+              className={`flex-1 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                 mode === 'register'
-                  ? 'bg-secondary text-white shadow-[2px_2px_0_0_#21295a]'
-                  : 'text-slate-600 hover:text-primary'
+                  ? 'bg-primary text-white font-black shadow-sm'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-sec dark:hover:text-white'
               }`}
             >
               <UserPlus className="w-3.5 h-3.5" />
-              ثبت‌نام فوری
+              <span>ثبت‌نام جدید</span>
             </button>
           </div>
 
           {error && (
-            <div className="mb-5 p-3 rounded-xl bg-rose-50 border-2 border-rose-400 text-rose-700 text-xs font-bold text-right">
+            <div className="mb-5 p-3 rounded-xl bg-female-light dark:bg-female-darker/40 border border-female-normal/40 text-female-darker dark:text-female-light text-xs font-bold text-right">
               {error}
             </div>
           )}
 
           {mode === 'login' ? (
             <form onSubmit={handleLoginSubmit} className="space-y-4 text-right">
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1.5">
-                  ایمیل حساب کاربری
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
+                  ایمیل کاربری
                 </label>
                 <div className="relative">
                   <input
@@ -124,14 +129,14 @@ export default function LoginPage() {
                     placeholder="name@rokad.ir"
                     value={identifier}
                     onChange={(e) => setIdentifier(e.target.value)}
-                    className="w-full px-4 py-2.5 pl-10 rounded-xl border-2 border-primary bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-secondary ltr text-left"
+                    className="w-full px-3.5 py-2.5 pl-10 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-ink-normal dark:text-white text-xs sm:text-sm font-medium focus:border-primary focus:bg-white dark:focus:bg-[#1C2536] focus:outline-none transition-all ltr text-left"
                   />
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                  <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" />
                 </div>
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1.5">
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
                   رمز عبور
                 </label>
                 <div className="relative">
@@ -141,43 +146,52 @@ export default function LoginPage() {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-2.5 pl-10 rounded-xl border-2 border-primary bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-secondary ltr text-left"
+                    className="w-full px-3.5 py-2.5 pl-10 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-ink-normal dark:text-white text-xs sm:text-sm font-medium focus:border-primary focus:bg-white dark:focus:bg-[#1C2536] focus:outline-none transition-all ltr text-left"
                   />
-                  <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                  <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" />
                 </div>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2 py-3 rounded-xl bg-primary text-white font-black text-sm shadow-[4px_5px_0_0_#58bdaf] hover:-translate-y-0.5 transition-transform flex items-center justify-center gap-2 disabled:opacity-50"
+                className="rokad-btn-primary w-full mt-3 py-3 text-sm"
               >
-                {loading ? 'در حال ورود به سوپابیس...' : 'ورود به پنل کاربری'}
-                <ArrowLeft className="w-4 h-4" />
+                {loading ? (
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                    <span>در حال ورود به حساب کاربری...</span>
+                  </div>
+                ) : (
+                  <>
+                    <span>ورود به سامانه</span>
+                    <ArrowLeft className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
           ) : (
             <form onSubmit={handleRegisterSubmit} className="space-y-3.5 text-right">
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">
+              <div className="space-y-1">
+                <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
                   نام و نام خانوادگی
                 </label>
                 <div className="relative">
                   <input
                     type="text"
                     required
-                    placeholder="مثلاً: پارسا محمدی"
+                    placeholder="مثال: پارسا محمدی"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full px-4 py-2.5 pl-10 rounded-xl border-2 border-primary bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-secondary text-right"
+                    className="w-full px-3.5 py-2.5 pl-10 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-ink-normal dark:text-white text-xs sm:text-sm font-medium focus:border-primary focus:bg-white dark:focus:bg-[#1C2536] focus:outline-none transition-all text-right"
                   />
-                  <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                  <User className="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" />
                 </div>
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">
-                  ایمیل (بدون نیاز به تایید)
+              <div className="space-y-1">
+                <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
+                  ایمیل کاربری
                 </label>
                 <div className="relative">
                   <input
@@ -186,14 +200,14 @@ export default function LoginPage() {
                     placeholder="student@example.com"
                     value={regEmail}
                     onChange={(e) => setRegEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 pl-10 rounded-xl border-2 border-primary bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-secondary ltr text-left"
+                    className="w-full px-3.5 py-2.5 pl-10 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-ink-normal dark:text-white text-xs sm:text-sm font-medium focus:border-primary focus:bg-white dark:focus:bg-[#1C2536] focus:outline-none transition-all ltr text-left"
                   />
-                  <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                  <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" />
                 </div>
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">
+              <div className="space-y-1">
+                <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
                   رمز عبور (حداقل ۶ کاراکتر)
                 </label>
                 <div className="relative">
@@ -204,34 +218,43 @@ export default function LoginPage() {
                     placeholder="••••••••"
                     value={regPassword}
                     onChange={(e) => setRegPassword(e.target.value)}
-                    className="w-full px-4 py-2.5 pl-10 rounded-xl border-2 border-primary bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-secondary ltr text-left"
+                    className="w-full px-3.5 py-2.5 pl-10 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-ink-normal dark:text-white text-xs sm:text-sm font-medium focus:border-primary focus:bg-white dark:focus:bg-[#1C2536] focus:outline-none transition-all ltr text-left"
                   />
-                  <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
+                  <Lock className="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" />
                 </div>
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">
-                  دپارتمان مهارتی
+              <div className="space-y-1">
+                <label className="block font-bold text-xs text-ink-normal/90 dark:text-gray-300">
+                  دپارتمان مهارتی در رکاد
                 </label>
                 <select
                   value={department}
                   onChange={(e) => setDepartment(e.target.value as any)}
-                  className="w-full px-4 py-2.5 rounded-xl border-2 border-primary bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-secondary text-right"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-ink-normal dark:text-white text-xs sm:text-sm font-medium focus:border-primary focus:bg-white dark:focus:bg-[#1C2536] focus:outline-none transition-all text-right cursor-pointer"
                 >
-                  <option value="ENGINEERS">مهندسی و توسعه (کدنویسی، UI/UX)</option>
-                  <option value="ARTISTS">آرتیست‌ها و رسانه (موشن، تدوین، گرافیک)</option>
-                  <option value="OPS">آچارفرانسه و عملیات (مارکتینگ، ایونت)</option>
+                  <option value="ENGINEERS">مهندسی و توسعه (کدنویسی، فرانت/بک، UI/UX)</option>
+                  <option value="ARTISTS">آرتیست‌ها و رسانه (موشن، تدوین، گرافیک، برندینگ)</option>
+                  <option value="OPS">آچارفرانسه و عملیات (مارکتینگ، رویداد، لجستیک)</option>
                 </select>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2 py-3 rounded-xl bg-secondary text-white font-black text-sm shadow-[4px_5px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center justify-center gap-2 disabled:opacity-50"
+                className="rokad-btn-sec w-full mt-3 py-3 text-sm"
               >
-                {loading ? 'در حال ثبت در سوپابیس...' : 'ثبت‌نام و ورود آنی'}
-                <ArrowLeft className="w-4 h-4" />
+                {loading ? (
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                    <span>در حال ایجاد حساب کاربری...</span>
+                  </div>
+                ) : (
+                  <>
+                    <span>عضویت و ورود به پنل</span>
+                    <ArrowLeft className="w-4 h-4" />
+                  </>
+                )}
               </button>
             </form>
           )}

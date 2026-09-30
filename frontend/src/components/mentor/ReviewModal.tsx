@@ -58,19 +58,19 @@ export function ReviewModal({ submission, onClose, onReviewed }: ReviewModalProp
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm">
-      <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
+      <div className="bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 rounded-3xl w-full max-w-lg shadow-male dark:shadow-ecosystem overflow-hidden text-right">
         {/* Header */}
-        <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
+        <div className="p-5 bg-gray-50 dark:bg-[#1C2536] border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
           <div>
-            <span className="text-[11px] font-bold text-secondary-dark block">
+            <span className="text-[11px] font-bold text-primary block">
               بازبینی مأموریت دانش‌آموز
             </span>
-            <h3 className="font-black text-lg text-primary">{student.fullName}</h3>
+            <h3 className="font-black text-lg text-sec dark:text-white">{student.fullName}</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl border-2 border-primary bg-white hover:bg-slate-100 text-slate-500"
+            className="p-1.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#151C28] hover:bg-gray-100 text-gray-400"
           >
             <X className="w-5 h-5" />
           </button>
@@ -79,55 +79,55 @@ export function ReviewModal({ submission, onClose, onReviewed }: ReviewModalProp
         {/* Body */}
         <div className="p-5 space-y-4">
           {error && (
-            <div className="p-3 rounded-xl bg-rose-50 border-2 border-rose-400 text-rose-700 text-xs font-bold flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 flex-shrink-0" />
-              {error}
+            <div className="p-3 rounded-xl bg-female-light dark:bg-female-darker/40 border border-female-normal/40 text-female-darker dark:text-female-light text-xs font-bold flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>{error}</span>
             </div>
           )}
 
           {/* Context Card */}
-          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
+          <div className="p-3.5 rounded-xl bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 text-xs space-y-1.5">
             <div className="flex justify-between">
-              <span className="text-slate-400">مسیر یادگیری:</span>
-              <span className="font-bold text-primary">{node.roadmap.title}</span>
+              <span className="text-ink-normal/60 dark:text-gray-400">مسیر یادگیری:</span>
+              <span className="font-bold text-sec dark:text-white">{node.roadmap.title}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">مهارت / گره:</span>
+              <span className="text-ink-normal/60 dark:text-gray-400">مهارت / گره:</span>
               <span className="font-black text-primary">{node.title}</span>
             </div>
           </div>
 
           {/* Submission Output URL */}
-          <div>
-            <label className="block font-bold text-xs text-primary mb-1.5">
+          <div className="space-y-1.5">
+            <label className="block font-bold text-xs text-sec dark:text-white">
               لینک خروجی ارسال‌شده توسط دانش‌آموز:
             </label>
             <a
               href={submission.submissionUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full p-3 rounded-xl border-2 border-secondary bg-bg-mint flex items-center justify-between text-xs font-bold text-secondary-dark hover:bg-secondary/10 transition-colors ltr"
+              className="w-full p-3 rounded-xl border border-primary/40 bg-ecosystem-light dark:bg-ecosystem-darker/40 flex items-center justify-between text-xs font-bold text-ecosystem-darker dark:text-ecosystem-light hover:bg-ecosystem-light-hover transition-colors ltr"
             >
               <span className="truncate">{submission.submissionUrl}</span>
-              <ExternalLink className="w-4 h-4 flex-shrink-0 ml-2" />
+              <ExternalLink className="w-4 h-4 shrink-0 ml-2" />
             </a>
           </div>
 
           {/* Student Note */}
           {submission.submissionNote && (
-            <div>
-              <label className="block font-bold text-xs text-primary mb-1">
+            <div className="space-y-1">
+              <label className="block font-bold text-xs text-sec dark:text-white">
                 توضیحات دانش‌آموز:
               </label>
-              <p className="p-3 rounded-xl bg-slate-100 text-xs text-slate-700 leading-relaxed border border-slate-200">
+              <p className="p-3 rounded-xl bg-gray-50 dark:bg-[#1C2536] text-xs text-ink-normal/80 dark:text-gray-300 leading-relaxed border border-gray-200 dark:border-gray-700">
                 {submission.submissionNote}
               </p>
             </div>
           )}
 
           {/* Mentor Feedback Input */}
-          <div>
-            <label className="block font-bold text-xs text-primary mb-1.5">
+          <div className="space-y-1.5">
+            <label className="block font-bold text-xs text-sec dark:text-white">
               بازخورد و یادداشت شما برای دانش‌آموز:
             </label>
             <textarea
@@ -135,28 +135,28 @@ export function ReviewModal({ submission, onClose, onReviewed }: ReviewModalProp
               placeholder="نکات مثبت کار و مواردی که باید برای بهبود یا اصلاح رعایت شوند را اینجا بنویسید..."
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary bg-white text-xs focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-medium focus:border-primary focus:outline-none transition-all"
             />
           </div>
 
           {/* Actions */}
-          <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-3">
+          <div className="pt-3 border-t border-gray-100 dark:border-gray-800 grid grid-cols-2 gap-3">
             <button
               onClick={() => handleReview('REJECTED')}
               disabled={loading}
-              className="py-2.5 rounded-xl border-2 border-rose-600 bg-rose-50 text-rose-700 font-bold text-xs shadow-[2px_3px_0_0_#e11d48] hover:bg-rose-100 flex items-center justify-center gap-1.5 disabled:opacity-50"
+              className="rokad-btn-girl py-2.5 text-xs"
             >
               <XCircle className="w-4 h-4" />
-              رد با یادداشت اصلاحی
+              <span>رد با یادداشت اصلاحی</span>
             </button>
 
             <button
               onClick={() => handleReview('APPROVED')}
               disabled={loading}
-              className="py-2.5 rounded-xl bg-emerald-600 text-white font-extrabold text-xs shadow-[2px_3px_0_0_#064e3b] hover:-translate-y-0.5 transition-transform flex items-center justify-center gap-1.5 disabled:opacity-50"
+              className="rokad-btn-primary py-2.5 text-xs"
             >
               <CheckCircle className="w-4 h-4" />
-              تایید مأموریت
+              <span>تایید مأموریت</span>
             </button>
           </div>
         </div>

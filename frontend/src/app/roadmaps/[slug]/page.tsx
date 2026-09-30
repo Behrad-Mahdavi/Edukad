@@ -18,6 +18,8 @@ import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth-context';
 import { SkillNode } from '@/components/flow/SkillNode';
 import { NodeDetailDrawer } from '@/components/drawer/NodeDetailDrawer';
+import { toPersianDigits } from '@/lib/utils';
+import { RokadLoader } from '@/components/ui/Loading';
 import {
   ArrowRight,
   Sparkles,
@@ -67,7 +69,7 @@ function CanvasFlowView({
   }, [hasLoaded, nodes.length, fitView]);
 
   return (
-    <div className="flex-1 relative bg-slate-50 border-2 border-primary rounded-xl sm:rounded-2xl shadow-[4px_5px_0_0_#21295a] overflow-hidden select-none">
+    <div className="flex-1 relative bg-[#F8F9FA] dark:bg-[#0B0F17] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-male dark:shadow-ecosystem overflow-hidden select-none">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -85,28 +87,28 @@ function CanvasFlowView({
         preventScrolling={true}
         attributionPosition="bottom-left"
       >
-        <Background variant={BackgroundVariant.Dots} gap={20} size={1.5} color="#cbd5e1" />
+        <Background variant={BackgroundVariant.Dots} gap={20} size={1.5} color="#94a3b8" className="opacity-40" />
 
         {/* Desktop Controls */}
         <Controls
           position="bottom-left"
           showInteractive={false}
-          className="!bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a] scale-90 sm:scale-100 origin-bottom-left"
+          className="!bg-white dark:!bg-[#151C28] !border !border-gray-200 dark:!border-gray-700 !rounded-xl !shadow-male dark:!shadow-ecosystem scale-90 sm:scale-100 origin-bottom-left"
         />
 
-        {/* MiniMap: Hidden on mobile (< md) to preserve full touch viewport */}
+        {/* MiniMap */}
         <MiniMap
-          className="hidden md:block !bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a]"
+          className="hidden md:block !bg-white dark:!bg-[#151C28] !border !border-gray-200 dark:!border-gray-700 !rounded-xl !shadow-male dark:!shadow-ecosystem"
           nodeColor={(node: any) => {
             switch (node.data?.status) {
               case 'COMPLETED':
-                return '#059669';
+                return '#009966';
               case 'SUBMITTED':
-                return '#ea580c';
+                return '#F8A41D';
               case 'NEEDS_REVISION':
-                return '#e11d48';
+                return '#E0195B';
               case 'IN_PROGRESS':
-                return '#0d9488';
+                return '#59BBAF';
               case 'UNLOCKED':
                 return '#0284c7';
               default:
@@ -117,21 +119,21 @@ function CanvasFlowView({
       </ReactFlow>
 
       {/* Mobile Floating Quick-Action Controls (Top-Left) */}
-      <div className="sm:hidden absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border-2 border-primary rounded-xl p-1 shadow-[2px_3px_0_0_#21295a]">
+      <div className="sm:hidden absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-white/95 dark:bg-[#151C28]/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl p-1 shadow-male dark:shadow-ecosystem">
         <button
           type="button"
           onClick={() => fitView({ padding: 0.25, duration: 300 })}
-          className="p-1.5 rounded-lg hover:bg-slate-100 text-primary active:scale-90 transition-transform flex items-center gap-1"
+          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-sec dark:text-white active:scale-90 transition-transform flex items-center gap-1"
           title="تراز کردن روی کل نقشه"
         >
-          <Maximize2 className="w-4 h-4 text-secondary-dark" />
+          <Maximize2 className="w-4 h-4 text-primary" />
           <span className="text-[10px] font-black">تراز</span>
         </button>
-        <div className="w-[1px] h-4 bg-slate-200" />
+        <div className="w-[1px] h-4 bg-gray-200 dark:bg-gray-700" />
         <button
           type="button"
           onClick={() => zoomIn({ duration: 200 })}
-          className="p-1.5 rounded-lg hover:bg-slate-100 text-primary active:scale-90"
+          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-sec dark:text-white active:scale-90"
           title="بزرگ‌نمایی"
         >
           <Plus className="w-3.5 h-3.5" />
@@ -139,7 +141,7 @@ function CanvasFlowView({
         <button
           type="button"
           onClick={() => zoomOut({ duration: 200 })}
-          className="p-1.5 rounded-lg hover:bg-slate-100 text-primary active:scale-90"
+          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-sec dark:text-white active:scale-90"
           title="کوچک‌نمایی"
         >
           <Minus className="w-3.5 h-3.5" />
@@ -147,31 +149,31 @@ function CanvasFlowView({
       </div>
 
       {/* Desktop Legend Overlay Bar */}
-      <div className="hidden sm:flex absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm border-2 border-primary rounded-xl px-3 py-2 shadow-[2px_3px_0_0_#21295a] text-[10px] font-bold flex-wrap items-center gap-3 text-slate-600 z-10">
-        <span className="text-primary font-black">راهنمای وضعیت:</span>
+      <div className="hidden sm:flex absolute bottom-3 right-3 bg-white/95 dark:bg-[#151C28]/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3.5 py-2 shadow-male dark:shadow-ecosystem text-[11px] font-bold flex-wrap items-center gap-3 text-ink-normal/80 dark:text-gray-300 z-10">
+        <span className="text-sec dark:text-white font-black">راهنمای وضعیت:</span>
         <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded-full bg-slate-400 inline-block" />
-          قفل
+          <span className="w-2.5 h-2.5 rounded-full bg-gray-400 inline-block" />
+          <span>قفل</span>
         </span>
         <span className="flex items-center gap-1">
           <span className="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block" />
-          آماده شروع
+          <span>آماده شروع</span>
         </span>
         <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded-full bg-teal-600 inline-block" />
-          در حال انجام
+          <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block" />
+          <span>در حال انجام</span>
         </span>
         <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
-          در انتظار منتور
+          <span className="w-2.5 h-2.5 rounded-full bg-college-normal inline-block" />
+          <span>در انتظار منتور</span>
         </span>
         <span className="flex items-center gap-1">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block" />
-          نیازمند اصلاح
+          <span className="w-2.5 h-2.5 rounded-full bg-female-normal inline-block" />
+          <span>نیازمند اصلاح</span>
         </span>
         <span className="flex items-center gap-1">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block" />
-          تکمیل شده
+          <span>تکمیل شده</span>
         </span>
       </div>
 
@@ -180,47 +182,47 @@ function CanvasFlowView({
         <button
           type="button"
           onClick={() => setShowMobileLegend(true)}
-          className="flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border-2 border-primary rounded-xl px-2.5 py-1.5 shadow-[2px_2px_0_0_#21295a] text-[10px] font-bold text-primary active:scale-95 transition-transform cursor-pointer"
+          className="flex items-center gap-1.5 bg-white/95 dark:bg-[#151C28]/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl px-2.5 py-1.5 shadow-sm text-[10px] font-bold text-sec dark:text-white active:scale-95 transition-transform cursor-pointer"
         >
-          <HelpCircle className="w-3.5 h-3.5 text-secondary" />
+          <HelpCircle className="w-3.5 h-3.5 text-primary" />
           <span>راهنمای وضعیت</span>
         </button>
 
         {showMobileLegend && (
-          <div className="fixed inset-0 z-50 bg-primary/40 backdrop-blur-xs flex items-end justify-center p-3 animate-in fade-in duration-200">
-            <div className="bg-white border-2 border-primary rounded-2xl w-full max-w-sm p-4 shadow-[4px_6px_0_0_#21295a] text-right space-y-3">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                <span className="font-black text-xs text-primary">راهنمای وضعیت گره‌ها</span>
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-end justify-center p-3 animate-in fade-in duration-200">
+            <div className="bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-700 rounded-2xl w-full max-w-sm p-4 shadow-male dark:shadow-ecosystem text-right space-y-3">
+              <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-2">
+                <span className="font-black text-xs text-sec dark:text-white">راهنمای وضعیت گره‌ها</span>
                 <button
                   type="button"
                   onClick={() => setShowMobileLegend(false)}
-                  className="p-1 rounded-lg border border-primary hover:bg-slate-100 text-slate-500"
+                  className="p-1 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 text-gray-400"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-[11px] font-bold text-slate-700">
-                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-slate-50 border border-slate-200">
-                  <span className="w-3 h-3 rounded-full bg-slate-400 shrink-0" />
+              <div className="grid grid-cols-2 gap-2 text-[11px] font-bold text-ink-normal/80 dark:text-gray-300">
+                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700">
+                  <span className="w-3 h-3 rounded-full bg-gray-400 shrink-0" />
                   <span>قفل شده</span>
                 </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-sky-50 border border-sky-200 text-sky-800">
+                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800 text-sky-800 dark:text-sky-300">
                   <span className="w-3 h-3 rounded-full bg-sky-500 shrink-0" />
                   <span>آماده شروع</span>
                 </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-teal-50 border border-teal-200 text-teal-800">
-                  <span className="w-3 h-3 rounded-full bg-teal-600 shrink-0" />
+                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-ecosystem-light dark:bg-ecosystem-darker/40 border border-primary/30 text-ecosystem-darker dark:text-ecosystem-light">
+                  <span className="w-3 h-3 rounded-full bg-primary shrink-0" />
                   <span>در حال انجام</span>
                 </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-800">
-                  <span className="w-3 h-3 rounded-full bg-amber-500 shrink-0" />
+                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-college-light dark:bg-college-darker/40 border border-college-normal/30 text-college-darker dark:text-college-light">
+                  <span className="w-3 h-3 rounded-full bg-college-normal shrink-0" />
                   <span>در انتظار منتور</span>
                 </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-rose-50 border border-rose-200 text-rose-800">
-                  <span className="w-3 h-3 rounded-full bg-rose-500 shrink-0" />
+                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-female-light dark:bg-female-darker/40 border border-female-normal/30 text-female-darker dark:text-female-light">
+                  <span className="w-3 h-3 rounded-full bg-female-normal shrink-0" />
                   <span>نیازمند اصلاح</span>
                 </div>
-                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800">
+                <div className="flex items-center gap-2 p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300">
                   <span className="w-3 h-3 rounded-full bg-emerald-600 shrink-0" />
                   <span>تکمیل شده</span>
                 </div>
@@ -228,7 +230,7 @@ function CanvasFlowView({
               <button
                 type="button"
                 onClick={() => setShowMobileLegend(false)}
-                className="w-full py-2 rounded-xl bg-primary text-white text-xs font-black"
+                className="rokad-btn-primary w-full py-2 text-xs"
               >
                 متوجه شدم
               </button>
@@ -288,12 +290,12 @@ export default function RoadmapDetailPage() {
             target: node.id,
             type: 'smoothstep',
             animated: true,
-            style: { stroke: '#58bdaf', strokeWidth: 3 },
+            style: { stroke: '#59BBAF', strokeWidth: 2.5 },
             markerEnd: {
               type: MarkerType.ArrowClosed,
-              color: '#58bdaf',
-              width: 18,
-              height: 18,
+              color: '#59BBAF',
+              width: 16,
+              height: 16,
             },
           });
         });
@@ -359,19 +361,20 @@ export default function RoadmapDetailPage() {
 
   if (loading || fetching) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-center font-bold text-slate-500 animate-pulse">
-          در حال بارگذاری درخت مهارت...
-        </div>
-      </div>
+      <RokadLoader
+        title="در حال ترسیم و بارگذاری درخت مهارت‌های تعاملی..."
+        subtitle="محاسبه پیش‌نیازها، وضعیت پیشرفت و دسترسی‌های گره‌ها"
+        type="skill"
+      />
     );
   }
+
 
   if (!roadmap) {
     return (
       <div className="text-center py-16">
-        <h2 className="text-xl font-bold text-primary mb-2">مسیر یافت نشد</h2>
-        <Link href="/" className="text-xs text-secondary font-bold hover:underline">
+        <h2 className="text-xl font-bold text-sec dark:text-white mb-2">مسیر یافت نشد</h2>
+        <Link href="/" className="text-xs text-primary font-bold hover:underline">
           بازگشت به خانه
         </Link>
       </div>
@@ -382,12 +385,12 @@ export default function RoadmapDetailPage() {
 
   return (
     <div className="h-[calc(100dvh-105px)] sm:h-[84vh] flex flex-col gap-2 sm:gap-3 text-right">
-      {/* Top Banner / Roadmap Header - Mobile Optimized */}
-      <div className="box-pattern pattern-cover bg-white border-2 border-primary rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-[3px_4px_0_0_#21295a] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 shrink-0">
+      {/* Top Banner / Roadmap Header */}
+      <div className="rokad-card bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 rounded-2xl p-3 sm:p-4 shadow-male dark:shadow-ecosystem flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 shrink-0">
         <div className="flex items-center gap-2.5 sm:gap-4">
           <Link
             href="/"
-            className="p-1.5 sm:p-2 rounded-xl border-2 border-primary bg-bg-mint text-primary hover:bg-secondary hover:text-white transition-colors shrink-0"
+            className="p-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1C2536] text-sec dark:text-white hover:bg-primary hover:text-white transition-colors shrink-0"
             title="بازگشت"
           >
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -395,14 +398,14 @@ export default function RoadmapDetailPage() {
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <h1 className="font-black text-sm sm:text-lg md:text-xl text-primary truncate text-right bidi-text" dir="rtl">
+              <h1 className="font-black text-sm sm:text-lg md:text-xl text-sec dark:text-white truncate text-right bidi-text" dir="rtl">
                 <bdi>{roadmap.title}</bdi>
               </h1>
-              <span className="text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded bg-secondary/20 text-secondary-dark shrink-0">
-                نسخه {roadmap.version}
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-ecosystem-light dark:bg-ecosystem-darker/60 text-ecosystem-darker dark:text-ecosystem-light border border-primary/30 shrink-0">
+                نسخه {toPersianDigits(roadmap.version)}
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-500 line-clamp-1 mt-0.5 text-right bidi-text" dir="rtl">
+            <p className="text-[11px] sm:text-xs text-ink-normal/70 dark:text-gray-400 line-clamp-1 mt-0.5 text-right bidi-text" dir="rtl">
               <bdi>{roadmap.description}</bdi>
             </p>
           </div>
@@ -414,32 +417,32 @@ export default function RoadmapDetailPage() {
             type="button"
             disabled={enrolling}
             onClick={handleSelfEnroll}
-            className="px-4 py-2 rounded-xl bg-secondary text-white font-black text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 active:scale-95 transition-all flex items-center gap-1.5 border border-primary shrink-0 disabled:opacity-50"
+            className="rokad-btn-primary px-4 py-2 text-xs shrink-0"
           >
             <Sparkles className="w-4 h-4" />
             <span>{enrolling ? 'در حال فعال‌سازی...' : 'شروع این مسیر و باز کردن گره‌ها'}</span>
           </button>
         ) : (
-          <div className="flex items-center justify-between sm:justify-end gap-3 bg-slate-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-slate-200 shrink-0">
+          <div className="flex items-center justify-between sm:justify-end gap-3 bg-gray-50 dark:bg-[#1C2536] px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl border border-gray-200 dark:border-gray-700 shrink-0">
             <div className="text-right">
-              <span className="text-[9px] sm:text-[10px] text-slate-400 block font-bold">
+              <span className="text-[10px] text-ink-normal/60 dark:text-gray-400 block font-bold">
                 وضعیت تسلط:
               </span>
-              <span className="text-xs font-black text-secondary-dark">
-                {stats.percent}٪ ({stats.completed}/{stats.total})
+              <span className="text-xs font-black text-primary">
+                {toPersianDigits(stats.percent)}٪ ({toPersianDigits(stats.completed)} از {toPersianDigits(stats.total)})
               </span>
             </div>
 
-            <div className="w-20 sm:w-28 h-2 sm:h-2.5 rounded-full bg-slate-200 overflow-hidden shrink-0">
+            <div className="w-20 sm:w-28 h-2 sm:h-2.5 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0">
               <div
-                className="h-full bg-secondary transition-all"
+                className="h-full bg-primary transition-all"
                 style={{ width: `${stats.percent}%` }}
               />
             </div>
 
             {enrollment?.mentor && (
-              <div className="pr-2.5 border-r border-slate-200 text-[10px] sm:text-xs font-bold text-primary hidden xs:block">
-                <span className="text-[9px] text-slate-400 block font-medium">
+              <div className="pr-2.5 border-r border-gray-200 dark:border-gray-700 text-[10px] sm:text-xs font-bold text-sec dark:text-white hidden xs:block">
+                <span className="text-[9px] text-ink-normal/60 dark:text-gray-400 block font-medium">
                   منتور ناظر:
                 </span>
                 {enrollment.mentor.fullName}

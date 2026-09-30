@@ -1,4 +1,5 @@
 @import '@xyflow/react/dist/style.css';
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
 @font-face {
   font-family: 'IRANSansX';
@@ -45,23 +46,35 @@
 @tailwind utilities;
 
 :root {
-  --primary: #21295a;
-  --secondary: #58bdaf;
-  --accent: #e0195b;
-  --tertiary: #f4971f;
-  --ink: #292827;
+  --color-primary: #59BBAF;
+  --color-girl: #E0195B;
+  --color-third: #F8A41D;
+  --color-sec: #202A5A;
+  --text-normal: #292827;
+  --font-family: 'IRANSansX', 'Vazirmatn', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 14.5px;
+  }
 }
 
 body {
-  font-family: 'IRANSansX', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: var(--ink);
-  background-color: #f8fafc;
+  font-family: var(--font-family);
+  background-color: #F8F9FA;
+  color: var(--text-normal);
   direction: rtl;
   text-align: right;
-  unicode-bidi: embed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Universal RTL and BiDi Text Perfection */
+/* BiDi and Text Isolation */
 p,
 h1,
 h2,
@@ -81,7 +94,6 @@ figcaption,
   word-break: break-word;
 }
 
-/* Isolated LTR text (English terms, URLs, code, numbers) embedded in Persian sentences */
 .ltr-text,
 .en-term,
 code,
@@ -94,131 +106,193 @@ samp {
   text-align: left !important;
 }
 
-/* Ensure React Flow canvas nodes enforce clean RTL */
+/* کارت برند رُکاد */
+.rokad-card {
+  background: #FFFFFF;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 16px;
+  box-shadow: 2.75px 2.75px 0 #202A5A;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rokad-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 3.5px 3.5px 0 #202A5A;
+}
+
+/* دکمه اصلی سبز */
+.rokad-btn-primary {
+  background-color: #59BBAF;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1.5px solid #438C83;
+  border-radius: 12px;
+  box-shadow: 2.5px 2.5px 0 #1F413D;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.rokad-btn-primary:hover:not(:disabled) {
+  background-color: #50A89E;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #1F413D;
+}
+.rokad-btn-primary:active:not(:disabled) {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 1px 1px 0 #1F413D;
+}
+.rokad-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* دکمه ثانویه سرمه‌ای */
+.rokad-btn-sec {
+  background-color: #202A5A;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1.5px solid #182044;
+  border-radius: 12px;
+  box-shadow: 2.5px 2.5px 0 #0B0F1F;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.rokad-btn-sec:hover:not(:disabled) {
+  background-color: #1D2651;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #0B0F1F;
+}
+.rokad-btn-sec:active:not(:disabled) {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 1px 1px 0 #0B0F1F;
+}
+.rokad-btn-sec:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* دکمه اوت‌لاین */
+.rokad-btn-outline {
+  background-color: #FFFFFF;
+  color: #292827;
+  font-weight: 600;
+  border: 1.5px solid #DFDFDF;
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 #BDBCBC;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.rokad-btn-outline:hover:not(:disabled) {
+  background-color: #F8F9FA;
+  border-color: #292827;
+  box-shadow: 2.5px 2.5px 0 #292827;
+}
+.rokad-btn-outline:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #292827;
+}
+.rokad-btn-outline:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* دکمه دخترانه/هشدار */
+.rokad-btn-girl {
+  background-color: #E0195B;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1.5px solid #A81344;
+  border-radius: 12px;
+  box-shadow: 2.5px 2.5px 0 #4E0920;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.rokad-btn-girl:hover:not(:disabled) {
+  background-color: #CA1752;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 #4E0920;
+}
+.rokad-btn-girl:active:not(:disabled) {
+  transform: translate(1.5px, 1.5px);
+  box-shadow: 1px 1px 0 #4E0920;
+}
+.rokad-btn-girl:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* دارک مود */
+.dark {
+  color-scheme: dark;
+}
+.dark body {
+  background-color: #0B0F17;
+  color: #F1F5F9;
+}
+.dark .rokad-card {
+  background: #151C28;
+  border-color: #242F42;
+  box-shadow: 2.75px 2.75px 0 #59BBAF;
+}
+.dark .rokad-card:hover {
+  box-shadow: 3.5px 3.5px 0 #59BBAF;
+}
+.dark .rokad-btn-primary {
+  box-shadow: 2.5px 2.5px 0 #28544F;
+}
+.dark .rokad-btn-primary:hover:not(:disabled) {
+  box-shadow: 3px 3px 0 #28544F;
+}
+.dark .rokad-btn-sec {
+  background-color: #2B3875;
+  border-color: #3F50A0;
+  box-shadow: 2.5px 2.5px 0 #59BBAF;
+}
+.dark .rokad-btn-sec:hover:not(:disabled) {
+  box-shadow: 3px 3px 0 #59BBAF;
+}
+.dark .rokad-btn-girl {
+  box-shadow: 2.5px 2.5px 0 #4E0920;
+}
+.dark .rokad-btn-girl:hover:not(:disabled) {
+  box-shadow: 3px 3px 0 #4E0920;
+}
+.dark .rokad-btn-outline {
+  background-color: #161D2A;
+  color: #F1F5F9;
+  border-color: #2D3A50;
+  box-shadow: 2px 2px 0 #0F172A;
+}
+.dark .rokad-btn-outline:hover:not(:disabled) {
+  background-color: #1C2536;
+  border-color: #59BBAF;
+  box-shadow: 2.5px 2.5px 0 #59BBAF;
+}
+
+/* React Flow custom node canvas overrides */
 .react-flow__node {
   direction: rtl !important;
   text-align: right !important;
 }
 
-
-.bg-pattern {
-  background-image: url('/images/Frame 27.svg');
-  background-repeat: repeat;
-  background-size: auto;
-}
-
-/* Patterned Box Styling from Frame 27.svg */
-.sticker-card,
-.box-pattern {
-  position: relative;
-  background-color: #ffffff;
-  border: 2px solid var(--primary);
-  border-radius: 1.25rem 0.35rem 1.25rem 0.35rem;
-  box-shadow: 5px 6px 0 0 var(--primary);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.sticker-card::before,
-.box-pattern::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/Frame 27.svg');
-  background-repeat: repeat;
-  background-size: 360px auto;
-  opacity: 0.2;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* In large boxes: do not repeat, use cover */
-.pattern-cover::before,
-.sticker-card-hero::before,
-.box-pattern-cover::before {
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center !important;
-}
-
-.sticker-card > *:not([class*="absolute"]),
-.box-pattern > *:not([class*="absolute"]) {
-  position: relative;
-  z-index: 2;
-}
-
-.sticker-card > [class*="absolute"],
-.box-pattern > [class*="absolute"] {
-  z-index: 2;
-}
-
-.sticker-card:hover,
-.box-pattern:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 8px 0 0 var(--primary);
-}
-
-/* Explicit rule: NEVER apply the pattern inside canvas or canvas nodes */
-.react-flow,
-.react-flow *,
-.react-flow *::before,
-.react-flow-node,
-.react-flow-node * {
-  /* Canvas and Skill Nodes strictly clean */
-}
-
-.sticker-card-secondary {
-  border-color: var(--secondary);
-  box-shadow: 5px 6px 0 0 var(--secondary);
-}
-
-.sticker-card-secondary:hover {
-  box-shadow: 7px 8px 0 0 var(--secondary);
-}
-
-.sticker-card-accent {
-  border-color: var(--accent);
-  box-shadow: 5px 6px 0 0 var(--accent);
-}
-
-.sticker-card-accent:hover {
-  box-shadow: 7px 8px 0 0 var(--accent);
-}
-
-.sticker-card-tertiary {
-  border-color: var(--tertiary);
-  box-shadow: 5px 6px 0 0 var(--tertiary);
-}
-
-.sticker-card-tertiary:hover {
-  box-shadow: 7px 8px 0 0 var(--tertiary);
-}
-
-.sticker-btn {
-  font-weight: 700;
-  border: 2px solid currentColor;
-  border-radius: 0.75rem;
-  box-shadow: 3px 4px 0 0 currentColor;
-  transition: all 0.15s ease;
-}
-
-.sticker-btn:hover:not(:disabled) {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 5px 0 0 currentColor;
-}
-
-.sticker-btn:active:not(:disabled) {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 0 currentColor;
-}
-
-/* React Flow custom node canvas overrides */
 .react-flow__handle {
   width: 10px;
   height: 10px;
-  background-color: var(--secondary);
+  background-color: #59BBAF;
   border: 2px solid #ffffff;
 }
 
@@ -228,5 +302,91 @@ samp {
 }
 
 .react-flow__edge.animated path {
-  stroke: var(--secondary);
+  stroke: #59BBAF;
 }
+
+/* اسکرول‌بار اختصاصی */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4C4C4;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #111827;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+/* استایل پرینت رسمی */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 12mm 12mm;
+  }
+
+  :root, html, body, .dark, .dark body {
+    color-scheme: light !important;
+    background: #ffffff !important;
+    color: #0F172A !important;
+    font-size: 10.5pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  aside, header, nav, .screen-only, .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .executive-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 9pt !important;
+  }
+  .executive-table tr {
+    page-break-inside: avoid !important;
+  }
+  .executive-table th {
+    background-color: #F1F5F9 !important;
+    color: #1E293B !important;
+    font-weight: 800 !important;
+    border: 1px solid #E2E8F0 !important;
+    border-bottom: 2px solid #CBD5E1 !important;
+    padding: 8px 10px !important;
+    text-align: right !important;
+  }
+  .executive-table td {
+    border: 1px solid #E2E8F0 !important;
+    padding: 7px 10px !important;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@keyframes progress {
+  0% {
+    left: -50%;
+  }
+  50% {
+    left: 25%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+

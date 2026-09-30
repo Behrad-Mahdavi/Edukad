@@ -17,6 +17,7 @@ import {
   Position,
 } from '@xyflow/react';
 import { api } from '@/lib/api';
+import { toPersianDigits } from '@/lib/utils';
 import {
   Plus,
   Trash2,
@@ -36,6 +37,7 @@ import {
   Workflow,
   Compass,
   Sparkles,
+  Briefcase,
 } from 'lucide-react';
 import { computeHierarchicalLayout } from '@/lib/graph-layout';
 
@@ -44,22 +46,22 @@ function AdminNodeComponent({ data }: { data: any }) {
   return (
     <div
       onClick={() => data.onEdit(data.node)}
-      className="relative w-64 rounded-tl-2xl rounded-br-2xl bg-white border-2 border-primary p-3.5 shadow-[4px_5px_0_0_#21295a] text-right cursor-pointer hover:border-secondary hover:shadow-[4px_5px_0_0_#58bdaf] transition-all group"
+      className="relative w-64 rounded-2xl bg-white dark:bg-[#151C28] border-2 border-primary p-3.5 shadow-male dark:shadow-ecosystem text-right cursor-pointer hover:border-primary hover:shadow-ecosystem transition-all group"
     >
       {/* Target Handle (Top: incoming prerequisites) */}
       <Handle
         type="target"
         position={Position.Top}
-        className="!bg-primary !w-3.5 !h-3.5 !border-2 !border-white hover:scale-125 transition-transform"
+        className="!bg-primary !w-3.5 !h-3.5 !border-2 !border-white dark:!border-[#151C28] hover:scale-125 transition-transform"
         title="ورودی (پیش‌نیازهای این گره را به اینجا وصل کنید)"
       />
 
       <div className="flex items-center justify-between gap-1 mb-2">
         <span
-          className={`text-[9px] font-black px-2 py-0.5 rounded ${
+          className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
             data.hasDeliverable
-              ? 'bg-accent/15 text-accent border border-accent/30'
-              : 'bg-slate-100 text-slate-500 border border-slate-200'
+              ? 'bg-female-light dark:bg-female-darker/50 text-female-darker dark:text-female-light border border-female-normal/30'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700'
           }`}
         >
           {data.hasDeliverable ? 'دارای مأموریت' : 'مطالعه آزاد'}
@@ -71,26 +73,26 @@ function AdminNodeComponent({ data }: { data: any }) {
             e.stopPropagation();
             data.onEdit(data.node);
           }}
-          className="p-1 rounded-lg bg-bg-lavender border border-primary text-primary hover:bg-secondary hover:text-white transition-colors"
+          className="p-1 rounded-lg bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 text-sec dark:text-white hover:bg-primary hover:text-white transition-colors"
           title="ویرایش گره"
         >
           <Edit3 className="w-3.5 h-3.5" />
         </button>
       </div>
 
-      <h4 className="font-black text-xs text-primary leading-snug line-clamp-2">
+      <h4 className="font-black text-xs text-sec dark:text-white leading-snug line-clamp-2">
         {data.title}
       </h4>
 
       {data.description && (
-        <p className="text-[11px] text-slate-500 line-clamp-1 mt-1 leading-relaxed">
+        <p className="text-[11px] text-ink-normal/60 dark:text-gray-400 line-clamp-1 mt-1 leading-relaxed">
           {data.description}
         </p>
       )}
 
-      <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-semibold">
-        <span>{data.resourceCount} منبع پیوست</span>
-        <span className="text-secondary-dark font-bold group-hover:underline">
+      <div className="mt-2.5 pt-2 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-[10px] text-gray-400 font-semibold">
+        <span>{data.resourceCount > 0 ? `${toPersianDigits(data.resourceCount)} منبع پیوست` : 'بدون منبع'}</span>
+        <span className="text-primary font-bold group-hover:underline">
           ویرایش و جزئیات ↗
         </span>
       </div>
@@ -99,7 +101,7 @@ function AdminNodeComponent({ data }: { data: any }) {
       <Handle
         type="source"
         position={Position.Bottom}
-        className="!bg-secondary !w-3.5 !h-3.5 !border-2 !border-white hover:scale-125 transition-transform"
+        className="!bg-primary !w-3.5 !h-3.5 !border-2 !border-white dark:!border-[#151C28] hover:scale-125 transition-transform"
         title="خروجی (این گره پیش‌نیاز گره‌های بعدی خواهد شد)"
       />
     </div>
@@ -197,10 +199,10 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
             target: node.id,
             type: 'smoothstep',
             animated: true,
-            style: { stroke: '#21295a', strokeWidth: 2.5 },
+            style: { stroke: '#59BBAF', strokeWidth: 2.5 },
             markerEnd: {
               type: MarkerType.ArrowClosed,
-              color: '#21295a',
+              color: '#59BBAF',
               width: 16,
               height: 16,
             },
@@ -228,13 +230,12 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
     }
   }, [selectedRoadmapId, roadmaps, loadRoadmapDetails]);
 
-  // Handle Drag & Drop connection in React Flow (Auto add prerequisite)
+  // Handle Drag & Drop connection in React Flow
   const onConnect = useCallback(
     async (connection: Connection) => {
       if (!connection.source || !connection.target) return;
       setError(null);
       try {
-        // target node requires source node
         await api.roadmaps.addPrerequisite(connection.target, connection.source);
         setSuccessMsg('ارتباط پیش‌نیاز با موفقیت برقرار شد!');
         if (currentRoadmap) {
@@ -310,7 +311,6 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
       setNodeTitle('');
       setNodeDesc('');
       setNodeHasDeliverable(true);
-      // Place new node cleanly below the existing nodes so it does not overlap
       const maxExistingY = nodes.reduce((max, n) => Math.max(max, n.position.y), 0);
       setNodePosX(360);
       setNodePosY(maxExistingY > 0 ? maxExistingY + 220 : 50);
@@ -554,45 +554,45 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
     <div className="space-y-4 text-right">
       {/* Alert Messages */}
       {error && (
-        <div className="p-3.5 rounded-xl bg-rose-50 border-2 border-rose-400 text-rose-700 text-xs font-bold flex items-center justify-between gap-2 shadow-[2px_3px_0_0_#e0195b]">
+        <div className="p-3.5 rounded-xl bg-female-light dark:bg-female-darker/40 border border-female-normal/40 text-female-darker dark:text-female-light text-xs font-bold flex items-center justify-between gap-2 shadow-female">
           <div className="flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <AlertCircle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>
-          <button onClick={() => setError(null)} className="text-rose-400 hover:text-rose-700 cursor-pointer">
+          <button onClick={() => setError(null)} className="text-female-normal hover:text-female-darker cursor-pointer">
             <X className="w-4 h-4" />
           </button>
         </div>
       )}
 
       {successMsg && (
-        <div className="p-3.5 rounded-xl bg-emerald-50 border-2 border-emerald-400 text-emerald-700 text-xs font-bold flex items-center justify-between gap-2 shadow-[2px_3px_0_0_#10b981]">
+        <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/40 text-emerald-800 dark:text-emerald-300 text-xs font-bold flex items-center justify-between gap-2 shadow-sm">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+            <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>{successMsg}</span>
           </div>
-          <button onClick={() => setSuccessMsg(null)} className="text-emerald-400 hover:text-emerald-700 cursor-pointer">
+          <button onClick={() => setSuccessMsg(null)} className="text-emerald-600 hover:text-emerald-800 cursor-pointer">
             <X className="w-4 h-4" />
           </button>
         </div>
       )}
 
       {/* Top Toolbar: Roadmap Selector, Edit Roadmap, Status & Action Buttons */}
-      <div className="sticker-card p-4 bg-white border-2 border-primary flex flex-wrap items-center justify-between gap-4">
+      <div className="rokad-card p-4 bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 shadow-male dark:shadow-ecosystem flex flex-wrap items-center justify-between gap-4">
         {/* Selector & Create */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2">
-            <Workflow className="w-4 h-4 text-secondary" />
-            <label className="text-xs font-bold text-primary">مسیر فعال:</label>
+            <Workflow className="w-4 h-4 text-primary" />
+            <label className="text-xs font-bold text-sec dark:text-white">مسیر فعال:</label>
           </div>
           <select
             value={selectedRoadmapId}
             onChange={(e) => setSelectedRoadmapId(e.target.value)}
-            className="px-3 py-1.5 rounded-xl border-2 border-primary bg-white text-xs font-black text-primary focus:outline-none focus:ring-2 focus:ring-secondary"
+            className="px-3 py-1.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1C2536] text-xs font-bold text-sec dark:text-white focus:border-primary focus:outline-none cursor-pointer"
           >
             {roadmaps.map((r) => (
               <option key={r.id} value={r.id}>
-                {r.title} ({r.department} - نسخه {r.version})
+                {r.title} ({r.department} - نسخه {toPersianDigits(r.version)})
               </option>
             ))}
           </select>
@@ -600,21 +600,21 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
           <button
             type="button"
             onClick={() => setShowCreateRoadmapModal(true)}
-            className="px-3 py-1.5 rounded-xl bg-primary text-white text-xs font-bold shadow-[2px_3px_0_0_#58bdaf] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer"
+            className="rokad-btn-primary px-3 py-1.5 text-xs"
           >
             <Plus className="w-3.5 h-3.5" />
-            مسیر جدید
+            <span>مسیر جدید</span>
           </button>
 
           {currentRoadmap && (
             <button
               type="button"
               onClick={openEditRoadmapModal}
-              className="px-3 py-1.5 rounded-xl border-2 border-primary bg-bg-lavender text-primary text-xs font-bold hover:bg-slate-100 flex items-center gap-1 cursor-pointer"
+              className="rokad-btn-outline px-3 py-1.5 text-xs"
               title="ویرایش عنوان، دپارتمان و مشخصات کلی این مسیر"
             >
-              <Settings className="w-3.5 h-3.5 text-secondary-dark" />
-              ویرایش مشخصات مسیر
+              <Settings className="w-3.5 h-3.5 text-primary" />
+              <span>ویرایش مشخصات مسیر</span>
             </button>
           )}
 
@@ -622,11 +622,11 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
             <Link
               href={`/roadmaps/${currentRoadmap.slug}`}
               target="_blank"
-              className="px-3 py-1.5 rounded-xl border-2 border-primary bg-white text-primary text-xs font-bold hover:bg-slate-50 flex items-center gap-1 cursor-pointer"
+              className="rokad-btn-outline px-3 py-1.5 text-xs"
               title="مشاهده گراف در نمای دانش‌آموز"
             >
-              <Eye className="w-3.5 h-3.5 text-tertiary" />
-              نمای دانش‌آموز ↗
+              <Eye className="w-3.5 h-3.5 text-college-normal" />
+              <span>نمای دانش‌آموز ↗</span>
             </Link>
           )}
         </div>
@@ -635,21 +635,21 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
         {currentRoadmap && (
           <div className="flex items-center gap-3">
             <div className="text-right">
-              <span className="text-[10px] text-slate-400 block font-semibold">
-                نسخه ساختاری: {currentRoadmap.version}
+              <span className="text-[10px] text-ink-normal/60 dark:text-gray-400 block font-semibold">
+                نسخه ساختاری: {toPersianDigits(currentRoadmap.version)}
               </span>
-              <span className="text-xs font-black text-primary">
-                {currentRoadmap.nodes?.length || 0} گره مهارتی
+              <span className="text-xs font-black text-sec dark:text-white">
+                {toPersianDigits(currentRoadmap.nodes?.length || 0)} گره مهارتی
               </span>
             </div>
 
             <button
               type="button"
               onClick={handleToggleStatus}
-              className={`px-3 py-1.5 rounded-xl text-xs font-black border-2 transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-all cursor-pointer ${
                 currentRoadmap.status === 'PUBLISHED'
-                  ? 'bg-emerald-100 text-emerald-800 border-emerald-600 hover:bg-emerald-200'
-                  : 'bg-amber-100 text-amber-800 border-amber-600 hover:bg-amber-200'
+                  ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-500/40 hover:bg-emerald-100'
+                  : 'bg-college-light dark:bg-college-darker/60 text-college-darker dark:text-college-light border-college-normal/40 hover:bg-college-light-hover'
               }`}
             >
               وضعیت: {currentRoadmap.status === 'PUBLISHED' ? 'منتشر شده' : 'پیش‌نویس (DRAFT)'}
@@ -663,7 +663,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
             type="button"
             onClick={handleAutoLayout}
             disabled={!currentRoadmap}
-            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-purple-600 text-white text-[11px] sm:text-xs font-black shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
+            className="rokad-btn-sec px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs"
             title="چیدمان استاندارد و درختی گره‌ها از بالا به پایین"
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
@@ -674,26 +674,26 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
             type="button"
             onClick={() => openNodeEditor(null, true)}
             disabled={!currentRoadmap}
-            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-accent text-white text-[11px] sm:text-xs font-black shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
+            className="rokad-btn-girl px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs"
           >
             <Plus className="w-3.5 h-3.5" />
-            افزودن گره
+            <span>افزودن گره</span>
           </button>
 
           <button
             type="button"
             onClick={handleSavePositions}
             disabled={!currentRoadmap}
-            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-secondary text-white text-[11px] sm:text-xs font-black shadow-[2px_3px_0_0_#347e75] hover:-translate-y-0.5 transition-transform flex items-center gap-1 cursor-pointer disabled:opacity-50"
+            className="rokad-btn-primary px-2.5 sm:px-3.5 py-1.5 text-[11px] sm:text-xs"
           >
             <Save className="w-3.5 h-3.5" />
-            ذخیره چیدمان
+            <span>ذخیره چیدمان</span>
           </button>
         </div>
       </div>
 
       {/* Interactive Visual Canvas with React Flow */}
-      <div className="h-[480px] sm:h-[600px] md:h-[640px] relative bg-slate-50 border-2 border-primary rounded-xl sm:rounded-2xl shadow-[4px_5px_0_0_#21295a] overflow-hidden select-none">
+      <div className="h-[480px] sm:h-[600px] md:h-[640px] relative bg-[#F8F9FA] dark:bg-[#0B0F17] border border-gray-200 dark:border-gray-800 rounded-2xl shadow-male dark:shadow-ecosystem overflow-hidden select-none">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -711,46 +711,46 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
           zoomOnDoubleClick={false}
           preventScrolling={true}
         >
-          <Background variant={BackgroundVariant.Dots} gap={20} size={1.5} color="#cbd5e1" />
+          <Background variant={BackgroundVariant.Dots} gap={20} size={1.5} color="#94a3b8" className="opacity-40" />
           <Controls
             position="bottom-left"
             showInteractive={false}
-            className="!bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a] scale-90 sm:scale-100 origin-bottom-left"
+            className="!bg-white dark:!bg-[#151C28] !border !border-gray-200 dark:!border-gray-700 !rounded-xl !shadow-male dark:!shadow-ecosystem scale-90 sm:scale-100 origin-bottom-left"
           />
-          <MiniMap className="hidden md:block !bg-white !border-2 !border-primary !rounded-xl !shadow-[2px_3px_0_0_#21295a]" />
+          <MiniMap className="hidden md:block !bg-white dark:!bg-[#151C28] !border !border-gray-200 dark:!border-gray-700 !rounded-xl !shadow-male dark:!shadow-ecosystem" />
         </ReactFlow>
 
-        {/* Helper Floating Badge (Hidden on small mobile screens to prevent obscuring canvas) */}
-        <div className="hidden sm:flex absolute top-3 right-3 bg-white/95 border-2 border-primary rounded-xl px-3 py-1.5 text-[11px] font-bold text-slate-700 shadow-[2px_2px_0_0_#21295a] items-center gap-2 max-w-lg z-10">
-          <HelpCircle className="w-4 h-4 text-secondary flex-shrink-0" />
+        {/* Helper Floating Badge */}
+        <div className="hidden sm:flex absolute top-3 right-3 bg-white/95 dark:bg-[#151C28]/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-xl px-3 py-1.5 text-[11px] font-bold text-ink-normal/80 dark:text-gray-300 shadow-male dark:shadow-ecosystem items-center gap-2 max-w-lg z-10">
+          <HelpCircle className="w-4 h-4 text-primary shrink-0" />
           <span>
-            <strong>راهنمای مهارت:</strong> گره‌ها از بالا به پایین بر اساس پیش‌نیاز مرتب شده‌اند. برای اتصال، دایره خروجی (پایین) را به ورودی (بالا) وصل کنید.
+            <strong>راهنمای ادمین:</strong> برای اتصال پیش‌نیاز، دایره خروجی مهارت والد را به ورودی مهارت فرزند متصل کنید.
           </span>
         </div>
       </div>
 
       {/* MODAL 1: CREATE ROADMAP */}
       {showCreateRoadmapModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs">
-          <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
-            <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
-              <h3 className="font-black text-lg text-primary">ساخت مسیر یادگیری جدید</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 rounded-3xl w-full max-w-lg shadow-male dark:shadow-ecosystem overflow-hidden text-right">
+            <div className="p-5 bg-gray-50 dark:bg-[#1C2536] border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
+              <h3 className="font-black text-lg text-sec dark:text-white">ساخت مسیر یادگیری جدید</h3>
               <button
                 type="button"
                 onClick={() => setShowCreateRoadmapModal(false)}
-                className="p-1 rounded-lg border border-primary hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 text-gray-400 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleCreateRoadmap} className="p-5 space-y-4">
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">عنوان مسیر *</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">عنوان مسیر *</label>
                 <input
                   type="text"
                   required
-                  placeholder="مثال: توسعه‌دهنده هوش مصنوعی و داده"
+                  placeholder="مثال: توسعه‌دهنده فرانت‌اند و React"
                   value={newRmTitle}
                   onChange={(e) => {
                     setNewRmTitle(e.target.value);
@@ -763,28 +763,28 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                       );
                     }
                   }}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-bold"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none"
                 />
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">نامک یکتا (Slug) *</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">نامک یکتا (Slug) *</label>
                 <input
                   type="text"
                   required
-                  placeholder="ai-data-developer"
+                  placeholder="frontend-react-developer"
                   value={newRmSlug}
                   onChange={(e) => setNewRmSlug(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-mono ltr text-left"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-mono ltr text-left focus:border-primary focus:outline-none"
                 />
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">دپارتمان</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">دپارتمان</label>
                 <select
                   value={newRmDept}
                   onChange={(e: any) => setNewRmDept(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-bold"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none cursor-pointer"
                 >
                   <option value="ENGINEERS">مهندسی و برنامه‌نویسی (ENGINEERS)</option>
                   <option value="ARTISTS">آرتیست‌ها و رسانه (ARTISTS)</option>
@@ -792,28 +792,28 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                 </select>
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">توضیحات مسیر</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">توضیحات مسیر</label>
                 <textarea
                   rows={3}
                   placeholder="اهداف مسیر و مأموریت‌های باشگاه در این نقش..."
                   value={newRmDesc}
                   onChange={(e) => setNewRmDesc(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs focus:border-primary focus:outline-none"
                 />
               </div>
 
-              <div className="pt-3 border-t flex justify-end gap-2">
+              <div className="pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowCreateRoadmapModal(false)}
-                  className="px-4 py-2 rounded-xl border border-slate-300 text-xs font-bold cursor-pointer"
+                  className="rokad-btn-outline px-4 py-2 text-xs"
                 >
                   انصراف
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 rounded-xl bg-primary text-white text-xs font-black shadow-[2px_3px_0_0_#58bdaf] cursor-pointer"
+                  className="rokad-btn-primary px-5 py-2 text-xs"
                 >
                   ایجاد مسیر
                 </button>
@@ -825,54 +825,54 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
 
       {/* MODAL 2: EDIT ROADMAP DETAILS */}
       {showEditRoadmapModal && currentRoadmap && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs">
-          <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-lg shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right">
-            <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
+          <div className="bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 rounded-3xl w-full max-w-lg shadow-male dark:shadow-ecosystem overflow-hidden text-right">
+            <div className="p-5 bg-gray-50 dark:bg-[#1C2536] border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold text-secondary-dark block">
+                <span className="text-[10px] font-bold text-primary block">
                   تنظیمات و متادیتا
                 </span>
-                <h3 className="font-black text-lg text-primary">ویرایش مشخصات مسیر یادگیری</h3>
+                <h3 className="font-black text-lg text-sec dark:text-white">ویرایش مشخصات مسیر یادگیری</h3>
               </div>
               <button
                 type="button"
                 onClick={() => setShowEditRoadmapModal(false)}
-                className="p-1 rounded-lg border border-primary hover:bg-slate-100 cursor-pointer"
+                className="p-1 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-100 text-gray-400 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleUpdateRoadmap} className="p-5 space-y-4">
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">عنوان مسیر *</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">عنوان مسیر *</label>
                 <input
                   type="text"
                   required
                   value={editRmTitle}
                   onChange={(e) => setEditRmTitle(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-bold"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none"
                 />
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">نامک یکتا (Slug) *</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">نامک یکتا (Slug) *</label>
                 <input
                   type="text"
                   required
                   value={editRmSlug}
                   onChange={(e) => setEditRmSlug(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-mono ltr text-left"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-mono ltr text-left focus:border-primary focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block font-bold text-xs text-primary mb-1">دپارتمان</label>
+                <div className="space-y-1.5">
+                  <label className="block font-bold text-xs text-sec dark:text-white">دپارتمان</label>
                   <select
                     value={editRmDept}
                     onChange={(e: any) => setEditRmDept(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-bold"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none cursor-pointer"
                   >
                     <option value="ENGINEERS">مهندسی (ENGINEERS)</option>
                     <option value="ARTISTS">آرتیست‌ها (ARTISTS)</option>
@@ -880,12 +880,12 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                   </select>
                 </div>
 
-                <div>
-                  <label className="block font-bold text-xs text-primary mb-1">وضعیت انتشار</label>
+                <div className="space-y-1.5">
+                  <label className="block font-bold text-xs text-sec dark:text-white">وضعیت انتشار</label>
                   <select
                     value={editRmStatus}
                     onChange={(e: any) => setEditRmStatus(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-bold"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none cursor-pointer"
                   >
                     <option value="DRAFT">پیش‌نویس (DRAFT)</option>
                     <option value="PUBLISHED">منتشر شده (PUBLISHED)</option>
@@ -894,37 +894,37 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                 </div>
               </div>
 
-              <div>
-                <label className="block font-bold text-xs text-primary mb-1">توضیحات مسیر</label>
+              <div className="space-y-1.5">
+                <label className="block font-bold text-xs text-sec dark:text-white">توضیحات مسیر</label>
                 <textarea
                   rows={3}
                   value={editRmDesc}
                   onChange={(e) => setEditRmDesc(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs leading-relaxed"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs leading-relaxed focus:border-primary focus:outline-none"
                 />
               </div>
 
-              <div className="pt-4 border-t flex items-center justify-between gap-2">
+              <div className="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between gap-2">
                 <button
                   type="button"
                   onClick={handleDeleteRoadmap}
-                  className="px-3 py-2 rounded-xl border-2 border-rose-500 text-rose-600 font-bold text-xs hover:bg-rose-50 flex items-center gap-1 cursor-pointer"
+                  className="rokad-btn-girl px-3 py-2 text-xs"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
-                  حذف کامل مسیر
+                  <span>حذف کامل مسیر</span>
                 </button>
 
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setShowEditRoadmapModal(false)}
-                    className="px-4 py-2 rounded-xl border border-slate-300 text-xs font-bold cursor-pointer"
+                    className="rokad-btn-outline px-4 py-2 text-xs"
                   >
                     انصراف
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 rounded-xl bg-primary text-white text-xs font-black shadow-[2px_3px_0_0_#58bdaf] cursor-pointer"
+                    className="rokad-btn-primary px-5 py-2 text-xs"
                   >
                     ذخیره تغییرات
                   </button>
@@ -937,21 +937,21 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
 
       {/* MODAL 3: NODE & PREREQUISITE & RESOURCE EDITOR */}
       {editingNode && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-xs overflow-y-auto">
-          <div className="box-pattern bg-white border-2 border-primary rounded-3xl w-full max-w-2xl shadow-[8px_10px_0_0_#21295a] overflow-hidden text-right my-8">
-            <div className="p-5 bg-bg-lavender border-b-2 border-primary flex items-center justify-between">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto animate-in fade-in duration-150">
+          <div className="bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 rounded-3xl w-full max-w-2xl shadow-male dark:shadow-ecosystem overflow-hidden text-right my-8">
+            <div className="p-5 bg-gray-50 dark:bg-[#1C2536] border-b border-gray-200 dark:border-gray-800 flex items-center justify-between">
               <div>
-                <span className="text-[10px] font-bold text-secondary-dark block">
+                <span className="text-[10px] font-bold text-primary block">
                   {isNewNode ? 'افزودن گره مهارتی جدید' : 'ویرایش گره و تنظیمات مهارت'}
                 </span>
-                <h3 className="font-black text-lg text-primary">
+                <h3 className="font-black text-lg text-sec dark:text-white">
                   {isNewNode ? 'گره جدید در مسیر' : editingNode.title}
                 </h3>
               </div>
               <button
                 type="button"
                 onClick={() => setEditingNode(null)}
-                className="p-1.5 rounded-xl border-2 border-primary bg-white hover:bg-slate-100 cursor-pointer"
+                className="p-1.5 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 text-gray-400 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -960,37 +960,37 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
             <div className="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
               {/* Basic Fields */}
               <form onSubmit={handleSaveNode} className="space-y-4">
-                <div>
-                  <label className="block font-bold text-xs text-primary mb-1">عنوان مهارت / گره *</label>
+                <div className="space-y-1.5">
+                  <label className="block font-bold text-xs text-sec dark:text-white">عنوان مهارت / گره *</label>
                   <input
                     type="text"
                     required
                     value={nodeTitle}
                     onChange={(e) => setNodeTitle(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs font-bold"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none"
                   />
                 </div>
 
-                <div>
-                  <label className="block font-bold text-xs text-primary mb-1">توضیحات و اهداف یادگیری</label>
+                <div className="space-y-1.5">
+                  <label className="block font-bold text-xs text-sec dark:text-white">توضیحات و اهداف یادگیری</label>
                   <textarea
                     rows={3}
                     value={nodeDesc}
                     onChange={(e) => setNodeDesc(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border-2 border-primary text-xs leading-relaxed"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-[#FAFAFA] dark:bg-[#1C2536] text-xs leading-relaxed focus:border-primary focus:outline-none"
                   />
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-bg-mint border border-secondary/30">
+                <div className="flex items-center gap-3 p-3 rounded-xl bg-ecosystem-light dark:bg-ecosystem-darker/30 border border-primary/30">
                   <input
                     type="checkbox"
                     id="hasDeliv"
                     checked={nodeHasDeliverable}
                     onChange={(e) => setNodeHasDeliverable(e.target.checked)}
-                    className="w-4 h-4 rounded border-primary text-secondary focus:ring-secondary"
+                    className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                   />
-                  <label htmlFor="hasDeliv" className="text-xs font-bold text-primary cursor-pointer">
-                    دارای مأموریت و تمرین ارسالی (اگر تیک برداشته شود، گره صرفاً مطالعه آزاد بوده و بدون سابمیشن تمرین انجام می‌شود)
+                  <label htmlFor="hasDeliv" className="text-xs font-bold text-sec dark:text-white cursor-pointer">
+                    دارای مأموریت و تمرین ارسالی (در صورت غیرفعال بودن، گره صرفاً مطالعه آزاد خواهد بود)
                   </label>
                 </div>
 
@@ -999,34 +999,34 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                     <button
                       type="button"
                       onClick={() => handleDeleteNode(editingNode.id)}
-                      className="px-3 py-2 rounded-xl border-2 border-rose-500 text-rose-600 font-bold text-xs hover:bg-rose-50 flex items-center gap-1 cursor-pointer"
+                      className="rokad-btn-girl px-3 py-2 text-xs"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
-                      حذف کامل این گره
+                      <span>حذف کامل این گره</span>
                     </button>
                   )}
 
                   <button
                     type="submit"
-                    className="mr-auto px-6 py-2.5 rounded-xl bg-primary text-white text-xs font-black shadow-[3px_4px_0_0_#58bdaf] hover:-translate-y-0.5 transition-transform cursor-pointer"
+                    className="mr-auto rokad-btn-primary px-6 py-2.5 text-xs"
                   >
                     {isNewNode ? 'ایجاد گره جدید' : 'ذخیره مشخصات گره'}
                   </button>
                 </div>
               </form>
 
-              {/* Prerequisites Manager (Only for existing node) */}
+              {/* Prerequisites Manager */}
               {!isNewNode && (
-                <div className="pt-4 border-t-2 border-slate-100">
-                  <h4 className="font-extrabold text-xs text-primary mb-3 flex items-center gap-1.5">
-                    <Layers className="w-4 h-4 text-secondary" />
-                    مدیریت پیش‌نیازهای این گره
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
+                  <h4 className="font-extrabold text-xs text-sec dark:text-white mb-3 flex items-center gap-1.5">
+                    <Layers className="w-4 h-4 text-primary" />
+                    <span>مدیریت پیش‌نیازهای این گره</span>
                   </h4>
 
                   {/* List of current prerequisites */}
                   <div className="space-y-2 mb-3">
                     {editingNode.prerequisites?.length === 0 ? (
-                      <p className="text-[11px] text-slate-400">این گره ریشه است و هیچ پیش‌نیازی ندارد.</p>
+                      <p className="text-[11px] text-gray-400">این گره ریشه است و هیچ پیش‌نیازی ندارد.</p>
                     ) : (
                       editingNode.prerequisites?.map((p: any) => {
                         const prereqNode = currentRoadmap?.nodes?.find(
@@ -1035,18 +1035,18 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                         return (
                           <div
                             key={p.prerequisiteNodeId}
-                            className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs"
+                            className="flex items-center justify-between p-2.5 rounded-xl bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 text-xs"
                           >
-                            <span className="font-bold text-primary">
+                            <span className="font-bold text-sec dark:text-white">
                               {prereqNode?.title || p.prerequisiteNodeId}
                             </span>
                             <button
                               type="button"
                               onClick={() => handleRemovePrereq(p.prerequisiteNodeId)}
-                              className="text-rose-600 hover:text-rose-800 text-xs font-bold flex items-center gap-1 cursor-pointer"
+                              className="text-female-normal hover:text-female-darker text-xs font-bold flex items-center gap-1 cursor-pointer"
                             >
                               <Trash2 className="w-3 h-3" />
-                              قطع اتصال
+                              <span>قطع اتصال</span>
                             </button>
                           </div>
                         );
@@ -1059,7 +1059,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                     <select
                       value={selectedPrereqId}
                       onChange={(e) => setSelectedPrereqId(e.target.value)}
-                      className="flex-1 px-3 py-2 rounded-xl border border-primary text-xs font-bold"
+                      className="flex-1 px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#1C2536] text-xs font-bold focus:border-primary focus:outline-none"
                     >
                       <option value="">-- افزودن گره پیش‌نیاز جدید --</option>
                       {currentRoadmap?.nodes
@@ -1075,7 +1075,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                       type="button"
                       onClick={handleAddPrereqInEditor}
                       disabled={!selectedPrereqId}
-                      className="px-4 py-2 rounded-xl bg-secondary text-white text-xs font-bold shadow-[2px_2px_0_0_#21295a] disabled:opacity-50 cursor-pointer"
+                      className="rokad-btn-sec px-4 py-2 text-xs"
                     >
                       افزودن پیش‌نیاز
                     </button>
@@ -1083,12 +1083,12 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                 </div>
               )}
 
-              {/* Resources Manager (Only for existing node) */}
+              {/* Resources Manager */}
               {!isNewNode && (
-                <div className="pt-4 border-t-2 border-slate-100">
-                  <h4 className="font-extrabold text-xs text-primary mb-3 flex items-center gap-1.5">
-                    <FileText className="w-4 h-4 text-tertiary" />
-                    منابع یادگیری و شرح مأموریت ({editingNode.resources?.length || 0})
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
+                  <h4 className="font-extrabold text-xs text-sec dark:text-white mb-3 flex items-center gap-1.5">
+                    <FileText className="w-4 h-4 text-college-normal" />
+                    <span>منابع یادگیری و شرح مأموریت ({toPersianDigits(editingNode.resources?.length || 0)})</span>
                   </h4>
 
                   {/* Existing resources */}
@@ -1096,16 +1096,16 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                     {editingNode.resources?.map((res: any) => (
                       <div
                         key={res.id}
-                        className="p-3 rounded-xl bg-bg-mint/40 border border-secondary/30 flex items-start justify-between gap-3 text-xs"
+                        className="p-3 rounded-xl bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 flex items-start justify-between gap-3 text-xs"
                       >
                         <div className="space-y-1">
-                          <div className="font-bold text-primary flex items-center gap-1.5">
-                            {res.type === 'LINK' && <LinkIcon className="w-3.5 h-3.5 text-secondary" />}
-                            {res.type === 'VIDEO_URL' && <Video className="w-3.5 h-3.5 text-accent" />}
-                            {res.type === 'MARKDOWN_TEXT' && <FileText className="w-3.5 h-3.5 text-tertiary" />}
-                            {res.title}
+                          <div className="font-bold text-sec dark:text-white flex items-center gap-1.5">
+                            {res.type === 'LINK' && <LinkIcon className="w-3.5 h-3.5 text-primary" />}
+                            {res.type === 'VIDEO_URL' && <Video className="w-3.5 h-3.5 text-female-normal" />}
+                            {res.type === 'MARKDOWN_TEXT' && <FileText className="w-3.5 h-3.5 text-college-normal" />}
+                            <span>{res.title}</span>
                           </div>
-                          <p className="text-[11px] text-slate-500 truncate max-w-md">
+                          <p className="text-[11px] text-ink-normal/60 dark:text-gray-400 truncate max-w-md">
                             {res.content}
                           </p>
                         </div>
@@ -1113,7 +1113,7 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                         <button
                           type="button"
                           onClick={() => handleDeleteResource(res.id)}
-                          className="text-rose-500 hover:text-rose-700 p-1 cursor-pointer"
+                          className="text-female-normal hover:text-female-darker p-1 cursor-pointer"
                           title="حذف منبع"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -1123,20 +1123,20 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                   </div>
 
                   {/* Add New Resource Form */}
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
-                    <span className="text-[11px] font-bold text-primary block">افزودن منبع یا مأموریت جدید:</span>
+                  <div className="p-3.5 rounded-xl bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 space-y-3">
+                    <span className="text-[11px] font-bold text-sec dark:text-white block">افزودن منبع یا مأموریت جدید:</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <input
                         type="text"
-                        placeholder="عنوان منبع (مثال: ویدیوی راهنمای پروژه)"
+                        placeholder="عنوان منبع (مثال: ویدیوی راهنمای تسک)"
                         value={resTitle}
                         onChange={(e) => setResTitle(e.target.value)}
-                        className="px-3 py-2 rounded-xl border border-primary text-xs font-bold"
+                        className="px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#151C28] text-xs font-bold focus:border-primary focus:outline-none"
                       />
                       <select
                         value={resType}
                         onChange={(e: any) => setResType(e.target.value)}
-                        className="px-3 py-2 rounded-xl border border-primary text-xs font-bold"
+                        className="px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#151C28] text-xs font-bold focus:border-primary focus:outline-none cursor-pointer"
                       >
                         <option value="LINK">لینک اینترنتی (LINK)</option>
                         <option value="VIDEO_URL">ویدیوی آموزشی (VIDEO_URL)</option>
@@ -1154,14 +1154,14 @@ export function RoadmapBuilder({ roadmaps, onRefresh }: RoadmapBuilderProps) {
                       }
                       value={resContent}
                       onChange={(e) => setResContent(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-primary text-xs"
+                      className="w-full px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#151C28] text-xs focus:border-primary focus:outline-none"
                     />
 
                     <button
                       type="button"
                       onClick={handleAddResource}
                       disabled={!resTitle.trim() || !resContent.trim()}
-                      className="px-4 py-2 rounded-xl bg-tertiary text-white text-xs font-bold shadow-[2px_2px_0_0_#21295a] disabled:opacity-50 cursor-pointer"
+                      className="rokad-btn-primary px-4 py-2 text-xs"
                     >
                       ثبت و افزودن منبع
                     </button>

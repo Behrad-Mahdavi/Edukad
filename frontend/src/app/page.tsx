@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import { api } from '@/lib/api';
+import { toPersianDigits } from '@/lib/utils';
+import { RokadLoader } from '@/components/ui/Loading';
 import {
   Compass,
   ArrowLeft,
@@ -23,6 +25,8 @@ import {
   Briefcase,
   Zap,
   TrendingUp,
+  Target,
+  Flame,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -80,26 +84,20 @@ export default function HomePage() {
     ENGINEERS: {
       name: 'مهندسی و توسعه',
       icon: Code2,
-      bg: 'bg-primary',
-      light: 'bg-primary/10',
-      text: 'text-primary',
-      border: 'border-primary',
+      badge: 'bg-ecosystem-light dark:bg-ecosystem-darker/50 text-ecosystem-darker dark:text-ecosystem-light border-primary/40',
+      tagColor: 'text-primary',
     },
     ARTISTS: {
       name: 'آرتیست‌ها و رسانه',
       icon: Palette,
-      bg: 'bg-accent',
-      light: 'bg-accent/10',
-      text: 'text-accent',
-      border: 'border-accent',
+      badge: 'bg-female-light dark:bg-female-darker/50 text-female-darker dark:text-female-light border-female-normal/40',
+      tagColor: 'text-female-normal',
     },
     OPS: {
       name: 'آچارفرانسه و عملیات',
       icon: Briefcase,
-      bg: 'bg-tertiary',
-      light: 'bg-tertiary/10',
-      text: 'text-tertiary',
-      border: 'border-tertiary',
+      badge: 'bg-college-light dark:bg-college-darker/50 text-college-darker dark:text-college-light border-college-normal/40',
+      tagColor: 'text-college-normal',
     },
   };
 
@@ -128,35 +126,33 @@ export default function HomePage() {
 
   if (loading || fetching) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center gap-3">
-        <div className="w-12 h-12 rounded-2xl bg-secondary/20 border-2 border-primary animate-spin flex items-center justify-center">
-          <Sparkles className="w-6 h-6 text-primary" />
-        </div>
-        <div className="text-sm font-extrabold text-primary animate-pulse">
-          در حال بارگذاری محیط اجوکاد...
-        </div>
-      </div>
+      <RokadLoader
+        title="در حال بارگذاری مسیرهای یادگیری اجوکاد..."
+        subtitle="شتاب‌دهی استعداد، مأموریت‌های واقعی و پروژه‌های باشگاه رکاد"
+        type="roadmap"
+      />
     );
   }
+
 
   if (!user) return null;
 
   return (
     <div className="space-y-8 pb-16 text-right">
-      {/* Hero Welcome Banner with Neo-Brutalist Sticker Style */}
-      <div className="sticker-card pattern-cover p-6 sm:p-8 bg-gradient-to-l from-bg-mint via-white to-bg-lavender border-2 border-primary relative overflow-hidden">
+      {/* Hero Welcome Banner */}
+      <div className="rokad-card p-6 sm:p-8 bg-gradient-to-l from-ecosystem-light via-white to-gray-50 dark:from-[#151C28] dark:via-[#121824] dark:to-[#0B0F17] border border-[#EAEAEA] dark:border-gray-800 shadow-male dark:shadow-ecosystem relative overflow-hidden rounded-2xl">
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-primary text-xs font-black mb-3 shadow-[2px_2px_0_0_#21295a] border border-primary">
-            <Sparkles className="w-3.5 h-3.5" />
-            باشگاه دانش‌آموزی و شتاب‌دهی استعداد رکاد
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ecosystem-light dark:bg-ecosystem-darker/60 text-ecosystem-darker dark:text-ecosystem-light text-xs font-bold mb-3 border border-primary/40 shadow-ecosystem">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span>باشگاه دانش‌آموزی و شتاب‌دهی استعداد رکاد</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-black text-primary leading-tight">
+          <h1 className="text-2xl sm:text-4xl font-black text-sec dark:text-white leading-tight">
             سلام {user.fullName} عزیز؛ به سامانه اجوکاد خوش اومدی!
           </h1>
 
-          <p className="text-xs sm:text-sm text-slate-700 mt-2.5 leading-relaxed font-medium">
-            در اجوکاد هر گره مهارتی، یک مأموریت واقعی برای محصولات کافه و رویدادهای زنده رکاد است. با یادگیری مهارت‌ها، ارسال تحویل‌دادنی‌ها و دریافت تاییدیه منتورها، سطوح جدید را باز کنید و وارد پروژه‌های تجاری شوید.
+          <p className="text-xs sm:text-sm text-ink-normal/80 dark:text-gray-300 mt-2.5 leading-relaxed font-medium">
+            در Edukad هر گره مهارتی، یک مأموریت واقعی برای محصولات کافه و رویدادهای زنده رکاد است. با یادگیری مهارت‌ها، ارسال تحویل‌دادنی‌ها و دریافت تاییدیه منتورها، سطوح جدید را باز کنید و وارد پروژه‌های تجاری شوید.
           </p>
 
           {/* Quick Actions for Mentors / Admins */}
@@ -164,20 +160,20 @@ export default function HomePage() {
             {isMentor && (
               <Link
                 href="/mentor"
-                className="px-4 py-2 rounded-xl bg-secondary text-white font-black text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border border-primary"
+                className="rokad-btn-primary px-4 py-2 text-xs"
               >
                 <CheckSquare className="w-4 h-4" />
-                ورود به صف بازبینی منتوری
+                <span>ورود به صف بازبینی منتوری</span>
               </Link>
             )}
 
             {isSuperAdmin && (
               <Link
                 href="/admin"
-                className="px-4 py-2 rounded-xl bg-accent text-white font-black text-xs shadow-[3px_4px_0_0_#21295a] hover:-translate-y-0.5 transition-transform flex items-center gap-1.5 border border-primary"
+                className="rokad-btn-girl px-4 py-2 text-xs"
               >
                 <ShieldCheck className="w-4 h-4" />
-                پنل مدیریت و پایش کل
+                <span>پنل مدیریت و پایش کل</span>
               </Link>
             )}
           </div>
@@ -188,12 +184,12 @@ export default function HomePage() {
       {myEnrollments.length > 0 && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg sm:text-xl font-black text-primary flex items-center gap-2">
-              <Compass className="w-5 h-5 text-secondary" />
-              مسیرهای مهارتی من (در حال پیشرفت)
+            <h2 className="text-lg sm:text-xl font-black text-sec dark:text-white flex items-center gap-2">
+              <Compass className="w-5 h-5 text-primary" />
+              <span>مسیرهای مهارتی من (در حال پیشرفت)</span>
             </h2>
-            <span className="text-xs font-bold text-slate-500 bg-white px-2.5 py-1 rounded-full border border-slate-200">
-              {myEnrollments.length} مسیر فعال
+            <span className="text-xs font-bold text-ink-normal/70 dark:text-gray-400 bg-white dark:bg-[#151C28] px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm">
+              {toPersianDigits(myEnrollments.length)} مسیر فعال
             </span>
           </div>
 
@@ -216,46 +212,46 @@ export default function HomePage() {
               return (
                 <div
                   key={enr.id}
-                  className="sticker-card p-5 sm:p-6 bg-white flex flex-col justify-between hover:-translate-y-1 transition-all"
+                  className="rokad-card p-5 sm:p-6 bg-white dark:bg-[#151C28] border border-[#EAEAEA] dark:border-gray-800 shadow-male dark:shadow-ecosystem flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span
-                        className={`text-[10px] font-black px-2.5 py-1 rounded-full border ${dept?.border} ${dept?.light} ${dept?.text}`}
+                        className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${dept?.badge}`}
                       >
                         {dept?.name}
                       </span>
                       {enr.mentor && (
-                        <span className="text-[11px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded-lg border border-slate-200 flex items-center gap-1">
-                          منتور ناظر: {enr.mentor.fullName}
+                        <span className="text-[11px] font-bold text-ink-normal/70 dark:text-gray-300 bg-gray-50 dark:bg-[#1C2536] px-2.5 py-0.5 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center gap-1">
+                          منتور: {enr.mentor.fullName}
                         </span>
                       )}
                     </div>
 
-                    <h3 className="text-base sm:text-lg font-black text-primary mb-1.5 text-right bidi-text" dir="rtl">
+                    <h3 className="text-base sm:text-lg font-black text-sec dark:text-white mb-1.5 text-right bidi-text" dir="rtl">
                       <bdi>{roadmap.title}</bdi>
                     </h3>
-                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-4 text-right bidi-text" dir="rtl">
+                    <p className="text-xs text-ink-normal/70 dark:text-gray-400 line-clamp-2 leading-relaxed mb-4 text-right bidi-text" dir="rtl">
                       <bdi>{roadmap.description}</bdi>
                     </p>
 
-                    {/* Progress Bar & Badges */}
-                    <div className="space-y-1.5 mb-5 bg-slate-50 p-3 rounded-xl border border-slate-200">
-                      <div className="flex justify-between items-center text-xs font-bold text-slate-700">
-                        <span>میزان تسلط بر نقشه</span>
-                        <span className="text-secondary-dark font-black">
-                          {progressPercent}٪ ({completedNodes} از {totalNodes} گره)
+                    {/* Progress Bar */}
+                    <div className="space-y-1.5 mb-5 bg-gray-50 dark:bg-[#1C2536] p-3.5 rounded-xl border border-gray-200 dark:border-gray-700">
+                      <div className="flex justify-between items-center text-xs font-bold text-ink-normal/80 dark:text-gray-300">
+                        <span>میزان پیشرفت در نقشه</span>
+                        <span className="text-primary font-black">
+                          {toPersianDigits(progressPercent)}٪ ({toPersianDigits(completedNodes)} از {toPersianDigits(totalNodes)} گره)
                         </span>
                       </div>
-                      <div className="w-full h-2.5 rounded-full bg-slate-200 overflow-hidden">
+                      <div className="w-full h-2 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden">
                         <div
-                          className="h-full bg-secondary transition-all duration-500 rounded-full"
+                          className="h-full bg-primary transition-all duration-500 rounded-full"
                           style={{ width: `${progressPercent}%` }}
                         />
                       </div>
                       {inProgressNodes > 0 && (
-                        <span className="text-[10px] text-teal-700 font-bold block pt-1">
-                          {inProgressNodes} مأموریت در حال انجام داری!
+                        <span className="text-[11px] text-primary font-bold block pt-1">
+                          {toPersianDigits(inProgressNodes)} مأموریت در حال انجام داری!
                         </span>
                       )}
                     </div>
@@ -263,7 +259,7 @@ export default function HomePage() {
 
                   <Link
                     href={`/roadmaps/${roadmap.slug}`}
-                    className="w-full py-2.5 rounded-xl bg-primary text-white font-black text-xs shadow-[3px_4px_0_0_#58bdaf] hover:-translate-y-0.5 active:translate-y-0 transition-transform flex items-center justify-center gap-2 border border-primary"
+                    className="rokad-btn-primary w-full py-2.5 text-xs"
                   >
                     <span>ورود به درخت مهارت تعاملی</span>
                     <ArrowLeft className="w-4 h-4" />
@@ -279,30 +275,30 @@ export default function HomePage() {
       <div className="space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h2 className="text-lg sm:text-xl font-black text-primary flex items-center gap-2">
-              <Layers className="w-5 h-5 text-accent" />
-              کاتالوگ تمام مسیرهای یادگیری اجوکاد
+            <h2 className="text-lg sm:text-xl font-black text-sec dark:text-white flex items-center gap-2">
+              <Layers className="w-5 h-5 text-female-normal" />
+              <span>کاتالوگ تمام مسیرهای یادگیری اجوکاد</span>
             </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-ink-normal/70 dark:text-gray-400 mt-0.5">
               مسیر دلخواهت رو انتخاب کن و همین الان شروع به انجام مأموریت‌های واقعی کن.
             </p>
           </div>
 
           {/* Search Input */}
           <div className="relative w-full sm:w-72">
-            <Search className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="جستجوی مسیر یا مهارت..."
-              className="w-full pl-8 pr-9 py-2 rounded-xl bg-white border-2 border-primary text-xs font-bold text-primary placeholder:text-slate-400 shadow-[2px_3px_0_0_#21295a] focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="w-full pl-8 pr-9 py-2 rounded-xl bg-white dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 text-xs font-bold text-sec dark:text-white placeholder:text-gray-400 focus:border-primary focus:outline-none transition-all"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-primary"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-sec dark:hover:text-white"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -315,59 +311,59 @@ export default function HomePage() {
           <button
             type="button"
             onClick={() => setActiveTab('ALL')}
-            className={`px-3.5 py-1.5 rounded-xl font-black text-xs transition-all shrink-0 border-2 border-primary ${
+            className={`px-4 py-2 rounded-xl font-bold text-xs transition-all shrink-0 border ${
               activeTab === 'ALL'
-                ? 'bg-primary text-white shadow-[2px_3px_0_0_#58bdaf]'
-                : 'bg-white text-primary hover:bg-slate-50 shadow-[2px_2px_0_0_#21295a]'
+                ? 'bg-sec text-white border-sec shadow-male dark:bg-primary dark:border-primary dark:shadow-ecosystem'
+                : 'bg-white dark:bg-[#151C28] text-ink-normal dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-50'
             }`}
           >
-            همه مسیرها ({tabCounts.ALL})
+            همه مسیرها ({toPersianDigits(tabCounts.ALL)})
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('ENGINEERS')}
-            className={`px-3.5 py-1.5 rounded-xl font-black text-xs transition-all shrink-0 border-2 border-primary flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-xl font-bold text-xs transition-all shrink-0 border flex items-center gap-1.5 ${
               activeTab === 'ENGINEERS'
-                ? 'bg-primary text-white shadow-[2px_3px_0_0_#58bdaf]'
-                : 'bg-white text-primary hover:bg-slate-50 shadow-[2px_2px_0_0_#21295a]'
+                ? 'bg-primary text-white border-primary shadow-ecosystem'
+                : 'bg-white dark:bg-[#151C28] text-ink-normal dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-50'
             }`}
           >
             <Code2 className="w-3.5 h-3.5" />
-            مهندسی و توسعه ({tabCounts.ENGINEERS})
+            <span>مهندسی و توسعه ({toPersianDigits(tabCounts.ENGINEERS)})</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('ARTISTS')}
-            className={`px-3.5 py-1.5 rounded-xl font-black text-xs transition-all shrink-0 border-2 border-primary flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-xl font-bold text-xs transition-all shrink-0 border flex items-center gap-1.5 ${
               activeTab === 'ARTISTS'
-                ? 'bg-accent text-white shadow-[2px_3px_0_0_#21295a]'
-                : 'bg-white text-primary hover:bg-slate-50 shadow-[2px_2px_0_0_#21295a]'
+                ? 'bg-female-normal text-white border-female-normal shadow-female'
+                : 'bg-white dark:bg-[#151C28] text-ink-normal dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-50'
             }`}
           >
             <Palette className="w-3.5 h-3.5" />
-            آرتیست‌ها و رسانه ({tabCounts.ARTISTS})
+            <span>آرتیست‌ها و رسانه ({toPersianDigits(tabCounts.ARTISTS)})</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('OPS')}
-            className={`px-3.5 py-1.5 rounded-xl font-black text-xs transition-all shrink-0 border-2 border-primary flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-xl font-bold text-xs transition-all shrink-0 border flex items-center gap-1.5 ${
               activeTab === 'OPS'
-                ? 'bg-tertiary text-white shadow-[2px_3px_0_0_#21295a]'
-                : 'bg-white text-primary hover:bg-slate-50 shadow-[2px_2px_0_0_#21295a]'
+                ? 'bg-college-normal text-white border-college-normal shadow-college'
+                : 'bg-white dark:bg-[#151C28] text-ink-normal dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:bg-gray-50'
             }`}
           >
             <Briefcase className="w-3.5 h-3.5" />
-            آچارفرانسه و عملیات ({tabCounts.OPS})
+            <span>آچارفرانسه و عملیات ({toPersianDigits(tabCounts.OPS)})</span>
           </button>
         </div>
 
         {/* Roadmaps Grid */}
         {filteredRoadmaps.length === 0 ? (
-          <div className="bg-white border-2 border-primary rounded-2xl p-8 text-center shadow-[3px_4px_0_0_#21295a] space-y-3">
-            <p className="text-sm font-bold text-slate-500">
+          <div className="bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-700 rounded-2xl p-8 text-center shadow-sm space-y-3">
+            <p className="text-sm font-bold text-ink-normal/60 dark:text-gray-400">
               هیچ مسیری مطابق جستجوی شما یافت نشد.
             </p>
             <button
@@ -376,7 +372,7 @@ export default function HomePage() {
                 setSearchQuery('');
                 setActiveTab('ALL');
               }}
-              className="px-4 py-1.5 rounded-xl bg-secondary text-white font-black text-xs border border-primary"
+              className="rokad-btn-primary px-4 py-1.5 text-xs"
             >
               نمایش همه مسیرها
             </button>
@@ -391,56 +387,57 @@ export default function HomePage() {
               return (
                 <div
                   key={rm.id}
-                  className="sticker-card p-5 bg-white flex flex-col justify-between hover:-translate-y-1 transition-all"
+                  className="rokad-card p-5 bg-white dark:bg-[#151C28] border border-[#EAEAEA] dark:border-gray-800 shadow-male dark:shadow-ecosystem flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
                       <span
-                        className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${dept?.border} ${dept?.light} ${dept?.text}`}
+                        className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${dept?.badge}`}
                       >
                         {dept?.name}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
-                          {rm._count?.nodes || 0} گره مهارتی
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gray-100 dark:bg-[#1C2536] text-ink-normal/70 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+                          {toPersianDigits(rm._count?.nodes || 0)} گره مهارتی
                         </span>
                         {isEnrolled && (
-                          <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-300">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800">
                             عضو هستید
                           </span>
                         )}
                       </div>
                     </div>
 
-                    <h3 className="font-extrabold text-base text-primary mb-1.5 text-right bidi-text" dir="rtl">
+                    <h3 className="font-black text-base text-sec dark:text-white mb-1.5 text-right bidi-text" dir="rtl">
                       <bdi>{rm.title}</bdi>
                     </h3>
-                    <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4 text-right bidi-text" dir="rtl">
+                    <p className="text-xs text-ink-normal/70 dark:text-gray-400 line-clamp-3 leading-relaxed mb-4 text-right bidi-text" dir="rtl">
                       <bdi>{rm.description}</bdi>
                     </p>
                   </div>
 
-                  <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <div className="pt-3.5 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between gap-2">
                     <Link
                       href={`/roadmaps/${rm.slug}`}
-                      className="text-xs font-bold text-slate-500 hover:text-primary transition-colors"
+                      className="text-xs font-bold text-ink-normal/60 dark:text-gray-400 hover:text-sec dark:hover:text-white transition-colors"
                     >
-                      مشاهده پیش‌نمایش
+                      پیش‌نمایش مسیر
                     </Link>
 
                     {isEnrolled ? (
                       <Link
                         href={`/roadmaps/${rm.slug}`}
-                        className="px-3.5 py-1.5 rounded-xl bg-primary text-white font-black text-xs shadow-[2px_3px_0_0_#58bdaf] hover:-translate-y-0.5 transition-transform flex items-center gap-1"
+                        className="rokad-btn-sec px-3.5 py-1.5 text-xs"
                       >
-                        ادامه مسیر ←
+                        <span>ادامه یادگیری</span>
+                        <ArrowLeft className="w-3.5 h-3.5" />
                       </Link>
                     ) : (
                       <button
                         type="button"
                         disabled={isEnrolling}
                         onClick={() => handleSelfEnroll(rm.id, rm.slug)}
-                        className="px-3.5 py-1.5 rounded-xl bg-secondary text-white font-black text-xs shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 active:scale-95 transition-all flex items-center gap-1 border border-primary disabled:opacity-50"
+                        className="rokad-btn-primary px-3.5 py-1.5 text-xs"
                       >
                         {isEnrolling ? 'در حال فعال‌سازی...' : 'شروع مسیر'}
                       </button>
@@ -455,4 +452,3 @@ export default function HomePage() {
     </div>
   );
 }
-

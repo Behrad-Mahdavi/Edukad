@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import { api } from '@/lib/api';
 import { ReviewModal } from '@/components/mentor/ReviewModal';
+import { toPersianDigits } from '@/lib/utils';
+import { RokadLoader } from '@/components/ui/Loading';
 import {
   CheckSquare,
   Clock,
@@ -14,6 +16,8 @@ import {
   Award,
   CheckCircle,
   RefreshCw,
+  ArrowLeft,
+  Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -54,60 +58,61 @@ export default function MentorPage() {
 
   if (loading || fetching) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-center font-bold text-slate-500 animate-pulse">
-          در حال بارگذاری اطلاعات صف بازبینی منتور...
-        </div>
-      </div>
+      <RokadLoader
+        title="در حال بارگذاری صف بازبینی و کارتابل منتوری..."
+        subtitle="دریافت مأموریت‌های ارسالی دانش‌آموزان و سوابق پروژه‌ها"
+        type="mentor"
+      />
     );
   }
+
 
   return (
     <div className="space-y-8 pb-12 text-right">
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/20 text-secondary-dark text-xs font-black mb-2">
-            <CheckSquare className="w-3.5 h-3.5" />
-            پنل منتوری و یادگیری همتا-به-همتا
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-male-light dark:bg-male-darker/60 text-sec dark:text-male-light border border-sec/30 text-xs font-bold mb-2">
+            <CheckSquare className="w-3.5 h-3.5 text-sec dark:text-male-light" />
+            <span>پنل منتوری و ارزیابی همتا-به-همتا</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-primary">
+          <h1 className="text-2xl sm:text-3xl font-black text-sec dark:text-white">
             داشبورد و صف بازبینی منتور
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-ink-normal/70 dark:text-gray-400 mt-1">
             بررسی تکالیف واقعی دانش‌آموزان و ارائه بازخورد سازنده برای باز شدن گره‌های بعدی
           </p>
         </div>
 
         <button
           onClick={loadData}
-          className="px-3.5 py-2 rounded-xl border-2 border-primary bg-white text-primary text-xs font-bold shadow-[2px_3px_0_0_#21295a] hover:bg-slate-50 flex items-center gap-1.5"
+          className="rokad-btn-outline px-3.5 py-2 text-xs"
         >
           <RefreshCw className="w-3.5 h-3.5" />
-          بروزرسانی لیست
+          <span>بروزرسانی صف</span>
         </button>
       </div>
 
       {/* SECTION 1: REVIEW QUEUE */}
-      <div className="sticker-card p-6 bg-white">
+      <div className="rokad-card p-6 bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 shadow-male dark:shadow-ecosystem">
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
-            <h2 className="font-black text-lg text-primary">
+            <h2 className="font-black text-lg text-sec dark:text-white">
               صف کارهای در انتظار بررسی
             </h2>
-            <span className="px-2.5 py-0.5 rounded-full bg-accent text-white font-black text-xs">
-              {queue.length} مورد
+            <span className="px-2.5 py-0.5 rounded-full bg-female-normal text-white font-bold text-xs shadow-sm">
+              {toPersianDigits(queue.length)} مورد
             </span>
           </div>
         </div>
 
         {queue.length === 0 ? (
-          <div className="text-center py-12 border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50">
+          <div className="text-center py-12 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl bg-gray-50 dark:bg-[#1C2536]">
             <CheckCircle className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
-            <h3 className="font-extrabold text-primary text-sm mb-1">
+            <h3 className="font-extrabold text-sec dark:text-white text-sm mb-1">
               صف بررسی خالی است!
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-ink-normal/50 dark:text-gray-400">
               هیچ مأموریتی در حال حاضر در انتظار بازبینی شما نیست.
             </p>
           </div>
@@ -120,24 +125,24 @@ export default function MentorPage() {
               return (
                 <div
                   key={sub.id}
-                  className="p-4 rounded-2xl border-2 border-primary/20 bg-bg-mint/40 hover:border-secondary transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[3px_4px_0_0_#58bdaf]"
+                  className="p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-[#1C2536] hover:border-primary transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-extrabold text-primary text-sm">
+                      <span className="font-black text-sec dark:text-white text-sm">
                         {student.fullName}
                       </span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-slate-500 border border-slate-200">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white dark:bg-[#151C28] text-ink-normal/70 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
                         {node.roadmap.title}
                       </span>
                     </div>
 
-                    <div className="text-xs font-bold text-secondary-dark flex items-center gap-1">
+                    <div className="text-xs font-bold text-primary flex items-center gap-1">
                       <span>مهارت: {node.title}</span>
                     </div>
 
                     {sub.submissionNote && (
-                      <p className="text-xs text-slate-600 line-clamp-1 bg-white/80 p-1.5 rounded border border-slate-200 mt-1 max-w-md">
+                      <p className="text-xs text-ink-normal/80 dark:text-gray-300 line-clamp-1 bg-white dark:bg-[#151C28] p-2 rounded-lg border border-gray-200 dark:border-gray-700 mt-1 max-w-md">
                         «{sub.submissionNote}»
                       </p>
                     )}
@@ -148,15 +153,15 @@ export default function MentorPage() {
                       href={sub.submissionUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-2 rounded-xl border-2 border-secondary bg-white text-secondary-dark font-bold text-xs hover:bg-secondary/10 transition-colors flex items-center gap-1 ltr"
+                      className="rokad-btn-outline px-3 py-2 text-xs"
                     >
-                      خروجی
-                      <ExternalLink className="w-3.5 h-3.5 ml-1" />
+                      <span>خروجی</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
 
                     <button
                       onClick={() => setSelectedSubmission(sub)}
-                      className="px-4 py-2 rounded-xl bg-accent text-white font-black text-xs shadow-[2px_3px_0_0_#21295a] hover:-translate-y-0.5 transition-transform"
+                      className="rokad-btn-girl px-4 py-2 text-xs"
                     >
                       بررسی و ارزیابی مأموریت
                     </button>
@@ -170,68 +175,69 @@ export default function MentorPage() {
 
       {/* SECTION 2: MENTORED STUDENTS & BOTTLENECKS */}
       <div>
-        <h2 className="font-black text-xl text-primary mb-4 flex items-center gap-2">
-          <Users className="w-5 h-5 text-secondary" />
-          دانش‌آموزان تحت نظر شما و تحلیل پیشرفت
+        <h2 className="font-black text-xl text-sec dark:text-white mb-4 flex items-center gap-2">
+          <Users className="w-5 h-5 text-primary" />
+          <span>دانش‌آموزان تحت نظر شما و تحلیل پیشرفت</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {dashboard.map((card) => (
             <div
               key={card.enrollmentId}
-              className="sticker-card p-5 bg-white flex flex-col justify-between"
+              className="rokad-card p-5 bg-white dark:bg-[#151C28] border border-gray-200 dark:border-gray-800 shadow-male dark:shadow-ecosystem flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <span className="font-extrabold text-sm text-primary">
+                  <span className="font-black text-sm text-sec dark:text-white">
                     {card.student.fullName}
                   </span>
-                  <span className="text-[10px] font-bold text-slate-400">
-                    {card.student.phone}
+                  <span className="text-[10px] font-bold text-ink-normal/60 dark:text-gray-400">
+                    {toPersianDigits(card.student.phone)}
                   </span>
                 </div>
 
-                <div className="text-xs text-slate-500 font-semibold mb-4">
+                <div className="text-xs text-ink-normal/70 dark:text-gray-400 font-medium mb-4">
                   مسیر: {card.roadmap.title}
                 </div>
 
                 {/* Progress bar */}
                 <div className="space-y-1 mb-4">
                   <div className="flex justify-between text-xs font-bold">
-                    <span className="text-slate-500">پیشرفت کل</span>
-                    <span className="text-secondary-dark font-black">
-                      {card.progressPercent}٪ ({card.completedCount} از {card.totalNodes})
+                    <span className="text-ink-normal/60 dark:text-gray-400">پیشرفت کل</span>
+                    <span className="text-primary font-black">
+                      {toPersianDigits(card.progressPercent)}٪ ({toPersianDigits(card.completedCount)} از {toPersianDigits(card.totalNodes)})
                     </span>
                   </div>
-                  <div className="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
+                  <div className="w-full h-2 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden border border-gray-200 dark:border-gray-600">
                     <div
-                      className="h-full bg-secondary transition-all"
+                      className="h-full bg-primary transition-all"
                       style={{ width: `${card.progressPercent}%` }}
                     />
                   </div>
                 </div>
 
                 {/* Bottleneck Indicator */}
-                <div className="p-3 rounded-xl bg-bg-lavender border border-primary/20 text-xs">
-                  <div className="flex items-center gap-1.5 font-bold text-primary mb-1">
-                    <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                    گره گلوگاه / وضعیت فعلی:
+                <div className="p-3 rounded-xl bg-gray-50 dark:bg-[#1C2536] border border-gray-200 dark:border-gray-700 text-xs">
+                  <div className="flex items-center gap-1.5 font-bold text-sec dark:text-white mb-1">
+                    <AlertTriangle className="w-3.5 h-3.5 text-college-normal" />
+                    <span>گره گلوگاه / وضعیت فعلی:</span>
                   </div>
-                  <div className="font-black text-slate-700">
+                  <div className="font-black text-ink-normal dark:text-gray-200">
                     {card.bottleneckNode}
                   </div>
-                  <div className="text-[10px] text-slate-500 mt-1">
+                  <div className="text-[10px] text-ink-normal/60 dark:text-gray-400 mt-1">
                     وضعیت: {card.bottleneckStatus}
                   </div>
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100">
+              <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800">
                 <Link
                   href={`/roadmaps/${card.roadmap.slug}`}
-                  className="w-full py-2 rounded-xl border-2 border-primary text-primary font-bold text-xs hover:bg-slate-50 flex items-center justify-center gap-1"
+                  className="rokad-btn-outline w-full py-2 text-xs"
                 >
-                  مشاهده گراف پیشرفت دانش‌آموز ←
+                  <span>مشاهده درخت مهارت دانش‌آموز</span>
+                  <ArrowLeft className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
