@@ -22,7 +22,17 @@ export function NotificationBell() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const fetchNotifications = async () => {
+  const fetchUnreadCount = async () => {
+    if (typeof document !== 'undefined' && document.hidden) return;
+    try {
+      const res = await api.notifications.getUnreadCount();
+      setUnreadCount(res.unreadCount);
+    } catch (e) {
+      // Quietly ignore network blips in background poll
+    }
+  };
+
+  const fetchFullNotifications = async () => {
     try {
       const [list, countRes] = await Promise.all([
         api.notifications.getAll(),
@@ -31,15 +41,34 @@ export function NotificationBell() {
       setNotifications(list);
       setUnreadCount(countRes.unreadCount);
     } catch (e) {
-      console.error(e);
+      console.error('Failed to load notifications list:', e);
     }
   };
 
+  // Poll count conservatively (every 45s) and wake up on tab focus
   useEffect(() => {
-    fetchNotifications();
-    const interval = setInterval(fetchNotifications, 15000); // 15s poll
-    return () => clearInterval(interval);
+    fetchUnreadCount();
+    const interval = setInterval(fetchUnreadCount, 45000);
+
+    const handleVisibility = () => {
+      if (!document.hidden) {
+        fetchUnreadCount();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
   }, []);
+
+  // When bell is opened, fetch full list immediately
+  useEffect(() => {
+    if (isOpen) {
+      fetchFullNotifications();
+    }
+  }, [isOpen]);
 
   // Close on outside click
   useEffect(() => {

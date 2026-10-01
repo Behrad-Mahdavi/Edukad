@@ -3,7 +3,8 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { Request, Response, NextFunction } from 'express';
 
-import compression from 'compression';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const compression = require('compression');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

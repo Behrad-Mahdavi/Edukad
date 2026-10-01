@@ -33,14 +33,24 @@ export default function MentorPage() {
   const loadData = async () => {
     setFetching(true);
     try {
-      const [queueData, dashData] = await Promise.all([
+      const [queueResult, dashResult] = await Promise.allSettled([
         api.submissions.getReviewQueue(),
         api.submissions.getMentorDashboard(),
       ]);
-      setQueue(queueData);
-      setDashboard(dashData);
+
+      if (queueResult.status === 'fulfilled' && Array.isArray(queueResult.value)) {
+        setQueue(queueResult.value);
+      } else if (queueResult.status === 'rejected') {
+        console.error('Failed to load review queue:', queueResult.reason);
+      }
+
+      if (dashResult.status === 'fulfilled' && Array.isArray(dashResult.value)) {
+        setDashboard(dashResult.value);
+      } else if (dashResult.status === 'rejected') {
+        console.error('Failed to load mentor dashboard:', dashResult.reason);
+      }
     } catch (err) {
-      console.error(err);
+      console.error('Failed to load mentor data:', err);
     } finally {
       setFetching(false);
     }
@@ -119,8 +129,8 @@ export default function MentorPage() {
         ) : (
           <div className="space-y-3">
             {queue.map((sub) => {
-              const student = sub.nodeProgress.user;
-              const node = sub.nodeProgress.node;
+              const student = sub.nodeProgress?.user;
+              const node = sub.nodeProgress?.node;
 
               return (
                 <div
@@ -130,15 +140,15 @@ export default function MentorPage() {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="font-black text-sec dark:text-white text-sm">
-                        {student.fullName}
+                        {student?.fullName || 'دانش‌آموز'}
                       </span>
                       <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white dark:bg-[#151C28] text-ink-normal/70 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
-                        {node.roadmap.title}
+                        {node?.roadmap?.title || 'مسیر مهارتی'}
                       </span>
                     </div>
 
                     <div className="text-xs font-bold text-primary flex items-center gap-1">
-                      <span>مهارت: {node.title}</span>
+                      <span>مهارت: {node?.title || 'مأموریت'}</span>
                     </div>
 
                     {sub.submissionNote && (
@@ -189,15 +199,15 @@ export default function MentorPage() {
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
                   <span className="font-black text-sm text-sec dark:text-white">
-                    {card.student.fullName}
+                    {card.student?.fullName || 'دانش‌آموز'}
                   </span>
                   <span className="text-[10px] font-bold text-ink-normal/60 dark:text-gray-400">
-                    {toPersianDigits(card.student.phone)}
+                    {toPersianDigits(card.student?.phone || '-')}
                   </span>
                 </div>
 
                 <div className="text-xs text-ink-normal/70 dark:text-gray-400 font-medium mb-4">
-                  مسیر: {card.roadmap.title}
+                  مسیر: {card.roadmap?.title || 'مسیر مهارتی'}
                 </div>
 
                 {/* Progress bar */}

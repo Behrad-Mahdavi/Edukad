@@ -8,16 +8,35 @@ import { CreateRoadmapDto } from './dto/create-roadmap.dto';
 import { CreateNodeDto } from './dto/create-node.dto';
 import { Department, RoadmapStatus } from '@prisma/client';
 
+interface RoadmapCacheEntry<T> {
+  data: T;
+  expiresAt: number;
+}
+
+const roadmapsCache = new Map<string, RoadmapCacheEntry<any>>();
+const CACHE_TTL_MS = 60_000; // 60 seconds
+
+export function clearRoadmapsCache() {
+  roadmapsCache.clear();
+}
+
 @Injectable()
 export class RoadmapsService {
   constructor(private prisma: PrismaService) {}
 
   async findAll(department?: Department, status?: RoadmapStatus) {
+    const cacheKey = `list:${department || 'all'}:${status || 'all'}`;
+    const now = Date.now();
+    const cached = roadmapsCache.get(cacheKey);
+    if (cached && cached.expiresAt > now) {
+      return cached.data;
+    }
+
     const where: any = {};
     if (department) where.department = department;
     if (status) where.status = status;
 
-    return this.prisma.roadmap.findMany({
+    const data = await this.prisma.roadmap.findMany({
       where,
       include: {
         _count: {
@@ -29,6 +48,9 @@ export class RoadmapsService {
       },
       orderBy: { createdAt: 'desc' },
     });
+
+    roadmapsCache.set(cacheKey, { data, expiresAt: now + CACHE_TTL_MS });
+    return data;
   }
 
   async findBySlug(slug: string, userId?: string) {
@@ -109,7 +131,7 @@ export class RoadmapsService {
       throw new BadRequestException('نامک (Slug) قبلاً استفاده شده است');
     }
 
-    return this.prisma.roadmap.create({
+    const created = await this.prisma.roadmap.create({
       data: {
         title: dto.title,
         slug: dto.slug,
@@ -119,17 +141,21 @@ export class RoadmapsService {
         version: 1,
       },
     });
+    clearRoadmapsCache();
+    return created;
   }
 
   async updateRoadmap(id: string, data: Partial<CreateRoadmapDto>) {
-    return this.prisma.roadmap.update({
+    const updated = await this.prisma.roadmap.update({
       where: { id },
       data,
     });
+    clearRoadmapsCache();
+    return updated;
   }
 
   async createNode(dto: CreateNodeDto) {
-    return this.prisma.$transaction(async (tx) => {
+    const result = await this.prisma.$transaction(async (tx) => {
       const node = await tx.node.create({
         data: {
           roadmapId: dto.roadmapId,
@@ -149,6 +175,8 @@ export class RoadmapsService {
 
       return node;
     });
+    clearRoadmapsCache();
+    return result;
   }
 
   async updateNode(id: string, data: Partial<CreateNodeDto>) {
@@ -302,7 +330,7 @@ export class RoadmapsService {
       throw new NotFoundException('گره یافت نشد');
     }
 
-    return this.prisma.$transaction(async (tx) => {
+    const result = await this.prisma.$transaction(async (tx) => {
       const deleted = await tx.node.delete({ where: { id } });
       await tx.roadmap.update({
         where: { id: node.roadmapId },
@@ -310,6 +338,8 @@ export class RoadmapsService {
       });
       return deleted;
     });
+    clearRoadmapsCache();
+    return result;
   }
 
   async deleteRoadmap(id: string) {
@@ -317,11 +347,13 @@ export class RoadmapsService {
     if (!roadmap) {
       throw new NotFoundException('مسیر یادگیری یافت نشد');
     }
-    return this.prisma.roadmap.delete({ where: { id } });
+    const result = await this.prisma.roadmap.delete({ where: { id } });
+    clearRoadmapsCache();
+    return result;
   }
 
   async updatePositions(updates: { id: string; positionX: number; positionY: number }[]) {
-    return this.prisma.$transaction(
+    const result = await this.prisma.$transaction(
       updates.map((u) =>
         this.prisma.node.update({
           where: { id: u.id },
@@ -329,5 +361,7 @@ export class RoadmapsService {
         }),
       ),
     );
+    clearRoadmapsCache();
+    return result;
   }
 }

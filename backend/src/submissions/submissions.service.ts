@@ -295,50 +295,60 @@ export class SubmissionsService {
       },
     });
 
-    const studentCards = await Promise.all(
-      enrollments.map(async (enr) => {
-        const totalNodes = enr.roadmap.nodes.length;
+    const studentIds = Array.from(new Set(enrollments.map((e) => e.studentId)));
+    const allProgresses = await this.prisma.nodeProgress.findMany({
+      where: {
+        userId: { in: studentIds },
+      },
+      include: { node: true },
+    });
 
-        const progresses = await this.prisma.nodeProgress.findMany({
-          where: {
-            userId: enr.studentId,
-            nodeId: { in: enr.roadmap.nodes.map((n) => n.id) },
-          },
-          include: { node: true },
-        });
+    const progressByUser = new Map<string, typeof allProgresses>();
+    for (const p of allProgresses) {
+      const list = progressByUser.get(p.userId);
+      if (list) {
+        list.push(p);
+      } else {
+        progressByUser.set(p.userId, [p]);
+      }
+    }
 
-        const completedCount = progresses.filter(
-          (p) => p.status === NodeProgressStatus.COMPLETED,
-        ).length;
+    const studentCards = enrollments.map((enr) => {
+      const totalNodes = enr.roadmap.nodes.length;
+      const userProgresses = progressByUser.get(enr.studentId) || [];
+      const nodeIds = new Set(enr.roadmap.nodes.map((n) => n.id));
+      const progresses = userProgresses.filter((p) => nodeIds.has(p.nodeId));
 
-        const progressPercent = totalNodes > 0
-          ? Math.round((completedCount / totalNodes) * 100)
-          : 0;
+      const completedCount = progresses.filter(
+        (p) => p.status === NodeProgressStatus.COMPLETED,
+      ).length;
 
-        // Bottleneck: active node that is SUBMITTED, NEEDS_REVISION, or IN_PROGRESS
-        const bottleneck =
-          progresses.find((p) => p.status === NodeProgressStatus.NEEDS_REVISION) ||
-          progresses.find((p) => p.status === NodeProgressStatus.SUBMITTED) ||
-          progresses.find((p) => p.status === NodeProgressStatus.IN_PROGRESS) ||
-          progresses.find((p) => p.status === NodeProgressStatus.UNLOCKED);
+      const progressPercent =
+        totalNodes > 0 ? Math.round((completedCount / totalNodes) * 100) : 0;
 
-        return {
-          enrollmentId: enr.id,
-          student: enr.student,
-          roadmap: {
-            id: enr.roadmap.id,
-            title: enr.roadmap.title,
-            slug: enr.roadmap.slug,
-            department: enr.roadmap.department,
-          },
-          totalNodes,
-          completedCount,
-          progressPercent,
-          bottleneckNode: bottleneck ? bottleneck.node.title : 'همه تکمیل شده',
-          bottleneckStatus: bottleneck ? bottleneck.status : 'COMPLETED',
-        };
-      }),
-    );
+      // Bottleneck: active node that is SUBMITTED, NEEDS_REVISION, or IN_PROGRESS
+      const bottleneck =
+        progresses.find((p) => p.status === NodeProgressStatus.NEEDS_REVISION) ||
+        progresses.find((p) => p.status === NodeProgressStatus.SUBMITTED) ||
+        progresses.find((p) => p.status === NodeProgressStatus.IN_PROGRESS) ||
+        progresses.find((p) => p.status === NodeProgressStatus.UNLOCKED);
+
+      return {
+        enrollmentId: enr.id,
+        student: enr.student,
+        roadmap: {
+          id: enr.roadmap.id,
+          title: enr.roadmap.title,
+          slug: enr.roadmap.slug,
+          department: enr.roadmap.department,
+        },
+        totalNodes,
+        completedCount,
+        progressPercent,
+        bottleneckNode: bottleneck ? bottleneck.node.title : 'همه تکمیل شده',
+        bottleneckStatus: bottleneck ? bottleneck.status : 'COMPLETED',
+      };
+    });
 
     return studentCards;
   }
